@@ -71,14 +71,14 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://dl.ring.cx/ring-release/tarballs/ring_20171129.2.cf5bbff.tar.gz",
-                    "sha256": "0a23f8052a4df2a7aee40434cd59f17d0d5e97c73306ba35f99f2721b305ed48"
+                    "url": "https://dl.ring.cx/ring-release/tarballs/ring_20171215.1.bc414d7.tar.gz",
+                    "sha256": "55e846ac372762dc263b8c64b2f32bf6571b4ed957c6e252c1489ffe82171e1c"
                 },
                 {
                     "type": "patch",
                     "path": "ring-flatpak-patch/flatpak-ring.patch"
                 },
-        	{
+        	      {
                     "type": "patch",
                     "path": "ring-flatpak-patch/kashmir-installed.patch"
                 },
@@ -90,6 +90,10 @@
                     "type": "file",
                     "path": "ring-flatpak-patch/install.sh",
                     "dest": "scripts/"
+                },
+                {
+                  "type": "patch",
+                  "path": "ring-flatpak-patch/ring-lrc-avrecording.patch"
                 }
             ],
             "modules": [

@@ -1,0 +1,77 @@
+From 0137d9f3585161bdca6426f0a6ce94abcf1ca33b Mon Sep 17 00:00:00 2001
+From: AmarOk <contact@enconn.fr>
+Date: Thu, 6 Jul 2017 11:01:23 -0400
+Subject: [PATCH] CallManager: remove uneeded argument for
+ stopRecordedFilePlayback
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Change-Id: I63195f6c423ee317fad822978c9f24ebf7c6de8e
+Reviewed-by: Anthony Léonard <anthony.leonard@savoirfairelinux.com>
+---
+ lrc/src/media/avrecording.cpp        | 2 +-
+ lrc/src/qtwrapper/callmanager_wrap.h | 4 ++--
+ lrc/src/ringtonemodel.cpp            | 2 +-
+ lrc/test/mocks/callmanager_mock.h    | 6 ++----
+ 4 files changed, 6 insertions(+), 8 deletions(-)
+
+diff --git a/lrc/src/media/avrecording.cpp b/lrc/src/media/avrecording.cpp
+index c3bc5e65..2bfac747 100644
+--- a/lrc/src/media/avrecording.cpp
++++ b/lrc/src/media/avrecording.cpp
+@@ -189,7 +189,7 @@ void Media::AVRecording::play()
+ void Media::AVRecording::stop()
+ {
+    CallManagerInterface& callManager = CallManager::instance();
+-   Q_NOREPLY callManager.stopRecordedFilePlayback(path().path());
++   Q_NOREPLY callManager.stopRecordedFilePlayback();
+    emit stopped();
+
+    RecordingPlaybackManager::instance().desactivateRecording(this);
+diff --git a/lrc/src/qtwrapper/callmanager_wrap.h b/lrc/src/qtwrapper/callmanager_wrap.h
+index fd67980a..75874fab 100644
+--- a/lrc/src/qtwrapper/callmanager_wrap.h
++++ b/lrc/src/qtwrapper/callmanager_wrap.h
+@@ -327,9 +327,9 @@ public Q_SLOTS: // METHODS
+         DRing::startTone(start, type);
+     }
+
+-    void stopRecordedFilePlayback(const QString &filepath)
++    void stopRecordedFilePlayback()
+     {
+-        DRing::stopRecordedFilePlayback(filepath.toStdString());
++        DRing::stopRecordedFilePlayback();
+     }
+
+     bool toggleRecording(const QString &callID)
+diff --git a/lrc/src/ringtonemodel.cpp b/lrc/src/ringtonemodel.cpp
+index eb7ff80f..ecd1e917 100644
+--- a/lrc/src/ringtonemodel.cpp
++++ b/lrc/src/ringtonemodel.cpp
+@@ -240,7 +240,7 @@ void RingtoneModelPrivate::slotStopTimer()
+ {
+    if (m_pCurrent) {
+       CallManagerInterface& callManager = CallManager::instance();
+-      callManager.stopRecordedFilePlayback(m_pCurrent->path());
++      callManager.stopRecordedFilePlayback();
+       m_isPlaying = false;
+       const QModelIndex& idx = q_ptr->index(m_lRingtone.indexOf(m_pCurrent),0);
+       emit q_ptr->dataChanged(idx,q_ptr->index(idx.row(),1));
+diff --git a/lrc/test/mocks/callmanager_mock.h b/lrc/test/mocks/callmanager_mock.h
+index ec2118db..fb9062e6 100644
+--- a/lrc/test/mocks/callmanager_mock.h
++++ b/lrc/test/mocks/callmanager_mock.h
+@@ -240,10 +240,8 @@ public Q_SLOTS: // METHODS
+         Q_UNUSED(type)
+     }
+
+-    void stopRecordedFilePlayback(const QString &filepath)
+-    {
+-        Q_UNUSED(filepath)
+-    }
++    void stopRecordedFilePlayback()
++    { }
+
+     bool toggleRecording(const QString &callID)
+     {
