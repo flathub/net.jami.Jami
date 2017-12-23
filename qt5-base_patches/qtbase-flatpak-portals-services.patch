@@ -35,7 +35,7 @@ index cdb5d33859..cb1e367b9f 100644
 @@ -49,6 +49,24 @@
  #include <QtCore/QStandardPaths>
  #include <QtCore/QUrl>
- 
+
 +#if QT_CONFIG(dbus)
 +// These QtCore includes are needed for flatpak support
 +#include <QtCore/private/qcore_unix_p.h>
@@ -55,12 +55,12 @@ index cdb5d33859..cb1e367b9f 100644
 +#endif // QT_CONFIG(dbus)
 +
  #include <stdlib.h>
- 
+
  QT_BEGIN_NAMESPACE
 @@ -153,6 +171,83 @@ static inline bool launch(const QString &launcher, const QUrl &url)
      return ok;
  }
- 
+
 +#if QT_CONFIG(dbus)
 +static inline bool checkRunningUnderFlatpak()
 +{
@@ -142,7 +142,7 @@ index cdb5d33859..cb1e367b9f 100644
  {
      static const QByteArray result = detectDesktopEnvironment();
 @@ -161,8 +256,18 @@ QByteArray QGenericUnixServices::desktopEnvironment() const
- 
+
  bool QGenericUnixServices::openUrl(const QUrl &url)
  {
 -    if (url.scheme() == QLatin1String("mailto"))
@@ -158,7 +158,7 @@ index cdb5d33859..cb1e367b9f 100644
 +    if (checkRunningUnderFlatpak())
 +        return flatpakOpenUrl(url);
 +#endif
- 
+
      if (m_webBrowser.isEmpty() && !detectWebBrowser(desktopEnvironment(), true, &m_webBrowser)) {
          qWarning("Unable to detect a web browser to launch '%s'", qPrintable(url.toString()));
 diff --git a/src/platformsupport/services/services.pro b/src/platformsupport/services/services.pro
@@ -167,10 +167,10 @@ index 91957a0a78..2027c7b5be 100644
 +++ b/src/platformsupport/services/services.pro
 @@ -2,6 +2,8 @@ TARGET = QtServiceSupport
  MODULE = service_support
- 
+
  QT = core-private gui-private
 +qtConfig(dbus): QT += dbus
 +
  CONFIG += static internal_module
- 
+
  DEFINES += QT_NO_CAST_FROM_ASCII
