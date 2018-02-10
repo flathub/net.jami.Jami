@@ -16,8 +16,8 @@ diff -urN ring-project-orig/make-ring.py ring-project/make-ring.py
      """Validate the args values, exit if error is found"""
 
      # Check arg values
--    supported_distros = ['Android', 'Ubuntu', 'Debian', 'OSX', IOS_DISTRIBUTION_NAME, 'Fedora', 'Arch Linux', 'openSUSE', 'Automatic', 'mingw32', 'mingw64']
-+    supported_distros = ['Android', 'Ubuntu', 'Debian', 'OSX', IOS_DISTRIBUTION_NAME, 'Fedora', 'Arch Linux', 'openSUSE', 'Automatic', 'mingw32', 'mingw64', 'GNOME']
+-    supported_distros = [ANDROID_DISTRIBUTION_NAME, OSX_DISTRIBUTION_NAME, IOS_DISTRIBUTION_NAME] + APT_BASED_DISTROS + DNF_BASED_DISTROS + PACMAN_BASED_DISTROS + ZYPPER_BASED_DISTROS + ['mingw32','mingw64']
++    supported_distros = [ANDROID_DISTRIBUTION_NAME, OSX_DISTRIBUTION_NAME, IOS_DISTRIBUTION_NAME] + APT_BASED_DISTROS + DNF_BASED_DISTROS + PACMAN_BASED_DISTROS + ZYPPER_BASED_DISTROS + ['mingw32','mingw64','GNOME']
 
      if parsed_args.distribution not in supported_distros:
          print('Distribution \''+parsed_args.distribution+'\' not supported.\nChoose one of: %s' \
