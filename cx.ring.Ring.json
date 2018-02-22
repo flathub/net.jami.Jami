@@ -28,8 +28,9 @@
         "--own-name=cx.ring.RingGnome",
         "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
     ],
-    "build-options": {
-        "strip":true
+    "build-options" : {
+        "cflags": "-O2 -g",
+        "cxxflags": "-O2 -g"
     },
     "cleanup": [
         "*.a",
