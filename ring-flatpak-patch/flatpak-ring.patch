@@ -1,10 +1,10 @@
-diff -urN ring-project-orig/make-ring.py ring-project/make-ring.py
---- ring-project-orig/make-ring.py	2017-10-24 11:20:01.000000000 -0400
-+++ ring-project/make-ring.py	2017-11-19 14:04:56.812515000 -0500
-@@ -248,6 +248,10 @@
+diff -urN ring-project_orig/make-ring.py ring-project/make-ring.py
+--- ring-project_orig/make-ring.py	2018-02-28 12:12:44.000000000 -0500
++++ ring-project/make-ring.py	2018-03-03 17:05:54.422264156 -0500
+@@ -232,6 +232,10 @@
          print("The Android version does not need more dependencies.\nPlease continue with the --install instruction.")
          sys.exit(1)
-
+ 
 +    elif args.distribution == "GNOME":
 +        print("Flatpak dependancinies are handled in top level json.\nPlease continue with the --install instruction.")
 +        sys.exit(1)
@@ -12,12 +12,99 @@ diff -urN ring-project-orig/make-ring.py ring-project/make-ring.py
      else:
          print("Not yet implemented for current distribution (%s)" % args.distribution)
          sys.exit(1)
-@@ -398,7 +402,7 @@
+@@ -385,7 +389,7 @@
      """Validate the args values, exit if error is found"""
-
+ 
      # Check arg values
 -    supported_distros = [ANDROID_DISTRIBUTION_NAME, OSX_DISTRIBUTION_NAME, IOS_DISTRIBUTION_NAME] + APT_BASED_DISTROS + DNF_BASED_DISTROS + PACMAN_BASED_DISTROS + ZYPPER_BASED_DISTROS + ['mingw32','mingw64']
 +    supported_distros = [ANDROID_DISTRIBUTION_NAME, OSX_DISTRIBUTION_NAME, IOS_DISTRIBUTION_NAME] + APT_BASED_DISTROS + DNF_BASED_DISTROS + PACMAN_BASED_DISTROS + ZYPPER_BASED_DISTROS + ['mingw32','mingw64','GNOME']
-
+ 
      if parsed_args.distribution not in supported_distros:
          print('Distribution \''+parsed_args.distribution+'\' not supported.\nChoose one of: %s' \
+diff -urN ring-project_orig/scripts/install.sh ring-project/scripts/install.sh
+--- ring-project_orig/scripts/install.sh	2018-02-28 12:12:44.000000000 -0500
++++ ring-project/scripts/install.sh	2018-03-03 17:05:19.798991673 -0500
+@@ -37,14 +37,14 @@
+ done
+ 
+ make_install() {
+-  if $1; then
+-    sudo make install
+-    # Or else the next non-sudo install will fail, because this generates some
+-    # root owned files like install_manifest.txt under the build directory.
+-    sudo chown -R "$USER" .
+-  else
++#   if $1; then
++#     sudo make install
++#     # Or else the next non-sudo install will fail, because this generates some
++#     # root owned files like install_manifest.txt under the build directory.
++#     sudo chown -R "$USER" .
++#   else
+     make install
+-  fi
++#   fi
+ }
+ 
+ TOP="$(pwd)"
+@@ -56,12 +56,16 @@
+     BUILDDIR="build-local"
+ fi
+ 
++# Fix these values, since they can't be anything else in flatpak controled environment
++client="client-gnome"
++proc=`grep -m 1 'cpu cores' /proc/cpuinfo | awk '{split($0,a,": "); print(a[2]);}'`
++
+ cd "${TOP}/daemon"
+ DAEMON="$(pwd)"
+ cd contrib
+ mkdir -p native
+ cd native
+-../bootstrap
++../bootstrap --prefix="/app" --enable-debug
+ make
+ cd "${DAEMON}"
+ ./autogen.sh
+@@ -72,18 +76,18 @@
+ fi
+ 
+ if $global; then
+-  ./configure $sharedLib $CONFIGURE_FLAGS
++  ./configure $sharedLib $CONFIGURE_FLAGS --prefix="/app"
+ else
+   ./configure $sharedLib $CONFIGURE_FLAGS --prefix="${INSTALL}/daemon"
+ fi
+ make -j${proc}
+-make_install $global
++make_install
+ 
+ cd "${TOP}/lrc"
+ mkdir -p ${BUILDDIR}
+ cd ${BUILDDIR}
+ if $global; then
+-  cmake .. -DCMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH -DCMAKE_BUILD_TYPE=Debug $static
++  cmake .. -DCMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX="/app" $static
+ else
+   cmake ..  -DCMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH \
+             -DCMAKE_BUILD_TYPE=Debug \
+@@ -91,13 +95,13 @@
+             -DRING_BUILD_DIR="${DAEMON}/src" $static
+ fi
+ make -j${proc}
+-make_install $global
++make_install
+ 
+ cd "${TOP}/${client}"
+ mkdir -p ${BUILDDIR}
+ cd ${BUILDDIR}
+ if $global; then
+-  cmake .. -DCMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH $static
++  cmake .. -DCMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX="/app" $static
+ else
+   cmake ..  -DCMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH \
+             -DCMAKE_INSTALL_PREFIX="${INSTALL}/${client}" \
+@@ -105,4 +109,4 @@
+             -DLibRingClient_DIR="${INSTALL}/lrc/lib/cmake/LibRingClient" $static
+ fi
+ make -j${proc}
+-make_install $global
++make_install
