@@ -29,8 +29,8 @@
         "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
     ],
     "build-options" : {
-        "cflags": "-O2 -g",
-        "cxxflags": "-O2 -g"
+        "cflags": "-g",
+        "cxxflags": "-g"
     },
     "cleanup": [
         "*.a",
@@ -67,21 +67,17 @@
             "name": "ring-client-gnome",
             "buildsystem": "simple",
             "build-commands": [
-                "./make-ring.py --install --global-install"
+                "./make-ring.py --install --global-install --debug"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://dl.ring.cx/ring-release/tarballs/ring_20180209.1.830d387.tar.gz",
-                    "sha256": "b66b2bb6b56f975fc8f3b4667a0babd43f87d98c5a3ace75043bd2f9a3767c0f"
+                    "url": "https://dl.ring.cx/ring-release/tarballs/ring_20180228.1.503da2b.tar.gz",
+                    "sha256": "16edb035d8f0de45ec53a02b38304b8efe991944c5313c435a1f7d72a29ec431"
                 },
                 {
                     "type": "patch",
                     "path": "ring-flatpak-patch/flatpak-ring.patch"
-                },
-        	      {
-                    "type": "patch",
-                    "path": "ring-flatpak-patch/kashmir-installed.patch"
                 },
                 {
                     "type": "patch",
@@ -106,20 +102,6 @@
             ],
             "modules": [
                 "org.boost.Boost.json",
-                {
-                    "name": "kashmir",
-                    "buildsystem": "simple",
-                    "build-commands": [
-                        "mkdir /app/include/kashmir",
-                        "cp -a kashmir/* /app/include/kashmir"
-                    ],
-                    "sources": [
-                        {
-                            "type": "git",
-                            "url": "https://github.com/Corvusoft/kashmir-dependency.git"
-                        }
-                    ]
-                },
                 {
                     "name": "libiblc",
                     "sources" : [
