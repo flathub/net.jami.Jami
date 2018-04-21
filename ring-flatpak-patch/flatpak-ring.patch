@@ -46,21 +46,24 @@ diff -urN ring-project_orig/scripts/install.sh ring-project/scripts/install.sh
  }
  
  TOP="$(pwd)"
-@@ -56,12 +56,16 @@
+@@ -56,15 +56,16 @@
      BUILDDIR="build-local"
  fi
  
 +# Fix these values, since they can't be anything else in flatpak controled environment
 +client="client-gnome"
 +proc=`grep -m 1 'cpu cores' /proc/cpuinfo | awk '{split($0,a,": "); print(a[2]);}'`
-+
  cd "${TOP}/daemon"
  DAEMON="$(pwd)"
  cd contrib
  mkdir -p native
  cd native
--../bootstrap
-+../bootstrap --prefix="/app" --enable-debug
+-if [[ "$OSTYPE" == "darwin"* ]]; then
+-    enableRestbed="--enable-restbed"
+-fi
+-../bootstrap $enableRestbed
++enableRestbed="--enable-restbed"
++../bootstrap $enableRestbed --disable-downloads --enable-debug --prefix=/app
  make
  cd "${DAEMON}"
  ./autogen.sh
