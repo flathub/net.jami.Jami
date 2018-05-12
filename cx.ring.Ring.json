@@ -1,7 +1,7 @@
 {
     "app-id": "cx.ring.Ring",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.26",
+    "runtime-version": "3.28",
     "sdk": "org.gnome.Sdk",
     "command": "ring.cx",
     "finish-args": [
@@ -72,8 +72,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://dl.ring.cx/ring-release/tarballs/ring_20180420.2.ac1aac4.tar.gz",
-                    "sha256": "2eef809dcdef5189ada50c9a31c546a359f9092c629183c5c8e98ee62936a9f4"
+                    "url": "https://dl.ring.cx/ring-release/tarballs/ring_20180511.1.f99fff2.tar.gz",
+                    "sha256": "8f74e2defd5cd980863e7ab6de5387500b2f28018aa839a133ea4b6d53e718da"
                 },
                 {
                     "type": "patch",
@@ -111,7 +111,7 @@
                 "shared-modules/udev/udev-175.json",
                 {
                     "name": "evolution-data-server",
-                    "buildsystem": "cmake",
+                    "buildsystem": "cmake-ninja",
                     "config-opts": [
                         "-DCMAKE_INSTALL_PREFIX=/app",
                         "-DENABLE_UOA=OFF",
@@ -130,8 +130,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://git.gnome.org/browse/evolution-data-server/snapshot/evolution-data-server-3.26.5.tar.xz",
-                            "sha256": "3f299719e073030b1172fde767b77b9eb3e8d5a13589a49759b7b7cc0b251e54"
+                            "url": "https://git.gnome.org/browse/evolution-data-server/snapshot/evolution-data-server-3.28.2.tar.xz",
+                            "sha256": "531a790182dc6b6b2d0421feb34489c7ddf5cc807e9cffbb87461d13e047f3ab"
                         }
                     ],
                     "modules": [
