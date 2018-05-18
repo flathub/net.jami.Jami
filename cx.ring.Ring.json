@@ -22,11 +22,16 @@
         "--talk-name=com.canonical.Unity.Session",
         "--talk-name=org.kde.StatusNotifierWatcher",
         "--talk-name=com.canonical.indicator.application",
-        "--filesystem=xdg-run/dconf",
-        "--filesystem=~/.config/dconf:ro",
-        "--talk-name=ca.desrt.dconf",
-        "--own-name=cx.ring.RingGnome",
-        "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+        "--filesystem=~/.local/share/ring",
+	"--filesystem=~/.local/share/gnome-ring",
+	"--filesystem=xdg-config/ring",
+	"--filesystem=xdg-download",
+	"--filesystem=xdg-music",
+	"--filesystem=xdg-pictures",
+	"--filesystem=xdg-videos",
+	"--filesystem=xdg-documents",
+	"--talk-name=ca.desrt.dconf",
+        "--own-name=cx.ring.RingGnome"
     ],
     "build-options" : {
         "cflags": "-g",
