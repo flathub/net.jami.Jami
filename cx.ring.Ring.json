@@ -22,6 +22,7 @@
         "--talk-name=com.canonical.Unity.Session",
         "--talk-name=org.kde.StatusNotifierWatcher",
         "--talk-name=com.canonical.indicator.application",
+	"--talk-name=org.gnome.evolution",
         "--filesystem=~/.local/share/ring",
 	"--filesystem=~/.local/share/gnome-ring",
 	"--filesystem=xdg-config/ring",
@@ -77,8 +78,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://dl.ring.cx/ring-release/tarballs/ring_20180511.1.f99fff2.tar.gz",
-                    "sha256": "8f74e2defd5cd980863e7ab6de5387500b2f28018aa839a133ea4b6d53e718da"
+                    "url": "https://dl.ring.cx/ring-release/tarballs/ring_20180524.1.e0687ef.tar.gz",
+                    "sha256": "adcc02aaa13e741d0c99e22674d3a27725f9d195e4902dbbb347c350c11576cc"
                 },
                 {
                     "type": "patch",
