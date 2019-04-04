@@ -1,0 +1,47 @@
+# Native libraries (shipped with Jami)
+argon2
+asio
+dbus-cpp
+gsm
+iconv
+jack
+jsoncpp
+msgpack
+natpmp
+portaudio
+upnp
+uuid
+x264
+yaml-cpp
+
+# Native libraries (shipped with Jami) that link against Platform libraries
+opendht
+pjproject
+restbed
+secp256k1
+
+
+# Bundled app libraries (required by Jami, but not shipped)
+boost
+evolution-data-server
+libiblc
+libical
+qrencode
+qt5-base (core, gui, sql, sql-sqlite, dbus)
+udev
+
+
+# Platform libraries (also shipped with Jami, but disabled in build)
+ffmpeg
+gcrypt
+gmp
+gnutls
+gpg-error
+libressl (using openssl)
+nettle
+opus
+pthreads (win32-only)
+speex
+speexdsp
+vpx
+zlib

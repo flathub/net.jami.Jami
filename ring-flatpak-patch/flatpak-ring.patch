@@ -59,7 +59,7 @@
      enableRestbed="--enable-restbed"
  fi
 -../bootstrap $enableRestbed
-+../bootstrap $enableRestbed --disable-downloads --enable-debug --prefix=/app
++../bootstrap $enableRestbed --disable-downloads --disable-ffmpeg --disable-gcrypt --disable-gmp --disable-gnutls --disable-gpg-error --disable-nettle --disable-opus --disable-speex --disable-speexdsp --disable-vpx --disable-zlib --disable-libressl --enable-debug --prefix=/app
  make
  cd "${DAEMON}"
  ./autogen.sh
