@@ -137,8 +137,8 @@
 					"sources": [
 						{
 							"type": "archive",
-							"url": "https://git.gnome.org/browse/evolution-data-server/snapshot/evolution-data-server-3.28.2.tar.xz",
-							"sha256": "531a790182dc6b6b2d0421feb34489c7ddf5cc807e9cffbb87461d13e047f3ab"
+							"url": "https://gitlab.gnome.org/GNOME/evolution-data-server/-/archive/3.28.2/evolution-data-server-3.28.2.tar.bz2",
+							"sha256": "7eac87a1c275524bfeb9c5623623b9ec9303f5a5519cec6a2d901bd6df25bec5"
 						}
 					],
 					"modules": [
