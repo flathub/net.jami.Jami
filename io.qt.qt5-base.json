@@ -1,5 +1,5 @@
 {
-	"name": "qt5-qtbase",
+	"name": "qt5-qtbase-minimal",
 	"cleanup-platform": [
 		"/bin",
 		"/mkspecs"
@@ -21,6 +21,7 @@
 			}
 		}
 	},
+	"@note": "When the dependency on Qt5Gui is removed by libringclient, add these flags: -no-gui -no-feature-network",
 	"config-opts": [
 		"-confirm-license",
 		"-opensource",
@@ -31,20 +32,39 @@
 		"-nomake tests",
 		"-system-harfbuzz",
 		"-system-sqlite",
-		"-accessibility",
+		"-no-accessibility",
 		"-dbus-linked",
 		"-fontconfig",
 		"-glib",
 		"-icu",
 		"-openssl-linked",
+		"-gui",
+		"-sql-sqlite",
+		"-no-gtk",
+		"-no-opengl",
+		"-no-widgets",
 		"-no-pch",
 		"-no-rpath",
 		"-no-directfb",
+		"-no-evdev",
+		"-no-feature-concurrent",
+		"-no-feature-im",
+		"-no-feature-sessionmanager",
+		"-no-feature-testlib",
+		"-no-feature-vnc",
+		"-no-feature-xml",
+		"-no-gbm",
+		"-no-harfbuzz",
+		"-no-ico",
 		"-no-linuxfb",
 		"-no-kms",
+		"-no-mirclient",
+		"-no-qml-debug",
+		"-no-xcb",
+		"-no-xkbcommon-evdev",
+		"-no-vulkan",
 		"-no-cups",
-		"-system-proxies",
-		"-gtk"
+		"-system-proxies"
 	],
 	"sources": [
 		{
@@ -55,14 +75,6 @@
 		{
 			"type": "shell",
 			"commands": [ "mv configure configure.qt" ]
-		},
-		{
-			"type": "patch",
-			"path": "qt5-base_patches/qtbase-flatpak-portals-filechooser.patch"
-		},
-		{
-			"type": "patch",
-			"path": "qt5-base_patches/qtbase-flatpak-portals-services.patch"
 		},
 		{
 			"type": "script",
