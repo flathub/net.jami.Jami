@@ -13,7 +13,6 @@
 		"--share=ipc",
 		"--talk-name=org.freedesktop.secrets",
 		"--talk-name=org.freedesktop.Notifications",
-		"--talk-name=org.gnome.SettingsDaemon",
 		"--talk-name=org.gnome.SettingsDaemon.MediaKeys",
 		"--talk-name=org.mate.SettingsDaemon",
 		"--talk-name=org.gnome.ScreenSaver",
