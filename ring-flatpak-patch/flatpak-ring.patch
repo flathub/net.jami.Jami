@@ -54,13 +54,11 @@
  cd "${TOP}/daemon"
  DAEMON="$(pwd)"
  cd contrib
- mkdir -p native
- cd native
--if [[ "$OSTYPE" == "darwin"* ]]; then
--    enableRestbed="--enable-restbed"
--fi
+@@ -64,7 +67,7 @@
+ if [[ "$OSTYPE" == "darwin"* ]]; then
+     enableRestbed="--enable-restbed"
+ fi
 -../bootstrap $enableRestbed
-+enableRestbed="--enable-restbed"
 +../bootstrap $enableRestbed --disable-downloads --enable-debug --prefix=/app
  make
  cd "${DAEMON}"
