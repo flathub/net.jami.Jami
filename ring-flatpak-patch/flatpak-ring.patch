@@ -1,29 +1,27 @@
-diff -urN ring-project_orig/make-ring.py ring-project/make-ring.py
---- ring-project_orig/make-ring.py	2018-02-28 12:12:44.000000000 -0500
-+++ ring-project/make-ring.py	2018-03-03 17:05:54.422264156 -0500
-@@ -232,6 +232,10 @@
+--- ring-client-gnome/make-ring.py.orig	2019-03-19 22:26:32.000000000 +0100
++++ ring-client-gnome/make-ring.py	2019-04-04 14:13:03.893668028 +0200
+@@ -240,6 +240,10 @@
          print("The Android version does not need more dependencies.\nPlease continue with the --install instruction.")
          sys.exit(1)
  
-+    elif args.distribution == "GNOME":
++    elif args.distribution == "org.gnome.Platform":
 +        print("Flatpak dependancinies are handled in top level json.\nPlease continue with the --install instruction.")
 +        sys.exit(1)
 +
      else:
          print("Not yet implemented for current distribution (%s)" % args.distribution)
          sys.exit(1)
-@@ -385,7 +389,7 @@
+@@ -391,7 +395,7 @@
      """Validate the args values, exit if error is found"""
  
      # Check arg values
 -    supported_distros = [ANDROID_DISTRIBUTION_NAME, OSX_DISTRIBUTION_NAME, IOS_DISTRIBUTION_NAME] + APT_BASED_DISTROS + DNF_BASED_DISTROS + PACMAN_BASED_DISTROS + ZYPPER_BASED_DISTROS + ['mingw32','mingw64']
-+    supported_distros = [ANDROID_DISTRIBUTION_NAME, OSX_DISTRIBUTION_NAME, IOS_DISTRIBUTION_NAME] + APT_BASED_DISTROS + DNF_BASED_DISTROS + PACMAN_BASED_DISTROS + ZYPPER_BASED_DISTROS + ['mingw32','mingw64','GNOME']
++    supported_distros = [ANDROID_DISTRIBUTION_NAME, OSX_DISTRIBUTION_NAME, IOS_DISTRIBUTION_NAME] + APT_BASED_DISTROS + DNF_BASED_DISTROS + PACMAN_BASED_DISTROS + ZYPPER_BASED_DISTROS + ['mingw32','mingw64','org.gnome.Platform']
  
      if parsed_args.distribution not in supported_distros:
          print('Distribution \''+parsed_args.distribution+'\' not supported.\nChoose one of: %s' \
-diff -urN ring-project_orig/scripts/install.sh ring-project/scripts/install.sh
---- ring-project_orig/scripts/install.sh	2018-02-28 12:12:44.000000000 -0500
-+++ ring-project/scripts/install.sh	2018-03-03 17:05:19.798991673 -0500
+--- ring-client-gnome/scripts/install.sh.orig	2019-03-19 22:26:32.000000000 +0100
++++ ring-client-gnome/scripts/install.sh	2019-04-04 14:17:10.558745126 +0200
 @@ -37,14 +37,14 @@
  done
  
@@ -46,7 +44,7 @@ diff -urN ring-project_orig/scripts/install.sh ring-project/scripts/install.sh
  }
  
  TOP="$(pwd)"
-@@ -56,15 +56,16 @@
+@@ -56,6 +56,9 @@
      BUILDDIR="build-local"
  fi
  
@@ -67,7 +65,7 @@ diff -urN ring-project_orig/scripts/install.sh ring-project/scripts/install.sh
  make
  cd "${DAEMON}"
  ./autogen.sh
-@@ -72,18 +76,18 @@
+@@ -75,18 +78,18 @@
  fi
  
  if $global; then
@@ -89,7 +87,7 @@ diff -urN ring-project_orig/scripts/install.sh ring-project/scripts/install.sh
  else
    cmake ..  -DCMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH \
              -DCMAKE_BUILD_TYPE=Debug \
-@@ -91,13 +95,13 @@
+@@ -94,13 +97,13 @@
              -DRING_BUILD_DIR="${DAEMON}/src" $static
  fi
  make -j${proc}
@@ -105,7 +103,7 @@ diff -urN ring-project_orig/scripts/install.sh ring-project/scripts/install.sh
  else
    cmake ..  -DCMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH \
              -DCMAKE_INSTALL_PREFIX="${INSTALL}/${client}" \
-@@ -105,4 +109,4 @@
+@@ -108,4 +111,4 @@
              -DLibRingClient_DIR="${INSTALL}/lrc/lib/cmake/LibRingClient" $static
  fi
  make -j${proc}

@@ -79,8 +79,8 @@
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://dl.ring.cx/ring-release/tarballs/ring_20180524.1.e0687ef.tar.gz",
-					"sha256": "adcc02aaa13e741d0c99e22674d3a27725f9d195e4902dbbb347c350c11576cc"
+					"url": "https://dl.ring.cx/ring-release/tarballs/ring_20190319.4.a16a99f.tar.gz",
+					"sha256": "94b731bc248577adce577ffd7c894cffa9bcbe246f8c57c41e884f7daa36d6b0"
 				},
 				{
 					"type": "patch",
