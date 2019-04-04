@@ -1,9 +1,9 @@
 {
-    "app-id": "cx.ring.Ring",
+    "app-id": "net.jami.Jami",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.28",
     "sdk": "org.gnome.Sdk",
-    "command": "ring.cx",
+    "command": "gnome-ring",
     "finish-args": [
         "--socket=x11",
         "--socket=wayland",
@@ -32,6 +32,7 @@
 	"--filesystem=xdg-videos",
 	"--filesystem=xdg-documents",
 	"--talk-name=ca.desrt.dconf",
+		"--own-name=cx.ring.Ring",
         "--own-name=cx.ring.RingGnome"
     ],
     "build-options" : {
@@ -59,7 +60,7 @@
     ],
     "cleanup-commands": [
         "mkdir /app/tmp",
-        "cp /app/bin/{gnome-ring,ring.cx} /app/tmp",
+        "cp /app/bin/gnome-ring /app/tmp",
         "rm -rf /app/bin/*",
         "mv /app/tmp/* /app/bin",
         "rm -rf /app/share/dbus-1/services/org.gnome.evolution.dataserver.*",
@@ -67,7 +68,7 @@
     ],
     "rename-desktop-file": "gnome-ring.desktop",
     "rename-appdata-file": "gnome-ring.appdata.xml",
-    "rename-icon": "ring",
+    "rename-icon": "jami",
     "modules": [
         {
             "name": "ring-client-gnome",
