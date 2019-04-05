@@ -50,8 +50,6 @@
 		"/etc",
 		"/lib/pkgconfig",
 		"/lib/cmake",
-		"/lib/debug",
-		"/lib/cmake",
 		"/lib/systemd",
 		"/lib/udev",
 		"/share/man",
