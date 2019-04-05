@@ -35,8 +35,9 @@
 		"--own-name=cx.ring.RingGnome"
 	],
 	"build-options" : {
-		"cflags": "-g",
-		"cxxflags": "-g"
+		"cflags": "-Os -g -fstack-protector-strong -D_FORTIFY_SOURCE=2",
+		"cxxflags": "-Os -g -fstack-protector-strong -D_FORTIFY_SOURCE=2",
+		"ldflags": "-fstack-protector-strong -Wl,-z,relro,-z,now -L/app/lib"
 	},
 	"cleanup": [
 		"*.a",
