@@ -158,12 +158,12 @@
 				},
 				{
 					"name": "qrencode",
-					"buildsystem": "cmake",
+					"buildsystem": "cmake-ninja",
 					"sources": [
 						{
 							"type": "archive",
-							"url": "https://fukuchi.org/works/qrencode/qrencode-4.0.0.tar.gz",
-							"sha256": "5b621b22931264c7e96c1f9597c3d507d79e059b8207b159fff7547f0b26aa81"
+							"url": "https://fukuchi.org/works/qrencode/qrencode-4.0.2.tar.bz2",
+							"sha512": "2429c7938e32eacbaf327c029c7745ba33259f879661a8b6470cc617c780daf5bd1d5689599151df62e84badd2568eccab6c12f157331e512ab24a3899e0f002"
 						}
 					]
 				}
