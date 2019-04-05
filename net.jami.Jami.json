@@ -117,16 +117,22 @@
 					"config-opts": [
 						"-DCMAKE_INSTALL_PREFIX=/app",
 						"-DENABLE_UOA=OFF",
-						"-DENABLE_VALA_BINDINGS=ON",
 						"-DENABLE_INSTALLED_TESTS=OFF",
+						"-DENABLE_CANBERRA=OFF",
+						"-DENABLE_DOT_LOCKING=OFF",
+						"-DENABLE_FILE_LOCKING=OFF",
+						"-DENABLE_GOA=OFF",
 						"-DENABLE_GOOGLE=OFF",
 						"-DENABLE_GOOGLE_AUTH=OFF",
-						"-DWITH_OPENLDAP=OFF",
-						"-DWITH_KRB5=OFF",
-						"-DENABLE_INTROSPECTION=ON",
-						"-DENABLE_GOA=OFF",
 						"-DENABLE_GTK_DOC=OFF",
+						"-DENABLE_INTROSPECTION=OFF",
+						"-DWITH_KRB5=OFF",
+						"-DWITH_LIBDB=OFF",
+						"-DENABLE_OAUTH2=OFF",
+						"-DWITH_OPENLDAP=OFF",
+						"-DENABLE_SCHEMAS_COMPILE=OFF",
 						"-DENABLE_WEATHER=OFF",
+						"-DENABLE_VALA_BINDINGS=OFF",
 						"-DENABLE_EXAMPLES=OFF"
 					],
 					"sources": [
@@ -139,7 +145,7 @@
 					"modules": [
 						{
 							"name": "libical",
-							"buildsystem": "cmake",
+							"buildsystem": "cmake-ninja",
 							"config-opts": [
 								"-DCMAKE_BUILD_TYPE=Release",
 								"-DSHARED_ONLY=true",
