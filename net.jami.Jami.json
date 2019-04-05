@@ -110,7 +110,6 @@
 				}
 			],
 			"modules": [
-				"org.boost.Boost.json",
 				{
 					"name": "libiblc",
 					"sources" : [
