@@ -1,7 +1,7 @@
 {
 	"app-id": "net.jami.Jami",
 	"runtime": "org.gnome.Platform",
-	"runtime-version": "3.28",
+	"runtime-version": "3.32",
 	"sdk": "org.gnome.Sdk",
 	"command": "gnome-ring",
 	"finish-args": [
@@ -138,8 +138,8 @@
 					"sources": [
 						{
 							"type": "archive",
-							"url": "https://gitlab.gnome.org/GNOME/evolution-data-server/-/archive/3.28.2/evolution-data-server-3.28.2.tar.bz2",
-							"sha256": "7eac87a1c275524bfeb9c5623623b9ec9303f5a5519cec6a2d901bd6df25bec5"
+							"url": "https://gitlab.gnome.org/GNOME/evolution-data-server/-/archive/3.32.0/evolution-data-server-3.32.0.tar.bz2",
+							"sha256": "44fc349998cfc9a067da93fe29fd25dc68b72452109618175c9794b30ccef9fe"
 						}
 					],
 					"modules": [
