@@ -3,28 +3,28 @@ argon2
 asio
 dbus-cpp
 gsm
-iconv
-jack
 jsoncpp
+kashmir
 msgpack
 natpmp
-portaudio
 upnp
-uuid
-x264
 yaml-cpp
 
 # Native libraries (shipped with Jami) that link against Platform libraries
 opendht
 pjproject
+portaudio
 restbed
 secp256k1
 
+# Unused libraries (shipped with Jami, but not used in this build)
+iconv
+jack
+x264
 
-# Bundled app libraries (required by Jami, but not shipped)
-boost
+
+# Native libraries (required by Jami client, not shipped)
 evolution-data-server
-libiblc
 libical
 qrencode
 qt5-base (core, gui, sql, sql-sqlite, dbus)
