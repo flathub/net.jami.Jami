@@ -1,0 +1,77 @@
+{
+	"//": "The Ubuntu archive is the only place other than the bzr repository to get an up-to-date libappindicator version",
+	"name": "libappindicator3",
+	"buildsystem": "autotools",
+	"config-opts": [
+		"--disable-introspection",
+		"--disable-static",
+		"--disable-tests",
+		"--with-gtk=3"
+	],
+	"sources": [
+		{
+			"type": "archive",
+			"url": "http://archive.ubuntu.com/ubuntu/pool/main/liba/libappindicator/libappindicator_12.10.1+18.04.20180322.1.orig.tar.gz",
+			"md5": "09a1400e05128630583b6aa1a61500b2",
+			"sha512": "6b8d35f61b611bd50fce70e75a9ba47ace3dca2a916147b2ee6c9b285bfd0251244a374d7a8ee29109c439e9e86edd53dcaf08fdd0867b55249c05657d6b5ee3"
+		},
+		{
+			"type": "patch",
+			"path": "appindicator-path/no-use-python2.patch"
+		}
+	],
+	
+	"modules": [
+		{
+			"//": "Use the version from Debian here, since the Ubuntu version depends on libibo which we don't need and in turn depends on Ubuntu-specific GTK patches",
+			"name": "libindicator3",
+			"buildsystem": "autotools",
+			"config-opts": [
+				"--disable-static",
+				"--disable-tests",
+				"--with-gtk=3"
+			],
+			"build-options": {
+				"cflags": "-Wno-error"
+			},
+			"make-install-args": [
+				"SYSTEMD_USERDIR=/app/lib/systemd/"
+			],
+			"sources": [
+				{
+					"type": "archive",
+					"url": "http://archive.ubuntu.com/ubuntu/pool/main/libi/libindicator/libindicator_16.10.0+18.04.20180321.1.orig.tar.gz",
+					"md5": "cc6abdb28b59fefba69fce62d0add405",
+					"sha512": "b415dca964225e2d8b6b8a832a5c3450f7a0c5c1461e8e8aba52464c2c30a6c7c3039e185f28dc995184dc33814c04d72177d0ad019b97739bf978012a862f98"
+				},
+				{
+					"type": "patch",
+					"path": "appindicator-patch/disable-ido-dependency.patch"
+				}
+			]
+		},
+		
+		{
+			"name": "libdbusmenu3",
+			"buildsystem": "autotools",
+			"config-opts": [
+				"--disable-dumper",
+				"--disable-introspection",
+				"--disable-static",
+				"--disable-vala",
+				"--with-gtk=3"
+			],
+			"sources": [
+				{
+					"type": "archive",
+					"url": "http://archive.ubuntu.com/ubuntu/pool/main/libd/libdbusmenu/libdbusmenu_16.04.1+18.10.20180917.orig.tar.gz",
+					"md5": "c4b86290a31e5dcf985033c13363b354",
+					"sha512": "af9f1d58b1eb1b2d6f9a963713779cffc624fd291dc3ac2a32e94908f43b8e4ac49d1ebd7c729aa1e2ad7ae56979704c2000e60d5399bb0fa571cbab54651028"
+				}
+			],
+			"cleanup": [
+				"/libexec/dbusmenu-testapp"
+			]
+		}
+	]
+}

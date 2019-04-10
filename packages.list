@@ -24,6 +24,7 @@ x264
 
 
 # Native libraries (required by Jami client, not shipped)
+appindicator (optional, but makes systray work much better in non-GNOME)
 evolution-data-server
 libical
 qrencode
