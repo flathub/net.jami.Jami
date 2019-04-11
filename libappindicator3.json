@@ -17,7 +17,7 @@
 		},
 		{
 			"type": "patch",
-			"path": "appindicator-path/no-use-python2.patch"
+			"path": "appindicator-patch/no-use-python2.patch"
 		}
 	],
 	
