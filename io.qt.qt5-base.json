@@ -19,6 +19,9 @@
 					"-optimize-size"
 				]
 			}
+		},
+		"env": {
+			"LIBRARY_PATH": "/run/build/qt5-qtbase-minimal/lib"
 		}
 	},
 	"@note": "When the dependency on Qt5Gui is removed by libringclient, add these flags: -no-gui -no-feature-network -no-freetype -no-fontconfig",
