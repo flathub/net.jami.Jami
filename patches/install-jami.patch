@@ -1,0 +1,64 @@
+diff --git a/scripts/install.sh b/scripts/install.sh
+index cad05a8..2f54cad 100755
+--- a/scripts/install.sh
++++ b/scripts/install.sh
+@@ -37,14 +37,14 @@ while getopts gsc:p: OPT; do
+ done
+
+ make_install() {
+-  if $1; then
+-    sudo make install
+-    # Or else the next non-sudo install will fail, because this generates some
+-    # root owned files like install_manifest.txt under the build directory.
+-    sudo chown -R "$USER" .
+-  else
++  #if $1; then
++  #  sudo make install
++  #  # Or else the next non-sudo install will fail, because this generates some
++  #  # root owned files like install_manifest.txt under the build directory.
++  #  sudo chown -R "$USER" .
++  #else
+     make install
+-  fi
++  #fi
+ }
+
+ TOP="$(pwd)"
+@@ -75,18 +75,18 @@ if [[ "$OSTYPE" != "darwin"* ]]; then
+ fi
+
+ if $global; then
+-  ./configure $sharedLib $CONFIGURE_FLAGS
++  ./configure $sharedLib $CONFIGURE_FLAGS --prefix="/app"
+ else
+   ./configure $sharedLib $CONFIGURE_FLAGS --prefix="${INSTALL}/daemon"
+ fi
+ make -j${proc}
+-make_install $global
++make_install
+
+ cd "${TOP}/lrc"
+ mkdir -p ${BUILDDIR}
+ cd ${BUILDDIR}
+ if $global; then
+-  cmake .. -DCMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH -DCMAKE_BUILD_TYPE=Debug $static
++  cmake .. -DCMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX="/app" $static
+ else
+   cmake ..  -DCMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH \
+             -DCMAKE_BUILD_TYPE=Debug \
+@@ -94,13 +94,13 @@ else
+             -DRING_BUILD_DIR="${DAEMON}/src" $static
+ fi
+ make -j${proc}
+-make_install $global
++make_install
+
+ cd "${TOP}/${client}"
+ mkdir -p ${BUILDDIR}
+ cd ${BUILDDIR}
+ if $global; then
+-  cmake .. -DCMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH $static
++  cmake .. -DCMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH -DCMAKE_INSTALL_PREFIX="/app" $static
+ else
+   cmake ..  -DCMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH \
+             -DCMAKE_INSTALL_PREFIX="${INSTALL}/${client}" \

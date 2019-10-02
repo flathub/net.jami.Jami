@@ -1,0 +1,13 @@
+diff --git a/make-ring.py b/make-ring.py
+index b5eafa8..a26805b 100755
+--- a/make-ring.py
++++ b/make-ring.py
+@@ -391,7 +391,7 @@ def validate_args(parsed_args):
+     """Validate the args values, exit if error is found"""
+
+     # Check arg values
+-    supported_distros = [ANDROID_DISTRIBUTION_NAME, OSX_DISTRIBUTION_NAME, IOS_DISTRIBUTION_NAME] + APT_BASED_DISTROS + DNF_BASED_DISTROS + PACMAN_BASED_DISTROS + ZYPPER_BASED_DISTROS + ['mingw32','mingw64']
++    supported_distros = [ANDROID_DISTRIBUTION_NAME, OSX_DISTRIBUTION_NAME, IOS_DISTRIBUTION_NAME] + APT_BASED_DISTROS + DNF_BASED_DISTROS + PACMAN_BASED_DISTROS + ZYPPER_BASED_DISTROS + ['mingw32','mingw64','org.gnome.Platform']
+
+     if parsed_args.distribution not in supported_distros:
+         print('Distribution \''+parsed_args.distribution+'\' not supported.\nChoose one of: %s' \

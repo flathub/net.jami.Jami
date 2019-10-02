@@ -1,3 +1,4 @@
 .flatpak-builder
 ring-build
 ring-repo
+build

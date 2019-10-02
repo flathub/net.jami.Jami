@@ -1,0 +1,41 @@
+diff --git a/.gitmodules b/.gitmodules
+index fa9d2c5..81b0763 100644
+--- a/.gitmodules
++++ b/.gitmodules
+@@ -1,27 +1,36 @@
+ [submodule "client-android"]
+ 	path = client-android
+ 	url = https://review.jami.net/ring-client-android
++	branch = master
+ [submodule "client-gnome"]
+ 	path = client-gnome
+ 	url = https://review.jami.net/ring-client-gnome
++	branch = master
+ [submodule "client-windows"]
+ 	path = client-windows
+ 	url = https://review.jami.net/ring-client-windows
++	branch = master
+ [submodule "daemon"]
+ 	path = daemon
+ 	url = https://review.jami.net/ring-daemon
++	branch = master
+ [submodule "lrc"]
+ 	path = lrc
+ 	url = https://review.jami.net/ring-lrc
++	branch = master
+ [submodule "client-macosx"]
+ 	path = client-macosx
+ 	url = https://review.jami.net/ring-client-macosx
++	branch = master
+ [submodule "client-ios"]
+ 	path = client-ios
+ 	url = https://review.jami.net/ring-client-ios
++	branch = master
+ [submodule "client-uwp"]
+ 	path = client-uwp
+ 	url = https://review.jami.net/ring-client-uwp
++	branch = master
+ [submodule "client-electron"]
+ 	path = client-electron
+ 	url = https://review.jami.net/ring-client-electron
++	branch = master

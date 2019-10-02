@@ -6,12 +6,6 @@
 	],
 	"build-options" : {
 		"arch" : {
-			"x86_64" : {
-				"config-opts" : [
-					"-debug",
-					"-reduce-relocations"
-				]
-			},
 			"arm" : {
 				"config-opts" : [
 					"-no-reduce-relocations",
