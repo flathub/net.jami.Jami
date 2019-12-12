@@ -14,7 +14,7 @@ yaml-cpp
 opendht
 pjproject
 portaudio
-restbed
+restinio
 secp256k1
 
 # Unused libraries (shipped with Jami, but not used in this build)
@@ -24,7 +24,7 @@ x264
 
 
 # Native libraries (required by Jami client, not shipped)
-appindicator (optional, but makes systray work much better in non-GNOME)
+ayatana-appindicator (optional, but makes systray work much better in non-GNOME)
 evolution-data-server
 libical
 qrencode

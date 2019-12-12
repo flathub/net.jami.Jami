@@ -3,7 +3,7 @@
 	"runtime": "org.gnome.Platform",
 	"runtime-version": "3.34",
 	"sdk": "org.gnome.Sdk",
-	"command": "gnome-ring",
+	"command": "jami-gnome",
 	"finish-args": [
 		"--socket=x11",
 		"--socket=wayland",
@@ -60,14 +60,14 @@
 	],
 	"cleanup-commands": [
 		"mkdir /app/tmp",
-		"cp /app/bin/gnome-ring /app/tmp",
+		"cp /app/bin/jami-gnome /app/tmp",
 		"rm -rf /app/bin/*",
 		"mv /app/tmp/* /app/bin",
 		"rm -rf /app/share/dbus-1/services/org.gnome.evolution.dataserver.*",
 		"rm -rf /app/tmp"
 	],
-	"rename-desktop-file": "gnome-ring.desktop",
-	"rename-appdata-file": "gnome-ring.appdata.xml",
+	"rename-desktop-file": "jami-gnome.desktop",
+	"rename-appdata-file": "jami-gnome.appdata.xml",
 	"rename-icon": "jami",
 	"modules": [
 		{
@@ -79,35 +79,24 @@
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://dl.ring.cx/ring-release/tarballs/ring_20190319.4.a16a99f.tar.gz",
-					"sha256": "94b731bc248577adce577ffd7c894cffa9bcbe246f8c57c41e884f7daa36d6b0"
+					"url": "https://dl.ring.cx/ring-release/tarballs/jami_20191209.1.4b48135.tar.gz",
+					"sha256": "8f1c0a05431b88c3c6bd98098544e79c9d2d02139995bcefaeb189d0abc2aad5"
 				},
 				{
 					"type": "patch",
-					"path": "ring-flatpak-patch/flatpak-ring.patch"
+					"path": "patches/support-flatpak-platform.patch"
 				},
 				{
 					"type": "patch",
-					"path": "ring-flatpak-patch/dbus-cpp-config.patch"
+					"path": "patches/install-jami.patch"
 				},
 				{
 					"type": "patch",
-					"path": "ring-flatpak-patch/restbed-link-openssl-dynamic.patch"
+					"path": "patches/contrib-minimal-deps.patch"
 				},
 				{
 					"type": "patch",
-					"path": "ring-flatpak-patch/contrib-minimal-deps.patch"
-				},
-				{
-					"type": "file",
-					"url": "https://github.com/open-source-parsers/jsoncpp/archive/1.7.5.tar.gz",
-					"sha256": "4338c6cab8af8dee6cdfd54e6218bd0533785f552c6162bb083f8dd28bf8fbbe",
-					"dest": "daemon/contrib/tarballs",
-					"dest-filename": "jsoncpp-1.7.5.tar.gz"
-				},
-				{
-					"type": "patch",
-					"path": "ring-flatpak-patch/jsoncpp-version.patch"
+					"path": "patches/appstream-metadata.patch"
 				}
 			],
 			"modules": [
