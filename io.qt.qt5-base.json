@@ -4,16 +4,10 @@
 		"/bin",
 		"/mkspecs"
 	],
-	"build-options" : {
-		"arch" : {
-			"x86_64" : {
-				"config-opts" : [
-					"-debug",
-					"-reduce-relocations"
-				]
-			},
-			"arm" : {
-				"config-opts" : [
+	"build-options": {
+		"arch": {
+			"arm": {
+				"config-opts": [
 					"-no-reduce-relocations",
 					"-no-use-gold-linker",
 					"-optimize-size"
