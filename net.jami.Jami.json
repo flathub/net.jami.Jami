@@ -1,7 +1,7 @@
 {
 	"app-id": "net.jami.Jami",
 	"runtime": "org.gnome.Platform",
-	"runtime-version": "3.32",
+	"runtime-version": "3.34",
 	"sdk": "org.gnome.Sdk",
 	"command": "gnome-ring",
 	"finish-args": [
@@ -112,20 +112,17 @@
 			],
 			"modules": [
 				"io.qt.qt5-base.json",
-				"shared-modules/udev/udev-175.json",
 				{
 					"name": "evolution-data-server",
 					"buildsystem": "cmake-ninja",
 					"config-opts": [
 						"-DCMAKE_INSTALL_PREFIX=/app",
-						"-DENABLE_UOA=OFF",
 						"-DENABLE_INSTALLED_TESTS=OFF",
 						"-DENABLE_CANBERRA=OFF",
 						"-DENABLE_DOT_LOCKING=OFF",
 						"-DENABLE_FILE_LOCKING=OFF",
 						"-DENABLE_GOA=OFF",
 						"-DENABLE_GOOGLE=OFF",
-						"-DENABLE_GOOGLE_AUTH=OFF",
 						"-DENABLE_GTK_DOC=OFF",
 						"-DENABLE_INTROSPECTION=OFF",
 						"-DWITH_KRB5=OFF",
@@ -140,8 +137,8 @@
 					"sources": [
 						{
 							"type": "archive",
-							"url": "https://gitlab.gnome.org/GNOME/evolution-data-server/-/archive/3.32.0/evolution-data-server-3.32.0.tar.bz2",
-							"sha256": "44fc349998cfc9a067da93fe29fd25dc68b72452109618175c9794b30ccef9fe"
+							"url": "https://gitlab.gnome.org/GNOME/evolution-data-server/-/archive/gnome-3-34/evolution-data-server-gnome-3-34.tar.bz2",
+							"sha256": "3c1413335cbf688edf4f930ae876d8326081b59e79ad42ce3745438d57b4abfc"
 						}
 					],
 					"modules": [
@@ -150,18 +147,22 @@
 							"buildsystem": "cmake-ninja",
 							"config-opts": [
 								"-DCMAKE_BUILD_TYPE=Release",
+								"-DICAL_BUILD_DOCS=false",
 								"-DSHARED_ONLY=true",
 								"-DCMAKE_INSTALL_PREFIX=/app",
-								"-DCMAKE_INSTALL_LIBDIR=/app/lib"
+								"-DCMAKE_INSTALL_LIBDIR=/app/lib",
+								"-DWITH_CXX_BINDINGS=false"
 							],
 							"sources": [
 								{
 									"type": "archive",
-									"url": "https://github.com/libical/libical/archive/v2.0.0.tar.gz",
-									"sha256": "20f4a98475052e1200d2691ba50b27969e4bedc6e50bffd5e2fa81f4ac90de9a"
+									"url": "https://github.com/libical/libical/releases/download/v3.0.6/libical-3.0.6.tar.gz",
+									"sha256": "5c8a21c2b732ece4a33e5c862970b4f35a8548bbcda50de5695f6fc211ac4d97"
 								}
 							]
-						}
+						},
+
+						"shared-modules/intltool/intltool-0.51.json"
 					]
 				},
 				{
