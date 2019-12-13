@@ -91,7 +91,7 @@
 				},
 				{
 					"type": "patch",
-					"path": "patches/contrib-minimal-deps.patch"
+					"path": "patches/contrib-use-system-gmp.patch"
 				},
 				{
 					"type": "patch",
