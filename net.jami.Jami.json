@@ -60,7 +60,7 @@
 			"name": "ring-client-gnome",
 			"buildsystem": "simple",
 			"build-commands": [
-				"./make-ring.py --install --global-install --debug"
+				"./make-ring.py --install --global-install --no-priv-install --prefix=/app"
 			],
 			"sources": [
 				{
@@ -70,11 +70,7 @@
 				},
 				{
 					"type": "patch",
-					"path": "patches/support-flatpak-platform.patch"
-				},
-				{
-					"type": "patch",
-					"path": "patches/install-jami.patch"
+					"path": "patches/jami-build-super.patch"
 				},
 				{
 					"type": "patch",
