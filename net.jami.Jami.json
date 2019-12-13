@@ -21,7 +21,6 @@
 		"--talk-name=com.canonical.Unity.Session",
 		"--talk-name=org.kde.StatusNotifierWatcher",
 		"--talk-name=com.canonical.indicator.application",
-		"--talk-name=org.gnome.evolution",
 		"--filesystem=~/.local/share/ring",
 		"--filesystem=~/.local/share/gnome-ring",
 		"--filesystem=xdg-config/ring",
@@ -101,7 +100,6 @@
 			],
 			"modules": [
 				"io.qt.qt5-base.json",
-				"org.gnome.evolution-data-server.json",
 				{
 					"name": "qrencode",
 					"buildsystem": "cmake-ninja",
