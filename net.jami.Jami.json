@@ -1,9 +1,9 @@
 {
 	"app-id": "net.jami.Jami",
 	"runtime": "org.gnome.Platform",
-	"runtime-version": "3.32",
+	"runtime-version": "3.34",
 	"sdk": "org.gnome.Sdk",
-	"command": "gnome-ring",
+	"command": "jami-gnome",
 	"finish-args": [
 		"--socket=x11",
 		"--socket=wayland",
@@ -21,7 +21,6 @@
 		"--talk-name=com.canonical.Unity.Session",
 		"--talk-name=org.kde.StatusNotifierWatcher",
 		"--talk-name=com.canonical.indicator.application",
-		"--talk-name=org.gnome.evolution",
 		"--filesystem=~/.local/share/ring",
 		"--filesystem=~/.local/share/gnome-ring",
 		"--filesystem=xdg-config/ring",
@@ -60,14 +59,14 @@
 	],
 	"cleanup-commands": [
 		"mkdir /app/tmp",
-		"cp /app/bin/gnome-ring /app/tmp",
+		"cp /app/bin/jami-gnome /app/tmp",
 		"rm -rf /app/bin/*",
 		"mv /app/tmp/* /app/bin",
 		"rm -rf /app/share/dbus-1/services/org.gnome.evolution.dataserver.*",
 		"rm -rf /app/tmp"
 	],
-	"rename-desktop-file": "gnome-ring.desktop",
-	"rename-appdata-file": "gnome-ring.appdata.xml",
+	"rename-desktop-file": "jami-gnome.desktop",
+	"rename-appdata-file": "jami-gnome.appdata.xml",
 	"rename-icon": "jami",
 	"modules": [
 		{
@@ -79,91 +78,28 @@
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://dl.ring.cx/ring-release/tarballs/ring_20190319.4.a16a99f.tar.gz",
-					"sha256": "94b731bc248577adce577ffd7c894cffa9bcbe246f8c57c41e884f7daa36d6b0"
+					"url": "https://dl.ring.cx/ring-release/tarballs/jami_20191209.1.4b48135.tar.gz",
+					"sha256": "8f1c0a05431b88c3c6bd98098544e79c9d2d02139995bcefaeb189d0abc2aad5"
 				},
 				{
 					"type": "patch",
-					"path": "ring-flatpak-patch/flatpak-ring.patch"
+					"path": "patches/support-flatpak-platform.patch"
 				},
 				{
 					"type": "patch",
-					"path": "ring-flatpak-patch/dbus-cpp-config.patch"
+					"path": "patches/install-jami.patch"
 				},
 				{
 					"type": "patch",
-					"path": "ring-flatpak-patch/restbed-link-openssl-dynamic.patch"
+					"path": "patches/contrib-minimal-deps.patch"
 				},
 				{
 					"type": "patch",
-					"path": "ring-flatpak-patch/contrib-minimal-deps.patch"
-				},
-				{
-					"type": "file",
-					"url": "https://github.com/open-source-parsers/jsoncpp/archive/1.7.5.tar.gz",
-					"sha256": "4338c6cab8af8dee6cdfd54e6218bd0533785f552c6162bb083f8dd28bf8fbbe",
-					"dest": "daemon/contrib/tarballs",
-					"dest-filename": "jsoncpp-1.7.5.tar.gz"
-				},
-				{
-					"type": "patch",
-					"path": "ring-flatpak-patch/jsoncpp-version.patch"
+					"path": "patches/appstream-metadata.patch"
 				}
 			],
 			"modules": [
 				"io.qt.qt5-base.json",
-				"shared-modules/udev/udev-175.json",
-				{
-					"name": "evolution-data-server",
-					"buildsystem": "cmake-ninja",
-					"config-opts": [
-						"-DCMAKE_INSTALL_PREFIX=/app",
-						"-DENABLE_UOA=OFF",
-						"-DENABLE_INSTALLED_TESTS=OFF",
-						"-DENABLE_CANBERRA=OFF",
-						"-DENABLE_DOT_LOCKING=OFF",
-						"-DENABLE_FILE_LOCKING=OFF",
-						"-DENABLE_GOA=OFF",
-						"-DENABLE_GOOGLE=OFF",
-						"-DENABLE_GOOGLE_AUTH=OFF",
-						"-DENABLE_GTK_DOC=OFF",
-						"-DENABLE_INTROSPECTION=OFF",
-						"-DWITH_KRB5=OFF",
-						"-DWITH_LIBDB=OFF",
-						"-DENABLE_OAUTH2=OFF",
-						"-DWITH_OPENLDAP=OFF",
-						"-DENABLE_SCHEMAS_COMPILE=OFF",
-						"-DENABLE_WEATHER=OFF",
-						"-DENABLE_VALA_BINDINGS=OFF",
-						"-DENABLE_EXAMPLES=OFF"
-					],
-					"sources": [
-						{
-							"type": "archive",
-							"url": "https://gitlab.gnome.org/GNOME/evolution-data-server/-/archive/3.32.0/evolution-data-server-3.32.0.tar.bz2",
-							"sha256": "44fc349998cfc9a067da93fe29fd25dc68b72452109618175c9794b30ccef9fe"
-						}
-					],
-					"modules": [
-						{
-							"name": "libical",
-							"buildsystem": "cmake-ninja",
-							"config-opts": [
-								"-DCMAKE_BUILD_TYPE=Release",
-								"-DSHARED_ONLY=true",
-								"-DCMAKE_INSTALL_PREFIX=/app",
-								"-DCMAKE_INSTALL_LIBDIR=/app/lib"
-							],
-							"sources": [
-								{
-									"type": "archive",
-									"url": "https://github.com/libical/libical/archive/v2.0.0.tar.gz",
-									"sha256": "20f4a98475052e1200d2691ba50b27969e4bedc6e50bffd5e2fa81f4ac90de9a"
-								}
-							]
-						}
-					]
-				},
 				{
 					"name": "qrencode",
 					"buildsystem": "cmake-ninja",
@@ -175,7 +111,7 @@
 						}
 					]
 				},
-				"libappindicator3.json"
+				"libayatana-appindicator.json"
 			]
 		}
 	]

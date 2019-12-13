@@ -1,0 +1,63 @@
+1) Add <release> and <screenshot> to make Flathub's validator happy
+2) WORKAROUND: For some reason any extranous whitespace in the <provides> and
+               <requires> sections will break the local appstream-util validator
+--- ring-client-gnome/client-gnome/jami-gnome.appdata.xml	2019-12-09 17:04:40.000000000 +0100
++++ ring-client-gnome/client-gnome/jami-gnome.metainfo.xml	2019-12-12 19:18:46.347919105 +0100
+@@ -6,6 +6,34 @@
+  <project_license>GPL-3.0+</project_license>
+  <name>Gnome client for Jami</name>
+  <summary>Jami is a software for secure communications with distributed architecture</summary>
+- <icon type="stock">jami</icon>
++ <releases>
++  <release version="20191209.1.4b48135" date="2019-12-09" />
++ </releases>
++ <screenshots>
++  <screenshot type="default">
++   <caption>Send Audio, Video and Chat messages</caption>
++   <image type="source" width="1000" height="496">https://jami.net/content/images/2019/11/image-2.png</image>
++  </screenshot>
++  <screenshot>
++   <caption>Share Desktop contents</caption>
++   <image type="source" width="1000" height="649">https://jami.net/content/images/2019/11/Screenshot-from-2019-11-19-17-09-20.png</image>
++  </screenshot>
++  <screenshot>
++   <caption>One-on-One Audio Calls</caption>
++   <video width="600" height="400">https://jami.net/assets/images/audio-call.gif</video>
++  </screenshot>
++  <screenshot>
++   <caption>Audio and Video Conference Calls</caption>
++   <video width="600" height="400">https://jami.net/assets/images/conference.gif</video>
++  </screenshot>
++  <screenshot>
++   <caption>Instant Messaging</caption>
++   <video width="600" height="400">https://jami.net/assets/images/chat.gif</video>
++  </screenshot>
++  <screenshot>
++   <caption>File Sharing</caption>
++   <video width="600" height="400">https://jami.net/assets/images/files-share.gif</video>
++  </screenshot>
++ </screenshots>
+  <description>
+   <p>
+@@ -28,10 +28,7 @@
+ 
+  <launchable type="desktop-id">jami-gnome.desktop</launchable>
+ 
+- <provides>
+-​  <binary>jami-gnome</binary>
+-  <binary>jami</binary>
+-​ </provides>
++ <provides><binary>jami-gnome</binary><binary>jami</binary></provides>
+ 
+  <categories>
+   <category>Network</category>
+@@ -49,8 +46,6 @@
+   <content_attribute id="social-audio">intense</content_attribute>
+  </content_rating>
+ 
+- <requires>
+-​  <id>net.jami.daemon</id>
+-​ </requires>
++ <requires><id>net.jami.daemon</id></requires>
+ 
+ </component>

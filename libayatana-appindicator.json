@@ -1,0 +1,101 @@
+{
+	"name": "libayatana-appindicator3",
+	"buildsystem": "autotools",
+	"config-opts": [
+		"--disable-introspection",
+		"--disable-static",
+		"--disable-tests",
+		"--with-gtk=3"
+	],
+	"sources": [
+		{
+			"type": "archive",
+			"url": "https://github.com/AyatanaIndicators/libayatana-appindicator/archive/0.5.4.tar.gz",
+			"sha256": "b8f284008c32ecdedffa03c1350906051c2334b5457988fed454423f5ac3aa98"
+		},
+		{
+			"type": "patch",
+			"path": "libayatana-appindicator-0001-no-use-python2.patch"
+		}
+	],
+	
+	"modules": [
+		"shared-modules/intltool/intltool-0.51.json",
+		"shared-modules/dbus-glib/dbus-glib-0.110.json",
+		{
+			"name": "mate-common",
+			"buildsystem": "autotools",
+			"sources": [
+				{
+					"type": "git",
+					"url": "https://git.mate-desktop.org/mate-common",
+					"commit": "b64533555cb3fda49dcd8815b855e1b3e6af0520",
+					"disable-shallow-clone": true
+				}
+			],
+			"cleanup": "*"
+		},
+		{
+			"name": "gnome-common",
+			"buildsystem": "autotools",
+			"sources": [
+				{
+					"type": "git",
+					"url": "https://gitlab.gnome.org/GNOME/gnome-common.git",
+					"commit": "3f52961bcc8828e33535466d60ca3edcdf5175c6"
+				}
+			],
+			"cleanup": ["*"]
+		},
+		{
+			"name": "libayatana-indicator3",
+			"buildsystem": "autotools",
+			"config-opts": [
+				"--disable-static",
+				"--disable-tests",
+				"--disable-ido",
+				"--with-gtk=3"
+			],
+			"make-install-args": [
+				"SYSTEMD_USERDIR=/app/lib/systemd/"
+			],
+			"sources": [
+				{
+					"type": "archive",
+					"url": "https://github.com/AyatanaIndicators/libayatana-indicator/archive/0.6.3.tar.gz",
+					"sha256": "95347b8ccfb1d4626d2b10468473e9c6daaad05fcf1efaff082d92fb179bafc5"
+				},
+				{
+					"type": "patch",
+					"path": "libayatana-appindicator-0001-noido.patch"
+				}
+			]
+		},
+		
+		{
+			"name": "libdbusmenu3",
+			"buildsystem": "autotools",
+			"config-opts": [
+				"--disable-dumper",
+				"--disable-introspection",
+				"--disable-static",
+				"--disable-vala",
+				"--with-gtk=3"
+			],
+			"build-options": {
+				"cflags": "-Wno-error"
+			},
+			"sources": [
+				{
+					"type": "archive",
+					"url": "http://archive.ubuntu.com/ubuntu/pool/main/libd/libdbusmenu/libdbusmenu_16.04.1+18.10.20180917.orig.tar.gz",
+					"md5": "c4b86290a31e5dcf985033c13363b354",
+					"sha512": "af9f1d58b1eb1b2d6f9a963713779cffc624fd291dc3ac2a32e94908f43b8e4ac49d1ebd7c729aa1e2ad7ae56979704c2000e60d5399bb0fa571cbab54651028"
+				}
+			],
+			"cleanup": [
+				"/libexec/dbusmenu-testapp"
+			]
+		}
+	]
+}
