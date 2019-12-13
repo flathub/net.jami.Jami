@@ -1,8 +1,7 @@
 {
 	"name": "qt5-qtbase-minimal",
-	"cleanup-platform": [
-		"/bin",
-		"/mkspecs"
+	"cleanup": [
+		"/bin"
 	],
 	"build-options": {
 		"arch": {
