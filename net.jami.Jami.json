@@ -23,6 +23,13 @@
 		"--own-name=cx.ring.Ring",
 		"--metadata=X-DConf=migrate-path=/net/jami/JamiGnome/"
 	],
+	"add-extensions": {
+		"org.freedesktop.Platform.ffmpeg-full": {
+			"directory": "lib/ffmpeg-full",
+			"version": "19.08",
+			"add-ld-path": "."
+		}
+	},
 	"build-options" : {
 		"cflags": "-Os -g -fstack-protector-strong -D_FORTIFY_SOURCE=2",
 		"cxxflags": "-Os -g -fstack-protector-strong -D_FORTIFY_SOURCE=2",
@@ -48,7 +55,8 @@
 			"name": "ring-client-gnome",
 			"buildsystem": "simple",
 			"build-commands": [
-				"./make-ring.py --install --global-install --no-priv-install --prefix=/app"
+				"./make-ring.py --install --global-install --no-priv-install --prefix=\"${FLATPAK_DEST}\"",
+				"mkdir \"${FLATPAK_DEST}/lib/ffmpeg-full\""
 			],
 			"sources": [
 				{
