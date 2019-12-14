@@ -20,11 +20,8 @@
 		"--filesystem=xdg-pictures",
 		"--filesystem=xdg-videos",
 		"--filesystem=xdg-documents",
-		"--filesystem=xdg-run/dconf",
-		"--filesystem=xdg-config/dconf",
-		"--talk-name=ca.desrt.dconf",
 		"--own-name=cx.ring.Ring",
-		"--own-name=cx.ring.RingGnome"
+		"--metadata=X-DConf=migrate-path=/net/jami/JamiGnome/"
 	],
 	"build-options" : {
 		"cflags": "-Os -g -fstack-protector-strong -D_FORTIFY_SOURCE=2",
