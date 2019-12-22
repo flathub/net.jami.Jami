@@ -33,7 +33,7 @@
 					"disable-shallow-clone": true
 				}
 			],
-			"cleanup": "*"
+			"cleanup": ["*"]
 		},
 		{
 			"name": "gnome-common",
@@ -69,6 +69,10 @@
 					"type": "patch",
 					"path": "libayatana-appindicator-0001-noido.patch"
 				}
+			],
+			"cleanup": [
+				"/lib/systemd",
+				"/share/libayatana-indicator"
 			]
 		},
 		
@@ -94,7 +98,8 @@
 				}
 			],
 			"cleanup": [
-				"/libexec/dbusmenu-testapp"
+				"/libexec",
+				"/share/libdbusmenu"
 			]
 		}
 	]

@@ -1,33 +1,20 @@
 --- ring-client-gnome/scripts/install.sh
 +++ ring-client-gnome/scripts/install.sh
-@@ -37,14 +37,14 @@ while getopts gsc:p: OPT; do
+@@ -37,7 +37,7 @@ while getopts gsc:p: OPT; do
  done
 
  make_install() {
 -  if $1; then
--    sudo make install
--    # Or else the next non-sudo install will fail, because this generates some
--    # root owned files like install_manifest.txt under the build directory.
--    sudo chown -R "$USER" .
--  else
-+  #if $1; then
-+  #  sudo make install
-+  #  # Or else the next non-sudo install will fail, because this generates some
-+  #  # root owned files like install_manifest.txt under the build directory.
-+  #  sudo chown -R "$USER" .
-+  #else
-     make install
--  fi
-+  #fi
- }
-
- TOP="$(pwd)"
++  if $1 && [ $(id -u) != 0 ]; then
+     sudo make install
+     # Or else the next non-sudo install will fail, because this generates some
+     # root owned files like install_manifest.txt under the build directory.
 @@ -61,7 +61,7 @@
  cd contrib
  mkdir -p native
  cd native
 -../bootstrap
-+../bootstrap --disable-downloads --disable-ffmpeg --disable-gcrypt --disable-gmp --disable-gnutls --disable-gpg-error --disable-nettle --disable-opus --disable-speex --disable-speexdsp --disable-vpx --disable-zlib --disable-libressl --enable-debug --prefix=/app
++../bootstrap --disable-downloads --prefix=/app
  make
  cd "${DAEMON}"
  ./autogen.sh
