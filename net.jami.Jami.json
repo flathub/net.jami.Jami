@@ -72,6 +72,10 @@
 				{
 					"type": "patch",
 					"path": "patches/use-native-ffmpeg.patch"
+				},
+				{
+					"type": "patch",
+					"path": "patches/fix-ffmpeg-build-on-arm.patch"
 				}
 			],
 			"cleanup": [
