@@ -1,3 +1,4 @@
-.flatpak-builder
-build
-repo
+/+junk
+/.flatpak-builder
+/build
+/repo

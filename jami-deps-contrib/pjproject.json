@@ -1,0 +1,23 @@
+{
+	"name": "jami-pjproject",
+	"buildsystem": "simple",
+	"subdir": "daemon/contrib/native",
+	"build-commands": [
+		"../bootstrap --prefix=\"${FLATPAK_DEST}\" --disable-all --enable-pjproject",
+		"make -j${FLATPAK_BUILDER_N_JOBS}"
+	],
+	"sources": [
+		{
+			"type": "archive",
+			"url": "https://dl.ring.cx/ring-release/tarballs/jami_20191209.1.4b48135.tar.gz",
+			"sha256": "8f1c0a05431b88c3c6bd98098544e79c9d2d02139995bcefaeb189d0abc2aad5"
+		},
+		
+		{
+			"type": "shell",
+			"commands": [
+				"mkdir -p daemon/contrib/native"
+			]
+		}
+	]
+}
