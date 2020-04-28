@@ -64,8 +64,8 @@
 	"sources": [
 		{
 			"type": "archive",
-			"url": "https://download.qt.io/archive/qt/5.12/5.12.2/submodules/qtbase-everywhere-src-5.12.2.tar.xz",
-			"sha256": "562c095a59c95f393762ec53bc05c0d80fad1758fd5ff7a5231967d1a98d56c1"
+			"url": "https://download.qt.io/archive/qt/5.12/5.12.8/submodules/qtbase-everywhere-src-5.12.8.tar.xz",
+			"sha256": "19592fbd0a524a17c35e413988fe494251103619ef7dd49aecdf3170973aabd8"
 		},
 		{
 			"type": "shell",
