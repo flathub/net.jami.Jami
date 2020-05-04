@@ -9,13 +9,8 @@
 	"sources": [
 		{
 			"type": "archive",
-			"url": "https://dl.ring.cx/ring-release/tarballs/jami_20191209.1.4b48135.tar.gz",
-			"sha256": "8f1c0a05431b88c3c6bd98098544e79c9d2d02139995bcefaeb189d0abc2aad5"
-		},
-		
-		{
-			"type": "patch",
-			"path": "../patches/fix-ffmpeg-build-on-arm.patch"
+			"url": "https://dl.ring.cx/ring-release/tarballs/jami_20200424.2.b47f076.tar.gz",
+			"sha256": "5528033318649f24e06375e1633b8b82b71afccfc0190e70a76295194eaef9be"
 		},
 		
 		{

@@ -3,7 +3,7 @@
 	
 	"app-id": "net.jami.Jami",
 	"runtime": "org.gnome.Platform",
-	"runtime-version": "3.34",
+	"runtime-version": "3.36",
 	"sdk": "org.gnome.Sdk",
 	"command": "jami-gnome",
 	"finish-args": [
