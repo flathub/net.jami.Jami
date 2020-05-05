@@ -1,0 +1,126 @@
+{
+	"//": "Keep this file in sync with net.jami.Jami.json: It builds faster and uses the cache much more than that other image, but may also break more often and sidesteps some upstream build scripts",
+	
+	"app-id": "net.jami.Jami",
+	"runtime": "org.gnome.Platform",
+	"runtime-version": "3.36",
+	"sdk": "org.gnome.Sdk",
+	"command": "jami-gnome",
+	"finish-args": [
+		"--socket=x11",
+		"--socket=wayland",
+		"--socket=pulseaudio",
+		"--share=network",
+		"--device=all",
+		"--share=ipc",
+		"--talk-name=org.kde.StatusNotifierWatcher",
+		"--filesystem=~/.local/share/ring",
+		"--filesystem=~/.local/share/gnome-ring",
+		"--filesystem=xdg-config/ring",
+		"--filesystem=xdg-download",
+		"--filesystem=xdg-music",
+		"--filesystem=xdg-pictures",
+		"--filesystem=xdg-videos",
+		"--filesystem=xdg-documents",
+		"--own-name=cx.ring.Ring",
+		"--metadata=X-DConf=migrate-path=/net/jami/JamiGnome/"
+	],
+	"build-options" : {
+		"cflags": "-Os -g -fstack-protector-strong -D_FORTIFY_SOURCE=2",
+		"cxxflags": "-Os -g -fstack-protector-strong -D_FORTIFY_SOURCE=2",
+		"ldflags": "-fstack-protector-strong -Wl,-z,relro,-z,now -L/app/lib",
+		
+		"no-debuginfo-compression": true
+	},
+	"cleanup": [
+		"*.a",
+		"*.la",
+		"*.prl",
+		"/doc",
+		"/include",
+		"/mkspecs",
+		"/lib/pkgconfig",
+		"/lib/cmake",
+		"/share/doc",
+		"/share/pkgconfig"
+	],
+	"rename-desktop-file": "jami-gnome.desktop",
+	"rename-appdata-file": "jami-gnome.appdata.xml",
+	"rename-icon": "jami",
+	"modules": [
+		"io.qt.qt5-base.json",
+		"org.fukuchi.qrencode.json",
+		"libayatana-appindicator.json",
+		"jami-deps-contrib/_.json",
+		
+		{
+			"name": "jami-daemon",
+			"buildsystem": "autotools",
+			"sources": [
+				{
+					"type": "git",
+					"url": "https://git.jami.net/savoirfairelinux/ring-daemon.git",
+					"commit": "444e0f0c3de49a65214b0a7feec24d5ab0c7da65"
+				}
+			]
+		},
+		
+		{
+			"name": "jami-lrc",
+			"buildsystem": "cmake-ninja",
+			"config-opts": [
+				"-DCMAKE_BUILD_TYPE=Debug"
+			],
+			"sources": [
+				{
+					"type": "git",
+					"url": "https://git.jami.net/savoirfairelinux/ring-lrc.git",
+					"commit": "b2efc99dc63cb88315064756fed3474d93101856"
+				}
+			]
+		},
+		
+		{
+			"name": "jami-client-gnome",
+			"subdir": "client-gnome",
+			"buildsystem": "cmake-ninja",
+			"sources": [
+				
+				{
+					"type": "git",
+					"url": "https://git.jami.net/savoirfairelinux/ring-lrc.git",
+					"commit": "b2efc99dc63cb88315064756fed3474d93101856"
+				},
+				{
+					"type": "shell",
+					"commands": [
+						"mkdir lrc",
+						"find . -mindepth 1 -maxdepth 1 \\! -name 'lrc' -exec mv \\{\\} lrc/ \\;"
+					]
+				},
+				
+				{
+					"type": "git",
+					"url": "https://git.jami.net/savoirfairelinux/ring-client-gnome.git",
+					"commit": "94a0ec5b548090b54287e50aa267565d9327987e"
+				},
+				{
+					"type": "shell",
+					"commands": [
+						"mkdir client-gnome",
+						"find . -mindepth 1 -maxdepth 1 \\! \\( -name 'lrc' -o -name 'client-gnome' \\) -exec mv \\{\\} client-gnome/ \\;"
+					]
+				},
+				
+				{
+					"type": "patch",
+					"path": "patches/client-appstream-metadata.patch"
+				}
+			],
+			"cleanup": [
+				"/bin/jami",
+				"/bin/ring.cx"
+			]
+		}
+	]
+}

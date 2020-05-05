@@ -1,48 +1,54 @@
 # Native libraries (shipped with Jami)
-argon2
-asio
-dbus-cpp
-gsm
-jsoncpp
-kashmir
-msgpack
-natpmp
-upnp
-yaml-cpp
+asio (used by opendht→jami-daemon & restinio→opendht→jami-daemon)
+fmt (used by restinio→opendht→jami-daemon)
+http_parser (used by restinio→opendht→jami-daemon)
 
-# Native libraries (shipped with Jami) that link against Platform libraries
-opendht
-pjproject
-portaudio
-restinio
-secp256k1
+argon2 (used by opendht→jami-daemon)
+jsoncpp (used by opendht→jami-daemon & jami-daemon)
+msgpack (used by opendht→jami-daemon)
+restinio (used by opendht→jami-daemon)
+
+ffnvcodec (used by ffmpeg→jami-daemon)
+vpx (used by ffmpeg→jami-daemon, custom variant, uses `yasm` during build)
+x264 (used by ffmpeg→jami-daemon)
+
+dbus-cpp (used by jami-daemon)
+ffmpeg (used by jami-daemon, see https://gitlab.com/freedesktop-sdk/freedesktop-sdk/issues/941 for possible future use of the platform version)
+natpmp (used by jami-daemon)
+opendht (used by jami-daemon)
+pjproject (used by jami-daemon)
+secp256k1 (used by jami-daemon)
+upnp (used by jami-daemon)
+yaml-cpp (used by jami-daemon)
+
 
 # Unused libraries (shipped with Jami, but not used in this build)
+gsm
 iconv
 jack
-x264
+portaudio (win32-only)
+pthreads (win32-only)
 
 
 # Native libraries (required by Jami client, not shipped)
-ayatana-appindicator (optional, but makes systray work much better in non-GNOME)
-evolution-data-server
-libical
+ayatana-appindicator (used by jami-client-gnome)
 qrencode
-qt5-base (core, gui, sql, sql-sqlite, dbus)
-udev
+qt5-base (core;gui;sql;sql-sqlite;dbus, used by jami-lrc)
+udev (used by jami-daemon)
 
 
 # Platform libraries (also shipped with Jami, but disabled in build)
-ffmpeg
+alsa (used by jami-daemon)
 gcrypt
-gmp
-gnutls
+gmp (used by secp256k1→jami-daemon)
+gnutls (used by opendht→jami-daemon, pjproject→jami-daemon & jami-daemon)
 gpg-error
-libressl (using openssl)
+libressl (used by opendht→jami-daemon, provided using openssl)
 nettle
-opus
-pthreads (win32-only)
-speex
-speexdsp
-vpx
-zlib
+openssl (used by jami-daemon)
+opus (used by ffmpeg→jami-daemon)
+pulse (used by jami-daemon)
+speex (used by ffmpeg & jami-daemon)
+speexdsp (used by jami-daemon)
+zlib (used by ffmpeg→jami-daemon, restinio→jami-daemon & jami-daemon)
+uuid (used by pjproject→jami-daemon)
