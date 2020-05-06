@@ -3,7 +3,7 @@
 	"runtime": "org.gnome.Platform",
 	"runtime-version": "3.36",
 	"sdk": "org.gnome.Sdk",
-	"command": "jami-gnome",
+	"command": "jami-gnome-wrapper",
 	"finish-args": [
 		"--socket=x11",
 		"--socket=wayland",
@@ -77,6 +77,21 @@
 				"org.fukuchi.qrencode.json",
 				"libayatana-appindicator.json",
 				"jami-deps-contrib/_.json"
+			]
+		},
+
+		{
+			"name": "install-launch-wrapper",
+			"buildsystem": "simple",
+			"build-commands": [
+				"cp jami-gnome-wrapper \"${FLATPAK_DEST}/bin/\"",
+				"sed -i 's/Exec=jami-gnome/Exec=jami-gnome-wrapper/g' \"${FLATPAK_DEST}/share/applications/jami-gnome.desktop\""
+			],
+			"sources": [
+				{
+					"type": "file",
+					"path": "jami-gnome-wrapper"
+				}
 			]
 		}
 	]
