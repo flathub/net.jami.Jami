@@ -1,7 +1,7 @@
 1) Add <release> to make Flathub's validator happy
 2) remove the icon tag, apparently you can't have that here
---- ring-client-gnome/client-gnome/jami-gnome.appdata.xml	2019-12-09 17:04:40.000000000 +0100
-+++ ring-client-gnome/client-gnome/jami-gnome.metainfo.xml	2019-12-12 19:18:46.347919105 +0100
+--- jami-client-gnome/jami-gnome.appdata.xml	2019-12-09 17:04:40.000000000 +0100
++++ jami-client-gnome/jami-gnome.metainfo.xml	2019-12-12 19:18:46.347919105 +0100
 @@ -6,7 +6,9 @@
   <project_license>GPL-3.0+</project_license>
   <name>Jami</name>

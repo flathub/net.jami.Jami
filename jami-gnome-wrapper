@@ -1,6 +1,0 @@
-#!/bin/sh
-# The ring deamon should be launched automatically, but some Flatpak change
-# started preventing it from installing its service activation file
-dring &
-
-exec jami-gnome "$@"
