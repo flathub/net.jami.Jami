@@ -38,6 +38,9 @@ cleanup:
   - /share/doc-doc
   - /share/info
   - /share/man
+  #- /share/aclocal
+  #- /share/libayatana-indicator
+  #- /share/libdbusmenu
   - /include
 
 rename-desktop-file: jami-gnome.desktop
@@ -51,7 +54,7 @@ modules:
     builddir: true
     config-opts:
       - -DCMAKE_INSTALL_PREFIX=/app
-      #- -CMAKE_BUILD_TYPE=Debug
+      - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/ring-client-gnome.git
@@ -86,3 +89,10 @@ modules:
       - dependencies/qrencode.yml
       # jami-gnome deps
       - dependencies/libringclient.yml
+      - shared-modules/intltool/intltool-0.51.json
+      - shared-modules/dbus-glib/dbus-glib-0.110.json
+      - dependencies/mate-common.yml
+      - dependencies/libdbusmenu.yml
+      - dependencies/ayatana-ido.yml
+      - dependencies/libayatana-indicator.yml
+      - dependencies/libayatana-appindicator3.yml
