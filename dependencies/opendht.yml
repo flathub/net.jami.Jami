@@ -1,0 +1,17 @@
+name: opendht
+buildsystem: cmake
+config-opts:
+  - -DCMAKE_INSTALL_PREFIX=/app
+  - -DCMAKE_INSTALL_LIBDIR=lib
+  - -DOPENDHT_STATIC=OFF
+  - -DOPENDHT_DOCUMENTATION=OFF
+  - -DOPENDHT_TOOLS=OFF
+  - -DOPENDHT_INDEX=OFF
+  - -DOPENDHT_PYTHON=OFF
+  - -DOPENDHT_PROXY_SERVER=ON
+  - -DOPENDHT_PROXY_CLIENT=ON
+  - -DOPENDHT_PUSH_NOTIFICATIONS=ON
+sources:
+  - type: archive
+    url: https://github.com/savoirfairelinux/opendht/archive/2.1.9.5.tar.gz
+    sha256: 74eb58f0589577a9df378772f1dd2edc1c3f1b16a045057c3bcb120d2c16403f

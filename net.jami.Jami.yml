@@ -45,259 +45,44 @@ rename-appdata-file: jami-gnome.appdata.xml
 rename-icon: jami
 
 modules:
+  # wants ayatana-appindicator3, appindicator3
   - name: jami-gnome
     buildsystem: cmake
     builddir: true
     config-opts:
       - -DCMAKE_INSTALL_PREFIX=/app
-      - -DCMAKE_BUILD_TYPE=Release
+      #- -CMAKE_BUILD_TYPE=Debug
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/ring-client-gnome.git
-        commit: 990ffe0077a495163f9641854d3cbf94f36dfe99
+        commit: e84cb03f1ccfa180a93ebc85ef6a4e72c9ef0619
       - type: patch
-        path: patches/client-appstream-metadata.patch
+        path: patches/jami-gnome_client-appstream-metadata.patch
       - type: shell
         commands:
           - ln -sf /app/include/libringclient/web-chatview/* web
     modules:
-      - name: libcanberra
-        config-opts:
-          - --prefix=/app
-          - --disable-static
-          - --enable-null
-          - --disable-oss
-          - --enable-alsa
-          - --enable-gstreamer
-          - --enable-pulse
-        sources:
-          - type: archive
-            url: http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz
-            sha256: c2b671e67e0c288a69fc33dc1b6f1b534d07882c2aceed37004bf48c601afa72
-      - name: qrencode
-        buildsystem: cmake-ninja
-        sources:
-          - type: archive
-            url: https://fukuchi.org/works/qrencode/qrencode-4.1.1.tar.gz
-            sha512: 209bb656ae3f391b03c7b3ceb03e34f7320b0105babf48b619e7a299528b8828449e0e7696f0b5db0d99170a81709d0518e34835229a748701e7df784e58a9ce
-      # missing Qt5LinguistTools
-      - name: libringclient
-        buildsystem: cmake
-        builddir: true
-        config-opts:
-          - -DCMAKE_INSTALL_PREFIX=/app
-          - -DCMAKE_BUILD_TYPE=Release
-        sources:
-          - type: git
-            url: https://git.jami.net/savoirfairelinux/ring-lrc.git
-            commit: 796ab5a1ebadd84be6ac80f7f9f27158925a2bf7
-        modules:
-          - io.qt.qt5-base.json
-          - name: jami-daemon
-            buildsystem: simple
-            build-commands:
-              # build debs
-              - mkdir contrib/native
-              - autoreconf -fvi
-              - cp pjproject-2.10.tar.gz contrib/tarballs
-              - cd contrib/native && ../bootstrap --prefix=/app --disable-downloads --disable-all --enable-pjproject
-              - cd contrib/native && make DEPS_pjproject=
-              # build jamid
-              #- mkdir build
-              #- meson --prefix=/app ./ ./build
-              #- ninja -C ./build
-              #- meson install -C build
-              - ./configure --prefix=/app
-              - make -j8
-              - make install
-            sources:
-              - type: git
-                url: https://git.jami.net/savoirfairelinux/ring-daemon.git
-                commit: 02b1424958fcef99efb799dd1f9dba61f8edbb76
-              - type: file
-                url: https://github.com/pjsip/pjproject/archive/2.10/pjproject-2.10.tar.gz
-                sha256: 936a4c5b98601b52325463a397ddf11ab4106c6a7b04f8dc7cdd377efbb597de
-            modules:
-              - name: dbus-c++
-                build-options:
-                  ldflags: -lpthread
-                config-opts:
-                  - --prefix=/app
-                  - --disable-static
-                  - --disable-ecore
-                  - --disable-glib
-                  - --disable-examples
-                sources:
-                  - type: archive
-                    url: https://sourceforge.net/projects/dbus-cplusplus/files/dbus-c%2B%2B/0.9.0/libdbus-c%2B%2B-0.9.0.tar.gz
-                    sha256: bc11ac297b3cb010be904c72789695543ee3fdf3d75cdc8225fd371385af4e61
-                  - type: patch
-                    path: patches/fix-writechar.patch
-                  - type: patch
-                    path: patches/gcc47.patch
-                  - type: patch
-                    path: patches/disable-threading.patch
-              - name: opendht
-                buildsystem: cmake
-                config-opts:
-                  - -DCMAKE_INSTALL_PREFIX=/app
-                  - -DCMAKE_INSTALL_LIBDIR=lib
-                  - -DOPENDHT_STATIC=OFF
-                  - -DOPENDHT_DOCUMENTATION=OFF
-                  - -DOPENDHT_TOOLS=OFF
-                  - -DOPENDHT_INDEX=OFF
-                  - -DOPENDHT_PYTHON=OFF
-                  - -DOPENDHT_PROXY_SERVER=ON
-                  - -DOPENDHT_PROXY_CLIENT=ON
-                  - -DOPENDHT_PUSH_NOTIFICATIONS=ON
-                sources:
-                  - type: archive
-                    url: https://github.com/savoirfairelinux/opendht/archive/2.1.9.5.tar.gz
-                    sha256: 74eb58f0589577a9df378772f1dd2edc1c3f1b16a045057c3bcb120d2c16403f
-                modules:
-                  - name: nettle
-                    config-opts:
-                      - --prefix=/app
-                      - --libdir=/app/lib
-                      - --disable-static
-                      - --disable-documentation
-                    sources:
-                      - type: archive
-                        url: https://ftp.gnu.org/gnu/nettle/nettle-3.6.tar.gz
-                        sha256: d24c0d0f2abffbc8f4f34dcf114b0f131ec3774895f3555922fe2f40f3d5e3f1
-                    modules:
-                      - name: gmp
-                        config-opts:
-                          - --prefix=/app
-                        sources:
-                          - type: archive
-                            url: https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz
-                            sha256: fd4829912cddd12f84181c3451cc752be224643e87fac497b69edddadc49b4f2
-                  - name: msgpack
-                    buildsystem: cmake
-                    config-opts:
-                      - -DCMAKE_INSTALL_PREFIX=/app
-                      - -DBUILD_SHARED_LIBS=ON
-                      - -DMSGPACK_ENABLE_STATIC=OFF
-                      - -DCMAKE_INSTALL_LIBDIR=lib
-                      - -DMSGPACK_BUILD_EXAMPLES=OFF
-                      - -DMSGPACK_CXX11=ON
-                    sources:
-                      - type: archive
-                        url: https://github.com/msgpack/msgpack-c/releases/download/cpp-3.3.0/msgpack-3.3.0.tar.gz
-                        sha256: 6e114d12a5ddb8cb11f669f83f32246e484a8addd0ce93f274996f1941c1f07b
-                  - name: argon2
-                    no-autogen: true
-                    make-args:
-                      - PREFIX=/app
-                      - LIBRARY_REL=lib
-                    make-install-args:
-                      - PREFIX=/app
-                      - LIBRARY_REL=lib
-                    sources:
-                      - type: archive
-                        url: https://github.com/P-H-C/phc-winner-argon2/archive/20190702.tar.gz
-                        sha256: daf972a89577f8772602bf2eb38b6a3dd3d922bf5724d45e7f9589b5e830442c
-                  - name: asio
-                    config-opts:
-                      - --prefix=/app
-                      - --without-boost
-                    sources:
-                      - type: archive
-                        url: https://sourceforge.net/projects/asio/files/asio/1.18.0%20%28Stable%29/asio-1.18.0.tar.gz
-                        sha256: 57104cf9d102f283eb484034eb14914d9491f2c2027730ba055fa3639f7cb385
-                  - name: jsoncpp
-                    buildsystem: meson
-                    sources:
-                      - type: archive
-                        url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.4.tar.gz
-                        sha256: e34a628a8142643b976c7233ef381457efad79468c67cb1ae0b83a33d7493999
-                  # Wants boost but builds without it
-                  - name: restinio
-                    subdir: dev
-                    buildsystem: cmake
-                    config-opts:
-                      - -DCMAKE_BUILD_TYPE=Release
-                      - -DCMAKE_INSTALL_PREFIX=/app
-                      - -DRESTINIO_FIND_DEPS=ON
-                      - -DRESTINIO_TEST=OFF
-                      - -DRESTINIO_SAMPLE=OFF
-                      - -DRESTINIO_INSTALL_SAMPLES=OFF
-                      - -DRESTINIO_BENCH=OFF
-                      - -DRESTINIO_INSTALL_BENCHES=OFF
-                      - -DRESTINIO_ALLOW_SOBJECTIZER=OFF
-                      - -DRESTINIO_USE_EXTERNAL_HTTP_PARSER=ON
-                    sources:
-                      - type: archive
-                        url: https://github.com/Stiffstream/restinio/releases/download/v.0.6.12/restinio-0.6.12.zip
-                        sha256: 59f253718bf8d6af8142a5f7cca766e434b0b843d245451e9af70302b7e0eeb0
-                    modules:
-                      - name: http-parser
-                        no-autogen: true
-                        make-args:
-                          - library
-                        make-install-args:
-                          - PREFIX=/app
-                        sources:
-                          - type: archive
-                            url: https://github.com/nodejs/http-parser/archive/v2.9.4.tar.gz
-                            sha256: 467b9e30fd0979ee301065e70f637d525c28193449e1b13fbcb1b1fab3ad224f
-                      - name: fmt
-                        buildsystem: cmake
-                        config-opts:
-                          - -DCMAKE_INSTALL_PREFIX=/app
-                          - -DCMAKE_INSTALL_LIBDIR=/app/lib
-                          - -DBUILD_SHARED_LIBS=ON
-                          - -DFMT_TEST=Off
-                        sources:
-                          - type: archive
-                            url: https://github.com/fmtlib/fmt/releases/download/7.1.2/fmt-7.1.2.zip
-                            sha256: 4d6968ab7c01e95cc76df136755703defb985105a117b83057e4fd5d53680ea7
-              - name: libsecp256k1
-                config-opts:
-                  - --prefix=/app
-                  - --disable-static
-                  - --disable-benchmark
-                  - --disable-openssl-tests
-                  - --disable-tests
-                sources:
-                  - type: git
-                    url: https://github.com/bitcoin-core/secp256k1.git
-                    commit: b61f9da54eff6d8137e0681b403b48be62f0460a
-              - name: yaml-cpp
-                buildsystem: cmake
-                config-opts:
-                  - -DCMAKE_INSTALL_PREFIX=/app
-                  - -DCMAKE_BUILD_TYPE=Release
-                  - -DBUILD_SHARED_LIBS=ON
-                  - -DYAML_BUILD_SHARED_LIBS=ON
-                  - -DYAML_CPP_BUILD_TOOLS=OFF
-                  - -DYAML_CPP_BUILD_TESTS=OFF
-                  - -DYAML_CPP_BUILD_CONTRIB=OFF
-                sources:
-                  - type: archive
-                    url: https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-0.6.3.tar.gz
-                    sha256: 77ea1b90b3718aa0c324207cb29418f5bced2354c2e483a9523d98c3460af1ed
-              - name: libupnp
-                config-opts:
-                  - --prefix=/app
-                  - --disable-largefile
-                  - --disable-samples
-                  - --disable-device
-                  - --disable-webserver
-                  - --without-documentation
-                sources:
-                  - type: archive
-                    url: https://github.com/pupnp/pupnp/archive/release-1.14.0.tar.gz
-                    sha256: 8f8ef5eb7c434984a32b2fd614262855652b402418d4c453b5204823de1aa2de
-              - name: libnatpmp
-                no-autogen: true
-                make-install-args:
-                  - INSTALLDIRINC=/app/include
-                  - INSTALLDIRLIB=/app/lib
-                  - INSTALLDIRBIN=/app/bin
-                sources:
-                  - type: archive
-                    url: https://miniupnp.tuxfamily.org/files/libnatpmp-20150609.tar.gz
-                    sha256: e1aa9c4c4219bc06943d6b2130f664daee213fb262fcb94dd355815b8f4536b0
-
+      # opendht deps
+      - dependencies/gmp.yml
+      - dependencies/nettle.yml # needs gmp
+      - dependencies/argon2.yml
+      - dependencies/msgpack.yml
+      - dependencies/asio.yml
+      - dependencies/jsoncpp.yml
+      - dependencies/http-parser.yml
+      - dependencies/fmt.yml
+      - dependencies/restinio.yml # needs fmt, http-parser
+      # jami-daemon deps
+      - dependencies/opendht.yml
+      - dependencies/dbus-c++.yml
+      - dependencies/libsecp256k1.yml
+      - dependencies/yaml-cpp.yml
+      - dependencies/libupnp.yml
+      - dependencies/libnatpmp.yml
+      # libringclient deps
+      - dependencies/jami-daemon.yml
+      - dependencies/io.qt.qt5-base.json
+      - dependencies/libcanberra.yml
+      - dependencies/qrencode.yml
+      # jami-gnome deps
+      - dependencies/libringclient.yml

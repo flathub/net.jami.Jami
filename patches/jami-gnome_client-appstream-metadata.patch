@@ -8,7 +8,7 @@
   <summary>Privacy oriented voice, video and chat platform.</summary>
 - <icon type="stock">jami</icon>
 + <releases>
-+  <release version="20200424.2.b47f076" date="2020-04-24" />
++  <release version="20201217.1.80217fa" date="2020-12-17" />
 + </releases>
   <description>
    <p>

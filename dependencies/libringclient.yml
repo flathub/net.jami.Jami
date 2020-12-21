@@ -1,0 +1,11 @@
+# missing Qt5LinguistTools
+name: libringclient
+buildsystem: cmake
+builddir: true
+config-opts:
+  - -DCMAKE_INSTALL_PREFIX=/app
+  - -DCMAKE_BUILD_TYPE=Release
+sources:
+  - type: git
+    url: https://git.jami.net/savoirfairelinux/ring-lrc.git
+    commit: f490245905fc24b0339cac410deaddd9a51cdc58

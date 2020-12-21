@@ -20,6 +20,7 @@
       }
     }
   },
+  "@note": "When the dependency on Qt5Gui is removed by libringclient, add these flags: -no-gui -no-feature-network -no-freetype -no-fontconfig",
   "config-opts": [
     "-confirm-license",
     "-opensource",
@@ -76,11 +77,11 @@
     },
     {
       "type": "patch",
-      "path": "patches/qtbase-avoid-hardcoding-kernel-version.patch"
+      "path": "../patches/qtbase_avoid-hardcoding-kernel-version.patch"
     },
     {
       "type": "patch",
-      "path": "patches/qtbase-use-wayland-on-gnome.patch"
+      "path": "../patches/qtbase_use-wayland-on-gnome.patch"
     },
     {
       "type": "shell",
