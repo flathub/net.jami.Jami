@@ -11,6 +11,15 @@ sources:
   - type: archive
     url: https://sourceforge.net/projects/dbus-cplusplus/files/dbus-c%2B%2B/0.9.0/libdbus-c%2B%2B-0.9.0.tar.gz
     sha256: bc11ac297b3cb010be904c72789695543ee3fdf3d75cdc8225fd371385af4e61
+  - type: shell
+    commands:
+      - rm config.guess config.sub
+  - type: file
+    path: ../patches/dbus-c++_config.guess
+    dest-filename: config.guess
+  - type: file
+    path: ../patches/dbus-c++_config.sub
+    dest-filename: config.sub
   - type: patch
     path: ../patches/dbus-c++_fix-writechar.patch
   - type: patch
