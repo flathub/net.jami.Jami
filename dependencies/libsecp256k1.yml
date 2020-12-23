@@ -1,0 +1,11 @@
+name: libsecp256k1
+config-opts:
+  - --prefix=/app
+  - --disable-static
+  - --disable-benchmark
+  - --disable-openssl-tests
+  - --disable-tests
+sources:
+  - type: git
+    url: https://github.com/bitcoin-core/secp256k1.git
+    commit: b61f9da54eff6d8137e0681b403b48be62f0460a 

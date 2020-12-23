@@ -1,0 +1,7 @@
+name: gmp
+config-opts:
+  - --prefix=/app
+sources:
+  - type: archive
+    url: https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz
+    sha256: fd4829912cddd12f84181c3451cc752be224643e87fac497b69edddadc49b4f2 

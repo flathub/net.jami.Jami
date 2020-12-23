@@ -1,0 +1,114 @@
+app-id: net.jami.Jami
+runtime: org.gnome.Platform
+runtime-version: '3.38'
+sdk: org.gnome.Sdk
+command: jami-gnome
+
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --share=network
+  - --device=all
+  - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.kde.StatusNotifierWatcher
+  #- --talk-name=org.gtk.vfs    # seems to work without it
+  #- --talk-name=org.gtk.vfs.* 
+  - --filesystem=~/.local/share/ring
+  - --filesystem=~/.local/share/gnome-ring
+  - --filesystem=xdg-config/ring
+  - --filesystem=xdg-download
+  - --filesystem=xdg-music
+  - --filesystem=xdg-pictures
+  - --filesystem=xdg-videos
+  - --filesystem=xdg-documents
+  #- --own-name=org.mpris.MediaPlayer2.net.jami.Jami    # seems to work without it
+  - --own-name=cx.ring.Ring
+  - --metadata=X-DConf=migrate-path=/net/jami/JamiGnome/
+
+add-extensions:
+  org.freedesktop.Platform.ffmpeg-full:
+    directory: lib/ffmpeg
+    add-ld-path: .
+    version: '20.08'
+    autodownload: false
+    autodelete: false
+
+cleanup-commands:
+  - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
+
+cleanup:
+  - /bin/jami
+  - "*.a"
+  - "*.la"
+  - "*.prl"
+  - /lib/pkgconfig
+  - /lib/cmake
+  - /lib/debug
+  - /lib/mkspecs
+  - /doc
+  - /share/doc
+  - /share/doc-doc
+  - /share/gtk-doc
+  - /share/gnome
+  - /share/info
+  - /share/man
+  - /include
+  - /bin/ring.cx
+
+cleanup-commands:
+  - mkdir -p /app/lib/ffmpeg
+
+rename-desktop-file: jami-gnome.desktop
+rename-appdata-file: jami-gnome.appdata.xml
+rename-icon: jami
+
+modules:
+  - name: jami-gnome
+    buildsystem: cmake
+    builddir: true
+    config-opts:
+      - -DCMAKE_INSTALL_PREFIX=/app
+      - -DCMAKE_BUILD_TYPE=Release
+    sources:
+      - type: git
+        url: https://git.jami.net/savoirfairelinux/ring-client-gnome.git
+        commit: e84cb03f1ccfa180a93ebc85ef6a4e72c9ef0619
+      - type: patch
+        path: patches/jami-gnome_client-appstream-metadata.patch
+      - type: shell
+        commands:
+          - ln -sf /app/include/libringclient/web-chatview/* web
+    modules:
+      # opendht deps
+      - dependencies/gmp.yml
+      - dependencies/nettle.yml # needs gmp
+      - dependencies/argon2.yml
+      - dependencies/msgpack.yml
+      - dependencies/asio.yml
+      - dependencies/jsoncpp.yml
+      - dependencies/http-parser.yml
+      - dependencies/fmt.yml
+      - dependencies/restinio.yml # needs fmt, http-parser
+      # jami-daemon deps
+      - dependencies/opendht.yml
+      - dependencies/dbus-c++.yml
+      - dependencies/libsecp256k1.yml
+      - dependencies/yaml-cpp.yml
+      - dependencies/libupnp.yml
+      - dependencies/libnatpmp.yml
+      # libringclient deps
+      - dependencies/jami-daemon.yml
+      - dependencies/io.qt.qt5-base.json
+      - dependencies/libcanberra.yml
+      - dependencies/qrencode.yml
+      # jami-gnome deps
+      - dependencies/libringclient.yml
+      - shared-modules/intltool/intltool-0.51.json
+      - shared-modules/dbus-glib/dbus-glib-0.110.json
+      - dependencies/mate-common.yml
+      - dependencies/libdbusmenu.yml
+      - dependencies/ayatana-ido.yml
+      - dependencies/libayatana-indicator.yml
+      - dependencies/libayatana-appindicator3.yml

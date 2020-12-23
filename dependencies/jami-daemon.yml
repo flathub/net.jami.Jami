@@ -1,0 +1,24 @@
+name: jami-daemon
+buildsystem: simple
+build-commands:
+  # build debs
+  - mkdir contrib/native
+  - autoreconf -fvi
+  - cp pjproject-2.10.tar.gz contrib/tarballs
+  - cd contrib/native && ../bootstrap --prefix=/app --disable-downloads --disable-all --enable-pjproject
+  - cd contrib/native && make DEPS_pjproject=
+  # build jamid (meson doesn't install /share/dbus-1/interfaces)
+  #- mkdir build
+  #- meson --prefix=/app ./ ./build
+  #- ninja -C ./build
+  #- meson install -C build
+  - ./configure --prefix=/app
+  - make -j${FLATPAK_BUILDER_N_JOBS}
+  - make install
+sources:
+  - type: git
+    url: https://git.jami.net/savoirfairelinux/ring-daemon.git
+    commit: 324d49ce4d04b3067e6f0d2382c4e6dfd385f56b
+  - type: file
+    url: https://github.com/pjsip/pjproject/archive/2.10/pjproject-2.10.tar.gz
+    sha256: 936a4c5b98601b52325463a397ddf11ab4106c6a7b04f8dc7cdd377efbb597de 

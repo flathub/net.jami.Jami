@@ -1,0 +1,10 @@
+name: libayatana-appindicator3
+config-opts:
+  - --disable-introspection
+  - --disable-static
+  - --disable-tests
+  - --with-gtk=3
+sources:
+  - type: archive
+    url: https://github.com/AyatanaIndicators/libayatana-appindicator/archive/0.5.5.tar.gz
+    sha256: 55e47e94f54e6f2f13bcc06ab20530ad0a1412282a8775331af41788b59ee331
