@@ -3,3 +3,5 @@ sources:
   - type: archive
     url: https://github.com/AyatanaIndicators/ayatana-ido/archive/0.8.1.tar.gz
     sha256: 1e5e75c31c90b63d1ae1348bd5b3bd4fdeb2df0bd94707d355484f5a280eac7b
+cleanup:
+    - /share/vala

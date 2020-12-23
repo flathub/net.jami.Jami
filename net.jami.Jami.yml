@@ -11,7 +11,10 @@ finish-args:
   - --socket=pulseaudio
   - --share=network
   - --device=all
+  - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
+  #- --talk-name=org.gtk.vfs    # seems to work without it
+  #- --talk-name=org.gtk.vfs.* 
   - --filesystem=~/.local/share/ring
   - --filesystem=~/.local/share/gnome-ring
   - --filesystem=xdg-config/ring
@@ -20,12 +23,23 @@ finish-args:
   - --filesystem=xdg-pictures
   - --filesystem=xdg-videos
   - --filesystem=xdg-documents
+  #- --own-name=org.mpris.MediaPlayer2.net.jami.Jami    # seems to work without it
   - --own-name=cx.ring.Ring
   - --metadata=X-DConf=migrate-path=/net/jami/JamiGnome/
 
+add-extensions:
+  org.freedesktop.Platform.ffmpeg-full:
+    directory: lib/ffmpeg
+    add-ld-path: .
+    version: '20.08'
+    autodownload: false
+    autodelete: false
+
+cleanup-commands:
+  - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
+
 cleanup:
   - /bin/jami
-  - /bin/ring.cx
   - "*.a"
   - "*.la"
   - "*.prl"
@@ -36,19 +50,21 @@ cleanup:
   - /doc
   - /share/doc
   - /share/doc-doc
+  - /share/gtk-doc
+  - /share/gnome
   - /share/info
   - /share/man
-  #- /share/aclocal
-  #- /share/libayatana-indicator
-  #- /share/libdbusmenu
   - /include
+  - /bin/ring.cx
+
+cleanup-commands:
+  - mkdir -p /app/lib/ffmpeg
 
 rename-desktop-file: jami-gnome.desktop
 rename-appdata-file: jami-gnome.appdata.xml
 rename-icon: jami
 
 modules:
-  # wants ayatana-appindicator3, appindicator3
   - name: jami-gnome
     buildsystem: cmake
     builddir: true

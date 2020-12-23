@@ -9,3 +9,4 @@ sources:
     sha256: 351b1116cd1fc74592a18d71b03237e8a6ea207438667b734d6d4c13ccd7f4fa
 cleanup:
   - /share/libayatana-indicator
+  - /libexec

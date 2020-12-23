@@ -26,3 +26,5 @@ sources:
     path: ../patches/dbus-c++_gcc47.patch
   - type: patch
     path: ../patches/dbus-c++_disable-threading.patch
+cleanup:
+  - /bin
