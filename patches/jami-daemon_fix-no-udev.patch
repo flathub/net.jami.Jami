@@ -1,0 +1,23 @@
+diff --git a/src/media/video/v4l2/video_device_monitor_impl.cpp b/src/media/video/v4l2/video_device_monitor_impl.cpp
+index c6a4a2e9f..a8139c8f5 100644
+--- a/src/media/video/v4l2/video_device_monitor_impl.cpp
++++ b/src/media/video/v4l2/video_device_monitor_impl.cpp
+@@ -36,6 +36,7 @@
+ #include "../video_device_monitor.h"
+ #include "logger.h"
+ #include "noncopyable.h"
++#include <fstream>
+ 
+ extern "C" {
+ #include <fcntl.h>
+@@ -177,6 +178,10 @@ udev_failed:
+     for (int idx = 0;; ++idx) {
+         std::stringstream ss;
+         ss << "/dev/video" << idx;
++        auto stream = std::ifstream(ss.str());
++        if (!stream.good())
++            return;
++        stream.close();
+         try {
+             monitor_->addDevice(ss.str());
+         } catch (const std::runtime_error& e) {

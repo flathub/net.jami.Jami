@@ -1,0 +1,50 @@
+name: ffmpeg
+config-opts:
+  - --prefix=/app
+  - --disable-everything
+  - --disable-debug
+  - --disable-doc
+  - --enable-optimizations
+  - --enable-gmp
+  - --enable-version3
+  - --enable-gnutls
+  - --disable-static
+  - --enable-shared
+  - --enable-zlib
+  - --enable-gpl
+  - --enable-swscale
+  - --enable-bsfs
+  - --disable-filters
+  - --disable-programs
+  - --disable-postproc
+  - --disable-protocols
+  - --enable-protocol=crypto,file,rtp,srtp,tcp,udp,unix,pipe
+  - --disable-demuxers
+  - --disable-muxers
+  - --enable-muxer=rtp,g722,h263,h264,hevc,webm,ogg,pcm_s16be,pcm_s16le
+  - --enable-demuxer=rtp,mjpeg,mjpeg_2000,mpegvideo,gif,image_jpeg_pipe,image_png_pipe,image_webp_pipe,matroska,m4v,mp3,ogg,flac,wav,ac3,g722,pcm_mulaw,pcm_alaw,pcm_s16be,pcm_s16le,h263,h264,hevc
+  - --enable-parser=h263,h264,hevc,mpeg4video,vp8,vp9,opus
+  - --enable-libspeex
+  - --enable-libopus
+  - --enable-libvpx
+  - --enable-libx264
+  - --enable-parser=h263,h264,hevc,mpeg4video,vp8,vp9,opus
+  - --enable-encoder=adpcm_g722,rawvideo,pcm_alaw,pcm_mulaw,mpeg4,mjpeg,libspeex,libopus,libx264,libvpx_vp8,h263,h263p
+  - --enable-encoder=gif,jpegls,ljpeg,png,bmp,tiff
+  - --enable-decoder=adpcm_g722,rawvideo,pcm_alaw,pcm_mulaw,mpeg4,mjpeg,libspeex,libopus,h264,vp8,vp9,h263,mjpegb
+  - --enable-decoder=flac,vorbis,aac,ac3,eac3,mp3,pcm_u24be,pcm_u24le,pcm_u32be,pcm_u32le,pcm_u8,pcm_f16le,pcm_f24le,pcm_f32be,pcm_f32le,pcm_f64be,pcm_f64le,pcm_s16be,pcm_s16be_planar
+  - --enable-decoder=pcm_s16le,pcm_s16le_planar,pcm_s24be,pcm_s24le,pcm_s24le_planar,pcm_s32be,pcm_s32le,pcm_s32le_planar,pcm_s64be,pcm_s64le,pcm_s8,pcm_s8_planar,pcm_u16be,pcm_u16le
+  - --enable-decoder=gif,jpegls,jpeg2000,png,bmp,tiff
+  - --enable-filter=scale,overlay,amix,amerge,aresample,format,aformat,fps,transpose,pad
+  - --enable-indev=v4l2
+  - --enable-indev=xcbgrab
+  - --enable-vaapi
+  - --enable-vdpau
+  - --enable-hwaccel=h264_vdpau,mpeg4_vdpau,h264_vaapi,mpeg4_vaapi,h263_vaapi,vp8_vaapi,mjpeg_vaapi,hevc_vaapi
+  - --enable-encoder=h264_vaapi,vp8_vaapi,mjpeg_vaapi,hevc_vaapi
+sources:
+  - type: archive
+    url: https://ffmpeg.org/releases/ffmpeg-4.3.1.tar.bz2
+    sha256: f4a4ac63946b6eee3bbdde523e298fca6019d048d6e1db0d1439a62cea65f0d9
+cleanup:
+  - /share/ffmpeg
