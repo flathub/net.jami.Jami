@@ -79,9 +79,9 @@ modules:
       - dependencies/fmt.yml
       - dependencies/restinio.yml # needs fmt, http-parser
       # jami-daemon deps
+      - dependencies/opendht.yml
       - dependencies/x264.yml
       - dependencies/ffmpeg.yml
-      - dependencies/opendht.yml
       - dependencies/dbus-c++.yml
       - dependencies/libsecp256k1.yml
       - dependencies/yaml-cpp.yml

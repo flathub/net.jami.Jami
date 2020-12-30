@@ -5,7 +5,7 @@ build-commands:
   - mkdir contrib/native
   - autoreconf -fvi
   - cp pjproject-2.10.tar.gz contrib/tarballs
-  - cd contrib/native && ../bootstrap --prefix=/app --disable-downloads --disable-all --enable-pjproject --enable-ffmpeg
+  - cd contrib/native && ../bootstrap --prefix=/app --disable-downloads --disable-all --enable-pjproject
   - cd contrib/native && make DEPS_pjproject=
   # build jamid (meson doesn't install /share/dbus-1/interfaces)
   #- mkdir build
