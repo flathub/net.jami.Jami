@@ -1,0 +1,15 @@
+diff --git a/src/media/video/v4l2/video_device_monitor_impl.cpp b/src/media/video/v4l2/video_device_monitor_impl.cpp
+index c6a4a2e9f..faa8f4179 100644
+--- a/src/media/video/v4l2/video_device_monitor_impl.cpp
++++ b/src/media/video/v4l2/video_device_monitor_impl.cpp
+@@ -126,7 +126,9 @@ VideoDeviceMonitorImpl::VideoDeviceMonitorImpl(VideoDeviceMonitor* monitor)
+         udev_enumerate_unref(devenum);
+         goto udev_failed;
+     }
+-
++    
++    goto udev_failed;
++    
+     udev_monitor_enable_receiving(udev_mon_);
+     /* Note that we enumerate _after_ monitoring is enabled so that we do not
+      * loose device events occuring while we are enumerating. We could still

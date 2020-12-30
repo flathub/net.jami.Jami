@@ -21,4 +21,8 @@ sources:
     commit: 324d49ce4d04b3067e6f0d2382c4e6dfd385f56b
   - type: file
     url: https://github.com/pjsip/pjproject/archive/2.10/pjproject-2.10.tar.gz
-    sha256: 936a4c5b98601b52325463a397ddf11ab4106c6a7b04f8dc7cdd377efbb597de 
+    sha256: 936a4c5b98601b52325463a397ddf11ab4106c6a7b04f8dc7cdd377efbb597de
+  - type: patch
+    path: ../patches/jami-daemon_no-udev.patch
+  - type: patch
+    path: ../patches/jami-daemon_fix-no-udev.patch
