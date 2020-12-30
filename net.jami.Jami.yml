@@ -6,7 +6,7 @@ command: jami-gnome
 
 finish-args:
   - --share=ipc
-  - --socket=x11
+  - --socket=fallback-x11
   - --socket=wayland
   - --socket=pulseaudio
   - --share=network
@@ -27,17 +27,6 @@ finish-args:
   - --own-name=cx.ring.Ring
   - --metadata=X-DConf=migrate-path=/net/jami/JamiGnome/
 
-add-extensions:
-  org.freedesktop.Platform.ffmpeg-full:
-    directory: lib/ffmpeg
-    add-ld-path: .
-    version: '20.08'
-    autodownload: false
-    autodelete: false
-
-cleanup-commands:
-  - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
-
 cleanup:
   - /bin/jami
   - "*.a"
@@ -57,9 +46,6 @@ cleanup:
   - /include
   - /bin/ring.cx
 
-cleanup-commands:
-  - mkdir -p /app/lib/ffmpeg
-
 rename-desktop-file: jami-gnome.desktop
 rename-appdata-file: jami-gnome.appdata.xml
 rename-icon: jami
@@ -74,7 +60,8 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/ring-client-gnome.git
-        commit: e84cb03f1ccfa180a93ebc85ef6a4e72c9ef0619
+        branch: master
+        commit: ee50dfcc2fbc12a1799cc1287349867e01b60a2e
       - type: patch
         path: patches/jami-gnome_client-appstream-metadata.patch
       - type: shell
@@ -92,6 +79,8 @@ modules:
       - dependencies/fmt.yml
       - dependencies/restinio.yml # needs fmt, http-parser
       # jami-daemon deps
+      - dependencies/x264.yml
+      - dependencies/ffmpeg.yml
       - dependencies/opendht.yml
       - dependencies/dbus-c++.yml
       - dependencies/libsecp256k1.yml

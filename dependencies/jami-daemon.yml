@@ -5,7 +5,7 @@ build-commands:
   - mkdir contrib/native
   - autoreconf -fvi
   - cp pjproject-2.10.tar.gz contrib/tarballs
-  - cd contrib/native && ../bootstrap --prefix=/app --disable-downloads --disable-all --enable-pjproject
+  - cd contrib/native && ../bootstrap --prefix=/app --disable-downloads --disable-all --enable-pjproject --enable-ffmpeg
   - cd contrib/native && make DEPS_pjproject=
   # build jamid (meson doesn't install /share/dbus-1/interfaces)
   #- mkdir build
@@ -18,10 +18,14 @@ build-commands:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/ring-daemon.git
-    commit: 324d49ce4d04b3067e6f0d2382c4e6dfd385f56b
+    branch: master
+    commit: 7286e6cb04906d46c00f7829d74f057d828f102f
   - type: file
     url: https://github.com/pjsip/pjproject/archive/2.10/pjproject-2.10.tar.gz
     sha256: 936a4c5b98601b52325463a397ddf11ab4106c6a7b04f8dc7cdd377efbb597de
+  - type: archive
+    url: https://ffmpeg.org/releases/ffmpeg-4.3.1.tar.bz2
+    sha256: f4a4ac63946b6eee3bbdde523e298fca6019d048d6e1db0d1439a62cea65f0d9
   - type: patch
     path: ../patches/jami-daemon_no-udev.patch
   - type: patch
