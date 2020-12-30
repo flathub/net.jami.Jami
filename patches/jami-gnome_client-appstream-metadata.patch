@@ -1,14 +1,14 @@
-1) Add <release> to make Flathub's validator happy
-2) remove the icon tag, apparently you can't have that here
---- jami-client-gnome/jami-gnome.appdata.xml	2019-12-09 17:04:40.000000000 +0100
-+++ jami-client-gnome/jami-gnome.metainfo.xml	2019-12-12 19:18:46.347919105 +0100
+diff --git a/jami-gnome.appdata.xml b/jami-gnome.appdata.xml
+index aced5b3..8ebfeca 100644
+--- a/jami-gnome.appdata.xml
++++ b/jami-gnome.appdata.xml
 @@ -6,7 +6,9 @@
   <project_license>GPL-3.0+</project_license>
   <name>Jami</name>
   <summary>Privacy oriented voice, video and chat platform.</summary>
 - <icon type="stock">jami</icon>
 + <releases>
-+  <release version="20201217.1.80217fa" date="2020-12-17" />
++  <release version="20201228.1.ee50dfcc" date="2020-12-28" />
 + </releases>
   <description>
    <p>

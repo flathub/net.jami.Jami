@@ -8,4 +8,5 @@ config-opts:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/ring-lrc.git
-    commit: f490245905fc24b0339cac410deaddd9a51cdc58
+    branch: master
+    commit: b26e4d3be8a84a6ea9ef99d1dae502111d6fffae
