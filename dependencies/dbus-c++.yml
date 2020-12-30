@@ -14,12 +14,6 @@ sources:
   - type: shell
     commands:
       - autoreconf -vfi
-  #- type: file
-    #path: ../patches/dbus-c++_config.guess
-    #dest-filename: config.guess
-  #- type: file
-    #path: ../patches/dbus-c++_config.sub
-    #dest-filename: config.sub
   - type: patch
     path: ../patches/dbus-c++_fix-writechar.patch
   - type: patch
