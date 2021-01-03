@@ -67,6 +67,8 @@ modules:
       - type: shell
         commands:
           - ln -sf /app/include/libringclient/web-chatview/* web
+          - sed -i 's/Exec=jami-gnome/Exec=run-jami/g' jami-gnome.desktop
+          - sed -i 's/Exec=jami-gnome/Exec=run-jami/g' jami-gnome.desktop.autostart
     modules:
       # opendht deps
       - dependencies/gmp.yml
