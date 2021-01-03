@@ -13,7 +13,6 @@ finish-args:
   - --device=all
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
-  - --socket=session-bus
   #- --talk-name=org.gtk.vfs    # seems to work without it
   #- --talk-name=org.gtk.vfs.* 
   - --filesystem=~/.local/share/ring
