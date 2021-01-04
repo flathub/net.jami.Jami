@@ -2,7 +2,7 @@ app-id: net.jami.Jami
 runtime: org.gnome.Platform
 runtime-version: '3.38'
 sdk: org.gnome.Sdk
-command: run-jami
+command: jami-gnome
 
 finish-args:
   - --share=ipc
@@ -66,8 +66,6 @@ modules:
       - type: shell
         commands:
           - ln -sf /app/include/libringclient/web-chatview/* web
-          - sed -i 's/Exec=jami-gnome/Exec=run-jami/g' jami-gnome.desktop
-          - sed -i 's/Exec=jami-gnome/Exec=run-jami/g' jami-gnome.desktop.autostart
     modules:
       # opendht deps
       - dependencies/gmp.yml
@@ -82,12 +80,12 @@ modules:
       # jami-daemon deps
       - dependencies/opendht.yml
       - dependencies/x264.yml
-      - dependencies/ffmpeg.yml
       - dependencies/dbus-c++.yml
       - dependencies/libsecp256k1.yml
       - dependencies/yaml-cpp.yml
       - dependencies/libupnp.yml
       - dependencies/libnatpmp.yml
+      - dependencies/ffnvcodec.yml
       # libringclient deps
       - dependencies/jami-daemon.yml
       - dependencies/io.qt.qt5-base.json
@@ -102,10 +100,3 @@ modules:
       - dependencies/ayatana-ido.yml
       - dependencies/libayatana-indicator.yml
       - dependencies/libayatana-appindicator3.yml
-      - name: run-jami
-        buildsystem: simple
-        build-commands:
-          - install run-jami /app/bin
-        sources:
-          - type: file
-            path: run-jami

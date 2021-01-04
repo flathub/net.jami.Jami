@@ -1,4 +1,0 @@
-#!/bin/sh
-
-/app/lib/ring/dring &
-exec jami-gnome "$@"
