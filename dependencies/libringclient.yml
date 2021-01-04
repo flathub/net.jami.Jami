@@ -4,6 +4,7 @@ buildsystem: cmake
 builddir: true
 config-opts:
   - -DCMAKE_INSTALL_PREFIX=/app
+  - -DENABLE_LIBWRAP=true
   - -DCMAKE_BUILD_TYPE=Release
 sources:
   - type: git
