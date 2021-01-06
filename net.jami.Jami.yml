@@ -60,7 +60,7 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/ring-client-gnome.git
-        commit: ee50dfcc2fbc12a1799cc1287349867e01b60a2e
+        commit: f6d50ba8bd027d9d02964f0954b40275c472267b
       - type: patch
         path: patches/jami-gnome_client-appstream-metadata.patch
       - type: shell

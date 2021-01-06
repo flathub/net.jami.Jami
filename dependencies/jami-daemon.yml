@@ -12,7 +12,7 @@ build-commands:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/ring-daemon.git
-    commit: 7286e6cb04906d46c00f7829d74f057d828f102f
+    commit: 3eede614a445f73633e439d5240077c391a65423
   - type: file
     url: https://github.com/pjsip/pjproject/archive/2.10/pjproject-2.10.tar.gz
     sha256: 936a4c5b98601b52325463a397ddf11ab4106c6a7b04f8dc7cdd377efbb597de
@@ -21,8 +21,6 @@ sources:
     sha256: e7f40591aa390ec338b306bcfb9e7454141d9be5aa1fd2bd4a47095140f0563f
   - type: patch
     path: ../patches/jami-daemon_no-udev.patch
-  - type: patch
-    path: ../patches/jami-daemon_fix-no-udev.patch
   - type: shell
     commands:
       - mkdir contrib/native
