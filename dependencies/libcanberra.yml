@@ -1,12 +1,10 @@
 name: libcanberra
 config-opts:
-  - --prefix=/app
   - --disable-static
-  - --enable-null
+  - --disable-null
   - --disable-oss
   - --disable-alsa
-  - --enable-gstreamer
-  - --enable-pulse
+  - --disable-udev
 sources:
   - type: archive
     url: http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz
