@@ -14,7 +14,7 @@ finish-args:
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
   #- --talk-name=org.gtk.vfs    # seems to work without it
-  #- --talk-name=org.gtk.vfs.* 
+  #- --talk-name=org.gtk.vfs.*
   - --filesystem=~/.local/share/ring
   - --filesystem=~/.local/share/gnome-ring
   - --filesystem=xdg-config/ring
@@ -26,6 +26,7 @@ finish-args:
   #- --own-name=org.mpris.MediaPlayer2.net.jami.Jami    # seems to work without it
   - --own-name=cx.ring.Ring
   - --metadata=X-DConf=migrate-path=/net/jami/JamiGnome/
+  - --env=GTK_PATH=/app/lib/gtk-3.0
 
 cleanup:
   - /bin/jami
@@ -89,12 +90,12 @@ modules:
       # libringclient deps
       - dependencies/jami-daemon.yml
       - dependencies/io.qt.qt5-base.json
-      - dependencies/libcanberra.yml
       - dependencies/qrencode.yml
       # jami-gnome deps
       - dependencies/libringclient.yml
       - shared-modules/intltool/intltool-0.51.json
       - shared-modules/dbus-glib/dbus-glib-0.110.json
+      - dependencies/libcanberra.yml
       - dependencies/mate-common.yml
       - dependencies/libdbusmenu.yml
       - dependencies/ayatana-ido.yml

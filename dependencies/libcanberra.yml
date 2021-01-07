@@ -1,10 +1,13 @@
 name: libcanberra
 config-opts:
+  - --without-systemdsystemunitdir
   - --disable-static
   - --disable-null
   - --disable-oss
   - --disable-alsa
   - --disable-udev
+  - --disable-gtk-doc
+  - --disable-gtk-doc-html
 sources:
   - type: archive
     url: http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz
