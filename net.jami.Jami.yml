@@ -15,9 +15,6 @@ finish-args:
   - --talk-name=org.kde.StatusNotifierWatcher
   #- --talk-name=org.gtk.vfs    # seems to work without it
   #- --talk-name=org.gtk.vfs.*
-  - --filesystem=~/.local/share/ring
-  - --filesystem=~/.local/share/gnome-ring
-  - --filesystem=xdg-config/ring
   - --filesystem=xdg-download
   - --filesystem=xdg-music
   - --filesystem=xdg-pictures
