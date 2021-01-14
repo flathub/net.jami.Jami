@@ -5,7 +5,8 @@ config-opts:
   - --disable-benchmark
   - --disable-openssl-tests
   - --disable-tests
+  - --disable-exhaustive-tests
 sources:
   - type: git
     url: https://github.com/bitcoin-core/secp256k1.git
-    commit: b61f9da54eff6d8137e0681b403b48be62f0460a 
+    commit: f2d9aeae6d5a7c7fbbba8bbb38b1849b784beef7 
