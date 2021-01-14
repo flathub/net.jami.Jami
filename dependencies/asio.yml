@@ -4,5 +4,5 @@ config-opts:
   - --without-boost
 sources:
   - type: archive
-    url: https://sourceforge.net/projects/asio/files/asio/1.18.0%20%28Stable%29/asio-1.18.0.tar.gz
-    sha256: 57104cf9d102f283eb484034eb14914d9491f2c2027730ba055fa3639f7cb385
+    url: https://sourceforge.net/projects/asio/files/asio/1.18.1%20%28Stable%29/asio-1.18.1.tar.gz
+    sha256: a374dadc64849a5162643078169be9f325d3e62e9c7ab6a484185c4f11168034
