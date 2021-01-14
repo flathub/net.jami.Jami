@@ -1,0 +1,175 @@
+diff --git a/src/accountcreationwizard.cpp b/src/accountcreationwizard.cpp
+index 19da7243..97b56eaa 100644
+--- a/src/accountcreationwizard.cpp
++++ b/src/accountcreationwizard.cpp
+@@ -862,31 +862,27 @@ choose_export_file(AccountCreationWizard *view)
+     g_return_if_fail(IS_ACCOUNT_CREATION_WIZARD(view));
+     auto* priv = ACCOUNT_CREATION_WIZARD_GET_PRIVATE(view);
+     // Get preferred path
+-    GtkWidget* dialog;
++    GtkFileChooserNative *native;
+     GtkFileChooserAction action = GTK_FILE_CHOOSER_ACTION_SAVE;
+     gint res;
+     gchar* filename = nullptr;
+ 
+-    dialog = gtk_file_chooser_dialog_new(_("Save File"),
++    native = gtk_file_chooser_native_new(_("Save File"),
+                                          GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(view))),
+                                          action,
+-                                         _("_Cancel"),
+-                                         GTK_RESPONSE_CANCEL,
+                                          _("_Save"),
+-                                         GTK_RESPONSE_ACCEPT,
+-                                         nullptr);
++                                         _("_Cancel"));
+ 
+     const auto& accountInfo = priv->accountModel_->getAccountInfo(priv->accountId);
+     auto alias = accountInfo.profileInfo.alias;
+     auto uri = alias.isEmpty() ? "export.gz" : alias + ".gz";
+-    gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(dialog), qUtf8Printable(uri));
+-    res = gtk_dialog_run(GTK_DIALOG(dialog));
++    gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(native), qUtf8Printable(uri));
++    res = gtk_native_dialog_run(GTK_NATIVE_DIALOG(native));
+ 
+     if (res == GTK_RESPONSE_ACCEPT) {
+-        auto chooser = GTK_FILE_CHOOSER(dialog);
+-        filename = gtk_file_chooser_get_filename(chooser);
++        filename = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(native));
+     }
+-    gtk_widget_destroy(dialog);
++    g_object_unref(native);
+ 
+     if (!filename) return;
+ 
+diff --git a/src/avatarmanipulation.cpp b/src/avatarmanipulation.cpp
+index 42bc244d..ede0bb5d 100644
+--- a/src/avatarmanipulation.cpp
++++ b/src/avatarmanipulation.cpp
+@@ -424,6 +424,7 @@ static void
+ choose_picture(AvatarManipulation *self)
+ {
+     AvatarManipulationPrivate *priv = AVATAR_MANIPULATION_GET_PRIVATE(self);
++    GtkFileChooserNative *native;
+     GtkFileChooserAction action = GTK_FILE_CHOOSER_ACTION_OPEN;
+     gint res;
+ 
+@@ -431,24 +432,21 @@ choose_picture(AvatarManipulation *self)
+ 
+     GtkWidget *main_window = gtk_widget_get_toplevel(GTK_WIDGET(self));
+ 
+-    auto dialog = gtk_file_chooser_dialog_new (_("Open Avatar Image"),
++    native = gtk_file_chooser_native_new (_("Open Avatar Image"),
+                                           GTK_WINDOW(main_window),
+                                           action,
+-                                          _("_Cancel"),
+-                                          GTK_RESPONSE_CANCEL,
+                                           _("_Open"),
+-                                          GTK_RESPONSE_ACCEPT,
+-                                          NULL);
++                                          _("_Cancel"));
+ 
+     /* add an image preview inside the file choose */
+-    gtk_file_chooser_set_preview_widget (GTK_FILE_CHOOSER(dialog), preview);
+-    g_signal_connect (GTK_FILE_CHOOSER(dialog), "update-preview", G_CALLBACK (update_preview_cb), preview);
++    gtk_file_chooser_set_preview_widget (GTK_FILE_CHOOSER(native), preview);
++    g_signal_connect (GTK_FILE_CHOOSER(native), "update-preview", G_CALLBACK (update_preview_cb), preview);
+ 
+     /* start the file chooser */
+-    res = gtk_dialog_run (GTK_DIALOG(dialog)); /* blocks until the dialog is closed */
++    res = gtk_native_dialog_run (GTK_NATIVE_DIALOG (native)); /* blocks until the dialog is closed */
+ 
+     if (res == GTK_RESPONSE_ACCEPT) {
+-        if(auto filename = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER (dialog))) {
++        if(auto filename = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER (native))) {
+             GError* error =  nullptr; /* initialising to null avoid trouble... */
+ 
+             auto picture = gdk_pixbuf_new_from_file_at_size (filename, VIDEO_WIDTH, VIDEO_HEIGHT, &error);
+@@ -475,7 +473,7 @@ choose_picture(AvatarManipulation *self)
+         }
+     }
+ 
+-    gtk_widget_destroy(dialog);
++    g_object_unref (native);
+ }
+ 
+ static void
+diff --git a/src/chatview.cpp b/src/chatview.cpp
+index 94d02608..6da19882 100644
+--- a/src/chatview.cpp
++++ b/src/chatview.cpp
+@@ -273,27 +273,23 @@ send_text_clicked(ChatView *self, const std::string& body)
+ static gchar*
+ file_to_manipulate(GtkWindow* top_window, bool send)
+ {
+-    GtkWidget* dialog;
++    GtkFileChooserNative *native;
+     GtkFileChooserAction action = send? GTK_FILE_CHOOSER_ACTION_OPEN : GTK_FILE_CHOOSER_ACTION_SAVE;
+     gint res;
+     gchar* filename = nullptr;
+ 
+-    dialog = gtk_file_chooser_dialog_new(send? _("Send File") : _("Save File"),
++    native = gtk_file_chooser_native_new(send? _("Send File") : _("Save File"),
+                                          top_window,
+                                          action,
+-                                         _("_Cancel"),
+-                                         GTK_RESPONSE_CANCEL,
+                                          send? _("_Open"): _("_Save"),
+-                                         GTK_RESPONSE_ACCEPT,
+-                                         nullptr);
++                                         _("_Cancel"));
+ 
+-    res = gtk_dialog_run (GTK_DIALOG(dialog));
++    res = gtk_native_dialog_run (GTK_NATIVE_DIALOG(native));
+ 
+     if (res == GTK_RESPONSE_ACCEPT) {
+-        auto chooser = GTK_FILE_CHOOSER(dialog);
+-        filename = gtk_file_chooser_get_filename(chooser);
++        filename = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(native));
+     }
+-    gtk_widget_destroy (dialog);
++    g_object_unref (native);
+ 
+     return filename;
+ }
+diff --git a/src/newaccountsettingsview.cpp b/src/newaccountsettingsview.cpp
+index e3a2a37a..62d33565 100644
+--- a/src/newaccountsettingsview.cpp
++++ b/src/newaccountsettingsview.cpp
+@@ -900,30 +900,26 @@ choose_export_file(NewAccountSettingsView *view)
+     g_return_if_fail(IS_NEW_ACCOUNT_SETTINGS_VIEW(view));
+     auto* priv = NEW_ACCOUNT_SETTINGS_VIEW_GET_PRIVATE(view);
+     // Get preferred path
+-    GtkWidget* dialog;
++    GtkFileChooserNative *native;
+     GtkFileChooserAction action = GTK_FILE_CHOOSER_ACTION_SAVE;
+     gint res;
+     gchar* filename = nullptr;
+ 
+-    dialog = gtk_file_chooser_dialog_new(_("Save File"),
++    native = gtk_file_chooser_native_new(_("Save File"),
+                                          GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(view))),
+                                          action,
+-                                         _("_Cancel"),
+-                                         GTK_RESPONSE_CANCEL,
+                                          _("_Save"),
+-                                         GTK_RESPONSE_ACCEPT,
+-                                         nullptr);
++                                         _("_Cancel"));
+ 
+     QString alias = (*priv->accountInfo_)->profileInfo.alias;
+     QString uri = alias.isEmpty()? "export.gz" : alias + ".gz";
+-    gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(dialog), qUtf8Printable(uri));
+-    res = gtk_dialog_run(GTK_DIALOG(dialog));
++    gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(native), qUtf8Printable(uri));
++    res = gtk_native_dialog_run(GTK_NATIVE_DIALOG(native));
+ 
+     if (res == GTK_RESPONSE_ACCEPT) {
+-        auto chooser = GTK_FILE_CHOOSER(dialog);
+-        filename = gtk_file_chooser_get_filename(chooser);
++        filename = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(native));
+     }
+-    gtk_widget_destroy(dialog);
++    g_object_unref (native);
+ 
+     if (!filename) return;
+ 
