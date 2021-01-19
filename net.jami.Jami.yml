@@ -16,10 +16,10 @@ finish-args:
   #- --talk-name=org.gtk.vfs    # seems to work without it
   #- --talk-name=org.gtk.vfs.*
   - --filesystem=xdg-download
-  #- --filesystem=xdg-music
-  #- --filesystem=xdg-pictures
-  #- --filesystem=xdg-videos
-  #- --filesystem=xdg-documents
+  - --filesystem=xdg-music
+  - --filesystem=xdg-pictures
+  - --filesystem=xdg-videos
+  - --filesystem=xdg-documents
   #- --own-name=org.mpris.MediaPlayer2.net.jami.Jami    # seems to work without it
   - --own-name=cx.ring.Ring
   - --metadata=X-DConf=migrate-path=/net/jami/JamiGnome/
@@ -58,11 +58,9 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/ring-client-gnome.git
-        commit: 7695511b3526e91cf98ef0ff5f8fc39a42442982
+        commit: 369a862a037129d16b566436d66289769d1b7da4
       - type: patch
         path: patches/jami-gnome_client-appstream-metadata.patch
-      - type: patch
-        path: patches/jami-gnome_client-GtkFileChooserNative.patch
       - type: shell
         commands:
           - ln -sf /app/include/libringclient/web-chatview/* web
