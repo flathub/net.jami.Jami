@@ -12,17 +12,17 @@ build-commands:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/ring-daemon.git
-    commit: 3448725d466b0106bb63b92e487b35055bd39701
+    commit: 36764836f65bc75b6e5923bd2390e5b5514fb9d1
   - type: file
     url: https://github.com/pjsip/pjproject/archive/2.10/pjproject-2.10.tar.gz
     sha256: 936a4c5b98601b52325463a397ddf11ab4106c6a7b04f8dc7cdd377efbb597de
   - type: file
-    url: https://git.ffmpeg.org/gitweb/ffmpeg.git/snapshot/n4.3.tar.gz
-    sha256: e7f40591aa390ec338b306bcfb9e7454141d9be5aa1fd2bd4a47095140f0563f
+    url: https://git.ffmpeg.org/gitweb/ffmpeg.git/snapshot/9f38fac053010205806ece11e6aea9b7d3bde041.tar.gz
+    sha256: aa1b446ac56db040e522fb00b6b04ad108ab688f1460b799ab905cb9e773151a
   - type: patch
     path: ../patches/jami-daemon_no-udev.patch
   - type: shell
     commands:
       - mkdir contrib/native
       - mv pjproject-2.10.tar.gz contrib/tarballs
-      - mv n4.3.tar.gz contrib/tarballs/ffmpeg-n4.3.tar.gz
+      - mv 9f38fac053010205806ece11e6aea9b7d3bde041.tar.gz contrib/tarballs/ffmpeg-9f38fac053010205806ece11e6aea9b7d3bde041.tar.gz
