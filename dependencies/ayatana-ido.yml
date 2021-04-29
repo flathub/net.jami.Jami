@@ -1,7 +1,7 @@
 name: ayatana-ido
 sources:
   - type: archive
-    url: https://github.com/AyatanaIndicators/ayatana-ido/archive/0.8.1.tar.gz
-    sha256: 1e5e75c31c90b63d1ae1348bd5b3bd4fdeb2df0bd94707d355484f5a280eac7b
+    url: https://github.com/AyatanaIndicators/ayatana-ido/archive/0.8.2.tar.gz
+    sha256: 4d5cb5df9ab5b8e5fbe47caf077aa001d167bad5ee80df825b910d83904ac777
 cleanup:
     - /share/vala

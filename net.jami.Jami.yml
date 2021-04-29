@@ -1,6 +1,6 @@
 app-id: net.jami.Jami
 runtime: org.gnome.Platform
-runtime-version: '3.38'
+runtime-version: '40'
 sdk: org.gnome.Sdk
 command: jami-gnome
 
@@ -58,7 +58,7 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/ring-client-gnome.git
-        commit: 5d8c5099f456a393bd00190477525deec09025a3
+        commit: 5597275e7d6ef6ec9bec6de7b7b9ff10d8003eb3
       - type: patch
         path: patches/jami-gnome_client-appstream-metadata.patch
       - type: shell
@@ -84,6 +84,7 @@ modules:
       - dependencies/libupnp.yml
       - dependencies/libnatpmp.yml
       - dependencies/ffnvcodec.yml
+      - dependencies/libgit2.yml
       # libringclient deps
       - dependencies/jami-daemon.yml
       - dependencies/io.qt.qt5-base.json
