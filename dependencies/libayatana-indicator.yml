@@ -5,8 +5,8 @@ config-opts:
   - --with-gtk=3
 sources:
   - type: archive
-    url: https://github.com/AyatanaIndicators/libayatana-indicator/archive/0.8.3.tar.gz
-    sha256: 351b1116cd1fc74592a18d71b03237e8a6ea207438667b734d6d4c13ccd7f4fa
+    url: https://github.com/AyatanaIndicators/libayatana-indicator/archive/0.8.4.tar.gz
+    sha256: 9cc29454932c2d35f0a08f7c97f04eccc43ef363825369b84b8e31f4168e8ce6
 cleanup:
   - /share/libayatana-indicator
   - /libexec
