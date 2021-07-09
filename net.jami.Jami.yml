@@ -1,29 +1,21 @@
 app-id: net.jami.Jami
-runtime: org.gnome.Platform
-runtime-version: '40'
-sdk: org.gnome.Sdk
-command: jami-gnome
+runtime: org.kde.Platform
+runtime-version: '5.15'
+sdk: org.kde.Sdk
+command: jami-qt
 
 finish-args:
   - --share=ipc
-  - --socket=x11
-  #- --socket=wayland
+  - --socket=fallback-x11
+  - --socket=wayland
   - --socket=pulseaudio
   - --share=network
   - --device=all
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
-  #- --talk-name=org.gtk.vfs    # seems to work without it
-  #- --talk-name=org.gtk.vfs.*
   - --filesystem=xdg-download
-  - --filesystem=xdg-music
-  - --filesystem=xdg-pictures
-  - --filesystem=xdg-videos
-  - --filesystem=xdg-documents
   #- --own-name=org.mpris.MediaPlayer2.net.jami.Jami    # seems to work without it
   - --own-name=cx.ring.Ring
-  - --metadata=X-DConf=migrate-path=/net/jami/JamiGnome/
-  - --env=GTK_PATH=/app/lib/gtk-3.0
 
 cleanup:
   - /bin/jami
@@ -44,58 +36,53 @@ cleanup:
   - /include
   - /bin/ring.cx
 
-rename-desktop-file: jami-gnome.desktop
-rename-appdata-file: jami-gnome.appdata.xml
+rename-desktop-file: jami-qt.desktop
+rename-appdata-file: jami-qt.appdata.xml
 rename-icon: jami
 
 modules:
-  - name: jami-gnome
+  - name: jami-qt
     buildsystem: cmake
     builddir: true
     config-opts:
-      - -DCMAKE_INSTALL_PREFIX=/app
+      #- -DCMAKE_INSTALL_PREFIX=/app
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: git
-        url: https://git.jami.net/savoirfairelinux/ring-client-gnome.git
-        commit: 5597275e7d6ef6ec9bec6de7b7b9ff10d8003eb3
-      - type: patch
-        path: patches/jami-gnome_client-appstream-metadata.patch
-      - type: shell
-        commands:
-          - ln -sf /app/include/libringclient/web-chatview/* web
+        url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
+        commit: 285316dd3273df5fbcf0c5bd536beedd4c1c510f
     modules:
       # opendht deps
-      - dependencies/gmp.yml
-      - dependencies/nettle.yml # needs gmp
-      - dependencies/argon2.yml
-      - dependencies/msgpack.yml
-      - dependencies/asio.yml
-      - dependencies/jsoncpp.yml
-      - dependencies/http-parser.yml
-      - dependencies/fmt.yml
-      - dependencies/restinio.yml # needs fmt, http-parser
+      #- dependencies/gmp.yml
+      #- dependencies/nettle.yml # needs gmp
+      #- dependencies/argon2.yml
+      #- dependencies/msgpack.yml
+      #- dependencies/asio.yml
+      #- dependencies/jsoncpp.yml
+      #- dependencies/http-parser.yml
+      #- dependencies/fmt.yml
+      #- dependencies/restinio.yml # needs fmt, http-parser
       # jami-daemon deps
       - dependencies/opendht.yml
-      - dependencies/x264.yml
-      - dependencies/dbus-c++.yml
-      - dependencies/libsecp256k1.yml
-      - dependencies/yaml-cpp.yml
-      - dependencies/libupnp.yml
-      - dependencies/libnatpmp.yml
-      - dependencies/ffnvcodec.yml
-      - dependencies/libgit2.yml
+      #- dependencies/x264.yml
+      #- dependencies/dbus-c++.yml
+      #- dependencies/libsecp256k1.yml
+      #- dependencies/yaml-cpp.yml
+      #- dependencies/libupnp.yml
+      #- dependencies/libnatpmp.yml
+      #- dependencies/ffnvcodec.yml
+      #- dependencies/libgit2.yml
       # libringclient deps
       - dependencies/jami-daemon.yml
-      - dependencies/io.qt.qt5-base.json
-      - dependencies/qrencode.yml
+      #- dependencies/io.qt.qt5-base.json
+      #- dependencies/qrencode.yml
       # jami-gnome deps
-      - dependencies/libringclient.yml
-      - shared-modules/intltool/intltool-0.51.json
-      - shared-modules/dbus-glib/dbus-glib-0.110.json
-      - dependencies/libcanberra.yml
-      - dependencies/mate-common.yml
-      - dependencies/libdbusmenu.yml
-      - dependencies/ayatana-ido.yml
-      - dependencies/libayatana-indicator.yml
-      - dependencies/libayatana-appindicator3.yml
+      #- dependencies/libringclient.yml
+      #- shared-modules/intltool/intltool-0.51.json
+      #- shared-modules/dbus-glib/dbus-glib-0.110.json
+      #- dependencies/libcanberra.yml
+      #- dependencies/mate-common.yml
+      #- dependencies/libdbusmenu.yml
+      #- dependencies/ayatana-ido.yml
+      #- dependencies/libayatana-indicator.yml
+      #- dependencies/libayatana-appindicator3.yml
