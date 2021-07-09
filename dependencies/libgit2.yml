@@ -10,5 +10,5 @@ config-opts:
   - -DREGEX_BACKEND=regcomp
 sources:
   - type: archive
-    url: https://github.com/libgit2/libgit2/releases/download/v1.1.0/libgit2-1.1.0.tar.gz
-    sha256: ad73f845965cfd528e70f654e428073121a3fa0dc23caac81a1b1300277d4dba
+    url: https://github.com/libgit2/libgit2/archive/refs/tags/v1.1.1.tar.gz
+    sha256: 13a525373f64c711a00a058514d890d1512080265f98e0935ab279393f21a620

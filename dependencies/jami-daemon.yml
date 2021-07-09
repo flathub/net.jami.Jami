@@ -12,7 +12,7 @@ build-commands:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/ring-daemon.git
-    commit: 781014a9285a77a9d352ba9cf28030399e61574b
+    commit: b34d1a3c08713c0ed32896e01b0c9c3fe7981435
   - type: file
     url: https://github.com/pjsip/pjproject/archive/2.10/pjproject-2.10.tar.gz
     sha256: 936a4c5b98601b52325463a397ddf11ab4106c6a7b04f8dc7cdd377efbb597de
