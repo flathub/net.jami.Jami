@@ -1,4 +1,6 @@
 app-id: net.jami.Jami
+base: io.qt.qtwebengine.BaseApp
+base-version: '5.15'
 runtime: org.kde.Platform
 runtime-version: '5.15'
 sdk: org.kde.Sdk
@@ -51,38 +53,30 @@ modules:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
         commit: 285316dd3273df5fbcf0c5bd536beedd4c1c510f
+        disable-submodules: true
     modules:
       # opendht deps
-      #- dependencies/gmp.yml
-      #- dependencies/nettle.yml # needs gmp
-      #- dependencies/argon2.yml
-      #- dependencies/msgpack.yml
-      #- dependencies/asio.yml
-      #- dependencies/jsoncpp.yml
-      #- dependencies/http-parser.yml
-      #- dependencies/fmt.yml
-      #- dependencies/restinio.yml # needs fmt, http-parser
+      - dependencies/nettle.yml
+      - dependencies/msgpack.yml
+      - dependencies/argon2.yml
+      - dependencies/asio.yml
+      - dependencies/jsoncpp.yml
+      - dependencies/http-parser.yml
+      - dependencies/fmt.yml
+      - dependencies/restinio.yml # needs fmt, http-parser
       # jami-daemon deps
       - dependencies/opendht.yml
-      #- dependencies/x264.yml
-      #- dependencies/dbus-c++.yml
-      #- dependencies/libsecp256k1.yml
-      #- dependencies/yaml-cpp.yml
-      #- dependencies/libupnp.yml
-      #- dependencies/libnatpmp.yml
-      #- dependencies/ffnvcodec.yml
-      #- dependencies/libgit2.yml
+      - dependencies/x264.yml
+      - dependencies/ffnvcodec.yml
+      - dependencies/libgit2.yml
+      - dependencies/yaml-cpp.yml
+      - dependencies/dbus-c++.yml
+      - dependencies/libsecp256k1.yml
+      - dependencies/libupnp.yml
+      - dependencies/libnatpmp.yml
       # libringclient deps
-      - dependencies/jami-daemon.yml
-      #- dependencies/io.qt.qt5-base.json
+      - dependencies/jami-daemon.yml # ffmpeg needs x264, ffnvcodec
       #- dependencies/qrencode.yml
       # jami-gnome deps
-      #- dependencies/libringclient.yml
-      #- shared-modules/intltool/intltool-0.51.json
-      #- shared-modules/dbus-glib/dbus-glib-0.110.json
-      #- dependencies/libcanberra.yml
-      #- dependencies/mate-common.yml
-      #- dependencies/libdbusmenu.yml
-      #- dependencies/ayatana-ido.yml
-      #- dependencies/libayatana-indicator.yml
-      #- dependencies/libayatana-appindicator3.yml
+      - dependencies/libringclient.yml
+
