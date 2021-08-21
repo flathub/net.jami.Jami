@@ -52,7 +52,7 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: 285316dd3273df5fbcf0c5bd536beedd4c1c510f
+        commit: 9d6fe53f405914fa8b25aca06d728ce5edbcc2fa
         disable-submodules: true
     modules:
       # opendht deps
