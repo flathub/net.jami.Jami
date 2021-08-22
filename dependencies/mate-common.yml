@@ -1,7 +1,7 @@
 name: mate-common
 sources:
   - type: archive
-    url: https://git.mate-desktop.org/mate-common/snapshot/mate-common-1.24.2.tar.xz
-    sha256: 0985e1e0f6e3e3f741a2693d103ddee25b9649e49cd4a97594e5b1eb447096f1
+    url: https://git.mate-desktop.org/mate-common/snapshot/mate-common-1.26.0.tar.xz
+    sha256: 717d0f25bc15cfddfd86c3da59d5200083206a2a7ec2cb84f363f14f9734649d
 cleanup:
   - "*" 

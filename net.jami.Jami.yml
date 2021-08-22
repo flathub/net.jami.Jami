@@ -32,7 +32,6 @@ cleanup:
   - "*.prl"
   - /lib/pkgconfig
   - /lib/cmake
-  - /lib/debug
   - /lib/mkspecs
   - /doc
   - /share/doc
@@ -46,7 +45,7 @@ cleanup:
 
 rename-desktop-file: jami-gnome.desktop
 rename-appdata-file: jami-gnome.appdata.xml
-rename-icon: jami
+rename-icon: jami-gnome
 
 modules:
   - name: jami-gnome
@@ -93,7 +92,7 @@ modules:
       - dependencies/libringclient.yml
       - shared-modules/intltool/intltool-0.51.json
       - shared-modules/dbus-glib/dbus-glib-0.110.json
-      - dependencies/libcanberra.yml
+      - shared-modules/libcanberra/libcanberra.json
       - dependencies/mate-common.yml
       - dependencies/libdbusmenu.yml
       - dependencies/ayatana-ido.yml
