@@ -5,7 +5,10 @@ config-opts:
   - --enable-pic
   - --enable-lto
   - --disable-avs
+  - --disable-lavf
   - --disable-cli
+  - --disable-ffms
+  - --disable-opencl
 sources:
   - type: git
     url: https://code.videolan.org/videolan/x264.git

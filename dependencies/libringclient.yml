@@ -9,4 +9,6 @@ config-opts:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/ring-lrc.git
-    commit: c2cf086bbd018fb6fe7bf9b6b8907aef29b59476
+    commit: b48cba8c4c8ff03c1a366f941a23120a0961c113
+  - type: patch
+    path: ../patches/libringclient.patch

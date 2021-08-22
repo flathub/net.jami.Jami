@@ -12,10 +12,10 @@ build-commands:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/ring-daemon.git
-    commit: b34d1a3c08713c0ed32896e01b0c9c3fe7981435
+    commit: be229cd2fa1d5b617d4a514ae9e1baed3761c36f
   - type: file
-    url: https://github.com/pjsip/pjproject/archive/2.10/pjproject-2.10.tar.gz
-    sha256: 936a4c5b98601b52325463a397ddf11ab4106c6a7b04f8dc7cdd377efbb597de
+    url: https://github.com/pjsip/pjproject/archive/2.11/pjproject-2.11.tar.gz
+    sha256: c89b155a38daef6e92c8e1ae5c6895357fe5c5406dfdee2f3717962e21565f1c
   - type: file
     url: https://git.ffmpeg.org/gitweb/ffmpeg.git/snapshot/n4.4.tar.gz
     sha256: 821b6c42cc1995c0eec33003cdc9f71d664d960614a4c9fd0e0138131f5dd5d0
@@ -24,5 +24,5 @@ sources:
   - type: shell
     commands:
       - mkdir contrib/native
-      - mv pjproject-2.10.tar.gz contrib/tarballs
+      - mv pjproject-2.11.tar.gz contrib/tarballs
       - mv n4.4.tar.gz contrib/tarballs/ffmpeg-n4.4.tar.gz
