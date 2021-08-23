@@ -9,4 +9,6 @@ config-opts:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/ring-lrc.git
-    commit: 88b194e460d455d474c4515cfbca0b48ab5da67e
+    commit: b48cba8c4c8ff03c1a366f941a23120a0961c113
+  - type: patch
+    path: ../patches/libringclient_emoji.patch

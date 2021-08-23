@@ -8,5 +8,5 @@ config-opts:
   - --without-documentation
 sources:
   - type: archive
-    url: https://github.com/pupnp/pupnp/releases/download/release-1.14.6/libupnp-1.14.6.tar.bz2
-    sha1: 1c1354cfba514bb95e86e0b9fb8648ffb6761a4f
+    url: https://github.com/pupnp/pupnp/releases/download/release-1.14.10/libupnp-1.14.10.tar.bz2
+    sha256: dc417f5ef0a9182d76b6cf38bdf863e2fb1ee3c353c56fa82e354edef7ba50f2

@@ -16,44 +16,47 @@ finish-args:
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
   - --filesystem=xdg-download
-  #- --own-name=org.mpris.MediaPlayer2.net.jami.Jami    # seems to work without it
   - --own-name=cx.ring.Ring
 
 cleanup:
-  - /bin/jami
   - "*.a"
   - "*.la"
-  - "*.prl"
   - /lib/pkgconfig
   - /lib/cmake
-  - /lib/debug
   - /lib/mkspecs
-  - /doc
-  - /share/doc
-  - /share/doc-doc
-  - /share/gtk-doc
-  - /share/gnome
-  - /share/info
-  - /share/man
   - /include
-  - /bin/ring.cx
+  - /share/pixmaps
+  - /share/man
+  - /share/doc
+  - /share/cmake
+  - /share/jami-qt
+  - /share/pkgconfig
+
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
+  - rm -rfv /app/lib/libexec
 
 rename-desktop-file: jami-qt.desktop
 rename-appdata-file: jami-qt.appdata.xml
 rename-icon: jami
 
 modules:
-  - name: jami-qt
+  - name: jami-client-qt
     buildsystem: cmake
     builddir: true
     config-opts:
-      #- -DCMAKE_INSTALL_PREFIX=/app
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: 9d6fe53f405914fa8b25aca06d728ce5edbcc2fa
+        commit: e87e0d97e0ce4f420c52f07dfed8504d0160f2d4
         disable-submodules: true
+      - type: patch
+        path: patches/jami-client-qt_build-fix.patch
+      - type: patch
+        path: patches/jami-client-qt_appdata.patch
+    cleanup:
+      - /bin/jami
     modules:
       # opendht deps
       - dependencies/nettle.yml
@@ -76,7 +79,5 @@ modules:
       - dependencies/libnatpmp.yml
       # libringclient deps
       - dependencies/jami-daemon.yml # ffmpeg needs x264, ffnvcodec
-      #- dependencies/qrencode.yml
-      # jami-gnome deps
+      # jami-client-qt deps
       - dependencies/libringclient.yml
-

@@ -1,14 +1,14 @@
-diff --git a/jami-gnome.appdata.xml b/jami-gnome.appdata.xml
-index 2f88d55..e240238 100644
---- a/jami-gnome.appdata.xml
-+++ b/jami-gnome.appdata.xml
+diff --git a/jami-qt.appdata.xml b/jami-qt.appdata.xml
+index 1258137..a0c2463 100644
+--- a/jami-qt.appdata.xml
++++ b/jami-qt.appdata.xml
 @@ -6,7 +6,9 @@
   <project_license>GPL-3.0+</project_license>
   <name>Jami</name>
   <summary>Privacy-oriented voice, video, chat, and conference platform</summary>
 - <icon type="stock">jami</icon>
 + <releases>
-+    <release version="20210426.1.5597275e" date="2021-04-28" />
++    <release version="20210817.1.e87e0d97" date="2021-08-23" />
 + </releases>
   <description>
      <p>
