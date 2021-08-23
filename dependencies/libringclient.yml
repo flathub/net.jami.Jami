@@ -11,4 +11,4 @@ sources:
     url: https://git.jami.net/savoirfairelinux/ring-lrc.git
     commit: b48cba8c4c8ff03c1a366f941a23120a0961c113
   - type: patch
-    path: ../patches/libringclient.patch
+    path: ../patches/libringclient_emoji.patch
