@@ -8,7 +8,7 @@ index 1258137..a0c2463 100644
   <summary>Privacy-oriented voice, video, chat, and conference platform</summary>
 - <icon type="stock">jami</icon>
 + <releases>
-+    <release version="20210817.1.e87e0d97" date="2021-08-23" />
++    <release version="20210914.1.8e1736fd" date="2021-09-15" />
 + </releases>
   <description>
      <p>
