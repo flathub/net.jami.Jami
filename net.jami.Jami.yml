@@ -8,8 +8,8 @@ command: jami-qt
 
 finish-args:
   - --share=ipc
-  - --socket=fallback-x11
-  - --socket=wayland
+  - --socket=x11
+  #- --socket=wayland
   - --socket=pulseaudio
   - --share=network
   - --device=all
@@ -49,7 +49,7 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: 8e1736fd9ec9628781595f6e5e9d35977d63e83c
+        commit: 1ee4783edb53a18274bfd37da75b0ee7bd146cae
         disable-submodules: true
       - type: patch
         path: patches/jami-client-qt_appdata.patch
@@ -75,7 +75,8 @@ modules:
       - dependencies/libsecp256k1.yml
       - dependencies/libupnp.yml
       - dependencies/libnatpmp.yml
-      # libringclient deps
+      - dependencies/webrtc-audio-processing.yml
+      # jami-libclient deps
       - dependencies/jami-daemon.yml # ffmpeg needs x264, ffnvcodec
       # jami-client-qt deps
-      - dependencies/libringclient.yml
+      - dependencies/jami-libclient.yml

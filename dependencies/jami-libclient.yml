@@ -1,5 +1,5 @@
 # missing Qt5LinguistTools
-name: libringclient
+name: jami-libclient
 buildsystem: cmake
 builddir: true
 config-opts:
@@ -8,5 +8,5 @@ config-opts:
   - -DCMAKE_BUILD_TYPE=Release
 sources:
   - type: git
-    url: https://git.jami.net/savoirfairelinux/ring-lrc.git
-    commit: bbda106696c397a16c9f7da5e0ff40821509f90a
+    url: https://git.jami.net/savoirfairelinux/jami-libclient.git
+    commit: b08dfaa44e60abc2ea086df4fd6dbda35871b89c
