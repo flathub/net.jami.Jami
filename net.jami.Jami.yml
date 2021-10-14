@@ -58,6 +58,7 @@ modules:
     modules:
       # opendht deps
       - dependencies/nettle.yml
+      - dependencies/boost.yml
       - dependencies/msgpack.yml
       - dependencies/argon2.yml
       - dependencies/asio.yml

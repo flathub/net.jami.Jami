@@ -1,13 +1,28 @@
 name: msgpack
-buildsystem: cmake
-config-opts:
-  - -DCMAKE_INSTALL_PREFIX=/app
-  - -DBUILD_SHARED_LIBS=ON
-  - -DMSGPACK_ENABLE_STATIC=OFF
-  - -DCMAKE_INSTALL_LIBDIR=lib
-  - -DMSGPACK_BUILD_EXAMPLES=OFF
-  - -DMSGPACK_CXX11=ON
-sources:
-  - type: archive
-    url: https://github.com/msgpack/msgpack-c/releases/download/cpp-3.3.0/msgpack-3.3.0.tar.gz
-    sha256: 6e114d12a5ddb8cb11f669f83f32246e484a8addd0ce93f274996f1941c1f07b
+buildsystem: simple
+build-commands: []
+modules:
+  - name: msgpack-c
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_INSTALL_PREFIX=/app
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_SHARED_LIBS=ON
+      - -DMSGPACK_ENABLE_STATIC=OFF
+      - -DMSGPACK_BUILD_EXAMPLES=OFF
+    sources:
+      - type: archive
+        url: https://github.com/msgpack/msgpack-c/releases/download/c-4.0.0/msgpack-c-4.0.0.tar.gz
+        sha256: 420fe35e7572f2a168d17e660ef981a589c9cbe77faa25eb34a520e1fcc032c8
+
+  - name: msgpack-cxx
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_INSTALL_PREFIX=/app
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_SHARED_LIBS=ON
+      - -DMSGPACK_BUILD_EXAMPLES=OFF
+    sources:
+      - type: archive
+        url: https://github.com/msgpack/msgpack-c/releases/download/cpp-4.0.2/msgpack-cxx-4.0.2.tar.gz
+        sha256: e959c63ec5326017166c277c9a1a99317962048de5ffe44ba4cae9559c0229b1

@@ -12,7 +12,7 @@ build-commands:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
-    commit: 064efa90242d9e6cab380be52bfae18a9913a0d4
+    commit: 1cff5df877bb8b622e423eb9f4853d082c13e5d9
   - type: file
     url: https://github.com/pjsip/pjproject/archive/2.11/pjproject-2.11.tar.gz
     sha256: c89b155a38daef6e92c8e1ae5c6895357fe5c5406dfdee2f3717962e21565f1c
