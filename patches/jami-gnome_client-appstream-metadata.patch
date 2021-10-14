@@ -8,7 +8,7 @@ index 2f88d55..e240238 100644
   <summary>Privacy-oriented voice, video, chat, and conference platform</summary>
 - <icon type="stock">jami-gnome</icon>
 + <releases>
-+    <release version="20210819.1.be229cd2" date="2021-08-21" />
++    <release version="20211011.1.823e9db3" date="2021-10-14" />
 + </releases>
   <description>
      <p>

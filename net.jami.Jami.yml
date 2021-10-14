@@ -7,20 +7,20 @@ command: jami-gnome
 finish-args:
   - --share=ipc
   - --socket=x11
-  #- --socket=wayland
   - --socket=pulseaudio
   - --share=network
   - --device=all
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
-  #- --talk-name=org.gtk.vfs    # seems to work without it
-  #- --talk-name=org.gtk.vfs.*
+  - --talk-name=org.gtk.vfs
+  - --talk-name=org.gtk.vfs.*
+  - --filesystem=xdg-run/gvfsd
   - --filesystem=xdg-download
   - --filesystem=xdg-music
   - --filesystem=xdg-pictures
   - --filesystem=xdg-videos
   - --filesystem=xdg-documents
-  #- --own-name=org.mpris.MediaPlayer2.net.jami.Jami    # seems to work without it
+  - --own-name=org.mpris.MediaPlayer2.net.jami.Jami
   - --own-name=cx.ring.Ring
   - --metadata=X-DConf=migrate-path=/net/jami/JamiGnome/
   - --env=GTK_PATH=/app/lib/gtk-3.0
@@ -56,8 +56,8 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: git
-        url: https://git.jami.net/savoirfairelinux/ring-client-gnome.git
-        commit: 09a2e6716ba55864db417675c2daaf866b30a4a4
+        url: https://git.jami.net/savoirfairelinux/jami-client-gnome.git
+        commit: 823e9db328d02addc17de17e9d2f829f06a875a5
       - type: patch
         path: patches/jami-gnome_client-appstream-metadata.patch
       - type: shell
@@ -84,12 +84,13 @@ modules:
       - dependencies/libnatpmp.yml
       - dependencies/ffnvcodec.yml
       - dependencies/libgit2.yml
+      - dependencies/webrtc-audio-processing.yml
       # libringclient deps
       - dependencies/jami-daemon.yml
       - dependencies/io.qt.qt5-base.json
       - dependencies/qrencode.yml
       # jami-gnome deps
-      - dependencies/libringclient.yml
+      - dependencies/jami-libclient.yml
       - shared-modules/intltool/intltool-0.51.json
       - shared-modules/dbus-glib/dbus-glib-0.110.json
       - shared-modules/libcanberra/libcanberra.json
