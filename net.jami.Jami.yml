@@ -45,11 +45,11 @@ modules:
     buildsystem: cmake
     builddir: true
     config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
+      - -DCMAKE_BUILD_TYPE=None
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: 1ee4783edb53a18274bfd37da75b0ee7bd146cae
+        commit: a28c88becce9fc87da3ef46561c3da46ba1c1c88
         disable-submodules: true
       - type: patch
         path: patches/jami-client-qt_appdata.patch
@@ -57,7 +57,6 @@ modules:
       - /bin/jami
     modules:
       # opendht deps
-      - dependencies/nettle.yml
       - dependencies/boost.yml
       - dependencies/msgpack.yml
       - dependencies/argon2.yml

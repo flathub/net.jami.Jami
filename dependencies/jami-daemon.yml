@@ -1,28 +1,27 @@
 name: jami-daemon
-buildsystem: simple
-build-commands:
-  # build debs
-  - autoreconf -fvi
-  - cd contrib/native && ../bootstrap --prefix=/app --disable-downloads --disable-all --enable-pjproject --enable-ffmpeg
-  - cd contrib/native && make DEPS_pjproject= DEPS_ffmpeg=
-  # build jamid (meson doesn't install /share/dbus-1/interfaces)
-  - ./configure --prefix=/app
-  - make -j${FLATPAK_BUILDER_N_JOBS}
-  - make install
+buildsystem: meson
+config-opts:
+  - -Dportaudio=disabled
+  - -Djack=disabled
+  - -Dopensl=disabled
+  - -Daec=enabled
+  - -Dname_service=enabled
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
-    commit: 1cff5df877bb8b622e423eb9f4853d082c13e5d9
+    commit: e89bf172496c2be030b78dc16320ed3b9f3a0937
   - type: file
-    url: https://github.com/pjsip/pjproject/archive/2.11/pjproject-2.11.tar.gz
-    sha256: c89b155a38daef6e92c8e1ae5c6895357fe5c5406dfdee2f3717962e21565f1c
-  - type: file
-    url: https://git.ffmpeg.org/gitweb/ffmpeg.git/snapshot/n4.4.tar.gz
-    sha256: 821b6c42cc1995c0eec33003cdc9f71d664d960614a4c9fd0e0138131f5dd5d0
+    url: https://github.com/savoirfairelinux/pjproject/archive/e1f389d0b905011e0cb62cbdf7a8b37fc1bcde1a.tar.gz
+    sha256: 32507bced0f4bad566a568b210924cae5f149e83ce248e391924bfb587c0508f
+    dest-filename: pjproject-e1f389d0b905011e0cb62cbdf7a8b37fc1bcde1a.tar.gz
   - type: patch
     path: ../patches/jami-daemon_no-udev.patch
+  - type: patch
+    path: ../patches/jami-daemon_meson-fix.patch
   - type: shell
     commands:
       - mkdir contrib/native
-      - mv pjproject-2.11.tar.gz contrib/tarballs
-      - mv n4.4.tar.gz contrib/tarballs/ffmpeg-n4.4.tar.gz
+      - mv pjproject-e1f389d0b905011e0cb62cbdf7a8b37fc1bcde1a.tar.gz contrib/tarballs
+      - autoreconf -fvi
+      - cd contrib/native && ../bootstrap --prefix=/app --disable-downloads --disable-all --enable-pjproject
+      - cd contrib/native && make DEPS_pjproject=

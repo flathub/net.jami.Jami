@@ -3,10 +3,14 @@ config-opts:
   - --prefix=/app
   - --disable-static
   - --disable-benchmark
+  - --disable-coverage
   - --disable-openssl-tests
   - --disable-tests
   - --disable-exhaustive-tests
+  - --enable-module-ecdh
+  - --enable-module-recovery
+  - --with-gnu-ld
 sources:
   - type: git
     url: https://github.com/bitcoin-core/secp256k1.git
-    commit: d7ec49a6893751f068275cc8ddf4993ef7f31756
+    commit: 9526874d1406a13193743c605ba64358d55a8785

@@ -3,12 +3,16 @@ no-autogen: true
 make-args:
   - PREFIX=/app
   - LIBRARY_REL=lib
+  - OPTTARGET="no-opt"
+  - ARGON2_VERSION="20190702"
 make-install-args:
   - PREFIX=/app
   - LIBRARY_REL=lib
+  - OPTTARGET="no-opt"
+  - ARGON2_VERSION="20190702"
 sources:
   - type: archive
-    url: https://github.com/P-H-C/phc-winner-argon2/archive/20190702.tar.gz
-    sha256: daf972a89577f8772602bf2eb38b6a3dd3d922bf5724d45e7f9589b5e830442c
+    url: https://github.com/P-H-C/phc-winner-argon2/archive/16d3df698db2486dde480b09a732bf9bf48599f9.tar.gz
+    sha256: fd7b52db579fe87b96503cc8e60f023f7c7d910bbff166801c4d37fe7bad000a
 cleanup:
   - /bin
