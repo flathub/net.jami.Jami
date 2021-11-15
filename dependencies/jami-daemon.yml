@@ -9,15 +9,13 @@ config-opts:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
-    commit: e89bf172496c2be030b78dc16320ed3b9f3a0937
+    commit: 7d1c3d662a72a1653213bd8337d36ee79d118769
   - type: file
     url: https://github.com/savoirfairelinux/pjproject/archive/e1f389d0b905011e0cb62cbdf7a8b37fc1bcde1a.tar.gz
     sha256: 32507bced0f4bad566a568b210924cae5f149e83ce248e391924bfb587c0508f
     dest-filename: pjproject-e1f389d0b905011e0cb62cbdf7a8b37fc1bcde1a.tar.gz
   - type: patch
     path: ../patches/jami-daemon_no-udev.patch
-  - type: patch
-    path: ../patches/jami-daemon_meson-fix.patch
   - type: shell
     commands:
       - mkdir contrib/native
