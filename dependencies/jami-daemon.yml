@@ -1,18 +1,16 @@
 name: jami-daemon
 buildsystem: simple
 build-commands:
-  # build debs
   - autoreconf -fvi
   - cd contrib/native && ../bootstrap --prefix=/app --disable-downloads --disable-all --enable-pjproject --enable-ffmpeg
   - cd contrib/native && make DEPS_pjproject= DEPS_ffmpeg=
-  # build jamid (meson doesn't install /share/dbus-1/interfaces)
   - ./configure --prefix=/app
   - make -j${FLATPAK_BUILDER_N_JOBS}
   - make install
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
-    commit: 064efa90242d9e6cab380be52bfae18a9913a0d4
+    commit: 43136e0512bc255d9ef629f1a4de5e43af398310 # 28 Sep - 29 Sep
   - type: file
     url: https://github.com/pjsip/pjproject/archive/2.11/pjproject-2.11.tar.gz
     sha256: c89b155a38daef6e92c8e1ae5c6895357fe5c5406dfdee2f3717962e21565f1c

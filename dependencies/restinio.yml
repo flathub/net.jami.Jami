@@ -1,4 +1,3 @@
-# Wants boost but builds without it
 name: restinio
 subdir: dev
 buildsystem: cmake

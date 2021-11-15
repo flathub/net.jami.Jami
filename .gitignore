@@ -2,5 +2,4 @@
 /.flatpak-builder
 /build
 /repo
-/.directory
-/dependencies/.directory
+.directory

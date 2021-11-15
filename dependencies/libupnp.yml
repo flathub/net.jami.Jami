@@ -1,11 +1,10 @@
 name: libupnp
+buildsystem: cmake-ninja
 config-opts:
-  - --prefix=/app
-  - --disable-largefile
-  - --disable-samples
-  - --disable-device
-  - --disable-webserver
-  - --without-documentation
+  - -DCMAKE_INSTALL_PREFIX=/app
+  - -DUPNP_BUILD_STATIC=OFF
+  - -Dsamples=OFF
+  - -Ddevice=OFF
 sources:
   - type: archive
     url: https://github.com/pupnp/pupnp/releases/download/release-1.14.12/libupnp-1.14.12.tar.bz2

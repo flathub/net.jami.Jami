@@ -40,6 +40,11 @@ cleanup:
   - /share/gnome
   - /share/info
   - /share/man
+  - /share/cmake
+  - /share/gir-1.0
+  - /share/pkgconfig
+  - /share/vala
+  - /share/gdm
   - /include
   - /bin/ring.cx
 
@@ -54,10 +59,11 @@ modules:
     config-opts:
       - -DCMAKE_INSTALL_PREFIX=/app
       - -DCMAKE_BUILD_TYPE=Release
+      - -Wno-dev
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-gnome.git
-        commit: 823e9db328d02addc17de17e9d2f829f06a875a5
+        commit: dad7032c41c79f73cb5226f0da6999f225e17f8a
       - type: patch
         path: patches/jami-gnome_client-appstream-metadata.patch
       - type: shell
@@ -65,10 +71,9 @@ modules:
           - ln -sf /app/include/libringclient/web-chatview/* web
     modules:
       # opendht deps
-      - dependencies/gmp.yml
-      - dependencies/nettle.yml # needs gmp
-      - dependencies/argon2.yml
+      - dependencies/boost.yml
       - dependencies/msgpack.yml
+      - dependencies/argon2.yml
       - dependencies/asio.yml
       - dependencies/jsoncpp.yml
       - dependencies/http-parser.yml
@@ -86,11 +91,9 @@ modules:
       - dependencies/libgit2.yml
       - dependencies/webrtc-audio-processing.yml
       # libringclient deps
-      - dependencies/jami-daemon.yml
       - dependencies/io.qt.qt5-base.json
-      - dependencies/qrencode.yml
       # jami-gnome deps
-      - dependencies/jami-libclient.yml
+      - dependencies/qrencode.yml
       - shared-modules/intltool/intltool-0.51.json
       - shared-modules/dbus-glib/dbus-glib-0.110.json
       - shared-modules/libcanberra/libcanberra.json
@@ -99,3 +102,5 @@ modules:
       - dependencies/ayatana-ido.yml
       - dependencies/libayatana-indicator.yml
       - dependencies/libayatana-appindicator3.yml
+      - dependencies/jami-daemon.yml
+      - dependencies/jami-libclient.yml
