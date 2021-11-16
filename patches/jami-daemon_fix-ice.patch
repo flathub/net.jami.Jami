@@ -1,0 +1,52 @@
+From 613d11bb91b46c7d730ae2b42680c84593758ad0 Mon Sep 17 00:00:00 2001
+From: Mohamed Chibani <mohamed.chibani@savoirfairelinux.com>
+Date: Tue, 16 Nov 2021 09:08:40 -0500
+Subject: [PATCH] ice transport - fix illegal acces
+
+Check the size of the vector holding the default remote addresses
+before using it.
+
+Gitlab: #573
+
+Change-Id: I21fcd7aae97a4ac2c28cc1cf64cbdde0bf73ff8c
+---
+
+diff --git a/src/ice_transport.cpp b/src/ice_transport.cpp
+index 060311c..cbd549e 100644
+--- a/src/ice_transport.cpp
++++ b/src/ice_transport.cpp
+@@ -528,9 +528,6 @@
+             handleEvents(HANDLE_EVENT_DURATION);
+         }
+     });
+-
+-    // Init to invalid addresses
+-    iceDefaultRemoteAddr_.reserve(compCount_);
+ }
+ 
+ bool
+@@ -1088,8 +1085,9 @@
+ IceTransport::Impl::getDefaultRemoteAddress(unsigned compId) const
+ {
+     ASSERT_COMP_ID(compId, compCount_);
+-
+-    return iceDefaultRemoteAddr_[compId - 1];
++    if (compId < iceDefaultRemoteAddr_.size())
++        return iceDefaultRemoteAddr_[compId - 1];
++    return {};
+ }
+ 
+ void
+@@ -1379,9 +1377,9 @@
+     // Note that the default remote addresses are the addresses
+     // set in the 'c=' and 'a=rtcp' lines of the received SDP.
+     // See pj_ice_strans_sendto2() for more details.
+-
+-    if (pimpl_->getDefaultRemoteAddress(comp_id)) {
+-        return pimpl_->getDefaultRemoteAddress(comp_id);
++    auto defaultAddr = pimpl_->getDefaultRemoteAddress(comp_id);
++    if (defaultAddr) {
++        return defaultAddr;
+     }
+ 
+     return pimpl_->getRemoteAddress(comp_id);

@@ -9,13 +9,15 @@ config-opts:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
-    commit: 7d1c3d662a72a1653213bd8337d36ee79d118769
+    commit: f8830b789411846016a657c5da992d97fec66c45
   - type: file
     url: https://github.com/savoirfairelinux/pjproject/archive/e1f389d0b905011e0cb62cbdf7a8b37fc1bcde1a.tar.gz
     sha256: 32507bced0f4bad566a568b210924cae5f149e83ce248e391924bfb587c0508f
     dest-filename: pjproject-e1f389d0b905011e0cb62cbdf7a8b37fc1bcde1a.tar.gz
   - type: patch
     path: ../patches/jami-daemon_no-udev.patch
+  - type: patch
+    path: ../patches/jami-daemon_fix-ice.patch
   - type: shell
     commands:
       - mkdir contrib/native
