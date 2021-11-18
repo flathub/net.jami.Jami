@@ -1,14 +1,14 @@
 diff --git a/jami-gnome.appdata.xml b/jami-gnome.appdata.xml
-index 2f88d55..e240238 100644
+index 598ccb6d..ff004d38 100644
 --- a/jami-gnome.appdata.xml
 +++ b/jami-gnome.appdata.xml
-@@ -6,7 +6,9 @@
-  <project_license>GPL-3.0+</project_license>
-  <name>Jami</name>
+@@ -9,7 +9,9 @@
+  <name xml:lang="hu">Jami (GNOME-ügyfél)</name>
   <summary>Privacy-oriented voice, video, chat, and conference platform</summary>
+  <summary xml:lang="hu">Adatvédelem-orientált hang-, video-, csevegés- és konferenciaplatform</summary>
 - <icon type="stock">jami-gnome</icon>
 + <releases>
-+    <release version="20211110.1.dad7032c" date="2021-11-15" />
++    <release version="20211118.1.7a94edb8" date="2021-11-18" />
 + </releases>
   <description>
      <p>

@@ -63,9 +63,9 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-gnome.git
-        commit: dad7032c41c79f73cb5226f0da6999f225e17f8a
+        commit: 7a94edb8b9c040f9498de576c043ff3be1a1a80a
       - type: patch
-        path: patches/jami-gnome_client-appstream-metadata.patch
+        path: patches/jami-client-gnome_appdata.patch
       - type: shell
         commands:
           - ln -sf /app/include/libringclient/web-chatview/* web

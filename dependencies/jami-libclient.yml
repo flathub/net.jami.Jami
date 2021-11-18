@@ -9,4 +9,4 @@ config-opts:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-libclient.git
-    commit: 27f1117ec32acaf577fd7ceac0d43b305094d93d
+    commit: f4bd6db32f894b221f22b6189eb2ccf5fa1715cb
