@@ -1,14 +1,14 @@
 diff --git a/jami-qt.appdata.xml b/jami-qt.appdata.xml
-index 1258137..a0c2463 100644
+index e245178..00dc536 100644
 --- a/jami-qt.appdata.xml
 +++ b/jami-qt.appdata.xml
-@@ -6,7 +6,9 @@
-  <project_license>GPL-3.0+</project_license>
+@@ -7,7 +7,9 @@
   <name>Jami</name>
   <summary>Privacy-oriented voice, video, chat, and conference platform</summary>
+  <summary xml:lang="hu">Adatvédelem-orientált hang-, video-, csevegés- és konferenciaplatform</summary>
 - <icon type="stock">jami</icon>
 + <releases>
-+    <release version="20211011.3.1ee4783e" date="2021-10-14" />
++    <release version="20211118.1.0a7aaa59" date="2021-11-18" />
 + </releases>
   <description>
      <p>
