@@ -1,5 +1,5 @@
 name: fmt
-buildsystem: cmake
+buildsystem: cmake-ninja
 config-opts:
   - -DCMAKE_INSTALL_PREFIX=/app
   - -DCMAKE_INSTALL_LIBDIR=/app/lib

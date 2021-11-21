@@ -1,6 +1,6 @@
 # missing Qt5LinguistTools
 name: jami-libclient
-buildsystem: cmake
+buildsystem: cmake-ninja
 builddir: true
 config-opts:
   - -DCMAKE_INSTALL_PREFIX=/app

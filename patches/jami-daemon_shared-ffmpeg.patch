@@ -1,0 +1,13 @@
+diff --git a/contrib/src/ffmpeg/rules.mak b/contrib/src/ffmpeg/rules.mak
+index df6b3711e..49d4dd3ca 100644
+--- a/contrib/src/ffmpeg/rules.mak
++++ b/contrib/src/ffmpeg/rules.mak
+@@ -358,7 +358,6 @@ endif
+ 	cd $< && $(HOSTVARS) ./configure \
+ 		--extra-cflags="$(CFLAGS)" \
+ 		--extra-ldflags="$(LDFLAGS)" $(FFMPEGCONF) \
+-		--prefix="$(PREFIX)" --enable-static --disable-shared \
+-                --pkg-config-flags="--static"
++		--prefix="$(PREFIX)" --enable-shared --disable-static
+ 	cd $< && $(MAKE) install-libs install-headers
+ 	touch $@

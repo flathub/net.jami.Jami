@@ -1,5 +1,5 @@
 name: libgit2
-buildsystem: cmake
+buildsystem: cmake-ninja
 config-opts:
   - -DCMAKE_INSTALL_PREFIX=/app
   - -DUSE_HTTPS=OFF
