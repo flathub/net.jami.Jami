@@ -10,10 +10,11 @@ build-commands:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
-    commit: 24d9284dd5fa3fac9941ee126c1ef9c1321a2f3d
+    commit: caad9b34c9395bc4fea3a1e3eb56707745510a76
   - type: file
-    url: https://github.com/pjsip/pjproject/archive/2.11/pjproject-2.11.tar.gz
-    sha256: c89b155a38daef6e92c8e1ae5c6895357fe5c5406dfdee2f3717962e21565f1c
+    url: https://github.com/savoirfairelinux/pjproject/archive/e1f389d0b905011e0cb62cbdf7a8b37fc1bcde1a.tar.gz
+    sha256: 32507bced0f4bad566a568b210924cae5f149e83ce248e391924bfb587c0508f
+    dest-filename: pjproject-e1f389d0b905011e0cb62cbdf7a8b37fc1bcde1a.tar.gz
   - type: file
     url: https://git.ffmpeg.org/gitweb/ffmpeg.git/snapshot/n4.4.tar.gz
     sha256: 821b6c42cc1995c0eec33003cdc9f71d664d960614a4c9fd0e0138131f5dd5d0
@@ -22,5 +23,5 @@ sources:
   - type: shell
     commands:
       - mkdir contrib/native
-      - mv pjproject-2.11.tar.gz contrib/tarballs
+      - mv pjproject-e1f389d0b905011e0cb62cbdf7a8b37fc1bcde1a.tar.gz contrib/tarballs
       - mv n4.4.tar.gz contrib/tarballs/ffmpeg-n4.4.tar.gz

@@ -63,7 +63,7 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-gnome.git
-        commit: 7a94edb8b9c040f9498de576c043ff3be1a1a80a
+        commit: 15b8c42824efdff1552bf5f072d58876ee9e6659
       - type: patch
         path: patches/jami-client-gnome_appdata.patch
       - type: shell
