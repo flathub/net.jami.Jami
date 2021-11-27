@@ -1,0 +1,28 @@
+diff --git a/src/main.cpp b/src/main.cpp
+index 1cf92ae..1cb3c1d 100644
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -62,7 +62,6 @@ main(int argc, char* argv[])
+     QList<char*> qtWebEngineChromiumFlags;
+ 
+ #ifdef Q_OS_LINUX
+-    setenv("QT_QPA_PLATFORMTHEME", "gtk3", true);
+     setenv("QML_DISABLE_DISK_CACHE", "1", true);
+ #ifdef __GLIBC__
+     // Current glibc is causing some bugs with font loading
+diff --git a/src/mainapplication.cpp b/src/mainapplication.cpp
+index 34cee61..9267309 100644
+--- a/src/mainapplication.cpp
++++ b/src/mainapplication.cpp
+@@ -166,11 +166,6 @@ MainApplication::init()
+     QResource::registerResource(QCoreApplication::applicationDirPath() + QDir::separator()
+                                 + "webresource.rcc");
+ 
+-#ifdef Q_OS_LINUX
+-    if (!getenv("QT_QPA_PLATFORMTHEME"))
+-        setenv("QT_QPA_PLATFORMTHEME", "gtk3", true);
+-#endif
+-
+     auto results = parseArguments();
+ 
+     if (results[opts::DEBUG].toBool()) {
