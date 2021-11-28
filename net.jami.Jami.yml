@@ -1,15 +1,14 @@
 app-id: net.jami.Jami
 base: io.qt.qtwebengine.BaseApp
-base-version: '5.15'
+base-version: '5.15-21.08'
 runtime: org.kde.Platform
-runtime-version: '5.15'
+runtime-version: '5.15-21.08'
 sdk: org.kde.Sdk
 command: jami-qt
 
 finish-args:
   - --share=ipc
   - --socket=x11
-  #- --socket=wayland
   - --socket=pulseaudio
   - --share=network
   - --device=all
@@ -56,7 +55,7 @@ modules:
       - type: patch
         path: patches/jami-client-qt_appdata.patch
       - type: patch
-        path: patches/jami-client-qt_test.patch
+        path: patches/jami-client-qt_platformtheme.patch
     cleanup:
       - /bin/jami
     modules:
