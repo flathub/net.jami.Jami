@@ -22,5 +22,3 @@ no idea, please make a pull request
 
 ## Bugs (Qt Client):
 
-### no native file picker
-please submit your ideas

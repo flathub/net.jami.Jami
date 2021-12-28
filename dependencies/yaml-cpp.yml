@@ -1,5 +1,5 @@
 name: yaml-cpp
-buildsystem: cmake
+buildsystem: cmake-ninja
 config-opts:
   - -DCMAKE_INSTALL_PREFIX=/app
   - -DCMAKE_BUILD_TYPE=Release

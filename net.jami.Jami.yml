@@ -1,6 +1,6 @@
 app-id: net.jami.Jami
 runtime: org.gnome.Platform
-runtime-version: '40'
+runtime-version: '41'
 sdk: org.gnome.Sdk
 command: jami-gnome
 
@@ -63,7 +63,7 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-gnome.git
-        commit: 15b8c42824efdff1552bf5f072d58876ee9e6659
+        commit: ce9bae0398cb16e4618f49172596228024306f80
       - type: patch
         path: patches/jami-client-gnome_appdata.patch
       - type: shell
@@ -91,8 +91,10 @@ modules:
       - dependencies/libgit2.yml
       - dependencies/webrtc-audio-processing.yml
       # libringclient deps
-      - dependencies/io.qt.qt5-base.json
+      - dependencies/jami-daemon.yml
+      - dependencies/qtbase.yml
       # jami-gnome deps
+      - dependencies/jami-libclient.yml
       - dependencies/qrencode.yml
       - shared-modules/intltool/intltool-0.51.json
       - shared-modules/dbus-glib/dbus-glib-0.110.json
@@ -102,5 +104,3 @@ modules:
       - dependencies/ayatana-ido.yml
       - dependencies/libayatana-indicator.yml
       - dependencies/libayatana-appindicator3.yml
-      - dependencies/jami-daemon.yml
-      - dependencies/jami-libclient.yml
