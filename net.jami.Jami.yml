@@ -1,14 +1,15 @@
 app-id: net.jami.Jami
 base: io.qt.qtwebengine.BaseApp
-base-version: '5.15-21.08'
+base-version: '6.2'
 runtime: org.kde.Platform
-runtime-version: '5.15-21.08'
+runtime-version: '6.2'
 sdk: org.kde.Sdk
 command: jami-qt
 
 finish-args:
   - --share=ipc
-  - --socket=x11
+  - --socket=fallback-x11
+  - --socket=wayland
   - --socket=pulseaudio
   - --share=network
   - --device=all
@@ -16,8 +17,7 @@ finish-args:
   - --talk-name=org.kde.StatusNotifierWatcher
   - --filesystem=xdg-download
   - --own-name=cx.ring.Ring
-  - --env=GDK_BACKEND=x11
-  - --env=QT_QPA_PLATFORM=xcb
+  - --env=QML_IMPORT_PATH=/app/qml
 
 cleanup:
   - "*.a"
@@ -35,7 +35,7 @@ cleanup:
 
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
-  - rm -rfv /app/lib/libexec
+  - rm -R /app/libexec
 
 rename-desktop-file: jami-qt.desktop
 rename-appdata-file: jami-qt.appdata.xml
@@ -47,10 +47,15 @@ modules:
     builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=None
+      - -Dqrencode=/app/lib/libqrencode.so
+      - -DQt6Core5Compat_DIR=/app/lib/x86_64-linux-gnu/cmake/Qt6Core5Compat
+      - -DQt6WebEngineCore_DIR=/app/lib/x86_64-linux-gnu/cmake/Qt6WebEngineCore
+      - -DQt6WebEngineQuick_DIR=/app/lib/x86_64-linux-gnu/cmake/Qt6WebEngineQuick
+      - -DQt6WebEngineWidgets_DIR=/app/lib/x86_64-linux-gnu/cmake/Qt6WebEngineWidgets
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: c5c0f6174109950c247462e5e99f41c27f90f1b2
+        commit: af0ae35680bd83a9d46a3648a4ea7609f6b48f76
         disable-submodules: true
       - type: patch
         path: patches/jami-client-qt_appdata.patch
@@ -83,3 +88,5 @@ modules:
       - dependencies/jami-daemon.yml # ffmpeg needs x264, ffnvcodec
       # jami-client-qt deps
       - dependencies/jami-libclient.yml
+      - dependencies/qt5compat.yml
+      - dependencies/qrencode.yml
