@@ -8,15 +8,18 @@ command: jami-qt
 
 finish-args:
   - --share=ipc
+  - --share=network
   - --socket=fallback-x11
   - --socket=wayland
   - --socket=pulseaudio
-  - --share=network
   - --device=all
+  - --allow=per-app-dev-shm
+  - --talk-name=com.canonical.AppMenu.Registrar
   - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.freedesktop.ScreenSaver
   - --talk-name=org.kde.StatusNotifierWatcher
-  - --filesystem=xdg-download
   - --own-name=cx.ring.Ring
+  - --own-name=org.mpris.MediaPlayer2.net.jami.Jami
   - --env=QML_IMPORT_PATH=/app/qml
 
 cleanup:
@@ -45,13 +48,18 @@ modules:
   - name: jami-client-qt
     buildsystem: cmake-ninja
     builddir: true
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=None
-      - -Dqrencode=/app/lib/libqrencode.so
-      - -DQt6Core5Compat_DIR=/app/lib/x86_64-linux-gnu/cmake/Qt6Core5Compat
-      - -DQt6WebEngineCore_DIR=/app/lib/x86_64-linux-gnu/cmake/Qt6WebEngineCore
-      - -DQt6WebEngineQuick_DIR=/app/lib/x86_64-linux-gnu/cmake/Qt6WebEngineQuick
-      - -DQt6WebEngineWidgets_DIR=/app/lib/x86_64-linux-gnu/cmake/Qt6WebEngineWidgets
+    build-options:
+      arch:
+        x86_64:
+          config-opts:
+            - -DCMAKE_BUILD_TYPE=None
+            - -Dqrencode=/app/lib/libqrencode.so
+            - -D_qt_additional_packages_prefix_paths=/app/lib/x86_64-linux-gnu/cmake
+        aarch64:
+          config-opts:
+            - -DCMAKE_BUILD_TYPE=None
+            - -Dqrencode=/app/lib/libqrencode.so
+            - -D_qt_additional_packages_prefix_paths=/app/lib/aarch64-linux-gnu/cmake
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git

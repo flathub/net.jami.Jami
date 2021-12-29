@@ -6,6 +6,7 @@ config-opts:
   - -Dopensl=disabled
   - -Daec=enabled
   - -Dname_service=enabled
+  - -Dinterfaces=library,dbus
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
@@ -20,8 +21,6 @@ sources:
     dest-filename: ffmpeg-n4.4.tar.gz
   - type: patch
     path: ../patches/jami-daemon_no-udev.patch
-  #- type: patch
-    #path: ../patches/jami-daemon_shared-ffmpeg.patch
   - type: shell
     commands:
       - mkdir contrib/native
