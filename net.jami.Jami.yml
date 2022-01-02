@@ -1,26 +1,26 @@
 app-id: net.jami.Jami
 runtime: org.gnome.Platform
-runtime-version: '40'
+runtime-version: '41'
 sdk: org.gnome.Sdk
 command: jami-gnome
 
 finish-args:
   - --share=ipc
   - --socket=x11
-  #- --socket=wayland
   - --socket=pulseaudio
   - --share=network
   - --device=all
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
-  #- --talk-name=org.gtk.vfs    # seems to work without it
-  #- --talk-name=org.gtk.vfs.*
+  - --talk-name=org.gtk.vfs
+  - --talk-name=org.gtk.vfs.*
+  - --filesystem=xdg-run/gvfsd
   - --filesystem=xdg-download
   - --filesystem=xdg-music
   - --filesystem=xdg-pictures
   - --filesystem=xdg-videos
   - --filesystem=xdg-documents
-  #- --own-name=org.mpris.MediaPlayer2.net.jami.Jami    # seems to work without it
+  - --own-name=org.mpris.MediaPlayer2.net.jami.Jami
   - --own-name=cx.ring.Ring
   - --metadata=X-DConf=migrate-path=/net/jami/JamiGnome/
   - --env=GTK_PATH=/app/lib/gtk-3.0
@@ -40,6 +40,11 @@ cleanup:
   - /share/gnome
   - /share/info
   - /share/man
+  - /share/cmake
+  - /share/gir-1.0
+  - /share/pkgconfig
+  - /share/vala
+  - /share/gdm
   - /include
   - /bin/ring.cx
 
@@ -54,21 +59,21 @@ modules:
     config-opts:
       - -DCMAKE_INSTALL_PREFIX=/app
       - -DCMAKE_BUILD_TYPE=Release
+      - -Wno-dev
     sources:
       - type: git
-        url: https://git.jami.net/savoirfairelinux/ring-client-gnome.git
-        commit: 09a2e6716ba55864db417675c2daaf866b30a4a4
+        url: https://git.jami.net/savoirfairelinux/jami-client-gnome.git
+        commit: ce9bae0398cb16e4618f49172596228024306f80
       - type: patch
-        path: patches/jami-gnome_client-appstream-metadata.patch
+        path: patches/jami-client-gnome_appdata.patch
       - type: shell
         commands:
           - ln -sf /app/include/libringclient/web-chatview/* web
     modules:
       # opendht deps
-      - dependencies/gmp.yml
-      - dependencies/nettle.yml # needs gmp
-      - dependencies/argon2.yml
+      - dependencies/boost.yml
       - dependencies/msgpack.yml
+      - dependencies/argon2.yml
       - dependencies/asio.yml
       - dependencies/jsoncpp.yml
       - dependencies/http-parser.yml
@@ -84,12 +89,13 @@ modules:
       - dependencies/libnatpmp.yml
       - dependencies/ffnvcodec.yml
       - dependencies/libgit2.yml
+      - dependencies/webrtc-audio-processing.yml
       # libringclient deps
       - dependencies/jami-daemon.yml
-      - dependencies/io.qt.qt5-base.json
-      - dependencies/qrencode.yml
+      - dependencies/qtbase.yml
       # jami-gnome deps
-      - dependencies/libringclient.yml
+      - dependencies/jami-libclient.yml
+      - dependencies/qrencode.yml
       - shared-modules/intltool/intltool-0.51.json
       - shared-modules/dbus-glib/dbus-glib-0.110.json
       - shared-modules/libcanberra/libcanberra.json

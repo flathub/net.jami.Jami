@@ -1,0 +1,12 @@
+# missing Qt5LinguistTools
+name: jami-libclient
+buildsystem: cmake-ninja
+builddir: true
+config-opts:
+  - -DCMAKE_INSTALL_PREFIX=/app
+  - -DENABLE_LIBWRAP=true
+  - -DCMAKE_BUILD_TYPE=Release
+sources:
+  - type: git
+    url: https://git.jami.net/savoirfairelinux/jami-libclient.git
+    commit: 48db64cbcd3a8d7a12cad940694ce9239b8db576

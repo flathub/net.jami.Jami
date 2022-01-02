@@ -1,12 +1,10 @@
 name: libayatana-indicator
-config-opts:
-  - --disable-static
-  - --disable-tests
-  - --with-gtk=3
+buildsystem: cmake-ninja
+builddir: true
 sources:
   - type: archive
-    url: https://github.com/AyatanaIndicators/libayatana-indicator/archive/0.8.4.tar.gz
-    sha256: 9cc29454932c2d35f0a08f7c97f04eccc43ef363825369b84b8e31f4168e8ce6
+    url: https://github.com/AyatanaIndicators/libayatana-indicator/archive/0.9.0.tar.gz
+    sha256: b72c31e64f2a6a7d8f8a35a725d02416cfae7c35e0d42f5664792f7d22d465a4
 cleanup:
   - /share/libayatana-indicator
   - /libexec
