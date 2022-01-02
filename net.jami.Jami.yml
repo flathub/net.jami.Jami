@@ -10,16 +10,12 @@ finish-args:
   - --socket=pulseaudio
   - --share=network
   - --device=all
+  - --allow=per-app-dev-shm
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=org.gtk.vfs
   - --talk-name=org.gtk.vfs.*
   - --filesystem=xdg-run/gvfsd
-  - --filesystem=xdg-download
-  - --filesystem=xdg-music
-  - --filesystem=xdg-pictures
-  - --filesystem=xdg-videos
-  - --filesystem=xdg-documents
   - --own-name=org.mpris.MediaPlayer2.net.jami.Jami
   - --own-name=cx.ring.Ring
   - --metadata=X-DConf=migrate-path=/net/jami/JamiGnome/
@@ -66,6 +62,8 @@ modules:
         commit: ce9bae0398cb16e4618f49172596228024306f80
       - type: patch
         path: patches/jami-client-gnome_appdata.patch
+      - type: patch
+        path: patches/jami-client-gnome_qt6.patch
       - type: shell
         commands:
           - ln -sf /app/include/libringclient/web-chatview/* web
@@ -95,6 +93,7 @@ modules:
       - dependencies/qtbase.yml
       # jami-gnome deps
       - dependencies/jami-libclient.yml
+      - dependencies/qt5compat.yml
       - dependencies/qrencode.yml
       - shared-modules/intltool/intltool-0.51.json
       - shared-modules/dbus-glib/dbus-glib-0.110.json

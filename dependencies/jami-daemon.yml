@@ -6,10 +6,11 @@ config-opts:
   - -Dopensl=disabled
   - -Daec=enabled
   - -Dname_service=enabled
+  - -Dinterfaces=library,dbus
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
-    commit: 02c5cecd363a1ee25a914d72e243d7903e44969b
+    commit: e14868e43bff4fa50258eadb86cbc0055020b1a9
   - type: file
     url: https://github.com/savoirfairelinux/pjproject/archive/e1f389d0b905011e0cb62cbdf7a8b37fc1bcde1a.tar.gz
     sha256: 32507bced0f4bad566a568b210924cae5f149e83ce248e391924bfb587c0508f

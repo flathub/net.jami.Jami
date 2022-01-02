@@ -3,10 +3,8 @@ name: jami-libclient
 buildsystem: cmake-ninja
 builddir: true
 config-opts:
-  - -DCMAKE_INSTALL_PREFIX=/app
-  - -DENABLE_LIBWRAP=true
   - -DCMAKE_BUILD_TYPE=Release
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-libclient.git
-    commit: 48db64cbcd3a8d7a12cad940694ce9239b8db576
+    commit: 593f223401e17a8eab7b6ace7d2cbc382fa476f6

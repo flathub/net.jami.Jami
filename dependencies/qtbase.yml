@@ -2,15 +2,13 @@ name: qtbase
 buildsystem: cmake-ninja
 config-opts:
   - -DCMAKE_INSTALL_PREFIX=/app
-  - -DINSTALL_BINDIR=lib/qt/bin
-  - -DINSTALL_PUBLICBINDIR=usr/bin
-  - -DINSTALL_LIBEXECDIR=lib/qt
-  - -DINSTALL_DOCDIR=share/doc/qt
-  - -DINSTALL_ARCHDATADIR=lib/qt
-  - -DINSTALL_DATADIR=share/qt
-  - -DINSTALL_INCLUDEDIR=include/qt
-  - -DINSTALL_MKSPECSDIR=lib/qt/mkspecs
-  - -DINSTALL_EXAMPLESDIR=share/doc/qt/examples
+  - -DINSTALL_BINDIR=lib/bin
+  - -DINSTALL_PUBLICBINDIR=bin
+  - -DINSTALL_LIBEXECDIR=libexec
+  - -DINSTALL_ARCHDATADIR=lib
+  - -DINSTALL_DATADIR=share
+  - -DINSTALL_INCLUDEDIR=include
+  - -DINSTALL_MKSPECSDIR=lib/mkspecs
   - -DQT_FEATURE_system_sqlite=ON
   - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
   - -DBUILD_SHARED_LIBS=ON
@@ -39,5 +37,8 @@ sources:
   - type: archive
     url: https://download.qt.io/official_releases/qt/6.2/6.2.2/submodules/qtbase-everywhere-src-6.2.2.tar.xz
     sha256: 85ab9180180c2eaf84cd11ae4c6d5a6a69f2f8fd7260aaccfd91a3e7e7232c1a
-
-
+cleanup:
+  - /bin
+  - /lib/bin
+  - /share
+  - /libexec
