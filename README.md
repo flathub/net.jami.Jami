@@ -8,14 +8,6 @@ flatpak install --user flathub-beta net.jami.Jami
 
 ## Bugs (Gnome Client):
 
-### crashes when activating the webcam
-open `~/.var/app/net.jami.Jami/config/jami/dring.yml` and change the two following lines:
-```yml
-decodingAccelerated: true
-encodingAccelerated: true
-```
-https://git.jami.net/savoirfairelinux/jami-daemon/-/issues/614
-
 ### missing or wrong tray icon
 no idea, please make a pull request
 
