@@ -38,7 +38,6 @@ cleanup:
 
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
-  - rm -R /app/libexec
 
 rename-desktop-file: jami-qt.desktop
 rename-appdata-file: jami-qt.appdata.xml
@@ -63,7 +62,7 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: af0ae35680bd83a9d46a3648a4ea7609f6b48f76
+        commit: a2a263c6c1176f313824294a677fff63f786e2f8
         disable-submodules: true
       - type: patch
         path: patches/jami-client-qt_appdata.patch
