@@ -1,5 +1,5 @@
 diff --git a/src/main.cpp b/src/main.cpp
-index e8ab280..659b75f 100644
+index d401027..f606a6b 100644
 --- a/src/main.cpp
 +++ b/src/main.cpp
 @@ -62,7 +62,6 @@ main(int argc, char* argv[])
@@ -11,18 +11,18 @@ index e8ab280..659b75f 100644
  
      /*
 diff --git a/src/mainapplication.cpp b/src/mainapplication.cpp
-index 918200b..bafa23b 100644
+index 02616e9..db7a449 100644
 --- a/src/mainapplication.cpp
 +++ b/src/mainapplication.cpp
-@@ -170,11 +170,6 @@ MainApplication::init()
-     QResource::registerResource(QCoreApplication::applicationDirPath() + QDir::separator()
-                                 + "webresource.rcc");
+@@ -165,11 +165,6 @@ MainApplication::init()
+ 
+     setWindowIcon(QIcon(":/images/jami.ico"));
  
 -#ifdef Q_OS_LINUX
 -    if (!getenv("QT_QPA_PLATFORMTHEME"))
 -        setenv("QT_QPA_PLATFORMTHEME", "gtk3", true);
 -#endif
 -
-     auto results = parseArguments();
- 
-     if (results[opts::DEBUG].toBool()) {
+     if (runOptions_[Option::Debug].toBool()) {
+         consoleDebug();
+     }

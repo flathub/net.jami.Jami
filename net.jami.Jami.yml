@@ -9,8 +9,8 @@ command: jami-qt
 finish-args:
   - --share=ipc
   - --share=network
-  - --socket=fallback-x11
-  - --socket=wayland
+  - --socket=x11
+  #- --socket=wayland
   - --socket=pulseaudio
   - --device=all
   - --allow=per-app-dev-shm
@@ -62,7 +62,7 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: a2a263c6c1176f313824294a677fff63f786e2f8
+        commit: 54a2947309279105dc548d8b8e7d34a584149f3b
         disable-submodules: true
       - type: patch
         path: patches/jami-client-qt_appdata.patch

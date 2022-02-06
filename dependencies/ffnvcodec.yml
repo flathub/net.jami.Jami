@@ -5,4 +5,4 @@ make-install-args:
 sources:
   - type: git
     url: https://git.videolan.org/git/ffmpeg/nv-codec-headers.git
-    tag: n11.1.5.0
+    tag: n11.1.5.1
