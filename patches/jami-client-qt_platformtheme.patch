@@ -11,18 +11,16 @@ index d401027..f606a6b 100644
  
      /*
 diff --git a/src/mainapplication.cpp b/src/mainapplication.cpp
-index 02616e9..db7a449 100644
+index 02616e9..69158f9 100644
 --- a/src/mainapplication.cpp
 +++ b/src/mainapplication.cpp
-@@ -165,11 +165,6 @@ MainApplication::init()
- 
+@@ -166,7 +166,8 @@ MainApplication::init()
      setWindowIcon(QIcon(":/images/jami.ico"));
  
--#ifdef Q_OS_LINUX
+ #ifdef Q_OS_LINUX
 -    if (!getenv("QT_QPA_PLATFORMTHEME"))
--        setenv("QT_QPA_PLATFORMTHEME", "gtk3", true);
--#endif
--
-     if (runOptions_[Option::Debug].toBool()) {
-         consoleDebug();
-     }
++    if (!(getenv("XDG_CURRENT_DESKTOP") == "KDE" ||
++        getenv("XDG_CURRENT_DESKTOP") == "GNOME"))
+         setenv("QT_QPA_PLATFORMTHEME", "gtk3", true);
+ #endif
+ 
