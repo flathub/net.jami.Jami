@@ -8,7 +8,7 @@ index 598ccb6d..ff004d38 100644
   <summary xml:lang="hu">Adatvédelem-orientált hang-, video-, csevegés- és konferenciaplatform</summary>
 - <icon type="stock">jami-gnome</icon>
 + <releases>
-+    <release version="20220207.1.ec8eef7d" date="2022-02-22" />
++    <release version="20220207.1.ec8eef7d" date="2022-02-11" />
 + </releases>
   <description>
      <p>
