@@ -50,7 +50,7 @@ rename-icon: jami-gnome
 
 modules:
   - name: jami-gnome
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     builddir: true
     config-opts:
       - -DCMAKE_INSTALL_PREFIX=/app
@@ -59,7 +59,7 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-gnome.git
-        commit: b77e6408f725c2720d635ca2428c15040541d794
+        commit: ec8eef7dd3ac175ca923ee42f2b3cc911dd78919
       - type: patch
         path: patches/jami-client-gnome_appdata.patch
       - type: shell

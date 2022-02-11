@@ -1,7 +1,8 @@
 name: qrencode
 buildsystem: cmake-ninja
 config-opts:
-  - -DWITH_TOOLS=OFF
+  - -DWITH_TOOLS=NO
+  - -DBUILD_SHARED_LIBS=YES
 sources:
   - type: archive
     url: https://fukuchi.org/works/qrencode/qrencode-4.1.1.tar.gz
