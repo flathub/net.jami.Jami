@@ -21,8 +21,9 @@ modules:
       - -DCMAKE_INSTALL_PREFIX=/app
       - -DCMAKE_BUILD_TYPE=Release
       - -DBUILD_SHARED_LIBS=ON
-      - -DMSGPACK_BUILD_EXAMPLES=OFF
+      - -DMSGPACK_USE_BOOST=OFF
+      - -DMSGPACK_BUILD_DOCS=OFF
     sources:
       - type: archive
-        url: https://github.com/msgpack/msgpack-c/releases/download/cpp-4.0.3/msgpack-cxx-4.0.3.tar.gz
-        sha256: 9b3c1803b9855b7b023d7f181f66ebb0d6941275ba41d692037e0aa27736443f
+        url: https://github.com/msgpack/msgpack-c/releases/download/cpp-4.1.1/msgpack-cxx-4.1.1.tar.gz
+        sha256: 8115c5edcf20bc1408c798a6bdaec16c1e52b1c34859d4982a0fb03300438f0b

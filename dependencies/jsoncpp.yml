@@ -1,6 +1,7 @@
 name: jsoncpp
 buildsystem: meson
 config-opts:
+  - -Dbuildtype=release
   - -Dtests=false
 sources:
   - type: archive

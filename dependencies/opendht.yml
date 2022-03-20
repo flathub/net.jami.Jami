@@ -3,6 +3,7 @@ buildsystem: cmake-ninja
 config-opts:
   - -DCMAKE_INSTALL_PREFIX=/app
   - -DCMAKE_INSTALL_LIBDIR=lib
+  - -Dbuildtype=release
   - -DOPENDHT_STATIC=OFF
   - -DOPENDHT_DOCUMENTATION=OFF
   - -DOPENDHT_TOOLS=OFF
@@ -13,5 +14,5 @@ config-opts:
   - -DOPENDHT_PUSH_NOTIFICATIONS=ON
 sources:
   - type: archive
-    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/2.3.2.tar.gz
-    sha256: 5a646e494ad9130f94beed18dc310242e896822cb9c6ffa9f2f06b9ef5c7fe8d
+    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/2.3.5.tar.gz
+    sha256: fd762832ec82094f9b95a21a6ee54b082db2c81a5860dd24cf0599810df8b1a3

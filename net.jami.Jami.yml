@@ -19,7 +19,7 @@ finish-args:
   - --talk-name=org.freedesktop.ScreenSaver
   - --talk-name=org.kde.StatusNotifierWatcher
   - --own-name=cx.ring.Ring
-  - --own-name=org.mpris.MediaPlayer2.net.jami.Jami
+  - --own-name=org.mpris.MediaPlayer2.chromium.instance2
   - --env=QML_IMPORT_PATH=/app/qml
 
 cleanup:
@@ -51,18 +51,18 @@ modules:
       arch:
         x86_64:
           config-opts:
-            - -DCMAKE_BUILD_TYPE=None
+            - -DCMAKE_BUILD_TYPE=Release
             - -Dqrencode=/app/lib/libqrencode.so
             - -D_qt_additional_packages_prefix_paths=/app/lib/x86_64-linux-gnu/cmake
         aarch64:
           config-opts:
-            - -DCMAKE_BUILD_TYPE=None
+            - -DCMAKE_BUILD_TYPE=Release
             - -Dqrencode=/app/lib/libqrencode.so
             - -D_qt_additional_packages_prefix_paths=/app/lib/aarch64-linux-gnu/cmake
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: 54a2947309279105dc548d8b8e7d34a584149f3b
+        commit: 2a16a85ffe6770aa216f8f343682d2c10b9c7cca
         disable-submodules: true
       - type: patch
         path: patches/jami-client-qt_appdata.patch
@@ -72,14 +72,13 @@ modules:
       - /bin/jami
     modules:
       # opendht deps
-      - dependencies/boost.yml
-      - dependencies/msgpack.yml
       - dependencies/argon2.yml
       - dependencies/asio.yml
       - dependencies/jsoncpp.yml
       - dependencies/http-parser.yml
       - dependencies/fmt.yml
       - dependencies/restinio.yml # needs fmt, http-parser
+      - dependencies/msgpack.yml
       # jami-daemon deps
       - dependencies/opendht.yml
       - dependencies/x264.yml
