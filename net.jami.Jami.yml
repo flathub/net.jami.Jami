@@ -65,9 +65,9 @@ modules:
         commit: 2a16a85ffe6770aa216f8f343682d2c10b9c7cca
         disable-submodules: true
       - type: patch
-        path: patches/jami-client-qt_appdata.patch
+        path: files/jami-client-qt_appdata.patch
       - type: patch
-        path: patches/jami-client-qt_platformtheme.patch
+        path: files/jami-client-qt_platformtheme.patch
     cleanup:
       - /bin/jami
     modules:
@@ -96,3 +96,4 @@ modules:
       - dependencies/jami-libclient.yml
       - dependencies/qt5compat.yml
       - dependencies/qrencode.yml
+      - dependencies/coloremoji.yml
