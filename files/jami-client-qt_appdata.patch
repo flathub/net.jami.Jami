@@ -8,7 +8,7 @@ index e245178..00dc536 100644
   <summary xml:lang="hu">Adatvédelem-orientált hang-, video-, csevegés- és konferenciaplatform</summary>
 - <icon type="stock">jami</icon>
 + <releases>
-+    <release version="20220318.2.2a16a85f" date="2022-03-18" />
++    <release version="20220318.3.2a16a85f" date="2022-03-21" />
 + </releases>
   <description>
      <p>
