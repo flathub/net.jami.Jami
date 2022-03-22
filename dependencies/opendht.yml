@@ -3,7 +3,7 @@ buildsystem: cmake-ninja
 config-opts:
   - -DCMAKE_INSTALL_PREFIX=/app
   - -DCMAKE_INSTALL_LIBDIR=lib
-  - -Dbuildtype=release
+  - -DCMAKE_BUILD_TYPE=Release
   - -DOPENDHT_STATIC=OFF
   - -DOPENDHT_DOCUMENTATION=OFF
   - -DOPENDHT_TOOLS=OFF
