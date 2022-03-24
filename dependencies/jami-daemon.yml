@@ -1,12 +1,14 @@
 name: jami-daemon
 buildsystem: meson
 config-opts:
+  - -Dbuildtype=release
   - -Dportaudio=disabled
   - -Djack=disabled
   - -Dopensl=disabled
   - -Daec=enabled
   - -Dname_service=enabled
   - -Dinterfaces=library,dbus
+  - -Dcpp_args='-DMSGPACK_NO_BOOST'
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
@@ -20,7 +22,7 @@ sources:
     sha256: 821b6c42cc1995c0eec33003cdc9f71d664d960614a4c9fd0e0138131f5dd5d0
     dest-filename: ffmpeg-n4.4.tar.gz
   - type: patch
-    path: ../patches/jami-daemon_no-udev.patch
+    path: ../files/jami-daemon_no-udev.patch
   - type: shell
     commands:
       - mkdir contrib/native

@@ -1,4 +1,3 @@
-# missing Qt5LinguistTools
 name: jami-libclient
 buildsystem: cmake-ninja
 builddir: true
