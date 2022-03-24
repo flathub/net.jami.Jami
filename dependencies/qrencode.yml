@@ -1,7 +1,6 @@
 name: qrencode
 buildsystem: cmake-ninja
 config-opts:
-  - -DCMAKE_BUILD_TYPE=Release
   - -DWITH_TOOLS=NO
   - -DBUILD_SHARED_LIBS=YES
 sources:

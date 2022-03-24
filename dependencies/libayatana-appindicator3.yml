@@ -1,0 +1,11 @@
+name: libayatana-appindicator3
+buildsystem: cmake-ninja
+builddir: true
+config-opts:
+  - -DCMAKE_BUILD_TYPE=Release
+  - -DENABLE_BINDINGS_MONO=OFF
+  - -DENABLE_BINDINGS_VALA=OFF
+sources:
+  - type: archive
+    url: https://github.com/AyatanaIndicators/libayatana-appindicator/archive/0.5.90.tar.gz
+    sha256: 15319ca7fda90c6bd85311bbe83eefe1e322de32df2c7f5174b0d5a7537c27b4

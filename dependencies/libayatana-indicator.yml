@@ -1,0 +1,10 @@
+name: libayatana-indicator
+buildsystem: cmake-ninja
+builddir: true
+sources:
+  - type: archive
+    url: https://github.com/AyatanaIndicators/libayatana-indicator/archive/0.9.0.tar.gz
+    sha256: b72c31e64f2a6a7d8f8a35a725d02416cfae7c35e0d42f5664792f7d22d465a4
+cleanup:
+  - /share/libayatana-indicator
+  - /libexec

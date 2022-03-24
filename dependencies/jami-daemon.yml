@@ -8,11 +8,10 @@ config-opts:
   - -Daec=enabled
   - -Dname_service=enabled
   - -Dinterfaces=library,dbus
-  - -Dcpp_args='-DMSGPACK_NO_BOOST'
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
-    commit: 24dd4150c8192b8c18ca349fbebcf8636e6a2aab
+    commit: 7634487e9f568ae727f2d4cffbb735d23fa0324c
   - type: file
     url: https://github.com/savoirfairelinux/pjproject/archive/e1f389d0b905011e0cb62cbdf7a8b37fc1bcde1a.tar.gz
     sha256: 32507bced0f4bad566a568b210924cae5f149e83ce248e391924bfb587c0508f
@@ -22,7 +21,7 @@ sources:
     sha256: 821b6c42cc1995c0eec33003cdc9f71d664d960614a4c9fd0e0138131f5dd5d0
     dest-filename: ffmpeg-n4.4.tar.gz
   - type: patch
-    path: ../files/jami-daemon_no-udev.patch
+    path: ../patches/jami-daemon_no-udev.patch
   - type: shell
     commands:
       - mkdir contrib/native
