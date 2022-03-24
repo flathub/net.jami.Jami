@@ -9,8 +9,6 @@ finish-args:
   - --socket=x11
   - --socket=pulseaudio
   - --share=network
-  - --socket=fallback-x11
-  - --socket=wayland
   - --socket=pulseaudio
   - --device=all
   - --allow=per-app-dev-shm
