@@ -1,16 +1,14 @@
 
-## Jami Qt Client is in beta:
+## Jami Gnome Client is archived in the beta channel:
 ```sh
 flatpak remote-add --user flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 flatpak install --user flathub-beta net.jami.Jami
 ```
 
-## Bugs (Gnome Client):
+## Gnome Client:
 
-### missing or wrong tray icon
-no idea, please make a pull request
+EOL and will probably stop working at some point.
 
-<!--
-## Bugs (Qt Client):
--->
+## Qt Client:
 
+Uses custom font config to support color emojis but might break custom font settings. Please help if you have improvements.
