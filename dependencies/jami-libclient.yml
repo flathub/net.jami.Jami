@@ -1,4 +1,3 @@
-# missing Qt5LinguistTools
 name: jami-libclient
 buildsystem: cmake-ninja
 builddir: true
@@ -7,4 +6,4 @@ config-opts:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-libclient.git
-    commit: e6cc67f188b908bc0dba5341a4bb4ca3bfd15470
+    commit: 0c88ebafe0f640afd74c215533f9315f171e0d8d

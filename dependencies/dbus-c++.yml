@@ -15,10 +15,10 @@ sources:
     commands:
       - autoreconf -vfi
   - type: patch
-    path: ../patches/dbus-c++_fix-writechar.patch
+    path: ../files/dbus-c++_fix-writechar.patch
   - type: patch
-    path: ../patches/dbus-c++_gcc47.patch
+    path: ../files/dbus-c++_gcc47.patch
   - type: patch
-    path: ../patches/dbus-c++_disable-threading.patch
+    path: ../files/dbus-c++_disable-threading.patch
 cleanup:
   - /bin
