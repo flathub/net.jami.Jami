@@ -1,8 +1,0 @@
-name: ayatana-ido
-buildsystem: cmake-ninja
-sources:
-  - type: archive
-    url: https://github.com/AyatanaIndicators/ayatana-ido/archive/0.9.0.tar.gz
-    sha256: e09b182a67ea65e188a689a2ff792c9a3830740f1aec6679bbd6021235402b4b
-cleanup:
-    - /share/vala

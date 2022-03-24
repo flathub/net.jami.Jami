@@ -62,12 +62,10 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: 2a16a85ffe6770aa216f8f343682d2c10b9c7cca
+        commit: 8e2d600fd3f221f1732b51c3253fdf6c23e919ed
         disable-submodules: true
       - type: patch
         path: files/jami-client-qt_appdata.patch
-      - type: patch
-        path: files/jami-client-qt_platformtheme.patch
     cleanup:
       - /bin/jami
     modules:
