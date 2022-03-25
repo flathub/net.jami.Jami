@@ -1,6 +1,6 @@
 app-id: net.jami.Jami
 runtime: org.gnome.Platform
-runtime-version: '41'
+runtime-version: '42'
 sdk: org.gnome.Sdk
 command: jami-gnome
 
@@ -45,6 +45,7 @@ cleanup:
   - /share/gdm
   - /include
   - /bin/ring.cx
+  - /lib/girepository-1.0
 
 rename-desktop-file: jami-gnome.desktop
 rename-appdata-file: jami-gnome.appdata.xml
@@ -61,9 +62,9 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-gnome.git
-        commit: ec8eef7dd3ac175ca923ee42f2b3cc911dd78919
+        commit: d3f27548b5dac73734f660b19ded93ec1c51c84f
       - type: patch
-        path: patches/jami-client-gnome_appdata.patch
+        path: files/jami-client-gnome_appdata.patch
       - type: shell
         commands:
           - ln -sf /app/include/libringclient/web-chatview/* web
@@ -89,8 +90,9 @@ modules:
       - dependencies/libgit2.yml
       - dependencies/webrtc-audio-processing.yml
       # libringclient deps
-      - dependencies/jami-daemon.yml
       - dependencies/qtbase.yml
+      - dependencies/jami-daemon.yml
+      - dependencies/qttools.yml # needs QTNetwork
       # jami-gnome deps
       - dependencies/jami-libclient.yml
       - dependencies/qt5compat.yml
@@ -103,3 +105,8 @@ modules:
       - dependencies/ayatana-ido.yml
       - dependencies/libayatana-indicator.yml
       - dependencies/libayatana-appindicator3.yml
+      - dependencies/cogl.yml
+      - dependencies/mtdev.yml
+      - dependencies/libinput.yml # needs mtdev
+      - dependencies/clutter.yml # needs libinput, cogl
+      - dependencies/clutter-gtk.yml

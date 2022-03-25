@@ -3,8 +3,8 @@ buildsystem: cmake-ninja
 builddir: true
 sources:
   - type: archive
-    url: https://github.com/AyatanaIndicators/libayatana-indicator/archive/0.9.0.tar.gz
-    sha256: b72c31e64f2a6a7d8f8a35a725d02416cfae7c35e0d42f5664792f7d22d465a4
+    url: https://github.com/AyatanaIndicators/libayatana-indicator/archive/0.9.1.tar.gz
+    sha256: 15a8844265067652c06242736ece682622d73cedcccdf1c171ce27fba70ba689
 cleanup:
   - /share/libayatana-indicator
   - /libexec

@@ -1,0 +1,23 @@
+name: qttools
+builddir: true
+buildsystem: cmake-ninja
+config-opts:
+  - -DCMAKE_BUILD_TYPE=Release
+  - -DCMAKE_INSTALL_PREFIX=/app
+  - -DFEATURE_assistant=OFF
+  - -DFEATURE_clang=OFF
+  - -DFEATURE_clangcpp=OFF
+  - -DFEATURE_designer=OFF
+  - -DFEATURE_distancefieldgenerator=OFF
+  - -DFEATURE_pixeltool=OFF
+  - -DFEATURE_qdbus=OFF
+  - -DFEATURE_qtattributionsscanner=OFF
+  - -DFEATURE_qtdiag=OFF
+  - -DFEATURE_qtplugininfo=OFF
+  - -DFEATURE_windeployqt=OFF
+sources:
+  - type: archive
+    url: https://download.qt.io/official_releases/qt/6.2/6.2.4/submodules/qttools-everywhere-src-6.2.4.tar.xz
+    sha256: 17f40689c4a1706a1b7db22fa92f6ab79f7b698a89e100cab4d10e19335f8267
+cleanup:
+  - "*"

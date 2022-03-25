@@ -1,0 +1,15 @@
+name: clutter
+buildsystem: meson
+config-opts:
+  - -Dbuildtype=release
+  - -Dbackends=x11,gdk,wayland
+  - -Dbuild_tests=false
+  - -Dbuild_examples=false
+  - -Ddocumentation=false
+  - -Dintrospection=true
+  - -Dwayland_compositor=true
+  - -Dpixbuf_tests=false
+sources:
+  - type: archive
+    url: https://gitlab.gnome.org/GNOME/clutter/-/archive/1.26.4/clutter-1.26.4.tar.gz
+    sha256: 3451552bb870aa8bf3ad69885c093b7be1e337c6859271f8445d42b8a093171a

@@ -1,0 +1,8 @@
+name: clutter-gtk
+buildsystem: meson
+config-opts:
+ - -Denable_docs=false
+sources:
+  - type: archive
+    url: https://gitlab.gnome.org/Archive/clutter-gtk/-/archive/1.8.4/clutter-gtk-1.8.4.tar.gz
+    sha256: fd60f1ff717a0a50cac6553ef584d79318aae62e09ba1104745f0aa1b27c9362
