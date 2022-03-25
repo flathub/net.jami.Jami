@@ -75,7 +75,8 @@ modules:
       - dependencies/http-parser.yml
       - dependencies/fmt.yml
       - dependencies/restinio.yml # needs fmt, http-parser
-      - dependencies/msgpack.yml
+      - dependencies/msgpack-c.yml
+      - dependencies/msgpack-cxx.yml
       # jami-daemon deps
       - dependencies/opendht.yml
       - dependencies/x264.yml
