@@ -74,7 +74,8 @@ modules:
       - dependencies/http-parser.yml
       - dependencies/fmt.yml
       - dependencies/restinio.yml # needs fmt, http-parser
-      - dependencies/msgpack.yml
+      - dependencies/msgpack-c.yml
+      - dependencies/msgpack-cxx.yml
       # jami-daemon deps
       - dependencies/opendht.yml
       - dependencies/x264.yml
@@ -87,8 +88,8 @@ modules:
       - dependencies/libgit2.yml
       - dependencies/webrtc-audio-processing.yml
       # libringclient deps
-      - dependencies/jami-daemon.yml
       - dependencies/qtbase.yml
+      - dependencies/jami-daemon.yml
       - dependencies/qttools.yml # needs QTNetwork
       # jami-gnome deps
       - dependencies/jami-libclient.yml
