@@ -1,7 +1,7 @@
 name: jami-daemon
 buildsystem: meson
 config-opts:
-  - -Dbuildtype=release
+  - -Dbuildtype=debugoptimized
   - -Dportaudio=disabled
   - -Djack=disabled
   - -Dopensl=disabled

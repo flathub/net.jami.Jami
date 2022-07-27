@@ -7,7 +7,9 @@ config-opts:
   - -DUSE_HTTP_PARSER=system
   - -DUSE_SSH=OFF
   - -DREGEX_BACKEND=regcomp
+  - -DBUILD_TESTS=OFF
+  - -DBUILD_CLI=OFF
 sources:
   - type: archive
-    url: https://github.com/libgit2/libgit2/archive/refs/tags/v1.4.3.tar.gz
-    sha256: f48b961e463a9e4e7e7e58b21a0fb5a9b2a1d24d9ba4d15870a0c9b8ad965163
+    url: https://github.com/libgit2/libgit2/archive/refs/tags/v1.5.0.tar.gz
+    sha256: 8de872a0f201b33d9522b817c92e14edb4efad18dae95cf156cf240b2efff93e

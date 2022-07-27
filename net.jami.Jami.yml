@@ -89,6 +89,7 @@ modules:
       - dependencies/libsecp256k1.yml
       - dependencies/libupnp.yml
       - dependencies/libnatpmp.yml
+      #- dependencies/abseil-cpp.yml
       - dependencies/webrtc-audio-processing.yml
       # jami-client-qt deps
       - dependencies/jami-daemon.yml # ffmpeg needs x264, ffnvcodec
