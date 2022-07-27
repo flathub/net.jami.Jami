@@ -12,22 +12,22 @@ config-opts:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
-    commit: 8750049b0ce58133b05c90330df6fd3464dadd1d
+    commit: 374abb938204760a9b8534fa23ee2ba8cea5f045
   - type: file
-    url: https://github.com/savoirfairelinux/pjproject/archive/e1f389d0b905011e0cb62cbdf7a8b37fc1bcde1a.tar.gz
-    sha256: 32507bced0f4bad566a568b210924cae5f149e83ce248e391924bfb587c0508f
-    dest-filename: pjproject-e1f389d0b905011e0cb62cbdf7a8b37fc1bcde1a.tar.gz
+    url: https://github.com/savoirfairelinux/pjproject/archive/4af5d666d18837abaac94c8ec6bfc84984dcf1e2.tar.gz
+    sha256: 2f0311924c895fc0abfbeebdd43576b758756f2bbd2aa2f1edf997b1852fdc70
+    dest-filename: pjproject-4af5d666d18837abaac94c8ec6bfc84984dcf1e2.tar.gz
   - type: file
-    url: https://git.ffmpeg.org/gitweb/ffmpeg.git/snapshot/n4.4.tar.gz
-    sha256: 821b6c42cc1995c0eec33003cdc9f71d664d960614a4c9fd0e0138131f5dd5d0
-    dest-filename: ffmpeg-n4.4.tar.gz
+    url: https://git.ffmpeg.org/gitweb/ffmpeg.git/snapshot/n5.0.tar.gz
+    sha256: defdae95d594fb3485beb3e9ee68485e165d6b297236410806bec6dc35fabab8
+    dest-filename: ffmpeg-n5.0.tar.gz
   - type: patch
     path: ../files/jami-daemon_no-udev.patch
   - type: shell
     commands:
       - mkdir contrib/native
-      - mv pjproject-e1f389d0b905011e0cb62cbdf7a8b37fc1bcde1a.tar.gz contrib/tarballs
-      - mv ffmpeg-n4.4.tar.gz contrib/tarballs
+      - mv pjproject-4af5d666d18837abaac94c8ec6bfc84984dcf1e2.tar.gz contrib/tarballs
+      - mv ffmpeg-n5.0.tar.gz contrib/tarballs
       - autoreconf -fvi
       - cd contrib/native && ../bootstrap --prefix=/app --disable-downloads --disable-all --enable-pjproject --enable-ffmpeg
       - cd contrib/native && make DEPS_pjproject= DEPS_ffmpeg=

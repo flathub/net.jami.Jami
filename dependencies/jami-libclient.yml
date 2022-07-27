@@ -1,9 +1,0 @@
-name: jami-libclient
-buildsystem: cmake-ninja
-builddir: true
-config-opts:
-  - -DCMAKE_BUILD_TYPE=Release
-sources:
-  - type: git
-    url: https://git.jami.net/savoirfairelinux/jami-libclient.git
-    commit: c5bca2933fb02ef7f81e8fe0772801a4f97fd1f5
