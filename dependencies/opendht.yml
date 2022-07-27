@@ -12,6 +12,7 @@ config-opts:
   - -DOPENDHT_PROXY_SERVER=ON
   - -DOPENDHT_PROXY_CLIENT=ON
   - -DOPENDHT_PUSH_NOTIFICATIONS=ON
+  - -Dcpp_args='-DMSGPACK_NO_BOOST'
 sources:
   - type: archive
     url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v2.4.9.tar.gz
