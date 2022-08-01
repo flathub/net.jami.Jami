@@ -12,7 +12,7 @@ config-opts:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
-    commit: 374abb938204760a9b8534fa23ee2ba8cea5f045
+    commit: 3150964dbb8b35f7ecda516e5c7856a69c70a249
   - type: file
     url: https://github.com/savoirfairelinux/pjproject/archive/4af5d666d18837abaac94c8ec6bfc84984dcf1e2.tar.gz
     sha256: 2f0311924c895fc0abfbeebdd43576b758756f2bbd2aa2f1edf997b1852fdc70

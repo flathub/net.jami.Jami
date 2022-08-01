@@ -52,18 +52,18 @@ modules:
       arch:
         x86_64:
           config-opts:
-            - -DCMAKE_BUILD_TYPE=Release
+            - -DCMAKE_BUILD_TYPE=RelWithDebInfo
             - -Dqrencode=/app/lib/libqrencode.so
             - -D_qt_additional_packages_prefix_paths=/app/lib/x86_64-linux-gnu/cmake
         aarch64:
           config-opts:
-            - -DCMAKE_BUILD_TYPE=Release
+            - -DCMAKE_BUILD_TYPE=RelWithDebInfo
             - -Dqrencode=/app/lib/libqrencode.so
             - -D_qt_additional_packages_prefix_paths=/app/lib/aarch64-linux-gnu/cmake
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: fcb09bc86c3c768ffef65b8eea7671ab251e4e81
+        commit: 0dd518bfe9343500f75a0883694f11c59b93c3ac
         disable-submodules: true
       - type: patch
         path: files/jami-client-qt_appdata.patch
@@ -89,10 +89,11 @@ modules:
       - dependencies/libsecp256k1.yml
       - dependencies/libupnp.yml
       - dependencies/libnatpmp.yml
-      #- dependencies/abseil-cpp.yml
+      - dependencies/abseil-cpp.yml
       - dependencies/webrtc-audio-processing.yml
       # jami-client-qt deps
       - dependencies/jami-daemon.yml # ffmpeg needs x264, ffnvcodec
-      - dependencies/qt5compat.yml
       - dependencies/qrencode.yml
       - dependencies/coloremoji.yml
+      - dependencies/qt5compat.yml
+      - dependencies/qtlottie.yml

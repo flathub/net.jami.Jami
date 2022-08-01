@@ -1,8 +1,9 @@
 name: webrtc-audio-processing
+buildsystem: meson
 config-opts:
-  - --prefix=/app
-  - --disable-static
+  - -Dbuildtype=debugoptimized
+  - -Dcpp_std=c++17
 sources:
-  - type: archive
-    url: http://freedesktop.org/software/pulseaudio/webrtc-audio-processing/webrtc-audio-processing-0.3.1.tar.xz
-    sha256: a0fdd938fd85272d67e81572c5a4d9e200a0c104753cb3c209ded175ce3c5dbf
+  - type: git
+    url: https://gitlab.freedesktop.org/pulseaudio/webrtc-audio-processing.git
+    commit: ca1186946d3c9d08229c02cc7a46c3caf766ca2e
