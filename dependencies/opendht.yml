@@ -14,5 +14,5 @@ config-opts:
   - -DOPENDHT_PUSH_NOTIFICATIONS=ON
 sources:
   - type: archive
-    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v2.4.9.tar.gz
-    sha256: ede4a0adee7e5d98d9681cfd2bab83421b153afcdb5efa1a925986a0a3a0ac8a
+    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v2.4.8.tar.gz
+    sha256: 49dcdd12120678f3548a47206e60074ef0f4eb798ca5d213efd5cf1e2d70127b
