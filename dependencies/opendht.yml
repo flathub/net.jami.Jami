@@ -1,5 +1,6 @@
 name: opendht
 buildsystem: cmake-ninja
+subdir: ./include
 config-opts:
   - -DCMAKE_INSTALL_PREFIX=/app
   - -DCMAKE_INSTALL_LIBDIR=lib
