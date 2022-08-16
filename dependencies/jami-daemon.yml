@@ -8,7 +8,6 @@ config-opts:
   - -Daec=enabled
   - -Dname_service=enabled
   - -Dinterfaces=library,dbus
-  - -Dcpp_args='-DMSGPACK_NO_BOOST'
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git

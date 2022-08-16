@@ -63,7 +63,7 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: 17e97ded71e7540c473cceac99c4c10fb845d03c
+        commit: e7a23695f11474b2af3aba9a48ae133eafc8e751
         disable-submodules: true
       - type: patch
         path: files/jami-client-qt_appdata.patch
@@ -77,7 +77,7 @@ modules:
       - dependencies/http-parser.yml
       - dependencies/fmt.yml
       - dependencies/restinio.yml # needs fmt, http-parser
-      - dependencies/msgpack-c.yml
+      - dependencies/boost.yml
       - dependencies/msgpack-cxx.yml
       # jami-daemon deps
       - dependencies/opendht.yml
