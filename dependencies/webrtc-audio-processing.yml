@@ -1,7 +1,7 @@
 name: webrtc-audio-processing
 buildsystem: meson
 config-opts:
-  - -Dbuildtype=debugoptimized
+  - -Dbuildtype=release
   - -Dcpp_std=c++17
 sources:
   - type: git

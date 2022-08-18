@@ -1,17 +1,16 @@
 name: jami-daemon
 buildsystem: meson
 config-opts:
-  - -Dbuildtype=debugoptimized
+  - -Dbuildtype=release
   - -Dportaudio=disabled
   - -Djack=disabled
   - -Dopensl=disabled
-  - -Daec=enabled
   - -Dname_service=enabled
   - -Dinterfaces=library,dbus
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
-    commit: d4ee3d52b92f3454012f79f27e662f5e82665b50
+    commit: 2f6f35cf041bb9389bd99e0495adeb00119c268f
   - type: file
     url: https://github.com/savoirfairelinux/pjproject/archive/5e478bbf8692f43059de9c6ad654b377359baaa0.tar.gz
     sha256: 9ad019d79c8c45c1e53b7fad918d36ba3c3fe7504a62292576eedc86fe19eeed

@@ -1,7 +1,7 @@
 name: abseil-cpp
 buildsystem: cmake-ninja
 config-opts:
-  - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+  - -DCMAKE_BUILD_TYPE=Release
   - -DBUILD_SHARED_LIBS=ON
   - -DABSL_PROPAGATE_CXX_STD=ON
   - -DCMAKE_CXX_STANDARD=17
