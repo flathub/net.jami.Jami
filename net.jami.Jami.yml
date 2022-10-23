@@ -4,7 +4,7 @@ base-version: '6.3'
 runtime: org.kde.Platform
 runtime-version: '6.3'
 sdk: org.kde.Sdk
-command: jami-qt
+command: jami
 
 finish-args:
   - --share=ipc
@@ -34,14 +34,13 @@ cleanup:
   - /share/man
   - /share/doc
   - /share/cmake
-  - /share/jami-qt
   - /share/pkgconfig
 
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
 
-rename-desktop-file: jami-qt.desktop
-rename-appdata-file: jami-qt.appdata.xml
+rename-desktop-file: jami.desktop
+rename-appdata-file: jami.appdata.xml
 rename-icon: jami
 
 modules:
@@ -53,22 +52,17 @@ modules:
         x86_64:
           config-opts:
             - -DCMAKE_BUILD_TYPE=Release
-            - -Dqrencode=/app/lib/libqrencode.so
             - -D_qt_additional_packages_prefix_paths=/app/lib/x86_64-linux-gnu/cmake
         aarch64:
           config-opts:
             - -DCMAKE_BUILD_TYPE=Release
-            - -Dqrencode=/app/lib/libqrencode.so
             - -D_qt_additional_packages_prefix_paths=/app/lib/aarch64-linux-gnu/cmake
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: dfb7e918f0e529c10727892ef4110e1da3553569
-        disable-submodules: true
+        commit: 5aca8896301e76baf9c32118adc7bfbe44280cd0
       - type: patch
         path: files/jami-client-qt_appdata.patch
-    cleanup:
-      - /bin/jami
     modules:
       # opendht deps
       - dependencies/argon2.yml
