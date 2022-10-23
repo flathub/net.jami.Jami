@@ -1,14 +1,14 @@
-diff --git a/jami-qt.appdata.xml b/jami-qt.appdata.xml
-index e245178..00dc536 100644
---- a/jami-qt.appdata.xml
-+++ b/jami-qt.appdata.xml
+diff --git a/extras/data/jami.appdata.xml b/extras/data/jami.appdata.xml
+index a9316504..8ea936f4 100644
+--- a/extras/data/jami.appdata.xml
++++ b/extras/data/jami.appdata.xml
 @@ -7,7 +7,9 @@
   <name>Jami</name>
   <summary>Privacy-oriented voice, video, chat, and conference platform</summary>
   <summary xml:lang="hu">Adatvédelem-orientált hang-, video-, csevegés- és konferenciaplatform</summary>
 - <icon type="stock">jami</icon>
 + <releases>
-+    <release version="20220908.1.dfb7e918" date="2022-09-08" />
++    <release version="20221021.1.5aca8896" date="2022-10-21" />
 + </releases>
   <description>
      <p>
