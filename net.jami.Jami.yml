@@ -88,6 +88,7 @@ modules:
       # jami-client-qt deps
       - dependencies/jami-daemon.yml # ffmpeg needs x264, ffnvcodec
       - dependencies/qrencode.yml
+      - dependencies/libnotify.yml
       - dependencies/coloremoji.yml
       - dependencies/qt5compat.yml
       - dependencies/qtlottie.yml
