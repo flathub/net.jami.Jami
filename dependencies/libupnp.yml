@@ -4,9 +4,10 @@ config-opts:
   - -DCMAKE_INSTALL_PREFIX=/app
   - -DCMAKE_BUILD_TYPE=Release
   - -DBUILD_TESTING=OFF
-  - -Dsamples=OFF
-  - -Ddevice=OFF
+  - -DUPNP_BUILD_STATIC=OFF
+  - -DUPNP_ENABLE_WEBSERVER=OFF
+  - -DUPNP_ENABLE_DEVICE_API=OFF
 sources:
   - type: archive
-    url: https://github.com/pupnp/pupnp/releases/download/release-1.14.12/libupnp-1.14.12.tar.bz2
-    sha256: 091c80aada1e939c2294245c122be2f5e337cc932af7f7d40504751680b5b5ac
+    url: https://github.com/pupnp/pupnp/archive/refs/tags/release-1.14.14.tar.gz
+    sha256: 36c0e0d7135c81516bba2292504bdbff6bd182904127b6f137c3945a93c4bccd
