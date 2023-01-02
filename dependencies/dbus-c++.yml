@@ -20,5 +20,7 @@ sources:
     path: ../files/dbus-c++_gcc47.patch
   - type: patch
     path: ../files/dbus-c++_disable-threading.patch
+  - type: patch
+    path: ../files/dbus-c++_template-operators.patch
 cleanup:
   - /bin
