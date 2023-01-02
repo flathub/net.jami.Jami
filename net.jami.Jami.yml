@@ -1,8 +1,6 @@
 app-id: net.jami.Jami
-base: io.qt.qtwebengine.BaseApp
-base-version: '6.3'
 runtime: org.kde.Platform
-runtime-version: '6.3'
+runtime-version: '6.4'
 sdk: org.kde.Sdk
 command: jami
 
@@ -36,9 +34,6 @@ cleanup:
   - /share/cmake
   - /share/pkgconfig
 
-cleanup-commands:
-  - /app/cleanup-BaseApp.sh
-
 rename-desktop-file: jami.desktop
 rename-appdata-file: jami.appdata.xml
 rename-icon: jami
@@ -47,20 +42,17 @@ modules:
   - name: jami-client-qt
     buildsystem: cmake-ninja
     builddir: true
-    build-options:
-      arch:
-        x86_64:
-          config-opts:
-            - -DCMAKE_BUILD_TYPE=Release
-            - -D_qt_additional_packages_prefix_paths=/app/lib/x86_64-linux-gnu/cmake
-        aarch64:
-          config-opts:
-            - -DCMAKE_BUILD_TYPE=Release
-            - -D_qt_additional_packages_prefix_paths=/app/lib/aarch64-linux-gnu/cmake
+    config-opts:
+      - -DWITH_WEBENGINE=false
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: 5e4e2e8c82f45bff1ac13a86b78aac90969e9a95
+        commit: 57623fdb782097403cba01fb0cf245d964ff1e9f
+        disable-submodules: true
+      - type: git
+        dest: 3rdparty/SortFilterProxyModel
+        url: https://github.com/atraczyk/SortFilterProxyModel.git
+        commit: 6cc21205dbf36640613f0e6e67b2b13b1855c377
       - type: patch
         path: files/jami-client-qt_appdata.patch
     modules:
