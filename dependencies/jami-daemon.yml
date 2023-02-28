@@ -10,11 +10,11 @@ config-opts:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
-    commit: 52ce8c858aba1507fd1c2e6fc01c26637e73ea8b
+    commit: 2c07879455bf154d635e0057658b3543b162a7e1
   - type: file
-    url: https://github.com/savoirfairelinux/pjproject/archive/eae25732568e600d248aa8c226271ff6b81df170.tar.gz
-    sha256: 8381429ba82d70c34c9e6770d8a10f7542fe0af1d15cde069f17ecd6f5a57afc
-    dest-filename: pjproject-eae25732568e600d248aa8c226271ff6b81df170.tar.gz
+    url: https://github.com/savoirfairelinux/pjproject/archive/20e00fcdd16459444bae2bae9c0611b63cf87297.tar.gz
+    sha256: 281e7e8753b41937cfc5cad81c28b45cb2355f5361fd19b4f28b507ecae153d6
+    dest-filename: pjproject-20e00fcdd16459444bae2bae9c0611b63cf87297.tar.gz
   - type: file
     url: https://git.ffmpeg.org/gitweb/ffmpeg.git/snapshot/n5.0.tar.gz
     sha256: defdae95d594fb3485beb3e9ee68485e165d6b297236410806bec6dc35fabab8
@@ -24,8 +24,7 @@ sources:
   - type: shell
     commands:
       - mkdir contrib/native
-      - mv pjproject-eae25732568e600d248aa8c226271ff6b81df170.tar.gz contrib/tarballs
+      - mv pjproject-20e00fcdd16459444bae2bae9c0611b63cf87297.tar.gz contrib/tarballs
       - mv ffmpeg-n5.0.tar.gz contrib/tarballs
-      - autoreconf -fvi
       - cd contrib/native && ../bootstrap --prefix=/app --disable-downloads --disable-all --enable-pjproject --enable-ffmpeg
       - cd contrib/native && make DEPS_pjproject= DEPS_ffmpeg=

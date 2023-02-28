@@ -9,5 +9,5 @@ config-opts:
   - -DUPNP_ENABLE_DEVICE_API=OFF
 sources:
   - type: archive
-    url: https://github.com/pupnp/pupnp/archive/refs/tags/release-1.14.14.tar.gz
-    sha256: 36c0e0d7135c81516bba2292504bdbff6bd182904127b6f137c3945a93c4bccd
+    url: https://github.com/pupnp/pupnp/releases/download/release-1.14.15/libupnp-1.14.15.tar.bz2
+    sha256: 794e92c6ea83456f25a929e2e1faa005f7178db8bc4b0b4b19eaca2cc7e66384
