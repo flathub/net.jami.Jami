@@ -47,12 +47,7 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: 2de9157d34f2e6e2ec64103eab3e25162dd19e40
-        disable-submodules: true
-      - type: git
-        dest: 3rdparty/SortFilterProxyModel
-        url: https://github.com/atraczyk/SortFilterProxyModel.git
-        commit: 6cc21205dbf36640613f0e6e67b2b13b1855c377
+        commit: 146afcd6a96aa4f06c9632353b7a073e1c869fb0
       - type: patch
         path: files/jami-client-qt_appdata.patch
     modules:

@@ -9,5 +9,5 @@ config-opts:
   - -DMSGPACK_BUILD_EXAMPLES=OFF
 sources:
   - type: archive
-    url: https://github.com/msgpack/msgpack-c/releases/download/cpp-4.1.2/msgpack-cxx-4.1.2.tar.gz
-    sha256: eeddd7faeacbc12e10052bd1e3ec78bd26c69bfbbea9f9264c7ffce9b1ede7b1
+    url: https://github.com/msgpack/msgpack-c/releases/download/cpp-5.0.0/msgpack-cxx-5.0.0.tar.gz
+    sha256: 80f997575acff12b1b64158ef9dbad4cff32595f985532e16c6ea67e317452d5

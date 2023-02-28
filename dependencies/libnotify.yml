@@ -6,5 +6,5 @@ config-opts:
   - -Dgtk_doc=false
 sources:
   - type: archive
-    url: https://gitlab.gnome.org/GNOME/libnotify/-/archive/0.8.1/libnotify-0.8.1.tar.bz2
-    sha256: 6a17cd1eacc17c2dd2620e68da2b25151f08489ca17210ae32ae4b8c16e46889
+    url: https://gitlab.gnome.org/GNOME/libnotify/-/archive/0.8.2/libnotify-0.8.2.tar.gz
+    sha256: 84d6bbcd633ff10eed25226730c52220cd41e362bb183513e5b6a5d1b3c0c12f
