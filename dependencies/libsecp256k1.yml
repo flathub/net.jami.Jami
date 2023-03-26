@@ -13,4 +13,4 @@ config-opts:
 sources:
   - type: git
     url: https://github.com/bitcoin-core/secp256k1.git
-    commit: cbd25559343add1fba511d1f0084be7f32b85549
+    commit: 464a9115b4eda46b464d22829ece4f51985944bf
