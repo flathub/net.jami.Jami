@@ -12,7 +12,9 @@ config-opts:
   - -DOPENDHT_PROXY_SERVER=ON
   - -DOPENDHT_PROXY_CLIENT=ON
   - -DOPENDHT_PUSH_NOTIFICATIONS=ON
+  - -DOPENDHT_TESTS_NETWORK=OFF
+  - -DBUILD_TESTING=OFF
 sources:
   - type: archive
-    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v2.4.12.tar.gz
-    sha256: 5144bc4456d396b527b59065064bbc31fbe0d2af5fd052506219a66895791e64
+    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v2.5.5.tar.gz
+    sha256: ef30dc5249dda1a4032f5dbba525988ba253d7a76a24183062960693367fa0fe
