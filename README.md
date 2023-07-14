@@ -9,7 +9,7 @@ Jami is a free/libre, end-to-end encrypted, and private communication platform.
 * [Issues](https://git.jami.net/groups/savoirfairelinux/-/issues/?sort=updated_desc&state=opened&first_page_size=20)
 * [Translate](https://explore.transifex.com/savoirfairelinux/)
 * [Changelog](https://git.jami.net/savoirfairelinux/jami-client-qt/-/wikis/Changelog)
-* [Features requests](https://docs.jami.net/developer/feature-requests.html)
+* [Feature requests](https://docs.jami.net/developer/feature-requests.html)
 
 ## Request for help
 
