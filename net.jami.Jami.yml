@@ -1,6 +1,6 @@
 app-id: net.jami.Jami
 runtime: org.kde.Platform
-runtime-version: '6.4'
+runtime-version: '6.5'
 sdk: org.kde.Sdk
 command: jami
 
@@ -17,7 +17,6 @@ finish-args:
   - --talk-name=org.freedesktop.ScreenSaver
   - --talk-name=org.kde.StatusNotifierWatcher
   - --own-name=cx.ring.Ring
-  - --own-name=org.mpris.MediaPlayer2.chromium.instance2
   - --filesystem=xdg-download
   - --env=QML_IMPORT_PATH=/app/qml
 
@@ -33,6 +32,9 @@ cleanup:
   - /share/doc
   - /share/cmake
   - /share/pkgconfig
+  - /bin/notify-send
+  - /bin/sdbus-c++-xml2cpp
+  - /bin/tv_ctrlpt
 
 rename-desktop-file: jami.desktop
 rename-appdata-file: jami.appdata.xml
@@ -43,11 +45,12 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DWITH_WEBENGINE=false
+      - -DWITH_WEBENGINE=OFF
+      - -DENABLE_LIBWRAP=ON
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: 21b5c95eeb44fcc3d451fa8a1db41b3cac386c77
+        commit: d7200cc8a3efc9540e086ac53a87cac7023af9b1
       - type: patch
         path: files/jami-client-qt_appdata.patch
     modules:
@@ -66,16 +69,15 @@ modules:
       - dependencies/ffnvcodec.yml
       - dependencies/libgit2.yml
       - dependencies/yaml-cpp.yml
-      - dependencies/dbus-c++.yml
       - dependencies/libsecp256k1.yml
       - dependencies/libupnp.yml
       - dependencies/libnatpmp.yml
       - dependencies/abseil-cpp.yml
       - dependencies/webrtc-audio-processing.yml
+      - dependencies/sdbus-c++.yml
       # jami-client-qt deps
       - dependencies/jami-daemon.yml # ffmpeg needs x264, ffnvcodec
       - dependencies/qrencode.yml
       - dependencies/libnotify.yml
-      - dependencies/coloremoji.yml
       - dependencies/qt5compat.yml
       - dependencies/qtlottie.yml

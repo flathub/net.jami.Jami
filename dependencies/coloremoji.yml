@@ -1,8 +1,0 @@
-name: coloremoji
-buildsystem: simple
-build-commands:
-  - mkdir -p /app/etc/fonts
-  - install -Dm644 coloremoji.conf /app/etc/fonts/local.conf
-sources:
-  - type: file
-    path: ../files/coloremoji.conf

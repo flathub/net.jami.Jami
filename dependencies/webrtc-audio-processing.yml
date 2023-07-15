@@ -1,9 +1,6 @@
 name: webrtc-audio-processing
 buildsystem: meson
-config-opts:
-  - -Dbuildtype=release
-  - -Dcpp_std=c++17
 sources:
-  - type: git
-    url: https://gitlab.freedesktop.org/pulseaudio/webrtc-audio-processing.git
-    commit: ca1186946d3c9d08229c02cc7a46c3caf766ca2e
+  - type: archive
+    url: https://gitlab.freedesktop.org/pulseaudio/webrtc-audio-processing/-/archive/v1.1/webrtc-audio-processing-v1.1.tar.bz2
+    sha256: a7d61e57a81a42653cec0ddeffb909b145d6147fe220012e5b78e6ecac498ecb

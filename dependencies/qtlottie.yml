@@ -3,5 +3,5 @@ buildsystem: cmake-ninja
 builddir: true
 sources:
   - type: archive
-    url: https://download.qt.io/official_releases/qt/6.4/6.4.3/submodules/qtlottie-everywhere-src-6.4.3.tar.xz
-    sha256: ff6c52e04566ecadee351eb3b803237bf07d417e4bb27d2122a5879618f1693d
+    url: https://download.qt.io/official_releases/qt/6.5/6.5.1/submodules/qtlottie-everywhere-src-6.5.1.tar.xz
+    sha256: 10b8f8107b75314703a4d0e0f60778c30c8f41a339622bc8166eec284ac26b81
