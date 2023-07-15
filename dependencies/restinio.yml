@@ -14,5 +14,5 @@ config-opts:
   - -DRESTINIO_USE_EXTERNAL_HTTP_PARSER=ON
 sources:
   - type: archive
-    url: https://github.com/Stiffstream/restinio/releases/download/v.0.6.17/restinio-0.6.17.tar.bz2
-    sha256: cea0c46906196e97c30b2bfefbfd49578c9f870a89501d7ce5cd39bbd376142a
+    url: https://github.com/Stiffstream/restinio/releases/download/v.0.6.18/restinio-0.6.18.tar.bz2
+    sha256: e0e92c99a5ba341a59f27a6a2e26469face6081ecac57954e4d29f2a603b66bf
