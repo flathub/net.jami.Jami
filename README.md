@@ -10,7 +10,3 @@ Jami is a free/libre, end-to-end encrypted, and private communication platform.
 * [Translate](https://explore.transifex.com/savoirfairelinux/)
 * [Changelog](https://git.jami.net/savoirfairelinux/jami-client-qt/-/wikis/Changelog)
 * [Feature requests](https://docs.jami.net/developer/feature-requests.html)
-
-## Request for help
-
-Uses custom font config to support color emojis but might break custom font settings. Please help if you have improvements.
