@@ -1,0 +1,12 @@
+diff --git a/src/app/mainview/components/SwarmDetailsPanel.qml b/src/app/mainview/components/SwarmDetailsPanel.qml
+index 772f3e2a..053b077e 100644
+--- a/src/app/mainview/components/SwarmDetailsPanel.qml
++++ b/src/app/mainview/components/SwarmDetailsPanel.qml
+@@ -96,6 +96,7 @@ Rectangle {
+                         Layout.preferredWidth: Math.min(217, swarmProfileDetails.width - currentAccountAvatar.width - 30 - JamiTheme.settingsMarginSize)
+ 
+                         staticText: CurrentConversation.title
++                        placeholderText: "placeholderText"
+                         elidedText: titleLineTextSize.elidedText
+ 
+                         textColor: root.textColor
