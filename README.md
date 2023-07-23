@@ -12,7 +12,9 @@ This gives you even greater privacy, as the decentralized nature of Jami means y
 
 Jami has a good selection of features, such as HD video calling, instant messaging, voice messaging, and file sharing.
 
-Jami has multiple [plugins](https://jami.net/plugins/) available, such as **Whisper transcript** which runs live transcription _**locally**_ on your device, and **Greenscreen** to modify your background during a video call.
+Jami has multiple [plugins](https://jami.net/plugins/) available, such as:
+* **Whisper transcript** which runs live transcription _**locally**_ on your device, and
+* **Greenscreen** to modify your background during a video call.
 
 Jami is totally free to use.
 
