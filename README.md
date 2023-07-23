@@ -6,7 +6,7 @@ Jami is a free/libre, end-to-end encrypted, and private communication platform.
 
 Jami – which used to be known as Ring – is an open-source alternative (to Teams, Zoom, Skype) that prioritizes the privacy of its users.
 
-Jami has a professional-looking design and is available for a wide range of platforms. Unlike other alternatives, calls using Jami are directly between users as it does not use servers to handle calls.
+Jami has a professional-looking design and is available for a wide range of platforms. Unlike the alternatives, calls using Jami are directly between users as it does not use servers to handle calls.
 
 This gives you even greater privacy, as the decentralized nature of Jami means your calls are only between you and the person you are calling – no one else can see (or hear).
 
