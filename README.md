@@ -10,7 +10,7 @@ Jami has a professional-looking design and is available for a wide range of plat
 
 This gives you even greater privacy, as the decentralized nature of Jami means your calls are only between you and the person you are calling – no one else can see (or hear).
 
-Jami has got a good selection of features, such as HD video calling, instant messaging, voice messaging, and file sharing.
+Jami has a good selection of features, such as HD video calling, instant messaging, voice messaging, and file sharing.
 
 Jami has multiple [plugins](https://jami.net/plugins/) available, such as **Whisper transcript** which runs live transcription _**locally**_ on your device, and **Greenscreen** to modify your background during a video call.
 
