@@ -50,11 +50,9 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: 2f7acbd31b66359add06a9042763446fb8b9fd18
+        commit: 3b85425aa301cc229fadda1a06290d6b07fa6338
       - type: patch
         path: files/jami-client-qt_appdata.patch
-      - type: patch
-        path: files/jami-client-qt_fix.patch
     modules:
       # opendht deps
       - dependencies/argon2.yml
@@ -72,11 +70,13 @@ modules:
       - dependencies/libgit2.yml
       - dependencies/yaml-cpp.yml
       - dependencies/libsecp256k1.yml
-      - dependencies/libupnp.yml
-      - dependencies/libnatpmp.yml
+      # - dependencies/libupnp.yml
+      # - dependencies/libnatpmp.yml
       - dependencies/abseil-cpp.yml
       - dependencies/webrtc-audio-processing.yml
       - dependencies/sdbus-c++.yml
+      - dependencies/pjproject.yml
+      - dependencies/dhtnet.yml
       # jami-client-qt deps
       - dependencies/jami-daemon.yml # ffmpeg needs x264, ffnvcodec
       - dependencies/qrencode.yml
