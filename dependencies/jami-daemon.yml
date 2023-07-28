@@ -10,11 +10,7 @@ config-opts:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
-    commit: caead18449a5ff582f914a8601885796a4d7e508
-  - type: file
-    url: https://github.com/savoirfairelinux/pjproject/archive/e4b83585a0bdf1523e808a4fc1946ec82ac733d0.tar.gz
-    sha256: dc47182c82e58883a2debd0b3d20e89a33d517a63a2817877b3620578ca1e689
-    dest-filename: pjproject-e4b83585a0bdf1523e808a4fc1946ec82ac733d0.tar.gz
+    commit: e49d7d0969944f44fbfb194b7e61ae26b9ea72d3
   - type: file
     url: https://git.ffmpeg.org/gitweb/ffmpeg.git/snapshot/n6.0.tar.gz
     sha256: 40659f915321b1955acc9669e2e79aaa5f75199d0e586ab86f561ee037ba7245
@@ -24,7 +20,6 @@ sources:
   - type: shell
     commands:
       - mkdir contrib/native
-      - mv pjproject-e4b83585a0bdf1523e808a4fc1946ec82ac733d0.tar.gz contrib/tarballs
       - mv ffmpeg-n6.0.tar.gz contrib/tarballs
-      - cd contrib/native && ../bootstrap --prefix=/app --disable-downloads --disable-all --enable-pjproject --enable-ffmpeg
-      - cd contrib/native && make DEPS_pjproject= DEPS_ffmpeg=
+      - cd contrib/native && ../bootstrap --prefix=/app --disable-downloads --disable-all --enable-ffmpeg
+      - cd contrib/native && make DEPS_ffmpeg=
