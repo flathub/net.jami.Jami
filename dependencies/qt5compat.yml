@@ -1,7 +1,0 @@
-name: qt5compat
-buildsystem: cmake-ninja
-builddir: true
-sources:
-  - type: archive
-    url: https://download.qt.io/official_releases/qt/6.5/6.5.1/submodules/qt5compat-everywhere-src-6.5.1.tar.xz
-    sha256: ae992b295fefabef2445beb3a8ec31c40fa0fb2c01603eaf2acfdb4a0054fb83

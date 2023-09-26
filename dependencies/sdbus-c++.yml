@@ -6,6 +6,6 @@ config-opts:
   - -DBUILD_DOC=OFF
 sources:
   - type: archive
-    url: https://github.com/Kistler-Group/sdbus-cpp/archive/refs/tags/v1.2.0.tar.gz
-    sha256: 7f7231904abb6a996b8c18ddc5fb50078ef5dff5191649abf9f127aff41d24e9
+    url: https://github.com/Kistler-Group/sdbus-cpp/archive/refs/tags/v1.3.0.tar.gz
+    sha256: d44f59abdd64d8f1ca3af7db58bc6518cb081fc9ff16285c3d75a68f5c073d10
 
