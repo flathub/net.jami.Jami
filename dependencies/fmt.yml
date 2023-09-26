@@ -8,5 +8,5 @@ config-opts:
   - -DFMT_TEST=Off
 sources:
   - type: archive
-    url: https://github.com/fmtlib/fmt/releases/download/10.0.0/fmt-10.0.0.zip
-    sha256: 4943cb165f3f587f26da834d3056ee8733c397e024145ca7d2a8a96bb71ac281
+    url: https://github.com/fmtlib/fmt/releases/download/10.1.1/fmt-10.1.1.zip
+    sha256: b84e58a310c9b50196cda48d5678d5fa0849bca19e5fdba6b684f0ee93ed9d1b

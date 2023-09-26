@@ -1,7 +1,0 @@
-name: qtlottie
-buildsystem: cmake-ninja
-builddir: true
-sources:
-  - type: archive
-    url: https://download.qt.io/official_releases/qt/6.5/6.5.1/submodules/qtlottie-everywhere-src-6.5.1.tar.xz
-    sha256: 10b8f8107b75314703a4d0e0f60778c30c8f41a339622bc8166eec284ac26b81

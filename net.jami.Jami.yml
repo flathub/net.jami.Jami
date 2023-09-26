@@ -1,4 +1,6 @@
 app-id: net.jami.Jami
+base: io.qt.qtwebengine.BaseApp
+base-version: '6.5'
 runtime: org.kde.Platform
 runtime-version: '6.5'
 sdk: org.kde.Sdk
@@ -19,6 +21,7 @@ finish-args:
   - --own-name=cx.ring.Ring
   - --filesystem=xdg-download
   - --env=QML_IMPORT_PATH=/app/qml
+  - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
 
 cleanup:
   - "*.a"
@@ -36,6 +39,9 @@ cleanup:
   - /bin/sdbus-c++-xml2cpp
   - /bin/tv_ctrlpt
 
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
+
 rename-desktop-file: jami.desktop
 rename-appdata-file: jami.appdata.xml
 rename-icon: jami
@@ -45,12 +51,12 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DWITH_WEBENGINE=OFF
+      - -DWITH_WEBENGINE=ON
       - -DENABLE_LIBWRAP=ON
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: 3b85425aa301cc229fadda1a06290d6b07fa6338
+        commit: ea5b2d6589d147e6a006a75458f7b09e166cf023
       - type: patch
         path: files/jami-client-qt_appdata.patch
     modules:
@@ -70,16 +76,14 @@ modules:
       - dependencies/libgit2.yml
       - dependencies/yaml-cpp.yml
       - dependencies/libsecp256k1.yml
-      # - dependencies/libupnp.yml
-      # - dependencies/libnatpmp.yml
       - dependencies/abseil-cpp.yml
       - dependencies/webrtc-audio-processing.yml
       - dependencies/sdbus-c++.yml
       - dependencies/pjproject.yml
-      - dependencies/dhtnet.yml
+      - dependencies/libnatpmp.yml
+      - dependencies/libupnp.yml
+      - dependencies/dhtnet.yml # libnatpmp, libupnp
       # jami-client-qt deps
       - dependencies/jami-daemon.yml # ffmpeg needs x264, ffnvcodec
       - dependencies/qrencode.yml
       - dependencies/libnotify.yml
-      - dependencies/qt5compat.yml
-      - dependencies/qtlottie.yml
