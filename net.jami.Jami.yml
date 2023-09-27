@@ -51,6 +51,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
       - -DWITH_WEBENGINE=ON
       - -DENABLE_LIBWRAP=ON
     sources:
