@@ -1,0 +1,14 @@
+diff --git a/src/app/mainapplication.cpp b/src/app/mainapplication.cpp
+index 2202c456..d70a208a 100644
+--- a/src/app/mainapplication.cpp
++++ b/src/app/mainapplication.cpp
+@@ -109,9 +109,6 @@ MainApplication::MainApplication(int& argc, char** argv)
+ {
+     const char* qtVersion = qVersion();
+     qInfo() << "Using Qt runtime version:" << qtVersion;
+-    if (strncmp(qtVersion, QT_VERSION_STR, strnlen(qtVersion, sizeof qtVersion)) != 0) {
+-        qFatal("Qt build version mismatch! %s", QT_VERSION_STR);
+-    }
+ 
+     parseArguments();
+     QObject::connect(this, &QApplication::aboutToQuit, this, &MainApplication::cleanup);

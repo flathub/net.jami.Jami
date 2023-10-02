@@ -60,6 +60,8 @@ modules:
         commit: b9d24298f7de7a5c87b1ff0d272980f1ed48eff2
       - type: patch
         path: files/jami-client-qt_appdata.patch
+      - type: patch
+        path: files/jami-client-qt_rm-qt-ver-check.patch
     modules:
       # opendht deps
       - dependencies/argon2.yml
