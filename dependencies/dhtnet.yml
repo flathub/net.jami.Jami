@@ -6,6 +6,7 @@ config-opts:
   - -DBUILD_BENCHMARKS=Off
   - -DBUILD_TESTING=Off
   - -DBUILD_TOOLS=Off
+  - -DBUILD_DEPENDENCIES=Off
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/dhtnet.git
