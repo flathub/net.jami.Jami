@@ -62,6 +62,8 @@ modules:
         path: files/jami-client-qt_appdata.patch
       - type: patch
         path: files/jami-client-qt_rm-qt-ver-check.patch
+      - type: patch
+        path: files/6cc447a.diff
     modules:
       # opendht deps
       - dependencies/argon2.yml
