@@ -54,10 +54,11 @@ modules:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
       - -DWITH_WEBENGINE=ON
       - -DENABLE_LIBWRAP=ON
+      - -DWITH_DAEMON_SUBMODULE=OFF
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: 6fc30b51d627874f28af15f6e37055dbc4a7d1db
+        commit: 855b023349e33b1d09afd39da6f0c294be9378d3
       - type: patch
         path: files/jami-client-qt_appdata.patch
       - type: patch
@@ -85,7 +86,8 @@ modules:
       - dependencies/pjproject.yml
       - dependencies/libnatpmp.yml
       - dependencies/libupnp.yml
-      - dependencies/dhtnet.yml # libnatpmp, libupnp
+      - dependencies/cppunit.yml
+      - dependencies/dhtnet.yml # libnatpmp, libupnp, cppunit
       # jami-client-qt deps
       - dependencies/jami-daemon.yml # ffmpeg needs x264, ffnvcodec
       - dependencies/qrencode.yml
