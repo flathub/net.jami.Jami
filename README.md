@@ -27,6 +27,7 @@ Jami is totally free to use.
 * [Jami Account Management Server (JAMS)](https://jami.biz/)
 * [Jami documentation](https://docs.jami.net/)
 * [Why donate](https://jami.net/whydonate/)
+* [LinuxFoundation Crowdfunding](https://crowdfunding.lfx.linuxfoundation.org/projects/jami-a-gnu-package)
 * [Code review](https://review.jami.net/q/status:open)
 * [Issues](https://git.jami.net/groups/savoirfairelinux/-/issues/?sort=updated_desc&state=opened&first_page_size=20)
 * [Translate](https://explore.transifex.com/savoirfairelinux/)
