@@ -10,16 +10,16 @@ config-opts:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
-    commit: 89202298890ba0bf1670b5a7c53ada2230350bda
+    commit: 15a523df3687255247b058eb9f323c4f81776c3e
   - type: file
-    url: https://git.ffmpeg.org/gitweb/ffmpeg.git/snapshot/n6.0.tar.gz
-    sha256: 40659f915321b1955acc9669e2e79aaa5f75199d0e586ab86f561ee037ba7245
-    dest-filename: ffmpeg-n6.0.tar.gz
+    url: https://ffmpeg.org/releases/ffmpeg-6.0.1.tar.xz
+    sha256: 9b16b8731d78e596b4be0d720428ca42df642bb2d78342881ff7f5bc29fc9623
+    # dest-filename: ffmpeg-n6.0.tar.gz
   - type: patch
     path: ../files/jami-daemon_no-udev.patch
   - type: shell
     commands:
       - mkdir contrib/native
-      - mv ffmpeg-n6.0.tar.gz contrib/tarballs
+      - mv ffmpeg-6.0.1.tar.xz contrib/tarballs
       - cd contrib/native && ../bootstrap --prefix=/app --disable-downloads --disable-all --enable-ffmpeg
       - cd contrib/native && make -j $FLATPAK_BUILDER_N_JOBS DEPS_ffmpeg=
