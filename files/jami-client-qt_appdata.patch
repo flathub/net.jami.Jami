@@ -1,13 +1,14 @@
 diff --git a/extras/data/jami.appdata.xml b/extras/data/jami.appdata.xml
-index 26cc2179..44495b60 100644
+index 26cc2179..d1d401ea 100644
 --- a/extras/data/jami.appdata.xml
 +++ b/extras/data/jami.appdata.xml
-@@ -7,7 +7,18 @@
+@@ -7,7 +7,19 @@
   <name>Jami</name>
   <summary>Privacy-oriented voice, video, chat, and conference platform</summary>
   <summary xml:lang="hu">Adatvédelem-orientált hang-, video-, csevegés- és konferenciaplatform</summary>
 - <icon type="stock">jami</icon>
 + <releases>
++  <release version="20231215.1.e74be093" date="2023-12-15" />
 +  <release version="20231108.1.855b0233" date="2023-11-08" />
 +  <release version="20231003.1.6fc30b51" date="2023-10-03" />
 +  <release version="20230930.1.b9d24298" date="2023-09-30" />

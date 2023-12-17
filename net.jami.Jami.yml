@@ -1,8 +1,8 @@
 app-id: net.jami.Jami
 base: io.qt.qtwebengine.BaseApp
-base-version: '6.5'
+base-version: '6.6'
 runtime: org.kde.Platform
-runtime-version: '6.5'
+runtime-version: '6.6'
 sdk: org.kde.Sdk
 command: jami
 
@@ -63,18 +63,17 @@ modules:
         path: files/jami-client-qt_appdata.patch
       - type: patch
         path: files/jami-client-qt_rm-qt-ver-check.patch
+      - type: patch
+        path: files/jami-client-qt_fix-env.patch
     modules:
       # opendht deps
       - dependencies/argon2.yml
       - dependencies/asio.yml
       - dependencies/jsoncpp.yml
       - dependencies/fmt.yml
-      - dependencies/llhttp.yml
-      - dependencies/expected-lite.yml
-      - dependencies/restinio.yml # needs fmt, llhttp, expected-lite
-      - dependencies/boost.yml
-      - dependencies/msgpack-cxx.yml
       - dependencies/http-parser.yml
+      - dependencies/restinio.yml # needs fmt
+      - dependencies/msgpack-cxx.yml
       # jami-daemon deps
       - dependencies/opendht.yml
       - dependencies/x264.yml
