@@ -16,5 +16,5 @@ config-opts:
   - -DBUILD_TESTING=OFF
 sources:
   - type: archive
-    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v3.0.1.tar.gz
-    sha256: 978283d7508f29d03344d942c1cd1fd6a37f27913cb030d2191399c8d79c448b
+    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v3.1.6.tar.gz
+    sha256: 69b7ca638a817d515fa9279892efacff3a101581800ced295ad901259d62e6fd
