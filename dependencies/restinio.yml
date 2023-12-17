@@ -4,17 +4,15 @@ buildsystem: cmake-ninja
 config-opts:
   - -DCMAKE_BUILD_TYPE=Release
   - -DCMAKE_INSTALL_PREFIX=/app
+  - -DRESTINIO_FIND_DEPS=ON
   - -DRESTINIO_TEST=OFF
   - -DRESTINIO_SAMPLE=OFF
   - -DRESTINIO_INSTALL_SAMPLES=OFF
-  - -DRESTINIO_BENCHMARK=OFF
+  - -DRESTINIO_BENCH=OFF
   - -DRESTINIO_INSTALL_BENCHES=OFF
   - -DRESTINIO_ALLOW_SOBJECTIZER=OFF
-  - -DRESTINIO_WITH_SOBJECTIZER=OFF
-  - -DRESTINIO_DEP_FMT=find
-  - -DRESTINIO_DEP_LLHTTP=find
-  - -DRESTINIO_DEP_EXPECTED_LITE=find
+  - -DRESTINIO_USE_EXTERNAL_HTTP_PARSER=ON
 sources:
   - type: archive
-    url: https://github.com/Stiffstream/restinio/releases/download/v.0.7.0/restinio-0.7.0.tar.bz2
-    sha256: 7d94434b9d77d14a813ac794905c3d5290c6230bb5587ff4d4eb5ac90bdb116d
+    url: https://github.com/Stiffstream/restinio/releases/download/v.0.6.19/restinio-0.6.19.tar.bz2
+    sha256: 7f21eebeb966e170d6ab54e9b198ac927d439090121739e037c0fa3bb367b240
