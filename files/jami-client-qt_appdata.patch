@@ -1,0 +1,49 @@
+diff --git a/extras/data/jami.appdata.xml b/extras/data/jami.appdata.xml
+index 9a2d4dd2..89d654c9 100644
+--- a/extras/data/jami.appdata.xml
++++ b/extras/data/jami.appdata.xml
+@@ -7,7 +7,30 @@
+  <name>Jami</name>
+  <summary>Privacy-oriented voice, video, chat, and conference platform</summary>
+  <summary xml:lang="hu">Adatvédelem-orientált hang-, video-, csevegés- és konferenciaplatform</summary>
+- <icon type="stock">jami</icon>
++ <developer id="net.jami.Jami">
++  <name>Savoir-faire Linux</name>
++ </developer>
++ <releases>
++  <release version="20240214.0" date="2024-02-14" type="stable">
++    <description>
++    <ul>
++      <li>conversation: remove reactions on a message deletion</li>
++      <li>chat-view: fix loading data transfer items</li>
++    </ul>
++    </description>
++  </release>
++  <release version="20231215.1.e74be093" date="2023-12-15" />
++  <release version="20231108.1.855b0233" date="2023-11-08" />
++  <release version="20231003.1.6fc30b51" date="2023-10-03" />
++  <release version="20230930.1.b9d24298" date="2023-09-30" />
++  <release version="20230922.1.ea5b2d65" date="2023-09-22" />
++  <release version="20230727.1.3b85425a" date="2023-07-27" />
++  <release version="20230719.1.2f7acbd3" date="2023-07-19" />
++  <release version="20230429.1.21b5c95e" date="2023-04-27" />
++  <release version="20230323.1.1510ccae" date="2023-03-23" />
++  <release version="20230228.1.146afcd6" date="2023-02-28" />
++  <release version="20230118.1.2de9157d" date="2023-01-18" />
++ </releases>
+  <description>
+     <p>
+       An end-to-end encrypted secure and distributed voice, video, and
+@@ -111,12 +134,10 @@
+  <!-- https://specifications.freedesktop.org/menu-spec/latest/apas02.html -->
+  <categories>
+   <category>Chat</category>
+-  <category>Communication</category>
+   <category>FileTransfer</category>
+   <category>InstantMessaging</category>
+   <category>Network</category>
+   <category>P2P</category>
+-  <category>Productivity</category>
+  </categories>
+ 
+  <translation type="gettext">jami-client-qt</translation>

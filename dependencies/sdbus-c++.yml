@@ -1,0 +1,15 @@
+name: sdbus-c++
+buildsystem: cmake-ninja
+config-opts:
+  - -DCMAKE_BUILD_TYPE=Release
+  - -DBUILD_CODE_GEN=ON
+  - -DBUILD_DOC=OFF
+sources:
+  - type: archive
+    url: https://github.com/Kistler-Group/sdbus-cpp/archive/refs/tags/v1.5.0.tar.gz
+    sha256: 577986929f911320fb9ef6a3e2badd464dc38411ebc25d2966f5cb85c39f0897
+x-checker-data:
+  - type: anitya
+    project-id: 70626
+    stable-only: true
+    url-template: https://github.com/Kistler-Group/sdbus-cpp/archive/refs/tags/v$version.tar.gz

@@ -1,0 +1,16 @@
+name: abseil-cpp
+buildsystem: cmake-ninja
+config-opts:
+  - -DCMAKE_BUILD_TYPE=Release
+  - -DBUILD_SHARED_LIBS=ON
+  - -DABSL_PROPAGATE_CXX_STD=ON
+  - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+sources:
+  - type: archive
+    url: https://github.com/abseil/abseil-cpp/releases/download/20240116.1/abseil-cpp-20240116.1.tar.gz
+    sha256: 3c743204df78366ad2eaf236d6631d83f6bc928d1705dd0000b872e53b73dc6a
+x-checker-data:
+  - type: anitya
+    project-id: 115295
+    stable-only: true
+    url-template: https://github.com/abseil/abseil-cpp/releases/download/$version/abseil-cpp-$version.tar.gz

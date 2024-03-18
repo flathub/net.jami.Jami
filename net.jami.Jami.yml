@@ -1,112 +1,100 @@
 app-id: net.jami.Jami
-runtime: org.gnome.Platform
-runtime-version: '42'
-sdk: org.gnome.Sdk
-command: jami-gnome
+base: io.qt.qtwebengine.BaseApp
+base-version: '6.6'
+runtime: org.kde.Platform
+runtime-version: '6.6'
+sdk: org.kde.Sdk
+command: jami
 
 finish-args:
   - --share=ipc
-  - --socket=x11
-  - --socket=pulseaudio
   - --share=network
+  - --socket=fallback-x11
+  - --socket=wayland
   - --socket=pulseaudio
   - --device=all
   - --allow=per-app-dev-shm
+  - --talk-name=com.canonical.AppMenu.Registrar
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.freedesktop.ScreenSaver
   - --talk-name=org.kde.StatusNotifierWatcher
-  - --talk-name=org.gtk.vfs
-  - --talk-name=org.gtk.vfs.*
-  - --filesystem=xdg-run/gvfsd
-  - --own-name=org.mpris.MediaPlayer2.net.jami.Jami
+  - --filesystem=xdg-download
   - --own-name=cx.ring.Ring
-  - --metadata=X-DConf=migrate-path=/net/jami/JamiGnome/
-  - --env=GTK_PATH=/app/lib/gtk-3.0
+  - --env=QML_IMPORT_PATH=/app/qml
+  - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
 
 cleanup:
-  - /bin/jami
   - "*.a"
   - "*.la"
-  - "*.prl"
   - /lib/pkgconfig
   - /lib/cmake
   - /lib/mkspecs
-  - /doc
-  - /share/doc
-  - /share/doc-doc
-  - /share/gtk-doc
-  - /share/gnome
-  - /share/info
-  - /share/man
-  - /share/cmake
-  - /share/gir-1.0
-  - /share/pkgconfig
-  - /share/vala
-  - /share/gdm
   - /include
-  - /bin/ring.cx
-  - /lib/girepository-1.0
+  - /share/pixmaps
+  - /share/man
+  - /share/doc
+  - /share/cmake
+  - /share/pkgconfig
+  - /bin/notify-send
+  - /bin/sdbus-c++-xml2cpp
+  - /bin/tv_ctrlpt
 
-rename-desktop-file: jami-gnome.desktop
-rename-appdata-file: jami-gnome.appdata.xml
-rename-icon: jami-gnome
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
+
+rename-desktop-file: jami.desktop
+rename-appdata-file: jami.appdata.xml
+rename-icon: jami
 
 modules:
-  - name: jami-gnome
+  - name: jami-client-qt
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DCMAKE_INSTALL_PREFIX=/app
-      - -DCMAKE_BUILD_TYPE=Release
-      - -Wno-dev
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DWITH_WEBENGINE=ON
+      - -DENABLE_LIBWRAP=ON
+      - -DWITH_DAEMON_SUBMODULE=OFF
     sources:
       - type: git
-        url: https://git.jami.net/savoirfairelinux/jami-client-gnome.git
-        commit: d3f27548b5dac73734f660b19ded93ec1c51c84f
+        url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
+        tag: stable/20240214.0
+        commit: 97e477416a77f49c595f5101a05eec1a160f934e
       - type: patch
-        path: files/jami-client-gnome_appdata.patch
-      - type: shell
-        commands:
-          - ln -sf /app/include/libringclient/web-chatview/* web
+        path: files/jami-client-qt_appdata.patch
+      - type: patch
+        path: files/jami-client-qt_rm-qt-ver-check.patch
+      - type: patch
+        path: files/jami-client-qt_fix-build.patch
+    x-checker-data:
+      - type: git
+        tag-pattern: ^stable\/([\d.]+)$
     modules:
       # opendht deps
       - dependencies/argon2.yml
       - dependencies/asio.yml
       - dependencies/jsoncpp.yml
-      - dependencies/http-parser.yml
       - dependencies/fmt.yml
-      - dependencies/restinio.yml # needs fmt, http-parser
-      - dependencies/msgpack-c.yml
+      - dependencies/http-parser.yml
+      - dependencies/restinio.yml # needs fmt
       - dependencies/msgpack-cxx.yml
       # jami-daemon deps
       - dependencies/opendht.yml
       - dependencies/x264.yml
-      - dependencies/dbus-c++.yml
-      - dependencies/libsecp256k1.yml
-      - dependencies/yaml-cpp.yml
-      - dependencies/libupnp.yml
-      - dependencies/libnatpmp.yml
       - dependencies/ffnvcodec.yml
       - dependencies/libgit2.yml
+      - dependencies/yaml-cpp.yml
+      - dependencies/libsecp256k1.yml
+      - dependencies/abseil-cpp.yml
       - dependencies/webrtc-audio-processing.yml
-      # libringclient deps
-      - dependencies/qtbase.yml
-      - dependencies/jami-daemon.yml
-      - dependencies/qttools.yml # needs QTNetwork
-      # jami-gnome deps
-      - dependencies/jami-libclient.yml
-      - dependencies/qt5compat.yml
+      - dependencies/sdbus-c++.yml
+      - dependencies/pjproject.yml
+      - dependencies/libnatpmp.yml
+      - dependencies/libupnp.yml
+      - dependencies/cppunit.yml
+      - dependencies/dhtnet.yml # libnatpmp, libupnp, cppunit
+      # jami-client-qt deps
+      - dependencies/jami-daemon.yml # ffmpeg needs x264, ffnvcodec
       - dependencies/qrencode.yml
-      - shared-modules/intltool/intltool-0.51.json
-      - shared-modules/dbus-glib/dbus-glib-0.110.json
-      - shared-modules/libcanberra/libcanberra.json
-      - dependencies/mate-common.yml
-      - dependencies/libdbusmenu.yml
-      - dependencies/ayatana-ido.yml
-      - dependencies/libayatana-indicator.yml
-      - dependencies/libayatana-appindicator3.yml
-      - dependencies/cogl.yml
-      - dependencies/mtdev.yml
-      - dependencies/libinput.yml # needs mtdev
-      - dependencies/clutter.yml # needs libinput, cogl
-      - dependencies/clutter-gtk.yml
+      - dependencies/libnotify.yml
+      - dependencies/qwindowkit.yml

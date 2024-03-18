@@ -1,0 +1,9 @@
+name: QWindowKit
+buildsystem: cmake-ninja
+config-opts:
+  - -DQWINDOWKIT_BUILD_WIDGETS=OFF
+  - -DQWINDOWKIT_BUILD_QUICK=ON
+sources:
+  - type: git
+    url: https://github.com/stdware/qwindowkit.git
+    commit: adc91610761971a86a8ecca83017236eeffebb3d
