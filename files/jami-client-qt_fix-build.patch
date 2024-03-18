@@ -1,0 +1,39 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b3f0106d..d9a2c2de 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -80,33 +80,8 @@ endif()
+ include(${PROJECT_SOURCE_DIR}/extras/build/cmake/contrib_tools.cmake)
+ set(EXTRA_PATCHES_DIR ${PROJECT_SOURCE_DIR}/extras/patches)
+ 
+-list(APPEND QWINDOWKIT_OPTIONS
+-  QWINDOWKIT_BUILD_WIDGETS OFF
+-  QWINDOWKIT_INSTALL OFF
+-  QWINDOWKIT_BUILD_STATIC ON
+-)
+-
+-if(WIN32)
+-  list(APPEND QWINDOWKIT_PATCHES ${EXTRA_PATCHES_DIR}/0002-workaround-right-margin.patch)
+-  list(APPEND QWINDOWKIT_OPTIONS QWINDOWKIT_ENABLE_WINDOWS_SYSTEM_BORDERS OFF)
+-endif()
+-
+-# qmsetup uses the wrong package dir on some distributions
+-# (including Fedora and openSUSE Leap at least)
+-check_distro_needs_qmsetup_patch(DISTRO_NEEDS_QMSETUP_PATCH)
+-if(DISTRO_NEEDS_QMSETUP_PATCH)
+-  list(APPEND QWINDOWKIT_PATCHES ${EXTRA_PATCHES_DIR}/0001-fix-fedora-fc-build.patch)
+-  set(qmsetup_cmake_path ${CMAKE_BINARY_DIR}/_install/lib64/cmake/qmsetup)
+-endif()
++find_package(QWindowKit REQUIRED)
+ 
+-# qwindowkit (frameless window)
+-add_fetch_content(
+-  TARGET qwindowkit
+-  URL https://github.com/stdware/qwindowkit.git
+-  BRANCH 79b1f3110754f9c21af2d7dacbd07b1a9dbaf6ef
+-  PATCHES ${QWINDOWKIT_PATCHES}
+-  OPTIONS ${QWINDOWKIT_OPTIONS}
+-)
+ list(APPEND CLIENT_INCLUDE_DIRS ${QWindowKit_BINARY_DIR}/include)
+ list(APPEND CLIENT_LIBS QWindowKit::Quick)
+ 

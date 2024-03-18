@@ -12,4 +12,4 @@ config-opts:
 sources:
   - type: git
     url: https://code.videolan.org/videolan/x264.git
-    commit: a8b68ebfaa68621b5ac8907610d3335971839d52
+    commit: 12426f5f4906e34d483a07da0debb6d56c6f8434

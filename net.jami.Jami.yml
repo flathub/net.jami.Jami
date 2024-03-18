@@ -58,13 +58,15 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        commit: e74be0934e1f3a01ebd42a627f0e2514a731c1d2
+        tag: stable/20240214.0
+        commit: 97e477416a77f49c595f5101a05eec1a160f934e
       - type: patch
         path: files/jami-client-qt_appdata.patch
       - type: patch
         path: files/jami-client-qt_rm-qt-ver-check.patch
-      - type: patch
-        path: files/jami-client-qt_fix-env.patch
+    x-checker-data:
+      - type: git
+        tag-pattern: ^stable\/([\d.]+)$
     modules:
       # opendht deps
       - dependencies/argon2.yml
@@ -93,3 +95,4 @@ modules:
       - dependencies/jami-daemon.yml # ffmpeg needs x264, ffnvcodec
       - dependencies/qrencode.yml
       - dependencies/libnotify.yml
+      - dependencies/qwindowkit.yml

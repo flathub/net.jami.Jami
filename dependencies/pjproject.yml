@@ -24,6 +24,4 @@ config-opts:
 sources:
   - type: git
     url: https://github.com/savoirfairelinux/pjproject.git
-    commit: 311bd018fc07aaf62d4c2d2494e08b5ee97e6846
-  - type: patch
-    path: ../files/pjproject_config.patch
+    commit: e12ea3bfa81cc4f46031599f80707e81133f1353
