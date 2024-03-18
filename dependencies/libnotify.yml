@@ -1,0 +1,14 @@
+name: libnotify
+buildsystem: meson
+config-opts:
+  - -Dtests=false
+  - -Dman=false
+  - -Dgtk_doc=false
+sources:
+  - type: archive
+    url: https://gitlab.gnome.org/GNOME/libnotify/-/archive/0.8.3/libnotify-0.8.3.tar.bz2
+    sha256: 2490df996f3b42bd1791819e0a5fdae568db01ed0ba17a87e94f57e12c2bf562
+x-checker-data:
+  - type: gnome
+    name: libnotify
+    stable-only: true

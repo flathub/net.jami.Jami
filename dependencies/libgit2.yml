@@ -7,7 +7,14 @@ config-opts:
   - -DUSE_HTTP_PARSER=system
   - -DUSE_SSH=OFF
   - -DREGEX_BACKEND=regcomp
+  - -DBUILD_TESTS=OFF
+  - -DBUILD_CLI=OFF
 sources:
   - type: archive
-    url: https://github.com/libgit2/libgit2/archive/refs/tags/v1.4.2.tar.gz
-    sha256: 901c2b4492976b86477569502a41c31b274b69adc177149c02099ea88404ef19
+    url: https://github.com/libgit2/libgit2/archive/refs/tags/v1.7.2.tar.gz
+    sha256: de384e29d7efc9330c6cdb126ebf88342b5025d920dcb7c645defad85195ea7f
+x-checker-data:
+  - type: anitya
+    project-id: 1627
+    stable-only: true
+    url-template: https://github.com/libgit2/libgit2/archive/refs/tags/v$version.tar.gz

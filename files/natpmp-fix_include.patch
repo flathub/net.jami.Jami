@@ -1,0 +1,49 @@
+From 6d4587851d770379762273a26c4bf577d69e63d9 Mon Sep 17 00:00:00 2001
+From: Chris Morrison <gnosticist@protonmail.com>
+Date: Tue, 18 Jul 2023 00:02:56 +0100
+Subject: [PATCH 1/2] Fix missing header bug
+
+---
+ CMakeLists.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9645c03..cda3973 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -64,6 +64,9 @@ install(TARGETS natpmp natpmpc
+ install(FILES natpmp.h
+         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+ 
++ install(FILES natpmp_declspec.h
++        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
++
+ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/natpmp.pc
+         DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
+ 
+
+From e654ac0638fd014d6279bafe646f049a95198661 Mon Sep 17 00:00:00 2001
+From: Chris Morrison <gnosticist@protonmail.com>
+Date: Tue, 18 Jul 2023 00:35:04 +0100
+Subject: [PATCH 2/2] Fix missing header bug properly
+
+---
+ CMakeLists.txt | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index cda3973..d839023 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -61,10 +61,7 @@ install(TARGETS natpmp natpmpc
+         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+         ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ 
+-install(FILES natpmp.h
+-        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+-
+- install(FILES natpmp_declspec.h
++install(FILES natpmp.h natpmp_declspec.h
+         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+ 
+ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/natpmp.pc

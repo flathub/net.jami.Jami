@@ -9,8 +9,9 @@ config-opts:
   - --disable-exhaustive-tests
   - --enable-module-ecdh
   - --enable-module-recovery
+  - --with-valgrind=no
   - --with-gnu-ld
 sources:
-  - type: git
-    url: https://github.com/bitcoin-core/secp256k1.git
-    commit: e0508ee9db2725c5efbc1cad434e14c2ebf55427
+  - type: archive
+    url: https://github.com/bitcoin-core/secp256k1/archive/refs/tags/v0.4.1.tar.gz
+    sha256: 31b1a03c7365dbce7aff4be9526243da966c58a8b88b6255556d51b3016492c5

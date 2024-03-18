@@ -8,5 +8,10 @@ config-opts:
   - -DFMT_TEST=Off
 sources:
   - type: archive
-    url: https://github.com/fmtlib/fmt/releases/download/8.1.1/fmt-8.1.1.zip
-    sha256: 23778bad8edba12d76e4075da06db591f3b0e3c6c04928ced4a7282ca3400e5d
+    url: https://github.com/fmtlib/fmt/releases/download/10.2.1/fmt-10.2.1.zip
+    sha256: 312151a2d13c8327f5c9c586ac6cf7cddc1658e8f53edae0ec56509c8fa516c9
+x-checker-data:
+  - type: anitya
+    project-id: 117
+    stable-only: true
+    url-template: https://github.com/fmtlib/fmt/releases/download/$version/fmt-$version.zip

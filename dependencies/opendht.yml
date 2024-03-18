@@ -12,7 +12,14 @@ config-opts:
   - -DOPENDHT_PROXY_SERVER=ON
   - -DOPENDHT_PROXY_CLIENT=ON
   - -DOPENDHT_PUSH_NOTIFICATIONS=ON
+  - -DOPENDHT_TESTS_NETWORK=OFF
+  - -DBUILD_TESTING=OFF
 sources:
   - type: archive
-    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/2.4.0.tar.gz
-    sha256: 4ecc41014add4f9165163072fff2fe72e4f4dd542b799c5baf181ec69c858942
+    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v3.1.7.tar.gz
+    sha256: 62e275a3280321a31cc1f7c8a40ed2e2671500e788dea3326422c33ce67d57a4
+x-checker-data:
+  - type: anitya
+    project-id: 12935
+    stable-only: true
+    url-template: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v$version.tar.gz
