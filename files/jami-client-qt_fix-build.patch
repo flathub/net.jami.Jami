@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index b3f0106d..d9a2c2de 100644
+index e802357..330e184 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -80,33 +80,8 @@ endif()
+@@ -80,32 +80,8 @@ endif()
  include(${PROJECT_SOURCE_DIR}/extras/build/cmake/contrib_tools.cmake)
  set(EXTRA_PATCHES_DIR ${PROJECT_SOURCE_DIR}/extras/patches)
  
@@ -13,7 +13,6 @@ index b3f0106d..d9a2c2de 100644
 -)
 -
 -if(WIN32)
--  list(APPEND QWINDOWKIT_PATCHES ${EXTRA_PATCHES_DIR}/0002-workaround-right-margin.patch)
 -  list(APPEND QWINDOWKIT_OPTIONS QWINDOWKIT_ENABLE_WINDOWS_SYSTEM_BORDERS OFF)
 -endif()
 -

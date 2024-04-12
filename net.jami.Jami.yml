@@ -1,8 +1,8 @@
 app-id: net.jami.Jami
 base: io.qt.qtwebengine.BaseApp
-base-version: '6.6'
+base-version: '6.7'
 runtime: org.kde.Platform
-runtime-version: '6.6'
+runtime-version: '6.7'
 sdk: org.kde.Sdk
 command: jami
 
@@ -58,8 +58,8 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        tag: stable/20240214.0
-        commit: 97e477416a77f49c595f5101a05eec1a160f934e
+        tag: stable/20240408.1
+        commit: 63c01f14391aef7d7691c7c63a610d47512147ed
       - type: patch
         path: files/jami-client-qt_appdata.patch
       - type: patch
@@ -91,7 +91,6 @@ modules:
       - dependencies/pjproject.yml
       - dependencies/libnatpmp.yml
       - dependencies/libupnp.yml
-      - dependencies/cppunit.yml
       - dependencies/dhtnet.yml # libnatpmp, libupnp, cppunit
       # jami-client-qt deps
       - dependencies/jami-daemon.yml # ffmpeg needs x264, ffnvcodec

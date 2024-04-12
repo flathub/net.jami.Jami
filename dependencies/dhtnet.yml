@@ -5,10 +5,11 @@ config-opts:
   - -DBUILD_SHARED_LIBS=ON
   - -DBUILD_BENCHMARKS=Off
   - -DDHTNET_TESTABLE=Off
+  - -DBUILD_TESTING=Off
   - -DBUILD_TOOLS=Off
   - -DBUILD_DEPENDENCIES=Off
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/dhtnet.git
-    commit: 4cf587e6741b62b144247321fcc77c07f06249f5
+    commit: 8f7e1bde283ef9ed30230e5c39f0ec185253c7fb
     disable-submodules: true

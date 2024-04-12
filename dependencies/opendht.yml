@@ -16,8 +16,8 @@ config-opts:
   - -DBUILD_TESTING=OFF
 sources:
   - type: archive
-    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v3.1.7.tar.gz
-    sha256: 62e275a3280321a31cc1f7c8a40ed2e2671500e788dea3326422c33ce67d57a4
+    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v3.1.11.tar.gz
+    sha256: ab543cc391824fa1a8b1a593f897c26a033352acff889940c009cb63e49b4f93
 x-checker-data:
   - type: anitya
     project-id: 12935
