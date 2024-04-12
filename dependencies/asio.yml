@@ -6,3 +6,8 @@ sources:
   - type: archive
     url: https://sourceforge.net/projects/asio/files/asio/1.28.1%20%28Stable%29/asio-1.28.1.tar.bz2
     sha256: 3bcf0357e2e19a2ee5adc805e6cc209338a7461c406d3047d282ea1c4b566101
+x-checker-data:
+  - type: anitya
+    project-id: 117
+    stable-only: true
+    url-template: https://sourceforge.net/projects/asio/files/asio/$version%20%28Stable%29/asio-$version.tar.bz2
