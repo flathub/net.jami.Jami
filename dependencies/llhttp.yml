@@ -1,0 +1,6 @@
+name: llhttp
+buildsystem: cmake-ninja
+sources:
+  - type: archive
+    url: https://github.com/nodejs/llhttp/archive/refs/tags/release/v9.2.1.tar.gz
+    sha256: 3c163891446e529604b590f9ad097b2e98b5ef7e4d3ddcf1cf98b62ca668f23e
