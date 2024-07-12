@@ -1,8 +1,6 @@
 name: libupnp
 buildsystem: cmake-ninja
 config-opts:
-  - -DCMAKE_INSTALL_PREFIX=/app
-  - -DCMAKE_BUILD_TYPE=Release
   - -DBUILD_TESTING=OFF
   - -DUPNP_BUILD_STATIC=OFF
   - -DUPNP_ENABLE_WEBSERVER=OFF

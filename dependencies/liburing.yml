@@ -1,0 +1,5 @@
+name: liburing
+sources:
+  - type: archive
+    url: https://github.com/axboe/liburing/archive/refs/tags/liburing-2.6.tar.gz
+    sha256: 682f06733e6db6402c1f904cbbe12b94942a49effc872c9e01db3d7b180917cc

@@ -1,8 +1,8 @@
 diff --git a/extras/data/jami.appdata.xml b/extras/data/jami.appdata.xml
-index 9a2d4dd..ca2cd01 100644
+index 9a2d4dd2..5cb34196 100644
 --- a/extras/data/jami.appdata.xml
 +++ b/extras/data/jami.appdata.xml
-@@ -7,7 +7,41 @@
+@@ -7,7 +7,35 @@
   <name>Jami</name>
   <summary>Privacy-oriented voice, video, chat, and conference platform</summary>
   <summary xml:lang="hu">Adatvédelem-orientált hang-, video-, csevegés- és konferenciaplatform</summary>
@@ -11,15 +11,9 @@ index 9a2d4dd..ca2cd01 100644
 +  <name>Savoir-faire Linux</name>
 + </developer>
 + <releases>
-+  <release version="20240408.1" date="2024-04-08" type="stable">
++  <release version="20240627.0" date="2024-06-27" type="stable">
 +    <description>
-+    <ul>
-+      <li>notifications: fix multiple conversation requests</li>
-+      <li>MessageEngine: reset message status on content replace</li>
-+      <li>jamiaccount: remove im message exchange on dht</li>
-+      <li>incalllocalvideo: allow resizing/changing opacity of local video</li>
-+      <li>sipcall: don't try to change media if media list is empty</li>
-+    </ul>
++      https://git.jami.net/savoirfairelinux/jami-client-qt/-/wikis/changelog#nightly-20240627
 +    </description>
 +  </release>
 +  <release version="20240214.0" date="2024-02-14" type="stable">
@@ -45,7 +39,7 @@ index 9a2d4dd..ca2cd01 100644
   <description>
      <p>
        An end-to-end encrypted secure and distributed voice, video, and
-@@ -111,12 +145,10 @@
+@@ -111,12 +139,10 @@
   <!-- https://specifications.freedesktop.org/menu-spec/latest/apas02.html -->
   <categories>
    <category>Chat</category>

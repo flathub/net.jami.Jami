@@ -1,0 +1,8 @@
+name: expected-lite
+buildsystem: cmake-ninja
+config-opts:
+  - -DEXPECTED_LITE_OPT_BUILD_TESTS=OFF
+sources:
+  - type: archive
+    url: https://github.com/martinmoene/expected-lite/archive/refs/tags/v0.8.0.tar.gz
+    sha256: 27649f30bd9d4fe7b193ab3eb6f78c64d0f585c24c085f340b4722b3d0b5e701
