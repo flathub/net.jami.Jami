@@ -1,8 +1,12 @@
-diff --git a/extras/data/jami.appdata.xml b/extras/data/jami.appdata.xml
-index 9a2d4dd2..5cb34196 100644
+---
+ extras/data/jami.appdata.xml |   45 ++++++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 42 insertions(+), 3 deletions(-)
+
+Index: b/extras/data/jami.appdata.xml
+===================================================================
 --- a/extras/data/jami.appdata.xml
 +++ b/extras/data/jami.appdata.xml
-@@ -7,7 +7,35 @@
+@@ -7,7 +7,48 @@
   <name>Jami</name>
   <summary>Privacy-oriented voice, video, chat, and conference platform</summary>
   <summary xml:lang="hu">Adatvédelem-orientált hang-, video-, csevegés- és konferenciaplatform</summary>
@@ -11,18 +15,31 @@ index 9a2d4dd2..5cb34196 100644
 +  <name>Savoir-faire Linux</name>
 + </developer>
 + <releases>
++  <release version="20240813.0" date="2024-08-13" type="stable">
++   <description>
++    <ul>
++     <li>JamiAccount: consume credentials from config</li>
++     <li>account: don't block computation thread pool</li>
++     <li>call: reset parent, subcall connections on hangup</li>
++     <li>namedirectory: manage multiple registering operations in parrallel</li>
++     <li>conversation_module: don't update removed conversations</li>
++     <li>conversation: don't connect to banned members</li>
++    </ul>
++    https://git.jami.net/savoirfairelinux/jami-client-qt/-/wikis/changelog#nightly-20240813
++   </description>
++  </release>
 +  <release version="20240627.0" date="2024-06-27" type="stable">
-+    <description>
-+      https://git.jami.net/savoirfairelinux/jami-client-qt/-/wikis/changelog#nightly-20240627
-+    </description>
++   <description>
++    https://git.jami.net/savoirfairelinux/jami-client-qt/-/wikis/changelog#nightly-20240627
++   </description>
 +  </release>
 +  <release version="20240214.0" date="2024-02-14" type="stable">
-+    <description>
++   <description>
 +    <ul>
-+      <li>conversation: remove reactions on a message deletion</li>
-+      <li>chat-view: fix loading data transfer items</li>
++     <li>conversation: remove reactions on a message deletion</li>
++     <li>chat-view: fix loading data transfer items</li>
 +    </ul>
-+    </description>
++   </description>
 +  </release>
 +  <release version="20231215.1.e74be093" date="2023-12-15" />
 +  <release version="20231108.1.855b0233" date="2023-11-08" />
@@ -39,7 +56,7 @@ index 9a2d4dd2..5cb34196 100644
   <description>
      <p>
        An end-to-end encrypted secure and distributed voice, video, and
-@@ -111,12 +139,10 @@
+@@ -111,12 +152,10 @@
   <!-- https://specifications.freedesktop.org/menu-spec/latest/apas02.html -->
   <categories>
    <category>Chat</category>
