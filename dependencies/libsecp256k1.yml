@@ -13,5 +13,5 @@ config-opts:
   - --with-gnu-ld
 sources:
   - type: archive
-    url: https://github.com/bitcoin-core/secp256k1/archive/refs/tags/v0.5.0.tar.gz
-    sha256: 07934fde88c677abbc4d42c36ef7ef8d3850cd0c065e4f976f66f4f97502c95a
+    url: https://github.com/bitcoin-core/secp256k1/archive/refs/tags/v0.5.1.tar.gz
+    sha256: 081f4730becba2715a6b0fd198fedd9e649a6caaa6a7d6d3cf0f9fa7483f2cf1
