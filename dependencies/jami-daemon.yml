@@ -10,7 +10,7 @@ config-opts:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
-    commit: 8112b29761abd540b2aa25b8760d6b88797810f5
+    commit: cbf8f0af6d49d1e95cf7fc85487c9c876d49878c
   - type: file
     url: https://ffmpeg.org/releases/ffmpeg-6.0.1.tar.xz
     sha256: 9b16b8731d78e596b4be0d720428ca42df642bb2d78342881ff7f5bc29fc9623
