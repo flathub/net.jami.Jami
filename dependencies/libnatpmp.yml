@@ -6,7 +6,7 @@ config-opts:
 sources:
   - type: git
     url: https://github.com/miniupnp/libnatpmp.git
-    commit: 6a850fd2bd9b08e6edc886382a1dbae2a7df55ec
+    commit: 8257134a5dcb077e40db1946554d676e444406e4
   - type: patch
     path: ../files/natpmp-fix_include.patch
 cleanup:
