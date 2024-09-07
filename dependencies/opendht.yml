@@ -11,8 +11,8 @@ config-opts:
   - -DLLHTTP_LIBRARY=/app/lib/libllhttp.so
 sources:
   - type: archive
-    url: https://github.com/savoirfairelinux/opendht/archive/972d4d28a11f1e642ba08ff6e6e81f488dcd0754.zip
-    sha256: 0ffb7b28033dc50f976133a6840f87b2e2959f72a9e33323c3b0bda717bd96de
+    url: https://github.com/savoirfairelinux/opendht/archive/9da832c1d1775aa9723ea2f55d20e7eb5f667058.zip
+    sha256: 5bef1163f0f6a981b58fe78078e8c4112e32454debd0ab6f898d65b529046430
 x-checker-data:
   - type: anitya
     project-id: 12935
