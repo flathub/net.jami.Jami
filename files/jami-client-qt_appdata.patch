@@ -2,70 +2,282 @@
  extras/data/jami.appdata.xml |   45 ++++++++++++++++++++++++++++++++++++++++---
  1 file changed, 42 insertions(+), 3 deletions(-)
 
-Index: b/extras/data/jami.appdata.xml
+Index: jami-client-qt/extras/data/jami.appdata.xml
 ===================================================================
---- a/extras/data/jami.appdata.xml
-+++ b/extras/data/jami.appdata.xml
-@@ -7,7 +7,48 @@
-  <name>Jami</name>
-  <summary>Privacy-oriented voice, video, chat, and conference platform</summary>
-  <summary xml:lang="hu">Adatvédelem-orientált hang-, video-, csevegés- és konferenciaplatform</summary>
-- <icon type="stock">jami</icon>
-+ <developer id="net.jami.Jami">
-+  <name>Savoir-faire Linux</name>
-+ </developer>
-+ <releases>
-+  <release version="20240813.0" date="2024-08-13" type="stable">
-+   <description>
-+    <ul>
-+     <li>JamiAccount: consume credentials from config</li>
-+     <li>account: don't block computation thread pool</li>
-+     <li>call: reset parent, subcall connections on hangup</li>
-+     <li>namedirectory: manage multiple registering operations in parrallel</li>
-+     <li>conversation_module: don't update removed conversations</li>
-+     <li>conversation: don't connect to banned members</li>
-+    </ul>
-+    https://git.jami.net/savoirfairelinux/jami-client-qt/-/wikis/changelog#nightly-20240813
-+   </description>
-+  </release>
-+  <release version="20240627.0" date="2024-06-27" type="stable">
-+   <description>
-+    https://git.jami.net/savoirfairelinux/jami-client-qt/-/wikis/changelog#nightly-20240627
-+   </description>
-+  </release>
-+  <release version="20240214.0" date="2024-02-14" type="stable">
-+   <description>
-+    <ul>
-+     <li>conversation: remove reactions on a message deletion</li>
-+     <li>chat-view: fix loading data transfer items</li>
-+    </ul>
-+   </description>
-+  </release>
-+  <release version="20231215.1.e74be093" date="2023-12-15" />
-+  <release version="20231108.1.855b0233" date="2023-11-08" />
-+  <release version="20231003.1.6fc30b51" date="2023-10-03" />
-+  <release version="20230930.1.b9d24298" date="2023-09-30" />
-+  <release version="20230922.1.ea5b2d65" date="2023-09-22" />
-+  <release version="20230727.1.3b85425a" date="2023-07-27" />
-+  <release version="20230719.1.2f7acbd3" date="2023-07-19" />
-+  <release version="20230429.1.21b5c95e" date="2023-04-27" />
-+  <release version="20230323.1.1510ccae" date="2023-03-23" />
-+  <release version="20230228.1.146afcd6" date="2023-02-28" />
-+  <release version="20230118.1.2de9157d" date="2023-01-18" />
-+ </releases>
-  <description>
-     <p>
-       An end-to-end encrypted secure and distributed voice, video, and
-@@ -111,12 +152,10 @@
-  <!-- https://specifications.freedesktop.org/menu-spec/latest/apas02.html -->
-  <categories>
-   <category>Chat</category>
--  <category>Communication</category>
-   <category>FileTransfer</category>
-   <category>InstantMessaging</category>
-   <category>Network</category>
-   <category>P2P</category>
--  <category>Productivity</category>
-  </categories>
+--- jami-client-qt.orig/extras/data/jami.appdata.xml
++++ jami-client-qt/extras/data/jami.appdata.xml
+@@ -8,7 +8,32 @@
  
-  <translation type="gettext">jami-client-qt</translation>
+   <summary>Privacy-oriented voice, video, chat, and conference platform</summary>
+   <summary xml:lang="hu">Adatvédelem-orientált hang-, video-, csevegés- és konferenciaplatform</summary>
+-  <icon type="stock">jami</icon>
++
++  <developer id="net.jami.Jami">
++    <name>Savoir-faire Linux</name>
++  </developer>
++
++  <releases>
++    <release version="20241126.0" date="2024-11-26" type="stable">
++      <description>
++        https://git.jami.net/savoirfairelinux/jami-client-qt/-/wikis/Changelog#nightly-20241126
++      </description>
++    </release>
++    <release version="20240813.0" date="2024-08-13" type="stable"/>
++    <release version="20240627.0" date="2024-06-27" type="stable"/>
++    <release version="20240214.0" date="2024-02-14" type="stable"/>
++    <release version="20231215.1.e74be093" date="2023-12-15" />
++    <release version="20231108.1.855b0233" date="2023-11-08" />
++    <release version="20231003.1.6fc30b51" date="2023-10-03" />
++    <release version="20230930.1.b9d24298" date="2023-09-30" />
++    <release version="20230922.1.ea5b2d65" date="2023-09-22" />
++    <release version="20230727.1.3b85425a" date="2023-07-27" />
++    <release version="20230719.1.2f7acbd3" date="2023-07-19" />
++    <release version="20230429.1.21b5c95e" date="2023-04-27" />
++    <release version="20230323.1.1510ccae" date="2023-03-23" />
++    <release version="20230228.1.146afcd6" date="2023-02-28" />
++    <release version="20230118.1.2de9157d" date="2023-01-18" />
++  </releases>
+ 
+   <description>
+     <p>
+@@ -16,96 +41,38 @@
+       distributed peer-to-peer communication that respects the
+       freedom and privacy of its users.
+     </p>
+-    <p>
+-      Jami is the simplest and easiest way to connect with people
+-      (and devices) with instant messaging, audio and video calls
+-      over the Internet and LAN/WAN intranets.
+-    </p>
+-    <p>
+-      Jami is a free/libre, end-to-end encrypted, and private
+-      communication platform.
+-    </p>
+-    <p>
+-      Jami – which used to be known as Ring – is also an
+-      open-source alternative (to Facebook Messenger, Signal,
+-      Skype, Teams, Telegram, TikTok, Viber, WhatsApp, Zoom) that
+-      prioritizes the privacy of its users.
+-    </p>
+-    <p>
+-      Jami has a professional-looking design and is available for
+-      a wide range of platforms. Unlike the alternatives, calls
+-      using Jami are directly between users as it does not use
+-      servers to handle calls.
+-    </p>
+-    <p>
+-      This gives the greatest privacy as the distributed nature
+-      of Jami means your calls are only between participants.
+-    </p>
+-    <p>
+-      One-to-one and group conversations with Jami are enhanced
+-      with: instant messaging; audio and video calling;
+-      recording and sending audio and video messages;
+-      file transfers; screen sharing; and, location sharing.
+-    </p>
+-    <p>
+-      Jami can also function as a SIP client.
+-    </p>
+-    <p>
+-      Jami has multiple extensions [2] available:
+-      Audio Filter; Auto Answer; Green Screen; Watermark; and,
+-      Whisper Transcript.
+-    </p>
+-    <p>
+-      Jami can be easily deployed in organizations with the
+-      “Jami Account Management Server” (JAMS) [3], allowing users
+-      to connect with their corporate credentials or create local
+-      accounts. JAMS allows you to manage your own Jami community
+-      while taking advantage of Jami’s distributed network
+-      architecture.
+-    </p>
+-    <p>
+-      Jami is available for GNU/Linux, Windows, macOS, iOS,
+-      Android, and Android TV, making Jami an interoperable and
+-      cross-platform communication framework.
+-    </p>
+-    <p>
+-      Manage multiple SIP accounts, Jami accounts and JAMS
+-      accounts with the Jami client installed on one or multiple
+-      devices.
+-    </p>
+-    <p>
+-      Jami is free, unlimited, private, advertising free,
+-      compatible, fast, autonomous, and anonymous.
+-    </p>
+-    <p>
+-      [1] https://jami.net/
+-    </p>
+-    <p>
+-      [2] https://jami.net/extensions/
+-    </p>
+-    <p>
+-      [3] https://jami.biz/
+-    </p>
+-  </description>
+-
+-  <description xml:lang="hu">
+-    <p>
++    <p xml:lang="hu">
+       A Jami [1], egy GNU-csomag, egy univerzális és elosztott
+       társ-társ kommunikációra szolgáló szoftver, amely
+       tiszteletben tartja a felhasználók szabadságát és
+       magánéletét.
+     </p>
+     <p>
++      Jami is the simplest and easiest way to connect with people
++      (and devices) with instant messaging, audio and video calls
++      over the Internet and LAN/WAN intranets.
++    </p>
++    <p xml:lang="hu">
+       A Jami a legegyszerűbb és legegyszerűbb módja annak, hogy
+       azonnali üzenetküldéssel, hang- és videohívásokkal
+       kapcsolódjon az emberekhez (és eszközökhöz) az interneten és
+       a LAN/WAN intraneteken keresztül.
+     </p>
+     <p>
++      Jami is a free/libre, end-to-end encrypted, and private
++      communication platform.
++    </p>
++    <p xml:lang="hu">
+       A Jami egy ingyenes, teljes körűen titkosított és privát
+       kommunikációs platform.
+     </p>
+     <p>
++      Jami – which used to be known as Ring – is also an
++      open-source alternative (to Facebook Messenger, Signal,
++      Skype, Teams, Telegram, TikTok, Viber, WhatsApp, Zoom) that
++      prioritizes the privacy of its users.
++    </p>
++    <p xml:lang="hu">
+       A Jami – amelyet korábban Ring néven ismertek – egy nyílt
+       forráskódú alternatíva is (a Facebook Messenger, a Signal,
+       a Skype, a Teams, a Telegram, a TikTok, a Viber, a WhatsApp,
+@@ -113,31 +80,63 @@
+       magánéletét.
+     </p>
+     <p>
++      Jami has a professional-looking design and is available for
++      a wide range of platforms. Unlike the alternatives, calls
++      using Jami are directly between users as it does not use
++      servers to handle calls.
++    </p>
++    <p xml:lang="hu">
+       A Jami professzionális megjelenésű, és platformok széles
+       skálájához elérhető. Az alternatívákkal ellentétben a Jami-t
+       használó hívások közvetlenül a felhasználók között zajlanak,
+       mivel nem használ kiszolgálókat a hívások kezelésére.
+     </p>
+     <p>
++      This gives the greatest privacy as the distributed nature
++      of Jami means your calls are only between participants.
++    </p>
++    <p xml:lang="hu">
+       Ez biztosítja a legnagyobb magánéletet, mivel a Jami
+       elosztott jellege azt jelenti, hogy a hívások csak a
+       résztvevők között zajlanak.
+     </p>
+     <p>
++      One-to-one and group conversations with Jami are enhanced
++      with: instant messaging; audio and video calling;
++      recording and sending audio and video messages;
++      file transfers; screen sharing; and, location sharing.
++    </p>
++    <p xml:lang="hu">
+       A Jamival folytatott személyes és csoportos beszélgetéseket
+       a következők javítják: azonnali üzenetküldés; hang- és
+       videohívások; hang- és videoüzenetek rögzítése és küldése;
+       fájlátvitel; képernyőmegosztás; és helymegosztás.
+     </p>
+     <p>
++      Jami can also function as a SIP client.
++    </p>
++    <p xml:lang="hu">
+       A Jami SIP-ügyfélként is működhet.
+     </p>
+     <p>
++      Jami has multiple extensions [2] available:
++      Audio Filter; Auto Answer; Green Screen; Watermark; and,
++      Whisper Transcript.
++    </p>
++    <p xml:lang="hu">
+       A Jami-nek több bővítménye [2] is elérhető: hangszűrő;
+       automatikus válasz; zöld képernyő; vízjel; és, suttogó
+       átirat.
+     </p>
+     <p>
++      Jami can be easily deployed in organizations with the
++      “Jami Account Management Server” (JAMS) [3], allowing users
++      to connect with their corporate credentials or create local
++      accounts. JAMS allows you to manage your own Jami community
++      while taking advantage of Jami’s distributed network
++      architecture.
++    </p>
++    <p xml:lang="hu">
+       A Jami könnyen telepíthető a szervezetekben
+       a „Jami fiókkezelő kiszolgálóval” (JAMS) [3], amely lehetővé
+       teszi a felhasználók számára, hogy csatlakozzanak vállalati
+@@ -147,27 +146,50 @@
+       architektúráját.
+     </p>
+     <p>
++      Jami is available for GNU/Linux, Windows, macOS, iOS,
++      Android, and Android TV, making Jami an interoperable and
++      cross-platform communication framework.
++    </p>
++    <p xml:lang="hu">
+       A Jami elérhető GNU/Linux, Windows, macOS, iOS, Android és
+       Android TV rendszereken, így a Jami egy interoperábilis és
+       platformok közötti kommunikációs keretrendszer.
+     </p>
+     <p>
++      Manage multiple SIP accounts, Jami accounts and JAMS
++      accounts with the Jami client installed on one or multiple
++      devices.
++    </p>
++    <p xml:lang="hu">
+       Kezeljen több SIP-fiókot, Jami-fiókot és JAMS-fiókot az egy
+       vagy több eszközre telepített Jami-ügyféllel.
+     </p>
+     <p>
++      Jami is free, unlimited, private, advertising free,
++      compatible, fast, autonomous, and anonymous.
++    </p>
++    <p xml:lang="hu">
+       A Jami ingyenes, korlátlan, privát, reklámmentes,
+       kompatibilis, gyors, autonóm és névtelen.
+     </p>
+     <p>
++      [1] https://jami.net/
++    </p>
++    <p xml:lang="hu">
+       [1] https://jami.net/hu/
+     </p>
+     <p>
++      [2] https://jami.net/extensions/
++    </p>
++    <p xml:lang="hu">
+       [2] https://jami.net/hu/extensions/
+     </p>
+     <p>
+       [3] https://jami.biz/
+     </p>
++    <p xml:lang="hu">
++      [3] https://jami.biz/
++    </p>
+   </description>
+ 
+   <url type="homepage">https://jami.net/</url>
+@@ -220,12 +242,10 @@
+   <!-- https://specifications.freedesktop.org/menu-spec/latest/apas02.html -->
+   <categories>
+     <category>Chat</category>
+-    <category>Communication</category>
+     <category>FileTransfer</category>
+     <category>InstantMessaging</category>
+     <category>Network</category>
+     <category>P2P</category>
+-    <category>Productivity</category>
+   </categories>
+ 
+   <translation type="gettext">jami-client-qt</translation>
