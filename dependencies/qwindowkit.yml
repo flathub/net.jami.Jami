@@ -8,3 +8,11 @@ sources:
     url: https://github.com/stdware/qwindowkit.git
     tag: 1.2
     commit: f93657fa82bdd37dba68ea962d5e9b2cf4fd4d60
+    disable-submodules: true
+modules:
+  - name: qmsetup
+    buildsystem: cmake-ninja
+    sources:
+      - type: git
+        url: https://github.com/stdware/qmsetup.git
+        commit: 1331bf738dc6864f9ff927096f4dec8adc1c209f
