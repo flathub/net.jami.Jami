@@ -6,4 +6,5 @@ config-opts:
 sources:
   - type: git
     url: https://github.com/stdware/qwindowkit.git
-    commit: 93bd1cf26cc0ae199060ddaaaf61836e14c0ba4d
+    tag: 1.2
+    commit: f93657fa82bdd37dba68ea962d5e9b2cf4fd4d60
