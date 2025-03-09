@@ -1,0 +1,17 @@
+name: Catch2
+buildsystem: cmake-ninja
+builddir: true
+config-opts:
+  - -DCATCH_INSTALL_DOCS=OFF
+  - -DCATCH_INSTALL_EXTRAS=OFF
+  - -DCATCH_DEVELOPMENT_BUILD=OFF
+  - -DCATCH_ENABLE_REPRODUCIBLE_BUILD=ON
+sources:
+  - type: archive
+    url: https://github.com/catchorg/Catch2/archive/refs/tags/v3.7.1.tar.gz
+    sha256: c991b247a1a0d7bb9c39aa35faf0fe9e19764213f28ffba3109388e62ee0269c
+x-checker-data:
+  - type: anitya
+    project-id: 7680
+    stable-only: true
+    url-template: https://github.com/catchorg/Catch2/archive/refs/tags/v$version.tar.gz
