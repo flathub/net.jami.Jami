@@ -80,6 +80,7 @@ modules:
       - dependencies/fmt.yml
       - dependencies/llhttp.yml
       - dependencies/expected-lite.yml
+      - dependencies/catch2.yml
       - dependencies/restinio.yml # needs fmt
       - dependencies/msgpack-cxx.yml
       - dependencies/liburing.yml
