@@ -1,13 +1,13 @@
 name: libnatpmp
 buildsystem: cmake-ninja
 config-opts:
+  - -DCMAKE_INSTALL_LIBDIR=/app/lib
   - -DCMAKE_BUILD_TYPE=Release
-  - -DBUILD_SHARED_LIBS=ON
+  - -DBUILD_SHARED_LIBS=OFF
+  - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
 sources:
   - type: git
     url: https://github.com/miniupnp/libnatpmp.git
-    commit: 8257134a5dcb077e40db1946554d676e444406e4
-  - type: patch
-    path: ../files/natpmp-fix_include.patch
+    commit: 134fc89e2781e154e40042641f4d8bcbe42579f1
 cleanup:
   - /bin

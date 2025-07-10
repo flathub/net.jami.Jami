@@ -1,20 +1,18 @@
 name: opendht
 buildsystem: cmake-ninja
 config-opts:
+  - -DCMAKE_INSTALL_LIBDIR=/app/lib
+  - -DBUILD_SHARED_LIBS=OFF
+  - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+  - -DCMAKE_BUILD_TYPE=Release
   - -DBUILD_TESTING=Off
-  - -DOPENDHT_DOCUMENTATION=Off
-  - -DOPENDHT_PROXY_CLIENT=On
+  - -DOPENDHT_DOCUMENTATION=Off 
+  - -DOPENDHT_PROXY_CLIENT=On 
   - -DOPENDHT_PROXY_SERVER=On
   - -DOPENDHT_PUSH_NOTIFICATIONS=On
+  - -DOPENDHT_IO_URING=Off 
   - -DOPENDHT_TOOLS=Off
-  - -DLLHTTP_INCLUDE_DIR=/app/include
-  - -DLLHTTP_LIBRARY=/app/lib/libllhttp.so
 sources:
   - type: archive
-    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v3.3.0.tar.gz
-    sha256: 8d251ee08a59bdd463462e89418ef92a69cfd90bbe26c973231c27e205a10391
-x-checker-data:
-  - type: anitya
-    project-id: 12935
-    stable-only: true
-    url-template: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v$version.tar.gz
+    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v3.4.0.tar.gz
+    sha256: 965732ac3c2bce767bb543b8b033c29979ef5357c9a0003e3631dcb15f5a457c

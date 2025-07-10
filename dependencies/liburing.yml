@@ -1,11 +1,5 @@
 name: liburing
 sources:
   - type: archive
-    url: https://github.com/axboe/liburing/archive/refs/tags/liburing-2.7.tar.gz
-    sha256: 56202ad443c50e684dde3692819be3b91bbe003e1c14bf5abfa11973669978c1
-x-checker-data:
-  - type: anitya
-    project-id: 230185
-    stable-only: true
-    versions: <3.0
-    tag-template: liburing-$version
+    url: https://github.com/axboe/liburing/archive/refs/tags/liburing-2.11.tar.gz
+    sha256: 462c35ef21d67e50490f8684c76641ee2c7796e83d43de796852ef4e40662e33

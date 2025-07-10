@@ -1,8 +1,10 @@
 name: dhtnet
 buildsystem: cmake-ninja
 config-opts:
+  - -DCMAKE_INSTALL_LIBDIR=/app/lib
   - -DCMAKE_BUILD_TYPE=Release
-  - -DBUILD_SHARED_LIBS=ON
+  - -DBUILD_SHARED_LIBS=Off
+  - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
   - -DBUILD_BENCHMARKS=Off
   - -DBUILD_TESTING=Off
   - -DBUILD_TOOLS=Off
@@ -10,5 +12,5 @@ config-opts:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/dhtnet.git
-    commit: eb6f8625a89cd0ab5b559cb3b731d47fb53be530
+    commit: f9855f5e850046ffed51f136beafaa745fa2ff4e
     disable-submodules: true

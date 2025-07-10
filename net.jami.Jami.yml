@@ -7,19 +7,34 @@ sdk: org.kde.Sdk
 command: jami
 
 finish-args:
+  # Share IPC namespace with host
   - --share=ipc
-  - --share=network
-  - --socket=fallback-x11
+  # Display windows with Wayland (fallback to X11 otherwise)
   - --socket=wayland
+  - --socket=fallback-x11
+  # Audio access (includes ALSA)
   - --socket=pulseaudio
+  # Network access
+  - --share=network
+  # Provides access to all devices
   - --device=all
   - --allow=per-app-dev-shm
+  # Inhibit sleep
+  - --system-talk-name=org.freedesktop.login1
+  - --talk-name=org.gnome.SessionManager
+  - --talk-name=org.freedesktop.PowerManagement
+  - --talk-name=org.freedesktop.ScreenSaver
+  # Notifs & tray icons
+  - --talk-name=org.gnome.Mutter.IdleMonitor
+  - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=com.canonical.AppMenu.Registrar
+  - --talk-name=com.canonica.indicator.application
+  - --talk-name=org.ayatana.indiciator.application
+  - --talk-name=com.canonical.Unity
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.freedesktop.ScreenSaver
-  - --talk-name=org.kde.StatusNotifierWatcher
-  - --filesystem=xdg-download
-  - --own-name=cx.ring.Ring
+  - --no-talk-name=org.freedesktop.portal.FileChooser
+  # Qt environment variables 
   - --env=QML_IMPORT_PATH=/app/qml
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
 
@@ -45,8 +60,8 @@ cleanup:
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
 
-rename-desktop-file: jami.desktop
-rename-appdata-file: jami.appdata.xml
+# Rename the icon to net.jami.Jami 
+# (requirement for .desktop file)
 rename-icon: jami
 
 modules:
@@ -54,52 +69,50 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_BUILD_TYPE=Release
       - -DWITH_WEBENGINE=ON
       - -DENABLE_LIBWRAP=ON
-      - -DWITH_DAEMON_SUBMODULE=OFF
+      - -DBUILD_TESTING=OFF
     sources:
       - type: git
-        url: https://git.jami.net/savoirfairelinux/jami-client-qt.git
-        tag: stable/20241126.0
-        commit: c2d5c3b764a4e24779872cd9cb490c2a2af58998
+        url: https://git.jami.net/savoirfairelinux/jami-client-qt
+        tag: stable/20250613.0
+        commit: b15d692a0e8bce708a904f4b808641e5a8086c37
       - type: patch
-        path: files/jami-client-qt_appdata.patch
+        path: patches/jami-client-qt-patches/jami-client-qt_fix-build.patch
       - type: patch
-        path: files/jami-client-qt_rm-qt-ver-check.patch
-      - type: patch
-        path: files/jami-client-qt_fix-build.patch
+        path: patches/jami-client-qt-patches/jami-client-qt_fix-metainfo-and-desktop.patch
     x-checker-data:
       - type: git
         tag-pattern: ^stable\/([\d.]+)$
     modules:
+      # FFMPEG deps
+      - dependencies/x264.yml
+      - dependencies/ffnvcodec.yml
+      - dependencies/ffmpeg.yml
       # opendht deps
       - dependencies/argon2.yml
       - dependencies/asio.yml
-      - dependencies/jsoncpp.yml
       - dependencies/fmt.yml
       - dependencies/llhttp.yml
       - dependencies/expected-lite.yml
-      - dependencies/catch2.yml
-      - dependencies/restinio.yml # needs fmt
+      - dependencies/restinio.yml
       - dependencies/msgpack-cxx.yml
-      - dependencies/liburing.yml
-      # jami-daemon deps
+      - dependencies/jsoncpp.yml
       - dependencies/opendht.yml
-      - dependencies/x264.yml
-      - dependencies/ffnvcodec.yml
-      - dependencies/libgit2.yml
-      - dependencies/yaml-cpp.yml
-      - dependencies/libsecp256k1.yml
-      - dependencies/abseil-cpp.yml
-      - dependencies/webrtc-audio-processing.yml
-      - dependencies/sdbus-c++.yml
+      # dhtnet deps
       - dependencies/pjproject.yml
       - dependencies/libnatpmp.yml
       - dependencies/libupnp.yml
-      - dependencies/dhtnet.yml # libnatpmp, libupnp, cppunit
+      - dependencies/dhtnet.yml
+      # jami-daemon deps
+      - dependencies/libgit2.yml
+      - dependencies/yaml-cpp.yml
+      - dependencies/libsecp256k1.yml
+      - dependencies/webrtc-audio-processing.yml
+      - dependencies/sdbus-c++.yml
       # jami-client-qt deps
-      - dependencies/jami-daemon.yml # ffmpeg needs x264, ffnvcodec
+      - dependencies/jami-daemon.yml 
       - dependencies/qrencode.yml
       - dependencies/libnotify.yml
       - dependencies/qwindowkit.yml

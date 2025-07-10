@@ -1,10 +1,8 @@
 name: webrtc-audio-processing
-buildsystem: meson
+buildsystem: autotools
+config-opts:
+  - --enable-neon=no
 sources:
   - type: archive
-    url: https://gitlab.freedesktop.org/pulseaudio/webrtc-audio-processing/-/archive/v1.3/webrtc-audio-processing-v1.3.tar.bz2
-    sha256: 4849f87157215a6b27c48adb1e7f6820048daf4df32a0ca87bc84d111a288e7c
-x-checker-data:
-  - type: anitya
-    project-id: 15929
-    tag-template: v$version
+    url: https://gitlab.freedesktop.org/pulseaudio/webrtc-audio-processing/-/archive/v0.3.1/webrtc-audio-processing-v0.3.1.tar.gz
+    sha256: a532a38f04a76004ca4e258989d556911e41370060e47a9cb33cb03b72859195

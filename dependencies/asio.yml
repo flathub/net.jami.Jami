@@ -4,10 +4,5 @@ config-opts:
   - --without-boost
 sources:
   - type: archive
-    url: https://sourceforge.net/projects/asio/files/asio/1.30.2%20%28Stable%29/asio-1.30.2.tar.bz2
-    sha256: 9f12cef05c0477eace9c68ccabd19f9e3a04b875d4768c323714cbd3a5fa3c2b
-x-checker-data:
-  - type: anitya
-    project-id: 117
-    stable-only: true
-    url-template: https://sourceforge.net/projects/asio/files/asio/$version%20%28Stable%29/asio-$version.tar.bz2
+    url: https://sourceforge.net/projects/asio/files/asio/1.28.1%20(Stable)/asio-1.28.1.tar.gz
+    sha256: eef0eddce419827876f4929c6d7523e010528031e5289ec57914e89fb9ab9d8d

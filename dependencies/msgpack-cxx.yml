@@ -3,17 +3,14 @@ buildsystem: cmake-ninja
 config-opts:
   - -DCMAKE_INSTALL_PREFIX=/app
   - -DCMAKE_BUILD_TYPE=Release
-  - -DBUILD_SHARED_LIBS=ON
+  - -DBUILD_SHARED_LIBS=OFF
+  - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
   - -DMSGPACK_CXX17=ON
   - -DMSGPACK_BUILD_DOCS=OFF
   - -DMSGPACK_BUILD_EXAMPLES=OFF
   - -DMSGPACK_USE_BOOST=OFF
 sources:
   - type: archive
-    url: https://github.com/msgpack/msgpack-c/releases/download/cpp-6.1.1/msgpack-cxx-6.1.1.tar.gz
-    sha256: 5fd555742e37bbd58d166199e669f01f743c7b3c6177191dd7b31fb0c37fa191
-x-checker-data:
-  - type: anitya
-    project-id: 12278
-    stable-only: true
-    tag-template: cpp-$version
+    url: https://github.com/msgpack/msgpack-c/releases/download/cpp-7.0.0/msgpack-cxx-7.0.0.tar.gz
+    sha256: 7504b7af7e7b9002ce529d4f941e1b7fb1fb435768780ce7da4abaac79bb156f
+
