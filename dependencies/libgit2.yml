@@ -1,20 +1,19 @@
 name: libgit2
 buildsystem: cmake-ninja
 config-opts:
+  - -DCMAKE_INSTALL_LIBDIR=/app/lib
   - -DCMAKE_INSTALL_PREFIX=/app
   - -DCMAKE_BUILD_TYPE=Release
   - -DUSE_HTTPS=OFF
-  - -DUSE_HTTP_PARSER=system
+  - -DCURL=OFF
+  - -DBUILD_SHARED_LIBS=OFF
+  - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+  - -DUSE_HTTP_PARSER=llhttp
   - -DUSE_SSH=OFF
   - -DREGEX_BACKEND=regcomp
   - -DBUILD_TESTS=OFF
   - -DBUILD_CLI=OFF
 sources:
   - type: archive
-    url: https://github.com/libgit2/libgit2/archive/refs/tags/v1.8.1.tar.gz
-    sha256: 8c1eaf0cf07cba0e9021920bfba9502140220786ed5d8a8ec6c7ad9174522f8e
-x-checker-data:
-  - type: anitya
-    project-id: 1627
-    stable-only: true
-    url-template: https://github.com/libgit2/libgit2/archive/refs/tags/v$version.tar.gz
+    url: https://github.com/libgit2/libgit2/archive/refs/tags/v1.9.1.tar.gz
+    sha256: 14cab3014b2b7ad75970ff4548e83615f74d719afe00aa479b4a889c1e13fc00

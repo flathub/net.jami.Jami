@@ -1,24 +1,18 @@
 name: jami-daemon
-buildsystem: meson
+buildsystem: cmake-ninja
 config-opts:
-  - -Dbuildtype=debugoptimized
-  - -Dportaudio=disabled
-  - -Djack=disabled
-  - -Dopensl=disabled
-  - -Dname_service=enabled
-  - -Dinterfaces=library,dbus
+  - -DBUILD_SHARED_LIBS=ON
+  - -DCMAKE_BUILD_TYPE=Release
+  - -DBUILD_CONTRIB=OFF
+  - -DCMAKE_INSTALL_LIBDIR=lib
+  - -DBUILD_TESTING=OFF
+  - -DCMAKE_EXE_LINKER_FLAGS=-Wl,-Bsymbolic
+  - -DCMAKE_MODULE_LINKER_FLAGS=-Wl,-Bsymbolic
+  - -DCMAKE_SHARED_LINKER_FLAGS=-Wl,-Bsymbolic
+
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
-    commit: 8112b29761abd540b2aa25b8760d6b88797810f5
-  - type: file
-    url: https://ffmpeg.org/releases/ffmpeg-6.0.1.tar.xz
-    sha256: 9b16b8731d78e596b4be0d720428ca42df642bb2d78342881ff7f5bc29fc9623
+    commit: edfa4fa623e73a01b8a3cfefed7c9626a35cf4de
   - type: patch
-    path: ../files/jami-daemon_no-udev.patch
-  - type: shell
-    commands:
-      - mkdir contrib/native
-      - cd contrib/native && ../bootstrap --prefix=/app --disable-downloads --disable-all --enable-ffmpeg
-      - mv ffmpeg-6.0.1.tar.xz contrib/tarballs
-      - cd contrib/native && make -j $FLATPAK_BUILDER_N_JOBS DEPS_ffmpeg=
+    path: ../patches/jami-daemon-patches/jami-daemon_replace-static.patch

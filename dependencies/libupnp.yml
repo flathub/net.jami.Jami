@@ -1,11 +1,37 @@
+# name: libupnp
+# buildsystem: cmake-ninja
+# config-opts:
+#   - -DCMAKE_INSTALL_LIBDIR=/app/lib
+#   - -DCMAKE_BUILD_TYPE=Release
+#   - -DBUILD_SHARED_LIBS=OFF
+#   - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+#   - -DBUILD_TESTING=OFF
+#   - -DUPNP_BUILD_SHARED=OFF
+#   - -DUPNP_BUILD_STATIC=ON
+#   - -DUPNP_ENABLE_WEBSERVER=OFF
+#   - -DUPNP_ENABLE_DEVICE_API=OFF
+
 name: libupnp
-buildsystem: cmake-ninja
-config-opts:
-  - -DBUILD_TESTING=OFF
-  - -DUPNP_BUILD_STATIC=OFF
-  - -DUPNP_ENABLE_WEBSERVER=OFF
-  - -DUPNP_ENABLE_DEVICE_API=OFF
+buildsystem: simple
+build-commands:
+  - ./bootstrap 
+  - >
+    CFLAGS="-fPIC -O3 -DUPNP_STATIC_LIB" CXXFLAGS="-fPIC -O3 -DUPNP_STATIC_LIB"
+    ./configure
+    --prefix=/app
+    --disable-blocking_tcp_connections
+    --disable-largefile 
+    --disable-samples
+    --disable-device
+    --disable-webserver
+    --without-documentation
+    --enable-static
+    --disable-shared
+    CFLAGS="-fPIC -O3" CXXFLAGS="-fPIC -O3"
+  - make -j$FLATPAK_BUILDER_N_JOBS
+  - make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app install
+
 sources:
   - type: archive
-    url: https://github.com/pupnp/pupnp/releases/download/release-1.14.18/libupnp-1.14.18.tar.bz2
-    sha256: 16a7cee93ce2868ae63ab1a8164dc7de43577c59983b9f61293a310d6888dceb
+    url: https://github.com/pupnp/pupnp/archive/refs/tags/release-1.14.18.tar.gz
+    sha256: 8b038be04c04886b6304c0878f7eb502c8f4800524acf44ce8f9cd7f9319df90
