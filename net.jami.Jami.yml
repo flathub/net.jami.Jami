@@ -33,7 +33,6 @@ finish-args:
   - --talk-name=com.canonical.Unity
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.freedesktop.ScreenSaver
-  - --no-talk-name=org.freedesktop.portal.FileChooser
   # Qt environment variables 
   - --env=QML_IMPORT_PATH=/app/qml
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
