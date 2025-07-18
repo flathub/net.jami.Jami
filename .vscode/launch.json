@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach to Remote GDB",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/builddir/files/bin/jami",
+            "linux": {
+                "MIMode": "gdb",
+                "miDebuggerServerAddress": "localhost:1235"
+        },
+        "cwd": "${workspaceFolder}",
+        "sourceFileMap": {
+            "/run/build/": "${workspaceFolder}/builddir/files/lib/debug/source"
+        },
+    }
+    ]
+}
