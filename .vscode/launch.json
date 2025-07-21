@@ -8,7 +8,7 @@
             "program": "${workspaceFolder}/builddir/files/bin/jami",
             "linux": {
                 "MIMode": "gdb",
-                "miDebuggerServerAddress": "localhost:1235"
+                "miDebuggerServerAddress": "localhost:1234"
         },
         "cwd": "${workspaceFolder}",
         "sourceFileMap": {

@@ -60,10 +60,6 @@ cleanup:
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
 
-# Rename the icon to net.jami.Jami 
-# (requirement for .desktop file)
-rename-icon: jami
-
 modules:
   - name: jami-client-qt
     buildsystem: cmake-ninja
@@ -76,12 +72,12 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt
-        tag: stable/20250613.0
-        commit: b15d692a0e8bce708a904f4b808641e5a8086c37
+        tag: stable/20250718.0
+        commit: f513358236c10c4a5934b9286424c7d0d9b80ed0
       - type: patch
         path: patches/jami-client-qt-patches/jami-client-qt_fix-build.patch
-      - type: patch
-        path: patches/jami-client-qt-patches/jami-client-qt_fix-metainfo-and-desktop.patch
+      # - type: patch
+      #   path: patches/jami-client-qt-patches/jami-client-qt_fix-metainfo-and-desktop.patch
     x-checker-data:
       - type: git
         tag-pattern: ^stable\/([\d.]+)$
@@ -112,7 +108,8 @@ modules:
       - dependencies/webrtc-audio-processing.yml
       - dependencies/sdbus-c++.yml
       # jami-client-qt deps
-      - dependencies/jami-daemon.yml 
       - dependencies/qrencode.yml
       - dependencies/libnotify.yml
       - dependencies/qwindowkit.yml
+      - dependencies/jami-daemon.yml 
+      

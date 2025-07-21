@@ -13,6 +13,8 @@ config-opts:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/jami-daemon.git
-    commit: edfa4fa623e73a01b8a3cfefed7c9626a35cf4de
+    commit: 1969975c2caa9acb808b9b7f1e92f7a3cde3ff2e
   - type: patch
     path: ../patches/jami-daemon-patches/jami-daemon_replace-static.patch
+  - type: patch
+    path: ../patches/jami-daemon-patches/jami-daemon_video.patch
