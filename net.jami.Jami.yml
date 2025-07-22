@@ -76,8 +76,8 @@ modules:
         commit: f513358236c10c4a5934b9286424c7d0d9b80ed0
       - type: patch
         path: patches/jami-client-qt-patches/jami-client-qt_fix-build.patch
-      # - type: patch
-      #   path: patches/jami-client-qt-patches/jami-client-qt_fix-metainfo-and-desktop.patch
+      - type: patch
+        path: patches/jami-client-qt-patches/jami-client-qt_metainfo-update.patch
     x-checker-data:
       - type: git
         tag-pattern: ^stable\/([\d.]+)$

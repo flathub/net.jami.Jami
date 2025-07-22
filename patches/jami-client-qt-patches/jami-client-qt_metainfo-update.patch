@@ -1,29 +1,48 @@
-diff --git a/extras/data/jami.xml b/extras/data/jami.xml
-index 49ae6e79..bd374673 100644
---- a/extras/data/jami.xml
-+++ b/extras/data/jami.xml
-@@ -85,7 +85,7 @@
-       <id>net.jami.daemon</id>
-     </requires>
-     <launchable type="desktop-id">net.jami.Jami.desktop</launchable>
--    <icon type="stock">jami</icon>
-+    <icon type="stock">net.jami.Jami</icon>
-     <url type="homepage">https://jami.net/</url>
-     <url type="bugtracker">https://git.jami.net/savoirfairelinux/jami-client-qt/issues</url>
-     <url type="faq">https://docs.jami.net/user/faq.html</url>
-diff --git a/extras/data/net.jami.Jami.desktop b/extras/data/net.jami.Jami.desktop
-index f632c567..8ee09a1f 100644
---- a/extras/data/net.jami.Jami.desktop
-+++ b/extras/data/net.jami.Jami.desktop
-@@ -5,7 +5,7 @@ Comment=Privacy-oriented voice, video, chat, and conference platform
- Comment[hu]=Adatvédelem-orientált hang-, video-, csevegés- és konferenciaplatform
- Comment[ru]=Jami — приложение для защищённой связи с распределённой архитектурой
- Exec=jami %u
--Icon=jami
-+Icon=net.jami.Jami
- StartupNotify=true
- Terminal=false
- Type=Application
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ec5b9756..b78e7a4b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -72,12 +72,6 @@ set(CLIENT_LIBS, "")
+ include(${PROJECT_SOURCE_DIR}/extras/build/cmake/contrib_tools.cmake)
+ set(EXTRA_PATCHES_DIR ${PROJECT_SOURCE_DIR}/extras/patches)
+ 
+-list(APPEND QWINDOWKIT_OPTIONS
+-  QWINDOWKIT_BUILD_WIDGETS OFF
+-  QWINDOWKIT_INSTALL OFF
+-  QWINDOWKIT_BUILD_STATIC ON
+-  QWINDOWKIT_BUILD_QUICK ON
+-)
+ 
+ if(WIN32)
+   # Beta config
+@@ -88,26 +82,9 @@ if(WIN32)
+   set(JAMI_OUTPUT_DIRECTORY_RELEASE ${PROJECT_SOURCE_DIR}/x64/${CMAKE_BUILD_TYPE})
+ endif()
+ 
+-if(WIN32)
+-  list(APPEND QWINDOWKIT_OPTIONS QWINDOWKIT_ENABLE_WINDOWS_SYSTEM_BORDERS OFF)
+-endif()
++find_package(QWindowKit REQUIRED)
+ 
+-# If qwindowkit can't find qmsetup via cmake's find_package function, it will install it and
+-# then call find_package again. Unfortunately, even the second call to find_package sometimes
+-# fails due to qmsetup having been installed in the wrong directory. The following patch
+-# ensures that qmsetup is always installed in the directory where find_package looks for it.
+-if(NOT WIN32)
+-  list(APPEND QWINDOWKIT_PATCHES ${EXTRA_PATCHES_DIR}/0001-fix-qm_install_package-function.patch)
+-endif()
+ 
+-# qwindowkit (frameless window)
+-add_fetch_content(
+-  TARGET qwindowkit
+-  URL https://github.com/stdware/qwindowkit.git
+-  BRANCH 758b00cb6c2d924be3a1ea137ec366dc33a5132d
+-  PATCHES ${QWINDOWKIT_PATCHES}
+-  OPTIONS ${QWINDOWKIT_OPTIONS}
+-)
+ list(APPEND CLIENT_INCLUDE_DIRS ${QWindowKit_BINARY_DIR}/include)
+ list(APPEND CLIENT_LIBS QWindowKit::Quick)
+ 
 diff --git a/extras/data/net.jami.Jami.metainfo.xml b/extras/data/net.jami.Jami.metainfo.xml
 index 10c416b6..db970ec1 100644
 --- a/extras/data/net.jami.Jami.metainfo.xml
