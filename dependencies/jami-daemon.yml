@@ -2,7 +2,7 @@ name: jami-daemon
 buildsystem: cmake-ninja
 config-opts:
   - -DBUILD_SHARED_LIBS=ON
-  - -DCMAKE_BUILD_TYPE=Debug
+  - -DCMAKE_BUILD_TYPE=Release
   - -DBUILD_CONTRIB=OFF
   - -DCMAKE_INSTALL_LIBDIR=lib
   - -DBUILD_TESTING=OFF
