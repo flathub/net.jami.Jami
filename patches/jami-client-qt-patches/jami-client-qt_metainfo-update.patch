@@ -1,10 +1,3 @@
-diff --git a/daemon b/daemon
-index 4a7b5ac5..41384122 160000
---- a/daemon
-+++ b/daemon
-@@ -1 +1 @@
--Subproject commit 4a7b5ac5b2e628631d1560144bd423c567a5feae
-+Subproject commit 41384122a8b61548aae90c9893d065aca216ce85-dirty
 diff --git a/extras/data/net.jami.Jami.metainfo.xml b/extras/data/net.jami.Jami.metainfo.xml
 index f40c2694..fa5ce10d 100644
 --- a/extras/data/net.jami.Jami.metainfo.xml
@@ -14,7 +7,7 @@ index f40c2694..fa5ce10d 100644
  
    <releases>
 +    <release version="20250718.0" date="2025-07-18">
-+      <url type="details">https://git.jami.net/savoirfairelinux/jami-client-qt/-/wikis/Changelog#nightlystable-20250718</details>
++      <url type="details">https://git.jami.net/savoirfairelinux/jami-client-qt/-/wikis/Changelog#nightlystable-20250718</url>
 +    </release>
      <release version="20250613.0" date="2025-06-13">
        <url type="details">https://git.jami.net/savoirfairelinux/jami-client-qt/-/wikis/Changelog#nightlystable-20250613</url>
