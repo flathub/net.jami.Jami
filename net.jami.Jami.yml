@@ -19,7 +19,6 @@ finish-args:
   # Provides access to all devices
   - --device=all
   - --allow=per-app-dev-shm
-  - --allow=devel
   # Inhibit sleep
   - --system-talk-name=org.freedesktop.login1
   - --talk-name=org.gnome.SessionManager
@@ -65,7 +64,7 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DCMAKE_BUILD_TYPE=Debug
+      - -DCMAKE_BUILD_TYPE=Release
       - -DWITH_WEBENGINE=ON
       - -DENABLE_LIBWRAP=ON
       - -DBUILD_TESTING=OFF
