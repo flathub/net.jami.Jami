@@ -1,0 +1,14 @@
+diff --git a/extras/data/net.jami.Jami.metainfo.xml b/extras/data/net.jami.Jami.metainfo.xml
+index f40c2694..fa5ce10d 100644
+--- a/extras/data/net.jami.Jami.metainfo.xml
++++ b/extras/data/net.jami.Jami.metainfo.xml
+@@ -17,6 +17,9 @@
+   </developer>
+ 
+   <releases>
++    <release version="20250718.0" date="2025-07-18">
++      <url type="details">https://git.jami.net/savoirfairelinux/jami-client-qt/-/wikis/Changelog#nightlystable-20250718</url>
++    </release>
+     <release version="20250613.0" date="2025-06-13">
+       <url type="details">https://git.jami.net/savoirfairelinux/jami-client-qt/-/wikis/Changelog#nightlystable-20250613</url>
+     </release>
