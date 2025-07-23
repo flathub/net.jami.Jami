@@ -71,7 +71,7 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt
-        tag: stable/20250718.0
+        tag: stable/garbage
         commit: f513358236c10c4a5934b9286424c7d0d9b80ed0
       - type: patch
         path: patches/jami-client-qt-patches/jami-client-qt_fix-build.patch
