@@ -1,5 +1,5 @@
 diff --git a/extras/data/net.jami.Jami.metainfo.xml b/extras/data/net.jami.Jami.metainfo.xml
-index f40c2694..fa5ce10d 100644
+index f40c2694..929dc716 100644
 --- a/extras/data/net.jami.Jami.metainfo.xml
 +++ b/extras/data/net.jami.Jami.metainfo.xml
 @@ -17,6 +17,9 @@
@@ -12,3 +12,60 @@ index f40c2694..fa5ce10d 100644
      <release version="20250613.0" date="2025-06-13">
        <url type="details">https://git.jami.net/savoirfairelinux/jami-client-qt/-/wikis/Changelog#nightlystable-20250613</url>
      </release>
+@@ -101,35 +104,37 @@
+   <!-- Maximum caption length is 60 characters -->
+   <!-- Officially GIF is not an allowed video format, but it appears to work nonetheless -->
+   <screenshots>
+-    <screenshot type="default">
+-      <image type="source" width="1310" height="650">https://dl.jami.net/media-resources/screenshots/jami_linux_audiovideo.png</image>
+-      <caption>Send chat messages and talk with audio and video</caption>
+-      <caption xml:lang="hu">Csevegőüzenetek küldése, valamint hang- és videobeszélgetés</caption>
++      <screenshot>
++      <image type="source">https://github.com/flathub/net.jami.Jami/blob/9f20044882c81bcdf5d72868aa409427ba56c50e/screenshots/Jami-ChatView.png?raw=true</image>
++      <caption>Chat view</caption>
+     </screenshot>
+     <screenshot>
+-      <image type="source" width="1016" height="659">https://dl.jami.net/media-resources/screenshots/jami_linux_screenshare.png</image>
+-      <caption>Screen sharing</caption>
+-      <caption xml:lang="hu">Képernyőmegosztás</caption>
++      <image type="source">https://github.com/flathub/net.jami.Jami/blob/9f20044882c81bcdf5d72868aa409427ba56c50e/screenshots/Jami-Video%201_1.png?raw=true</image>
++      <caption>1-on-1 Video Call</caption>
++    </screenshot>
++    <screenshot>
++      <image type="source">https://github.com/flathub/net.jami.Jami/blob/9f20044882c81bcdf5d72868aa409427ba56c50e/screenshots/Jami-Conference.png?raw=true</image>
++      <caption>Conference</caption>
+     </screenshot>
+     <screenshot>
+-      <video container="webm" codec="vp9" width="600" height="400">https://dl.jami.net/media-resources/gifs_features/conversiongif_webm/audio-call_web.webm</video>
+-      <caption>Crystal clear audio calls between Jami users</caption>
+-      <caption xml:lang="hu">Kristálytiszta hanghívások a Jami felhasználók között</caption>
++      <image type="source">https://github.com/flathub/net.jami.Jami/blob/9f20044882c81bcdf5d72868aa409427ba56c50e/screenshots/Jami-Edit.png?raw=true</image>
++      <caption>Edit</caption>
+     </screenshot>
+     <screenshot>
+-      <video container="webm" codec="vp9" width="600" height="400">https://dl.jami.net/media-resources/gifs_features/conversiongif_webm/conference_web.webm</video>
+-      <caption>Conference calls with an unlimited number of participants</caption>
+-      <caption xml:lang="hu">Konferenciahívások korlátlan számú résztvevővel</caption>
++      <image type="source">https://github.com/flathub/net.jami.Jami/blob/9f20044882c81bcdf5d72868aa409427ba56c50e/screenshots/Jami-Push%20to%20talk.png?raw=true</image>
++      <caption>Push-to-Talk</caption>
++    </screenshot>
++    <screenshot>
++      <image type="source">https://github.com/flathub/net.jami.Jami/blob/9f20044882c81bcdf5d72868aa409427ba56c50e/screenshots/Jami-Share.png?raw=true</image>
++      <caption>Screen sharing</caption>
+     </screenshot>
+     <screenshot>
+-      <video container="webm" codec="vp9" width="600" height="400">https://dl.jami.net/media-resources/gifs_features/conversiongif_webm/chat_web.webm</video>
+-      <caption>Encrypted and secure text messaging without servers</caption>
+-      <caption xml:lang="hu">Titkosított és biztonságos csevegési üzenetküldés, kiszolgálók nélkül</caption>
++      <image type="source">https://github.com/flathub/net.jami.Jami/blob/9f20044882c81bcdf5d72868aa409427ba56c50e/screenshots/Jami-SIP.png?raw=true</image>
++      <caption>Jami can also function as a SIP client.</caption>
+     </screenshot>
+     <screenshot>
+-      <video container="webm" codec="vp9" width="600" height="400">https://dl.jami.net/media-resources/gifs_features/conversiongif_webm/files-share_web.webm</video>
+-      <caption>Transfer files of any size</caption>
+-      <caption xml:lang="hu">Bármilyen méretű fájl küldése</caption>
++      <image type="source">https://github.com/flathub/net.jami.Jami/blob/9f20044882c81bcdf5d72868aa409427ba56c50e/screenshots/Jami-Extension.png?raw=true</image>
++      <caption>Extension</caption>
+     </screenshot>
+   </screenshots>
+ 
