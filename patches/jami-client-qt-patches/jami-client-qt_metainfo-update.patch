@@ -21,7 +21,7 @@ index f40c2694..929dc716 100644
 -      <caption>Send chat messages and talk with audio and video</caption>
 -      <caption xml:lang="hu">Csevegőüzenetek küldése, valamint hang- és videobeszélgetés</caption>
 +      <screenshot>
-+      <image type="source">https://github.com/flathub/net.jami.Jami/blob/9f20044882c81bcdf5d72868aa409427ba56c50e/screenshots/Jami-ChatView.png?raw=true</image>
++      <image type="default">https://github.com/flathub/net.jami.Jami/blob/9f20044882c81bcdf5d72868aa409427ba56c50e/screenshots/Jami-ChatView.png?raw=true</image>
 +      <caption>Chat view</caption>
      </screenshot>
      <screenshot>
