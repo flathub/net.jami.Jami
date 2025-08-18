@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index f9f27065..0bb4bce0 100644
+index 89f7df841..ca058454e 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -72,12 +72,6 @@ set(CLIENT_LIBS, "")
@@ -15,8 +15,8 @@ index f9f27065..0bb4bce0 100644
  
  if(WIN32)
    # Beta config
-@@ -90,26 +84,8 @@ if(WIN32)
-   endif()
+@@ -88,26 +82,8 @@ if(WIN32)
+   set(JAMI_OUTPUT_DIRECTORY_RELEASE ${PROJECT_SOURCE_DIR}/x64/${CMAKE_BUILD_TYPE})
  endif()
  
 -if(WIN32)

@@ -1,5 +1,0 @@
-name: liburing
-sources:
-  - type: archive
-    url: https://github.com/axboe/liburing/archive/refs/tags/liburing-2.11.tar.gz
-    sha256: 462c35ef21d67e50490f8684c76641ee2c7796e83d43de796852ef4e40662e33
