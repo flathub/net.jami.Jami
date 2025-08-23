@@ -54,7 +54,7 @@ For instructions on building and debugging the Flatpak version of Jami locally, 
 This build is maintained by the following people:
 
 * Upstream Jami maintainer: @Ilyas-Erdogan.
-* Additional package maintainers: @Idesmi, and @FuchtelJockel.
+* Additional package maintainers: @Idesmi and @FuchtelJockel.
 * Flathub maintainers.
 
 ## More information
