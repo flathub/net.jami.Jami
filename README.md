@@ -1,4 +1,10 @@
-# Jami
+# Jami Flatpak
+
+This is the official Flatpak repository by the upstream Jami team.
+
+Though you can report bugs specific to this package here, you should report non-package-specific bugs to our main tracker: https://git.jami.net/savoirfairelinux/jami-client-qt/.
+
+## Jami
 
 Jami, a GNU package, is software for universal and distributed peer-to-peer communication that respects the freedom and privacy of its users.
 
@@ -43,6 +49,13 @@ If you encounter any _general_ issues or bugs while using Jami, please report th
 
 ## Building and debugging locally
 For instructions on building and debugging the Flatpak version of Jami locally, please see the [build manual for Flatpak](https://docs.jami.net/build/building-for-flatpak.html).
+
+## Maintainers
+This build is maintained by the following people:
+
+* Upstream Jami maintainer: @Ilyas-Erdogan.
+* Additional package maintainers: @Idesmi, and @FuchtelJockel.
+* Flathub maintainers.
 
 ## More information
 
