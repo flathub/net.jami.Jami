@@ -17,12 +17,12 @@ One-to-one and group conversations with Jami are enhanced with instant messaging
 Jami can also function as a SIP client.
 
 Multiple Jami [extensions](https://jami.net/extensions/) are available:
-* **Audio Filter** - Apply a reverb filter to your video. Use Jami for online music sessions and play music online. with given text.
-* **Auto Answer** - Set up a bot that automatically answers.
-* **Whisper Transcript** - Use an AI model running locally on your device to automatically subtitle the conversation in real time!
-* **Green Screen** - Modify your background during a videocall or add a blur effect.
-* **Segmentation** - Segmentation runs the YOLO model on the video stream and displays the segmentation results.
-* **Watermark** - Add your own logo and additional information (text, the current date and time) to your video.
+* **Audio Filter**—Apply a reverb filter to your video. Use Jami for online music sessions and play music online.
+* **Auto Answer**—Set up a bot that automatically answers with given text.
+* **Green Screen**—Modify your background during a video call or add a blur effect.
+* **Segmentation**—Segmentation runs the YOLO model on the video stream and displays the segmentation results.
+* **Watermark**—Add your own logo and additional information (text, the current date and time) to your video.
+* **Whisper Transcript**—Use an AI model running locally on your device to automatically subtitle the conversation in real time!
 
 Jami can be easily deployed in organizations with the _JAMS_ (Jami Account Management Server), allowing users to connect with their corporate credentials or create local accounts. JAMS allows you to manage your own Jami community while taking advantage of Jami’s distributed network architecture.
 
@@ -38,22 +38,22 @@ Jami for Android TV is tested on NVIDIA SHIELD TV with Logitech cameras.
 
 Jami is published under the GPL license, version 3 or higher. Copyright © Savoir-faire Linux Inc.
 
-## Reporting Issues/Bugs
-If you encounter any _general_ issues or bugs while using Jami, please report them [here](https://git.jami.net/savoirfairelinux/jami-client-qt/-/issues/new) and specify the distribution channel as flatpak.
+## Reporting issues and bugs
+If you encounter any _general_ issues or bugs while using Jami, please report them [here](https://git.jami.net/savoirfairelinux/jami-client-qt/-/issues/new) and specify the distribution channel as Flatpak.
 
-## Building and Debugging Locally
-For instructions on building and debugging the flatpak version of Jami locally, please see the [build manual for flatpak](https://docs.jami.net/en_US/build/building-for-flatpak.html).
+## Building and debugging locally
+For instructions on building and debugging the Flatpak version of Jami locally, please see the [build manual for Flatpak](https://docs.jami.net/build/building-for-flatpak.html).
 
 ## More information
 
 * [Jami website](https://jami.net/)
 * [Jami extensions](https://jami.net/extensions/)
-* [Jami Account Management Server (JAMS)](https://jami.biz/)
+* [JAMS (JAMI Account Management Server)](https://jami.biz/)
 * [Jami documentation](https://docs.jami.net/)
 * [Why donate](https://jami.net/whydonate/)
 * [LinuxFoundation Crowdfunding](https://crowdfunding.lfx.linuxfoundation.org/projects/jami-a-gnu-package)
 * [Code review](https://review.jami.net/q/status:open)
 * [Issues](https://git.jami.net/groups/savoirfairelinux/-/issues/?sort=updated_desc&state=opened&first_page_size=20)
-* [Translate](https://explore.transifex.com/savoirfairelinux/jami/)
+* [Translate](https://explore.transifex.com/savoirfairelinux/)
 * [Changelog](https://git.jami.net/savoirfairelinux/jami-client-qt/-/wikis/Changelog)
 * [Feature requests](https://docs.jami.net/developer/feature-requests.html)
