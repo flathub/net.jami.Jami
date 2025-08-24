@@ -59,9 +59,9 @@ This build is maintained by the following people:
 
 ## Links
 
-* [Jami website](https://jami.net/)
+* [Jami official website](https://jami.net/)
 * [Jami extensions](https://jami.net/extensions/)
-* [JAMS (JAMI Account Management Server)](https://jami.biz/)
+* [JAMS (JAMI Account Management Server) official website](https://jami.biz/)
 * [Jami documentation](https://docs.jami.net/)
 * [Why donate](https://jami.net/whydonate/)
 * [LinuxFoundation Crowdfunding](https://crowdfunding.lfx.linuxfoundation.org/projects/jami-a-gnu-package)
