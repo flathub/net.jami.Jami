@@ -57,7 +57,7 @@ This build is maintained by the following people:
 * Additional package maintainers: @Idesmi and @FuchtelJockel.
 * Flathub maintainers.
 
-## More information
+## Links
 
 * [Jami website](https://jami.net/)
 * [Jami extensions](https://jami.net/extensions/)
