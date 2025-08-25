@@ -1,4 +1,4 @@
-# Jami Flatpak
+# Jami (Flatpak)
 
 This is the official Flatpak repository by the upstream Jami team.
 
@@ -45,17 +45,25 @@ Jami for Android TV is tested on NVIDIA SHIELD TV with Logitech cameras.
 Jami is published under the GPL license, version 3 or higher. Copyright © Savoir-faire Linux Inc.
 
 ## Reporting issues and bugs
+
 If you encounter any _general_ issues or bugs while using Jami, please report them [here](https://git.jami.net/savoirfairelinux/jami-client-qt/-/issues/new) and specify the distribution channel as Flatpak.
 
 ## Building and debugging locally
+
 For instructions on building and debugging the Flatpak version of Jami locally, please see the [build manual for Flatpak](https://docs.jami.net/build/building-for-flatpak.html).
 
-## Maintainers
-This build is maintained by the following people:
+## Package maintainers
 
-* Upstream Jami maintainer: @Ilyas-Erdogan.
-* Additional package maintainers: @Idesmi and @FuchtelJockel.
-* Flathub maintainers.
+Current package maintainers:
+* @aberaud
+* @Ilyas-Erdogan
+* Flathub maintainers
+
+Special thanks to the former package maintainers:
+* @adityashah1212
+* @FuchtelJockel
+* @Idesmi
+* @ntninja
 
 ## Links
 
