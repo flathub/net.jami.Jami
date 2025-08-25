@@ -55,15 +55,15 @@ For instructions on building and debugging the Flatpak version of Jami locally, 
 ## Package maintainers
 
 Current package maintainers:
-* @aberaud
-* @Ilyas-Erdogan
+* [Adrien Béraud (@aberaud)](https://github.com/aberaud)
+* [Ilyas Erdogan (@Ilyas-Erdogan)](https://github.com/Ilyas-Erdogan)
 * Flathub maintainers
 
 Special thanks to the former package maintainers:
-* @adityashah1212
-* @FuchtelJockel
-* @Idesmi
-* @ntninja
+* [Aditya Shah (@adityashah1212)](https://github.com/adityashah1212)
+* [@FuchtelJockel](https://github.com/FuchtelJockel)
+* [@Idesmi](https://github.com/Idesmi)
+* [Erin of Yukis (@ntninja)](https://github.com/ntninja)
 
 ## Links
 
