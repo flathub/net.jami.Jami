@@ -8,11 +8,11 @@ config-opts:
   - -DBUILD_TESTING=Off
   - -DOPENDHT_DOCUMENTATION=Off 
   - -DOPENDHT_PROXY_CLIENT=On 
-  - -DOPENDHT_PROXY_SERVER=On
+  - -DOPENDHT_PROXY_SERVER=Off
   - -DOPENDHT_PUSH_NOTIFICATIONS=On
   - -DOPENDHT_IO_URING=Off 
   - -DOPENDHT_TOOLS=Off
 sources:
   - type: archive
-    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v3.5.1.tar.gz
-    sha256: 4e8918981bbffa197ffd169fc38b92bf449025182623e353e765e50438d17a26
+    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v3.5.4rc2.tar.gz
+    sha256: 2194137408b53b9c536ee4bde9e2562e93d00ac96c59a24a51b273949b3ddc18

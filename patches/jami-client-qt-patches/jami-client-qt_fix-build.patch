@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 89f7df841..ca058454e 100644
+index 29bfde9acc..826c04a86d 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -72,12 +72,6 @@ set(CLIENT_LIBS, "")
+@@ -71,13 +71,6 @@ set(CLIENT_LIBS, "")
  include(${PROJECT_SOURCE_DIR}/extras/build/cmake/contrib_tools.cmake)
  set(EXTRA_PATCHES_DIR ${PROJECT_SOURCE_DIR}/extras/patches)
  
@@ -12,17 +12,19 @@ index 89f7df841..ca058454e 100644
 -  QWINDOWKIT_BUILD_STATIC ON
 -  QWINDOWKIT_BUILD_QUICK ON
 -)
- 
+-
  if(WIN32)
    # Beta config
-@@ -88,26 +82,8 @@ if(WIN32)
+   if(BETA)
+@@ -87,26 +80,8 @@ if(WIN32)
    set(JAMI_OUTPUT_DIRECTORY_RELEASE ${PROJECT_SOURCE_DIR}/x64/${CMAKE_BUILD_TYPE})
  endif()
  
 -if(WIN32)
 -  list(APPEND QWINDOWKIT_OPTIONS QWINDOWKIT_ENABLE_WINDOWS_SYSTEM_BORDERS OFF)
 -endif()
--
++find_package(QWindowKit REQUIRED)
+ 
 -# If qwindowkit can't find qmsetup via cmake's find_package function, it will install it and
 -# then call find_package again. Unfortunately, even the second call to find_package sometimes
 -# fails due to qmsetup having been installed in the wrong directory. The following patch
@@ -30,8 +32,7 @@ index 89f7df841..ca058454e 100644
 -if(NOT WIN32)
 -  list(APPEND QWINDOWKIT_PATCHES ${EXTRA_PATCHES_DIR}/0001-fix-qm_install_package-function.patch)
 -endif()
-+find_package(QWindowKit REQUIRED)
- 
+-
 -# qwindowkit (frameless window)
 -add_fetch_content(
 -  TARGET qwindowkit
