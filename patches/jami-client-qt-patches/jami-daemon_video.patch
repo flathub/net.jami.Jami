@@ -1,7 +1,7 @@
-diff --git a/src/media/video/v4l2/video_device_monitor_impl.cpp b/src/media/video/v4l2/video_device_monitor_impl.cpp
+diff --git a/daemon/src/media/video/v4l2/video_device_monitor_impl.cpp b/daemon/src/media/video/v4l2/video_device_monitor_impl.cpp
 index 01d52498f..c7b3e6e57 100644
---- a/src/media/video/v4l2/video_device_monitor_impl.cpp
-+++ b/src/media/video/v4l2/video_device_monitor_impl.cpp
+--- a/daemon/src/media/video/v4l2/video_device_monitor_impl.cpp
++++ b/daemon/src/media/video/v4l2/video_device_monitor_impl.cpp
 @@ -85,14 +85,6 @@ getDeviceString(struct udev_device* udev_device)
      throw std::invalid_argument("No ID_SERIAL detected");
  }

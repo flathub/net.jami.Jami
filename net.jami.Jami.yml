@@ -68,14 +68,23 @@ modules:
       - -DWITH_WEBENGINE=ON
       - -DENABLE_LIBWRAP=ON
       - -DBUILD_TESTING=OFF
+      - -DBUILD_SHARED_LIBS=OFF
+      - -DBUILD_CONTRIB=OFF
+      - -DCMAKE_INSTALL_LIBDIR=lib
+      - -DCMAKE_EXE_LINKER_FLAGS=-Wl,-Bsymbolic
+      - -DCMAKE_MODULE_LINKER_FLAGS=-Wl,-Bsymbolic
+      - -DCMAKE_SHARED_LINKER_FLAGS=-Wl,-Bsymbolic
+
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt
-        tag: stable/20250815.1
+        tag: stable/20250912.0
+      - type: patch
+        path: patches/jami-client-qt-patches/jami-daemon_replace-static.patch
       - type: patch
         path: patches/jami-client-qt-patches/jami-client-qt_fix-build.patch
       - type: patch
-        path: patches/jami-client-qt-patches/jami-client-qt_metainfo-update.patch
+        path: patches/jami-client-qt-patches/jami-daemon_video.patch
     modules:
       # FFMPEG deps
       - dependencies/x264.yml
@@ -106,5 +115,3 @@ modules:
       - dependencies/qrencode.yml
       - dependencies/libnotify.yml
       - dependencies/qwindowkit.yml
-      - dependencies/jami-daemon.yml 
-      
