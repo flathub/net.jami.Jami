@@ -1,9 +1,10 @@
 name: x264
 config-opts:
   - --prefix=/app
-  - --enable-shared
+  - --disable-shared
+  - --enable-static
   - --enable-pic
-  - --enable-lto
+  - --disable-lto
   - --disable-avs
   - --disable-lavf
   - --disable-cli
@@ -12,4 +13,4 @@ config-opts:
 sources:
   - type: git
     url: https://code.videolan.org/videolan/x264.git
-    commit: 12426f5f4906e34d483a07da0debb6d56c6f8434
+    commit: ed0f7a634050a62c1da27c99eea710824d4c3705
