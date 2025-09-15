@@ -1,25 +1,18 @@
 name: opendht
 buildsystem: cmake-ninja
 config-opts:
-  - -DCMAKE_INSTALL_PREFIX=/app
-  - -DCMAKE_INSTALL_LIBDIR=lib
+  - -DCMAKE_INSTALL_LIBDIR=/app/lib
+  - -DBUILD_SHARED_LIBS=OFF
+  - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
   - -DCMAKE_BUILD_TYPE=Release
-  - -DOPENDHT_STATIC=OFF
-  - -DOPENDHT_DOCUMENTATION=OFF
-  - -DOPENDHT_TOOLS=OFF
-  - -DOPENDHT_INDEX=OFF
-  - -DOPENDHT_PYTHON=OFF
-  - -DOPENDHT_PROXY_SERVER=ON
-  - -DOPENDHT_PROXY_CLIENT=ON
-  - -DOPENDHT_PUSH_NOTIFICATIONS=ON
-  - -DOPENDHT_TESTS_NETWORK=OFF
-  - -DBUILD_TESTING=OFF
+  - -DBUILD_TESTING=Off
+  - -DOPENDHT_DOCUMENTATION=Off 
+  - -DOPENDHT_PROXY_CLIENT=On 
+  - -DOPENDHT_PROXY_SERVER=Off
+  - -DOPENDHT_PUSH_NOTIFICATIONS=On
+  - -DOPENDHT_IO_URING=Off 
+  - -DOPENDHT_TOOLS=Off
 sources:
   - type: archive
-    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v3.1.7.tar.gz
-    sha256: 62e275a3280321a31cc1f7c8a40ed2e2671500e788dea3326422c33ce67d57a4
-x-checker-data:
-  - type: anitya
-    project-id: 12935
-    stable-only: true
-    url-template: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v$version.tar.gz
+    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v3.5.4rc2.tar.gz
+    sha256: 2194137408b53b9c536ee4bde9e2562e93d00ac96c59a24a51b273949b3ddc18

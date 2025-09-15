@@ -11,8 +11,8 @@ make-install-args:
   - OPTTARGET="no-opt"
   - ARGON2_VERSION="20190702"
 sources:
-  - type: archive
-    url: https://github.com/P-H-C/phc-winner-argon2/archive/16d3df698db2486dde480b09a732bf9bf48599f9.tar.gz
-    sha256: fd7b52db579fe87b96503cc8e60f023f7c7d910bbff166801c4d37fe7bad000a
+  - type: git
+    url: https://github.com/P-H-C/phc-winner-argon2/
+    commit: 16d3df698db2486dde480b09a732bf9bf48599f9
 cleanup:
   - /bin
