@@ -78,13 +78,15 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt
-        tag: beta/202509122057
+        tag: stable/20250912.0
       - type: patch
         path: patches/jami-client-qt-patches/jami-daemon_replace-static.patch
       - type: patch
         path: patches/jami-client-qt-patches/jami-client-qt_fix-build.patch
       - type: patch
         path: patches/jami-client-qt-patches/jami-daemon_video.patch
+      - type: patch
+        path: patches/jami-client-qt-patches/jami-client-qt_update-screenshots.patch
     modules:
       # FFMPEG deps
       - dependencies/x264.yml
