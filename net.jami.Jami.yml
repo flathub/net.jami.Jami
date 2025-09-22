@@ -85,6 +85,8 @@ modules:
         path: patches/jami-client-qt-patches/jami-client-qt_fix-build.patch
       - type: patch
         path: patches/jami-client-qt-patches/jami-daemon_video.patch
+      - type: patch
+        path: patches/jami-client-qt-patches/jami-client-qt_update-metainfo.patch
     modules:
       # FFMPEG deps
       - dependencies/x264.yml
