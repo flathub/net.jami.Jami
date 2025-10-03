@@ -14,5 +14,5 @@ config-opts:
   - -DOPENDHT_TOOLS=Off
 sources:
   - type: archive
-    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v3.5.4rc2.tar.gz
-    sha256: 2194137408b53b9c536ee4bde9e2562e93d00ac96c59a24a51b273949b3ddc18
+    url: https://github.com/savoirfairelinux/opendht/archive/refs/tags/v3.5.4rc3.tar.gz
+    sha256: 32cf80c82791c3be5fa887872e2b4dfc82274012e464a4f445c1a4ee444d802e
