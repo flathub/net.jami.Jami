@@ -69,7 +69,7 @@ Special thanks to the former package maintainers:
 
 * [Jami official website](https://jami.net/)
 * [Jami extensions](https://jami.net/extensions/)
-* [JAMS (JAMI Account Management Server) official website](https://jami.biz/)
+* [JAMS (Jami Account Management Server) official website](https://jami.biz/)
 * [Jami documentation](https://docs.jami.net/)
 * [Jami videos](https://docs.jami.net/videos/)
 * [Jami on Mastodon](https://mstdn.io/@Jami)
