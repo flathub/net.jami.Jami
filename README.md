@@ -76,7 +76,7 @@ Special thanks to the former package maintainers:
 * [Jami forum](https://forum.jami.net/)
 * [Donate to the Jami team at Savoir-faire Linux](https://jami.net/donate/)
 * [Contribute to Jami](https://jami.net/contribute/)
-* [Gerrit Code review](https://review.jami.net/q/status:open)
+* [Gerrit code review](https://review.jami.net/q/status:open)
 * [Issues](https://git.jami.net/groups/savoirfairelinux/-/issues/?sort=updated_desc&state=opened&first_page_size=20)
 * [Translate](https://explore.transifex.com/savoirfairelinux/)
 * [Changelog](https://git.jami.net/savoirfairelinux/jami-client-qt/-/wikis/Changelog)
