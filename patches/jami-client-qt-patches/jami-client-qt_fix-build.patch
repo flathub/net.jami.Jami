@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 29bfde9acc..826c04a86d 100644
+index bf8d239a..57ba08de 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -71,13 +71,6 @@ set(CLIENT_LIBS, "")
@@ -25,7 +25,7 @@ index 29bfde9acc..826c04a86d 100644
 -endif()
 +find_package(QWindowKit REQUIRED)
  
--# If qwindowkit can't find qmsetup via cmake's find_package function, it will install it and
+-# If qwindowkit is unable to find qmsetup via cmake's find_package function, it will install it and
 -# then call find_package again. Unfortunately, even the second call to find_package sometimes
 -# fails due to qmsetup having been installed in the wrong directory. The following patch
 -# ensures that qmsetup is always installed in the directory where find_package looks for it.
