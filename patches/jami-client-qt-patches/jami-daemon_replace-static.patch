@@ -1,5 +1,5 @@
 diff --git a/daemon/CMakeLists.txt b/daemon/CMakeLists.txt
-index 42c30a5ea..ea64a8093 100644
+index a4c01b3ab..b3e5d68be 100644
 --- a/daemon/CMakeLists.txt
 +++ b/daemon/CMakeLists.txt
 @@ -236,6 +236,7 @@ if(NOT MSVC)
@@ -18,7 +18,7 @@ index 42c30a5ea..ea64a8093 100644
  )
  if (JAMI_VIDEO)
      target_compile_definitions(${PROJECT_NAME} PRIVATE ENABLE_VIDEO)
-@@ -684,7 +686,7 @@ else()
+@@ -686,7 +688,7 @@ else()
          target_link_libraries(${PROJECT_NAME} PRIVATE PkgConfig::udev)
          if (pulseaudio_FOUND)
              target_compile_definitions(${PROJECT_NAME} PRIVATE HAVE_PULSE)
