@@ -13,4 +13,5 @@ sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/dhtnet.git
     commit: 03c6ce608daf906fc98b82f114b61ebfdeae5dc6
+
     disable-submodules: true

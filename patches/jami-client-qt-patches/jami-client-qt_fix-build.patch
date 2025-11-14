@@ -25,6 +25,7 @@ index bf8d239a..57ba08de 100644
 -endif()
 +find_package(QWindowKit REQUIRED)
  
+ 
 -# If qwindowkit is unable to find qmsetup via cmake's find_package function, it will install it and
 -# then call find_package again. Unfortunately, even the second call to find_package sometimes
 -# fails due to qmsetup having been installed in the wrong directory. The following patch
@@ -43,3 +44,4 @@ index bf8d239a..57ba08de 100644
 -)
  list(APPEND CLIENT_INCLUDE_DIRS ${QWindowKit_BINARY_DIR}/include)
  list(APPEND CLIENT_LIBS QWindowKit::Quick)
+ 
