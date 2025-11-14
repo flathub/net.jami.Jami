@@ -1,7 +1,7 @@
-diff --git a/CMakeLists.txt b/CMakeLists.txt
+diff --git a/daemon/CMakeLists.txt b/daemon/CMakeLists.txt
 index 28e6c093b..f8ccdfdbd 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
+--- a/daemon/CMakeLists.txt
++++ b/daemon/CMakeLists.txt
 @@ -237,6 +237,7 @@ if(NOT MSVC)
              message(FATAL_ERROR "No audio library found. Please install PulseAudio, ALSA or JACK.")
          endif()

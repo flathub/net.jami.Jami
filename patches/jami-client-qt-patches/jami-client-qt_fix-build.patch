@@ -43,10 +43,3 @@ index bf6012ec..e9364269 100644
 -)
  list(APPEND CLIENT_INCLUDE_DIRS ${QWindowKit_BINARY_DIR}/include)
  list(APPEND CLIENT_LIBS QWindowKit::Quick)
- 
-diff --git a/daemon b/daemon
---- a/daemon
-+++ b/daemon
-@@ -1 +1 @@
--Subproject commit ea74bd3a8f954fa5ebb754b29df53657ef669b2a
-+Subproject commit ea74bd3a8f954fa5ebb754b29df53657ef669b2a-dirty
