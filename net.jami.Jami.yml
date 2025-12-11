@@ -78,7 +78,7 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt
-        tag: stable/20251124.0
+        commit: 400be8a200039ff33f2d800905dc38a780aa0adc
       - type: patch
         path: patches/jami-client-qt-patches/jami-daemon_replace-static.patch
       - type: patch
@@ -99,6 +99,7 @@ modules:
       - dependencies/restinio.yml
       - dependencies/msgpack-cxx.yml
       - dependencies/jsoncpp.yml
+      - dependencies/simdutf.yml
       - dependencies/opendht.yml
       # dhtnet deps
       - dependencies/pjproject.yml
