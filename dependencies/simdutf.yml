@@ -1,14 +1,16 @@
-name: libnatpmp
+name: dhtnet
 buildsystem: cmake-ninja
 config-opts:
   - -DCMAKE_INSTALL_LIBDIR=/app/lib
   - -DCMAKE_BUILD_TYPE=Release
   - -DBUILD_SHARED_LIBS=OFF
   - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
-  - -DNATPMP_BUILD_TOOLS=OFF
+  - -DBUILD_TESTING=OFF
+  - -DSIMDUTF_TESTS=OFF
+  - -DSIMDUTF_TOOLS=OFF
+  - -DSIMDUTF_CXX_STANDARD=17
+
 sources:
   - type: git
-    url: https://github.com/miniupnp/libnatpmp.git
-    commit: 0c56980a3dcfab08bd7dd145d49fb4868fbaf1ca
-cleanup:
-  - /bin
+    url: https://github.com/simdutf/simdutf.git
+    tag: v7.5.0
