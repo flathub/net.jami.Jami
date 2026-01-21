@@ -1,0 +1,11 @@
+name: tidy-html5
+buildsystem: cmake-ninja
+config-opts:
+  - -DCMAKE_INSTALL_LIBDIR=/app/lib
+  - -DCMAKE_BUILD_TYPE=Release
+  - -DBUILD_SHARED_LIBS=OFF
+  - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+sources:
+  - type: git
+    url: https://github.com/aberaud/tidy-html5
+    commit: 34f5e951a2bcec99c4b08536e65578bb238bc435

@@ -1,5 +1,5 @@
 diff --git a/daemon/CMakeLists.txt b/daemon/CMakeLists.txt
-index 8272d95be..3a53fd5a0 100644
+index 2ee8f47a2..bcb624ea2 100644
 --- a/daemon/CMakeLists.txt
 +++ b/daemon/CMakeLists.txt
 @@ -235,6 +235,7 @@ if(NOT MSVC)
@@ -27,3 +27,4 @@ index 8272d95be..3a53fd5a0 100644
          endif()
          if (alsa_FOUND)
              target_compile_definitions(${PROJECT_NAME} PRIVATE HAVE_ALSA)
+

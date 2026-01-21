@@ -78,7 +78,7 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt
-        commit: 99567e8a1b9913f25930999d742485e29e76f568
+        commit: 8e63389e534c3969abb09f41eb234186cbba6c2b
       - type: patch
         path: patches/jami-client-qt-patches/jami-daemon_replace-static.patch
       - type: patch
@@ -112,5 +112,6 @@ modules:
       - dependencies/webrtc-audio-processing.yml
       - dependencies/sdbus-c++.yml
       # jami-client-qt deps
+      - dependencies/tidy-html5.yml
       - dependencies/qrencode.yml
       - dependencies/qwindowkit.yml
