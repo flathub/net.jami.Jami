@@ -1,8 +1,8 @@
 diff --git a/daemon/CMakeLists.txt b/daemon/CMakeLists.txt
-index 28e6c093b..f8ccdfdbd 100644
+index 2ee8f47a2..bcb624ea2 100644
 --- a/daemon/CMakeLists.txt
 +++ b/daemon/CMakeLists.txt
-@@ -237,6 +237,7 @@ if(NOT MSVC)
+@@ -235,6 +235,7 @@ if(NOT MSVC)
              message(FATAL_ERROR "No audio library found. Please install PulseAudio, ALSA or JACK.")
          endif()
      endif()
@@ -10,7 +10,7 @@ index 28e6c093b..f8ccdfdbd 100644
  endif()
  
  ################################################################################
-@@ -387,6 +388,7 @@ endif()
+@@ -385,6 +386,7 @@ endif()
  target_compile_definitions(${PROJECT_NAME} PUBLIC
      ASIO_STANDALONE
      MSGPACK_NO_BOOST
@@ -27,3 +27,4 @@ index 28e6c093b..f8ccdfdbd 100644
          endif()
          if (alsa_FOUND)
              target_compile_definitions(${PROJECT_NAME} PRIVATE HAVE_ALSA)
+
