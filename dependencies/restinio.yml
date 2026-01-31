@@ -2,6 +2,7 @@ name: restinio
 subdir: dev
 buildsystem: cmake-ninja
 config-opts:
+  - -DRESTINIO_EXPLICIT_CPPSTD=20
   - -DRESTINIO_TEST=Off
   - -DRESTINIO_SAMPLE=Off
   - -DRESTINIO_BENCHMARK=Off
