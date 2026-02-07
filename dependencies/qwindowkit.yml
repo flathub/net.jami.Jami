@@ -6,11 +6,11 @@ config-opts:
 sources:
   - type: git
     url: https://github.com/stdware/qwindowkit/
-    commit: d4536ebe12dd35504abdba66986daf21c0aee805
+    commit: e84ec40a970855673038906a793336c5da59e0c2
 modules:
   - name: qmsetup
     buildsystem: cmake-ninja
     sources:
       - type: git
         url: https://github.com/stdware/qmsetup.git
-        commit: de81bb8f1765e50733c51d0d848fc9bd002f7702
+        commit: bdaf089df697b7cf6121c6b34f098093b914e32c
