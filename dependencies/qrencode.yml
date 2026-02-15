@@ -4,6 +4,7 @@ config-opts:
   - -DCMAKE_BUILD_TYPE=Release
   - -DWITH_TOOLS=NO
   - -DBUILD_SHARED_LIBS=OFF
+  - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 sources:
   - type: archive
     url: https://github.com/fukuchi/libqrencode/archive/refs/tags/v4.1.1.tar.gz
