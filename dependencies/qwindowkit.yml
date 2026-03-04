@@ -5,12 +5,12 @@ config-opts:
   - -DQWINDOWKIT_BUILD_QUICK=ON
 sources:
   - type: git
-    url: https://github.com/stdware/qwindowkit/
-    commit: e84ec40a970855673038906a793336c5da59e0c2
+    url: https://github.com/atraczyk/qwindowkit.git
+    commit: c5c7da2163dfcba144e09a905ee98f920d9d94e7
 modules:
   - name: qmsetup
     buildsystem: cmake-ninja
     sources:
       - type: git
         url: https://github.com/stdware/qmsetup.git
-        commit: bdaf089df697b7cf6121c6b34f098093b914e32c
+        commit: 74e6c1340cbc6ccd25f4aae91370aac7186ccdd0

@@ -9,4 +9,4 @@ config-opts:
 sources:
   - type: git
     url: https://github.com/jbeder/yaml-cpp.git
-    commit: a83cd31548b19d50f3f983b069dceb4f4d50756d
+    tag: yaml-cpp-0.9.0
