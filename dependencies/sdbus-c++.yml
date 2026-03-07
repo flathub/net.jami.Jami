@@ -6,11 +6,6 @@ config-opts:
   - -DBUILD_SHARED_LIBS=OFF
   - -DSDBUSCPP_BUILD_CODEGEN=ON
   - -DSDBUSCPP_BUILD_DOCS=OFF
-  #- -DBUILD_CODE_GEN=ON
-  #- -DBUILD_LIBSYSTEMD=OFF
-  #- -DBUILD_TESTS=OFF
-  #- -DBUILD_EXAMPLES=OFF
-  #- -DBUILD_DOC=OFF
 sources:
   - type: archive
     url: https://github.com/Kistler-Group/sdbus-cpp/archive/refs/tags/v2.1.0.tar.gz
