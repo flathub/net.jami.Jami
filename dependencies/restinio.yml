@@ -14,5 +14,5 @@ config-opts:
   - -DRESTINIO_DEP_CATCH2=find
 sources:
   - type: archive
-    url: https://github.com/Stiffstream/restinio/releases/download/v.0.7.4/restinio-0.7.4.tar.bz2
-    sha256: f1f7befe3f3169fb5bce6da586ef5b055ab621913798174ee12f980f0e09e7e1
+    url: https://github.com/Stiffstream/restinio/releases/download/v0.7.9/restinio-0.7.9.tar.bz2
+    sha256: 4626d76919b281e92eb09da7aa00ab7016aaef9c31e59bb4cb2b56f34b4ba511
