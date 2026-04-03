@@ -5,6 +5,7 @@ config-opts:
   - -DCMAKE_BUILD_TYPE=Release
   - -DBUILD_SHARED_LIBS=Off
   - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+  - -DCMAKE_CXX_STANDARD=20
   - -DBUILD_BENCHMARKS=Off
   - -DBUILD_TESTING=Off
   - -DBUILD_TOOLS=Off
@@ -12,6 +13,6 @@ config-opts:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/dhtnet.git
-    commit: d05d74aad31109158cca3d2dc71533ccf8c2da21
+    commit: 4de1c17991b8f1d28e8704af20dcaf0be00d5cee
 
     disable-submodules: true
