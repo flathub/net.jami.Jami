@@ -1,5 +1,5 @@
 diff --git a/daemon/src/media/video/v4l2/video_device_monitor_impl.cpp b/daemon/src/media/video/v4l2/video_device_monitor_impl.cpp
-index 01d52498f..c7b3e6e57 100644
+index a81816dac..2e2375fdb 100644
 --- a/daemon/src/media/video/v4l2/video_device_monitor_impl.cpp
 +++ b/daemon/src/media/video/v4l2/video_device_monitor_impl.cpp
 @@ -85,14 +85,6 @@ getDeviceString(struct udev_device* udev_device)
@@ -25,24 +25,21 @@ index 01d52498f..c7b3e6e57 100644
 -        if (is_v4l2(dev)) {
 -            const char* path = udev_device_get_devnode(dev);
 -            if (path && std::string(path).find("/dev") != 0) {
--                // udev_device_get_devnode will fail
--                continue;
--            }
++        path = udev_device_get_devnode(dev);
++        if (path && !starts_with(path, "/dev")) {
+                 // udev_device_get_devnode will fail
+                 continue;
+             }
 -            try {
 -                auto unique_name = getDeviceString(dev);
--                JAMI_DBG("udev: adding device with id %s", unique_name.c_str());
+-                JAMI_LOG("udev: adding device with id {}", unique_name);
 -                if (monitor_->addDevice(unique_name, {{{"devPath", path}}}))
 -                    currentPathToId_.emplace(path, unique_name);
 -            } catch (const std::exception& e) {
--                JAMI_WARN("udev: %s, fallback on path (your camera may be a fake camera)", e.what());
+-                JAMI_WARNING("udev: {}, fallback on path (your camera may be a fake camera)", e.what());
 -                if (monitor_->addDevice(path, {{{"devPath", path}}}))
 -                    currentPathToId_.emplace(path, path);
 -            }
-+        path = udev_device_get_devnode(dev);
-+        if (path && !starts_with(path, "/dev")) {
-+            // udev_device_get_devnode will fail
-+            continue;
-+        }
 +        try {
 +            auto unique_name = getDeviceString(dev);
 +            JAMI_LOG("udev: adding device with id {}", unique_name);
@@ -70,22 +67,22 @@ index 01d52498f..c7b3e6e57 100644
 -
 -                    const char* action = udev_device_get_action(dev);
 -                    if (!strcmp(action, "add")) {
--                        JAMI_DBG("udev: adding device with id %s", unique_name.c_str());
+-                        JAMI_LOG("udev: adding device with id {}", unique_name);
 -                        if (monitor_->addDevice(unique_name, {{{"devPath", path}}}))
 -                            currentPathToId_.emplace(path, unique_name);
 -                    } else if (!strcmp(action, "remove")) {
 -                        auto it = currentPathToId_.find(path);
 -                        if (it != currentPathToId_.end()) {
--                            JAMI_DBG("udev: removing %s", it->second.c_str());
+-                            JAMI_LOG("udev: removing {}", it->second);
 -                            monitor_->removeDevice(it->second);
 -                            currentPathToId_.erase(it);
 -                        } else {
 -                            // In case of fallback
--                            JAMI_DBG("udev: removing %s", path);
+-                            JAMI_LOG("udev: removing {}", path);
 -                            monitor_->removeDevice(path);
 -                        }
 +            const char* path = udev_device_get_devnode(dev);
-+            if (path && std::string(path).find("/dev") != 0) {
++            if (path && !starts_with(path, "/dev")) {
 +                // udev_device_get_devnode will fail
 +                break;
 +            }
@@ -109,25 +106,10 @@ index 01d52498f..c7b3e6e57 100644
 +                        monitor_->removeDevice(path);
                      }
 -                } catch (const std::exception& e) {
--                    JAMI_ERR("%s", e.what());
+-                    JAMI_ERROR("{}", e.what());
                  }
 +            } catch (const std::exception& e) {
 +                JAMI_ERROR("{}", e.what());
              }
              udev_device_unref(dev);
              break;
-@@ -257,12 +244,12 @@ VideoDeviceMonitorImpl::run()
-         case -1:
-             if (errno == EAGAIN)
-                 continue;
--            JAMI_ERR("udev monitoring thread: select failed (%m)");
-+            JAMI_ERROR("udev monitoring thread: select failed ({})", strerror(errno));
-             probing_ = false;
-             return;
- 
-         default:
--            JAMI_ERR("select() returned %d (%m)", ret);
-+            JAMI_ERROR("select() returned {:d} ({})", ret, strerror(errno));
-             probing_ = false;
-             return;
-         }

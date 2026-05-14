@@ -10,9 +10,10 @@ config-opts:
   - -DBUILD_TESTING=Off
   - -DBUILD_TOOLS=Off
   - -DBUILD_DEPENDENCIES=Off
+  - -DBUILD_EXAMPLE=Off
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/dhtnet.git
-    commit: 4de1c17991b8f1d28e8704af20dcaf0be00d5cee
+    commit: 4e391810175fd446246de60411e2b5fcfdd2f462
 
     disable-submodules: true
