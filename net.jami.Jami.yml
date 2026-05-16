@@ -79,7 +79,7 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt
-        commit: 0e6be21beb9a57e246291ba3762a79997e8414cb
+        commit: 0d720163857192e98c8c6670249436753486a6b7
       - type: patch
         path: patches/jami-client-qt-patches/jami-daemon_replace-static.patch
       - type: patch
