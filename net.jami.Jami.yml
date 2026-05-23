@@ -114,3 +114,4 @@ modules:
       - dependencies/tidy-html5.yml
       - dependencies/qrencode.yml
       - dependencies/qwindowkit.yml
+
