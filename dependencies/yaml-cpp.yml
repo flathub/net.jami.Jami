@@ -10,3 +10,4 @@ sources:
   - type: git
     url: https://github.com/jbeder/yaml-cpp.git
     tag: yaml-cpp-0.9.0
+    commit: 56e3bb550c91fd7005566f19c079cb7a503223cf
