@@ -20,7 +20,6 @@ finish-args:
   - --device=all
   - --allow=per-app-dev-shm
   # Inhibit sleep
-  - --system-talk-name=org.freedesktop.login1
   - --talk-name=org.gnome.SessionManager
   - --talk-name=org.freedesktop.PowerManagement
   - --talk-name=org.freedesktop.ScreenSaver
@@ -79,7 +78,7 @@ modules:
     sources:
       - type: git
         url: https://git.jami.net/savoirfairelinux/jami-client-qt
-        commit: 0e6be21beb9a57e246291ba3762a79997e8414cb
+        commit: abddd3d86c45545b3805d203040b8054f409e0f5
       - type: patch
         path: patches/jami-client-qt-patches/jami-daemon_replace-static.patch
       - type: patch

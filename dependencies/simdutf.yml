@@ -1,4 +1,4 @@
-name: dhtnet
+name: simdutf
 buildsystem: cmake-ninja
 config-opts:
   - -DCMAKE_INSTALL_LIBDIR=/app/lib
@@ -14,3 +14,4 @@ sources:
   - type: git
     url: https://github.com/simdutf/simdutf.git
     tag: v8.0.0
+    commit: ebd717509f59b77ae154661dc96fe63ee62b546c
