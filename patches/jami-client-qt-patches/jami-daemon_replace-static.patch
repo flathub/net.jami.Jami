@@ -1,4 +1,4 @@
-diff --git a/daemon/CMakeLists.txt b/daemon/CMakeLists.txt
+diff --git a/daeCMakeLists.txt b/CMakeLists.txt
 index 163b73c82..49a16af83 100644
 --- a/daemon/CMakeLists.txt
 +++ b/daemon/CMakeLists.txt
