@@ -14,6 +14,6 @@ config-opts:
 sources:
   - type: git
     url: https://git.jami.net/savoirfairelinux/dhtnet.git
-    commit: ac94420150d43f3748541c1827f30fa97295e713
+    commit: 4c2210f47c2adc2aef726cce30a6d322f0855ad4
 
     disable-submodules: true

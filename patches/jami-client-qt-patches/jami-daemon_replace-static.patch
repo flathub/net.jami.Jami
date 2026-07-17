@@ -1,8 +1,8 @@
 diff --git a/daemon/CMakeLists.txt b/daemon/CMakeLists.txt
-index 62d303219..0f7beef4e 100644
+index 39180b33a..9ae4d1869 100644
 --- a/daemon/CMakeLists.txt
 +++ b/daemon/CMakeLists.txt
-@@ -266,6 +266,7 @@ if(NOT MSVC)
+@@ -281,6 +281,7 @@ if(NOT MSVC)
              message(FATAL_ERROR "No audio library found. Please install PulseAudio, ALSA or JACK.")
          endif()
      endif()
@@ -10,7 +10,7 @@ index 62d303219..0f7beef4e 100644
  endif()
  
  ################################################################################
-@@ -415,6 +416,7 @@ endif()
+@@ -430,6 +431,7 @@ endif()
  target_compile_definitions(${PROJECT_NAME} PUBLIC
      ASIO_STANDALONE
      MSGPACK_NO_BOOST
@@ -18,7 +18,7 @@ index 62d303219..0f7beef4e 100644
  )
  if (JAMI_VIDEO)
      target_compile_definitions(${PROJECT_NAME} PRIVATE ENABLE_VIDEO)
-@@ -719,7 +721,7 @@ else()
+@@ -734,7 +736,7 @@ else()
          target_link_libraries(${PROJECT_NAME} PRIVATE PkgConfig::udev)
          if (pulseaudio_FOUND)
              target_compile_definitions(${PROJECT_NAME} PRIVATE HAVE_PULSE)
