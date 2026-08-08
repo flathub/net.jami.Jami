@@ -1,0 +1,1 @@
+1. `git clone git@github.com:flathub/net.jami.Jami.git`
