@@ -33,4 +33,4 @@ build-commands:
 sources:
   - type: git
     url: https://github.com/savoirfairelinux/pjproject.git
-    commit: 08d2e8aef47d2f73546cc9e95514db454e57821e
+    commit: 3a92a7ee340dbc1f4730fcaf32acac9a54cacf1b
