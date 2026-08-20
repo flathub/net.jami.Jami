@@ -1,0 +1,31 @@
+name: yffi
+buildsystem: simple
+build-options:
+  env:
+    CARGO_HOME: /run/build/yffi/cargo
+    CARGO_NET_OFFLINE: 'true'
+build-commands:
+  - cargo build --offline --release --locked --manifest-path yffi/Cargo.toml --target-dir target
+  - install -Dm644 target/release/libyrs.a /app/lib/libyrs.a
+  - install -Dm644 tests-ffi/include/libyrs.h /app/include/libyrs.h
+  - |
+    cat > /app/lib/pkgconfig/yrs.pc <<'EOF'
+    prefix=/app
+    exec_prefix=${prefix}
+    libdir=${prefix}/lib
+    includedir=${prefix}/include
+
+    Name: yrs
+    Description: Y-CRDT (yrs) C FFI - CRDT engine for collaborative editing
+    Version: 0.27.2
+    Libs: -L${libdir} -lyrs
+    Libs.private: -lpthread -ldl -lm
+    Cflags: -I${includedir}
+    EOF
+sources:
+  - type: archive
+    url: https://github.com/y-crdt/y-crdt/archive/03e14a0232903498299a9e717c7ee8001e40e5db.tar.gz
+    sha256: ee658ab0ec7e9c803badde65849016e38f1d6f33060371df024b735154eff887
+  - type: patch
+    path: ../patches/yffi-patches/0001-avoid-if-let-guard.patch
+  - yffi-cargo-sources.json

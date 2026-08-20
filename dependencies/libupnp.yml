@@ -14,13 +14,13 @@
 name: libupnp
 buildsystem: simple
 build-commands:
-  - ./bootstrap 
+  - ./bootstrap
   - >
     CFLAGS="-fPIC -O3 -DUPNP_STATIC_LIB" CXXFLAGS="-fPIC -O3 -DUPNP_STATIC_LIB"
     ./configure
     --prefix=/app
     --disable-blocking_tcp_connections
-    --disable-largefile 
+    --disable-largefile
     --disable-samples
     --disable-device
     --disable-webserver
@@ -35,3 +35,5 @@ sources:
   - type: archive
     url: https://github.com/pupnp/pupnp/archive/refs/tags/release-1.14.25.tar.gz
     sha256: 30efaabf25b753f2c5baa3a6242869ffb81f47b9898004cac22a0f39057a36ac
+  - type: patch
+    path: ../patches/libupnp-patches/force-mx-value.patch
